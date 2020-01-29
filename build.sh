@@ -2,6 +2,21 @@
 
 cd ctcgfw
 
+QUICK_DEFAULT="y"
+read -e -p "quick config: [Y/n]" QUICK
+QUICK="${QUICK:-$QUICK_DEFAULT}"
+case $QUICK in
+	"y")
+		;;
+	"n")
+		./scripts/feeds update -a && ./scripts/feeds install -a
+		;;
+	*)
+		echo -e "unknow"
+		exit 1
+		;;
+esac
+
 cat>.config<<'EOF'
 CONFIG_TARGET_ROOTFS_EXT4FS=y
 CONFIG_TARGET_ROOTFS_SQUASHFS=n
