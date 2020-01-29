@@ -1,0 +1,3 @@
+[submodule "ctcgfw"]
+	path = ctcgfw
+	url = https://github.com/project-openwrt/openwrt.git
