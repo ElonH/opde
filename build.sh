@@ -48,6 +48,25 @@ CONFIG_PACKAGE_luci-app-serverchan=y
 
 CONFIG_PACKAGE_luci-app-ssr-plus=n
 CONFIG_PACKAGE_luci-app-vssr=y
+
+# addon
+CONFIG_PACKAGE_luci-app-amule=y
+CONFIG_PACKAGE_luci-app-baidupcs-web=y
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-ngrokc=y
+# CONFIG_PACKAGE_luci-app-docker=y
+# CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-app-cpulimit=y
+CONFIG_PACKAGE_luci-app-chinadns=y
+CONFIG_PACKAGE_luci-app-simple-adblock=y
+CONFIG_PACKAGE_luci-app-netdata=y
+
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Trojan=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Kcptun=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Shadowsocks_Socks=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_ShadowsocksR_Server=y
+# CONFIG_PACKAGE_luci-app-travelmate=y
+
 EOF
 
 make defconfig
