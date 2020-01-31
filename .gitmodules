@@ -13,3 +13,6 @@
 [submodule "feeds/ctcgfw/telephony"]
 	path = feeds/ctcgfw/telephony
 	url = https://git.openwrt.org/feed/telephony.git
+[submodule "openwrt"]
+	path = openwrt
+	url = https://git.openwrt.org/openwrt/openwrt.git
