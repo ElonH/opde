@@ -1,3 +1,15 @@
 [submodule "ctcgfw"]
 	path = ctcgfw
 	url = https://github.com/project-openwrt/openwrt.git
+[submodule "feeds/ctcgfw/packages"]
+	path = feeds/ctcgfw/packages
+	url = https://github.com/project-openwrt/packages
+[submodule "feeds/ctcgfw/luci"]
+	path = feeds/ctcgfw/luci
+	url = https://github.com/project-openwrt/luci
+[submodule "feeds/ctcgfw/routing"]
+	path = feeds/ctcgfw/routing
+	url = https://git.openwrt.org/feed/routing.git
+[submodule "feeds/ctcgfw/telephony"]
+	path = feeds/ctcgfw/telephony
+	url = https://git.openwrt.org/feed/telephony.git

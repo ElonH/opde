@@ -1,6 +1,19 @@
 #!/bin/bash
+SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
+FEED_CONF=""
+for FEED_SOURCE in $SCRIPT_ABS_PATH/feeds/ctcgfw/*/
+do
+	FEED_ABS_PATH=${FEED_SOURCE%*/}
+	FEED_NAME=${FEED_ABS_PATH##*/}
+	FEED_CONF+=$"src-link $FEED_NAME $FEED_ABS_PATH
+"
+done
 
-cd ctcgfw
+cat>feeds.conf<<EOF
+${FEED_CONF}
+EOF
+
+cd $SCRIPT_ABS_PATH/ctcgfw
 
 QUICK_DEFAULT="y"
 read -e -p "quick config: [Y/n]" QUICK
