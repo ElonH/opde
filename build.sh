@@ -62,7 +62,8 @@ CONFIG_BUILD_LOG=y
 
 # LUCI
 # theme
-CONFIG_PACKAGE_luci-theme-material=y
+CONFIG_PACKAGE_luci-theme-opentomato=y
+CONFIG_PACKAGE_luci-theme-material=m
 CONFIG_PACKAGE_luci-theme-argon=m
 CONFIG_PACKAGE_luci-theme-argon-mc=m
 CONFIG_PACKAGE_luci-theme-argon-mod=m
@@ -76,7 +77,6 @@ CONFIG_PACKAGE_luci-theme-my=m
 CONFIG_PACKAGE_luci-theme-netgear=m
 CONFIG_PACKAGE_luci-theme-netgear-mc=m
 CONFIG_PACKAGE_luci-theme-netgearv2=m
-CONFIG_PACKAGE_luci-theme-opentomato=m
 CONFIG_PACKAGE_luci-theme-opentomcat=m
 
 CONFIG_PACKAGE_luci-app-aria2=y
