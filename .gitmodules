@@ -7,12 +7,6 @@
 [submodule "feeds/ctcgfw/luci"]
 	path = feeds/ctcgfw/luci
 	url = https://github.com/project-openwrt/luci
-[submodule "feeds/ctcgfw/routing"]
-	path = feeds/ctcgfw/routing
-	url = https://git.openwrt.org/feed/routing.git
-[submodule "feeds/ctcgfw/telephony"]
-	path = feeds/ctcgfw/telephony
-	url = https://git.openwrt.org/feed/telephony.git
 [submodule "openwrt"]
 	path = openwrt
 	url = https://git.openwrt.org/openwrt/openwrt.git

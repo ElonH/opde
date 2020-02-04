@@ -1,18 +1,13 @@
 #!/bin/bash
 SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
-FEED_CONF=""
-for FEED_SOURCE in $SCRIPT_ABS_PATH/feeds/ctcgfw/*/
-do
-	FEED_ABS_PATH=${FEED_SOURCE%*/}
-	FEED_NAME=${FEED_ABS_PATH##*/}
-	FEED_CONF+=$"src-link $FEED_NAME $FEED_ABS_PATH
-"
-done
 
 cd $SCRIPT_ABS_PATH/ctcgfw
 
 cat>feeds.conf<<EOF
-${FEED_CONF}
+src-link packages ${SCRIPT_ABS_PATH}/feeds/ctcgfw/packages
+src-link luci ${SCRIPT_ABS_PATH}/feeds/ctcgfw/luci
+src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
+src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 EOF
 
 QUICK_DEFAULT="y"
