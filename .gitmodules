@@ -16,3 +16,15 @@
 [submodule "openwrt"]
 	path = openwrt
 	url = https://git.openwrt.org/openwrt/openwrt.git
+[submodule "feeds/openwrt/packages"]
+	path = feeds/openwrt/packages
+	url = https://git.openwrt.org/feed/packages.git
+[submodule "feeds/openwrt/luci"]
+	path = feeds/openwrt/luci
+	url = https://git.openwrt.org/project/luci.git
+[submodule "feeds/openwrt/routing"]
+	path = feeds/openwrt/routing
+	url = https://git.openwrt.org/feed/routing.git
+[submodule "feeds/openwrt/telephony"]
+	path = feeds/openwrt/telephony
+	url = https://git.openwrt.org/feed/telephony.git
