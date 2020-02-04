@@ -9,11 +9,11 @@ do
 "
 done
 
+cd $SCRIPT_ABS_PATH/ctcgfw
+
 cat>feeds.conf<<EOF
 ${FEED_CONF}
 EOF
-
-cd $SCRIPT_ABS_PATH/ctcgfw
 
 QUICK_DEFAULT="y"
 read -e -p "quick config: [Y/n]" QUICK
