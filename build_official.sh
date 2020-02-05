@@ -51,6 +51,7 @@ CONFIG_PACKAGE_luci-theme-openwrt=y
 
 CONFIG_PACKAGE_luci-app-rclone=y
 CONFIG_PACKAGE_luci-app-adblock=y
+CONFIG_PACKAGE_luci-app-aria2=y
 EOF
 
 make defconfig
