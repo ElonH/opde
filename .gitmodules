@@ -22,3 +22,6 @@
 [submodule "feeds/openwrt/telephony"]
 	path = feeds/openwrt/telephony
 	url = https://git.openwrt.org/feed/telephony.git
+[submodule "feeds/openwrt/rclone"]
+	path = feeds/openwrt/rclone
+	url = https://github.com/ElonH/Rclone-OpenWrt.git

@@ -8,6 +8,7 @@ src-link packages ${SCRIPT_ABS_PATH}/feeds/openwrt/packages
 src-link luci ${SCRIPT_ABS_PATH}/feeds/openwrt/luci
 src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
 src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
+src-link rclone ${SCRIPT_ABS_PATH}/feeds/openwrt/rclone
 EOF
 
 QUICK_DEFAULT="y"
@@ -48,6 +49,7 @@ CONFIG_LUCI_LANG_zh_Hans=y
 CONFIG_PACKAGE_luci-theme-material=y
 CONFIG_PACKAGE_luci-theme-openwrt=y
 
+CONFIG_PACKAGE_luci-app-rclone=y
 CONFIG_PACKAGE_luci-app-adblock=y
 EOF
 
