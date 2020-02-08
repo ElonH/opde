@@ -2,6 +2,6 @@
 ```
 git clone https://github.com/ElonH/BuildOpenWRT.git --recursive
 cd BuildOpenWRT
-bash ./build.sh
+bash ./build-ctcgfw.sh
 ```
 
