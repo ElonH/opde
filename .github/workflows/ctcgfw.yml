@@ -34,15 +34,16 @@ jobs:
       - name: Configurate
         run: |
           ./build_ctcgfw.sh --feeds
-          cd ctcgfw
       - name: Download
         run: |
+          cd ctcgfw
           make download -j8 || true
           make download -j8 || true
           make download -j8 || true
           make download -j8 || true
       - name: Make
         run: |
+          cd ctcgfw
           let make_process=$(nproc)+1
           make -j${make_process} || make -j1 || make -j1 V=s
       # - name: Upload Packages
