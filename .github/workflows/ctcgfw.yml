@@ -13,7 +13,10 @@ jobs:
 
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        shell: bash
+        run: |
+          git submodule update --init --recursive
       # - name: Init build dependencies
       #   env:
       #     DEBIAN_FRONTEND: noninteractive
