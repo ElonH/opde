@@ -1,0 +1,69 @@
+## refs: https://github.com/project-openwrt/build-openwrt/blob/master/.github/workflows/main.yml
+
+name: ctcgfw
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v1
+      - name: Init build dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          docker rmi $(docker images -q)
+          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+          sudo -E apt-get update -y
+          #sudo -E apt-get full-upgrade -y
+          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+      - name: Clone source
+        run: |
+          ls
+          ls -l
+          
+      #     cd /home/runner
+      #     git clone https://github.com/project-openwrt/openwrt.git
+      #     sudo chown -R runner:runner openwrt
+      #     cd /home/runner/openwrt
+      #     ./scripts/feeds update -a 
+      #     ./scripts/feeds install -a
+      # - name: Before Build
+      #   run: |
+      #     /bin/bash /home/runner/work/build-openwrt/build-openwrt/before_build.sh
+      #     cp -fpR /home/runner/work/build-openwrt/build-openwrt/. /home/runner/openwrt/
+      # #    - name: SSH connection to Actions
+      # #      uses: csexton/debugger-action@master
+
+      # - name: Start Build
+      #   run: |
+      #     cd /home/runner/openwrt
+      #     let make_process=$(nproc)+1
+      #     mv .config .config_default
+      #     rm -f .config.old
+      #     config_names="$(ls .config*)"
+      #     for i in $config_names;do mv -f $i .config; make defconfig; make -j${make_process}; rm -rf build_dir/target* build_dir/toolchain* staging_dir/target* staging_dir/toolchain*; done
+      # - name: After Build
+      #   run: |
+      #     /bin/bash /home/runner/openwrt/after_build.sh
+      # - name: Upload Packages
+      #   uses: actions/upload-artifact@master
+      #   with:
+      #     name: Packages
+      #     path: /home/runner/openwrt/bin/packages/
+      # - name: Upload Firmwares
+      #   uses: actions/upload-artifact@master
+      #   with:
+      #     name: Firmwares
+      #     path: /home/runner/openwrt/bin/targets/
