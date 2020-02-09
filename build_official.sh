@@ -11,20 +11,8 @@ src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 src-link rclone ${SCRIPT_ABS_PATH}/feeds/openwrt/rclone
 EOF
 
-QUICK_DEFAULT="y"
-read -e -p "quick config: [Y/n]" QUICK
-QUICK="${QUICK:-$QUICK_DEFAULT}"
-case $QUICK in
-	"y")
-		;;
-	"n")
-		./scripts/feeds update -a && ./scripts/feeds install -a
-		;;
-	*)
-		echo -e "unknow"
-		exit 1
-		;;
-esac
+# just enable/disable feeds update and install
+source $SCRIPT_ABS_PATH/scripts/feeds.sh
 
 cat>.config<<'EOF'
 CONFIG_TARGET_ath79=n
