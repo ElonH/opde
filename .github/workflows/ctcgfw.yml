@@ -31,35 +31,20 @@ jobs:
       #     sudo -E apt-get autoremove -y --purge
       #     sudo -E apt-get clean -y
       #     sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-      - name: Clone source
+      - name: Configurate
         run: |
-          ls
-          ls -l
-
-      #     cd /home/runner
-      #     git clone https://github.com/project-openwrt/openwrt.git
-      #     sudo chown -R runner:runner openwrt
-      #     cd /home/runner/openwrt
-      #     ./scripts/feeds update -a 
-      #     ./scripts/feeds install -a
-      # - name: Before Build
-      #   run: |
-      #     /bin/bash /home/runner/work/build-openwrt/build-openwrt/before_build.sh
-      #     cp -fpR /home/runner/work/build-openwrt/build-openwrt/. /home/runner/openwrt/
-      # #    - name: SSH connection to Actions
-      # #      uses: csexton/debugger-action@master
-
-      # - name: Start Build
-      #   run: |
-      #     cd /home/runner/openwrt
-      #     let make_process=$(nproc)+1
-      #     mv .config .config_default
-      #     rm -f .config.old
-      #     config_names="$(ls .config*)"
-      #     for i in $config_names;do mv -f $i .config; make defconfig; make -j${make_process}; rm -rf build_dir/target* build_dir/toolchain* staging_dir/target* staging_dir/toolchain*; done
-      # - name: After Build
-      #   run: |
-      #     /bin/bash /home/runner/openwrt/after_build.sh
+          ./build_ctcgfw.sh --feeds
+          cd ctcgfw
+      - name: Download
+        run: |
+          make download -j8 || true
+          make download -j8 || true
+          make download -j8 || true
+          make download -j8 || true
+      - name: Make
+        run: |
+          let make_process=$(nproc)+1
+          make -j${make_process} || make -j1 || make -j1 V=s
       # - name: Upload Packages
       #   uses: actions/upload-artifact@master
       #   with:
