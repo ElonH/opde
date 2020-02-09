@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
-        shell: bash
+      - name: Checkout Submodule
         run: |
           git submodule update --init --recursive
       # - name: Init build dependencies
