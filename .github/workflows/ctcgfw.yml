@@ -7,6 +7,9 @@ on:
     branches:
       - master
 
+env:
+  OPENWRT_SOURCE_DIR: /home/runner/work/BuildOpenWRT/BuildOpenWRT/ctcgfw
+
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -36,23 +39,23 @@ jobs:
           ./build_ctcgfw.sh --feeds
       - name: Download
         run: |
-          cd ctcgfw
+          cd $OPENWRT_SOURCE_DIR
           make download -j8 || true
           make download -j8 || true
           make download -j8 || true
           make download -j8 || true
       - name: Make
         run: |
-          cd ctcgfw
+          cd $OPENWRT_SOURCE_DIR
           let make_process=$(nproc)+1
           make -j${make_process} || make -j1 || make -j1 V=s
-      # - name: Upload Packages
-      #   uses: actions/upload-artifact@master
-      #   with:
-      #     name: Packages
-      #     path: /home/runner/openwrt/bin/packages/
-      # - name: Upload Firmwares
-      #   uses: actions/upload-artifact@master
-      #   with:
-      #     name: Firmwares
-      #     path: /home/runner/openwrt/bin/targets/
+      - name: Upload Packages
+        uses: actions/upload-artifact@master
+        with:
+          name: Packages
+          path: $OPENWRT_SOURCE_DIR/bin/packages/
+      - name: Upload Firmwares
+        uses: actions/upload-artifact@master
+        with:
+          name: Firmwares
+          path: $OPENWRT_SOURCE_DIR/bin/targets/
