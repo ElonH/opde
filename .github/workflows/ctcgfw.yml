@@ -53,9 +53,9 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: Packages
-          path: $OPENWRT_SOURCE_DIR/bin/packages/
+          path: ctcgfw/bin/packages/
       - name: Upload Firmwares
         uses: actions/upload-artifact@master
         with:
           name: Firmwares
-          path: $OPENWRT_SOURCE_DIR/bin/targets/
+          path: ctcgfw/bin/targets/
