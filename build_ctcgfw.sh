@@ -112,7 +112,7 @@ CONFIG_PACKAGE_luci-app-smartinfo=y
 
 CONFIG_PACKAGE_luci-app-samba4=m
 
-CONFIG_PACKAGE_luci-app-passwall=m
+CONFIG_PACKAGE_luci-app-passwall=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks=y
