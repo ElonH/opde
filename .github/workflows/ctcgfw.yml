@@ -56,6 +56,13 @@ jobs:
           path: ctcgfw/bin/packages/
       - name: Upload Firmwares
         uses: actions/upload-artifact@master
+        # https://github.com/actions/upload-artifact/issues/3
         with:
-          name: Firmwares
-          path: ctcgfw/bin/targets/
+          title: Firmwares
+            - files: [ctcgfw/bin/targets/x86/64/config.seed]
+            - files: [ctcgfw/bin/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz]
+            - files: [ctcgfw/bin/targets/x86/64/openwrt-x86-64-combined-ext4.vmdk]
+            - files: [ctcgfw/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img.gz]
+            - files: [ctcgfw/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.vmdk]
+            - files: [ctcgfw/bin/targets/x86/64/sha256sums]
+
