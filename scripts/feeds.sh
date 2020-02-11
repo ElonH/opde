@@ -26,16 +26,15 @@ if ( argsContains "--help" );then
     exit 1
 fi
 
-
-if ( argsContains "-i" );then
-    read -e -p "Skip feeds update and install: [Y/n]" SKIP_FEEDS
-    SKIP_FEEDS="${SKIP_FEEDS:-y}"
-fi
-
 if ( argsContains "--feeds" );then
     SKIP_FEEDS="n"
 else
     SKIP_FEEDS="y"
+fi
+
+if ( argsContains "-i" );then
+    read -e -p "Skip feeds update and install: [Y/n]" SKIP_FEEDS
+    SKIP_FEEDS="${SKIP_FEEDS:-y}"
 fi
 
 case $SKIP_FEEDS in
