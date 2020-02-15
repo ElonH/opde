@@ -29,6 +29,7 @@ CONFIG_DEVEL=y
 # CONFIG_CCACHE=y
 CONFIG_BUILD_LOG=y
 
+CONFIG_PACKAGE_luci-app-rclone=y
 EOF
 
 make defconfig
