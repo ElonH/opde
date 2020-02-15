@@ -18,7 +18,7 @@
 	url = https://github.com/openwrt/luci.git
 [submodule "feeds/openwrt/routing"]
 	path = feeds/openwrt/routing
-	url = https://git.openwrt.org/feed/routing.git
+	url = https://github.com/openwrt-routing/packages.git
 [submodule "feeds/openwrt/telephony"]
 	path = feeds/openwrt/telephony
 	url = https://github.com/openwrt/telephony.git
