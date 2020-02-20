@@ -11,6 +11,9 @@ src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 src-link rclone ${SCRIPT_ABS_PATH}/feeds/openwrt/rclone
 EOF
 
+# just stop script
+source $SCRIPT_ABS_PATH/scripts/deploy-feeds.sh
+
 # just enable/disable feeds update and install
 source $SCRIPT_ABS_PATH/scripts/feeds.sh
 

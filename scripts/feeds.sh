@@ -13,7 +13,7 @@ argsContains () {
 }
 
 show_help () {
-    echo -e "Args:
+    echo -e "
     -i          interactive mode
     --help      show this message
     ----------

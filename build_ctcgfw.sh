@@ -10,6 +10,9 @@ src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
 src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 EOF
 
+# just stop script
+source $SCRIPT_ABS_PATH/scripts/deploy-feeds.sh
+
 # just enable/disable feeds update and install
 source $SCRIPT_ABS_PATH/scripts/feeds.sh
 
