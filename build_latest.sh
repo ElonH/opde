@@ -1,7 +1,7 @@
 #!/bin/bash
 SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
 
-cd $SCRIPT_ABS_PATH/ctcgfw-latest
+cd $SCRIPT_ABS_PATH/latest
 
 cat>feeds.conf<<EOF
 src-link packages ${SCRIPT_ABS_PATH}/feeds/openwrt/packages
