@@ -2,7 +2,7 @@
 SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
 source $SCRIPT_ABS_PATH/scripts/common-func.sh
 
-SOURCE_NAME=latest
+SOURCE_NAME=lede
 SOURCE_BASE_PATH=$SCRIPT_ABS_PATH/$SOURCE_NAME
 cd $SOURCE_BASE_PATH
 
