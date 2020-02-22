@@ -1,6 +1,6 @@
 ## refs: https://github.com/project-openwrt/build-openwrt/blob/master/.github/workflows/main.yml
 
-name: ctcgfw-latest
+name: latest
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - master
 
 env:
-  OPENWRT_SOURCE_DIR: /home/runner/work/BuildOpenWRT/BuildOpenWRT/ctcgfw-latest
+  OPENWRT_SOURCE_DIR: /home/runner/work/BuildOpenWRT/BuildOpenWRT/latest
 
 jobs:
   build:
@@ -53,36 +53,36 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: Packages
-          path: ctcgfw-latest/bin/packages/
+          path: latest/bin/packages/
       - name: Upload Config
         uses: actions/upload-artifact@master
         with:
           name: config.seed
-          path: ctcgfw-latest/bin/targets/x86/64/config.buildinfo
+          path: latest/bin/targets/x86/64/config.buildinfo
       - name: Upload ext4 img
         uses: actions/upload-artifact@master
         with:
           name: openwrt-x86-64-combined-ext4.img.gz
-          path: ctcgfw-latest/bin/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz
+          path: latest/bin/targets/x86/64/openwrt-x86-64-combined-ext4.img.gz
       - name: Upload ext4 vmdk
         uses: actions/upload-artifact@master
         with:
           name: openwrt-x86-64-combined-ext4.vmdk
-          path: ctcgfw-latest/bin/targets/x86/64/openwrt-x86-64-combined-ext4.vmdk
+          path: latest/bin/targets/x86/64/openwrt-x86-64-combined-ext4.vmdk
       - name: Upload squashfs img
         uses: actions/upload-artifact@master
         with:
           name: openwrt-x86-64-combined-squashfs.img.gz
-          path: ctcgfw-latest/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img.gz
+          path: latest/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img.gz
       - name: Upload squashfs vmdk
         uses: actions/upload-artifact@master
         with:
           name: openwrt-x86-64-combined-squashfs.vmdk
-          path: ctcgfw-latest/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.vmdk
+          path: latest/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.vmdk
       - name: sha256sums
         uses: actions/upload-artifact@master
         with:
           name: sha256sums
-          path: ctcgfw-latest/bin/targets/x86/64/sha256sums
+          path: latest/bin/targets/x86/64/sha256sums
 
 
