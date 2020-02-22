@@ -1,0 +1,210 @@
+## refs: https://github.com/project-openwrt/build-openwrt/blob/master/.github/workflows/main.yml
+
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - '**.md' # ignore *.md files
+    branches:
+      - CI # TODO: only for debug
+
+env:
+  HOME: /home/runner/work/BuildOpenWRT
+
+jobs:
+  SDK:
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
+      matrix:
+        source: [latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: |
+          git submodule update --init --recursive
+          mkdir -p ${HOME}/apt 
+      - name: CacheAPT
+        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
+        uses: actions/cache@v1
+        with:
+          path: ${{env.HOME}}/apt
+          key: Ubuntu18.06-apt
+      - name: Envirment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          docker rmi $(docker images -q)
+          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+          sudo -E apt-get update -y
+          #sudo -E apt-get full-upgrade -y
+          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
+          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] || sudo cp /var/cache/apt/archives/*.deb ${HOME}/apt
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+      # - name: SSH connection to Actions
+      #   if: always()
+      #   uses: csexton/debugger-action@master
+      - name: Configurate
+        working-directory: ./${{matrix.source}}
+        run: |
+          ../build_${{matrix.source}}.sh --build-sdk --feeds
+          mkdir dl || true
+      - name: CacheDL
+        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
+        uses: actions/cache@v1
+        with:
+          path: ./${{matrix.source}}/dl # TODO: using commit hash
+          key: OpenWRT-DL
+      - name: Download
+        working-directory: ./${{matrix.source}}
+        run: make download -j8 || true
+      # - name: SSH connection to Actions
+      #   if: always()
+      #   uses: csexton/debugger-action@master
+      - name: Make
+        id: Make
+        working-directory: ./${{matrix.source}}
+        run: |
+          let make_process=$(nproc)+1
+          make -j${make_process} || make -j1 || make -j1 V=s
+      - name: SDKLog
+        if: failure()
+        uses: actions/upload-artifact@master
+        with:
+          name: SDKLogs
+          path: ${{matrix.source}}/logs
+      - name: Find Archives
+        id: Find
+        working-directory: ./${{matrix.source}}
+        run: |
+          ls bin/targets/x86/64/
+          SDK_PATH=$(find bin -name "*sdk*")
+          echo "::set-output name=SDK_PATH::${SDK_PATH}"
+          IB_PATH=$(find bin -name "*imagebuilder*")
+          echo "::set-output name=IB_PATH::${IB_PATH}"
+      - name: Upload SDK
+        uses: actions/upload-artifact@master
+        with:
+          name: SDK
+          path: ${{matrix.source}}/${{steps.Find.outputs.SDK_PATH}}
+      # - name: SSH connection to Actions
+      #   if: always()
+      #   uses: csexton/debugger-action@master
+      - name: Upload Imagebuilder
+        uses: actions/upload-artifact@master
+        with:
+          name: Imagebuilder
+          path: ${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}
+  Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
+    # needs: SDK  
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
+      matrix:
+        source: [latest]
+        # taskNo: [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+        taskNo: [j]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download SDK
+        uses: actions/download-artifact@master
+        with:
+          name: SDK
+          path: ./SDK_Archive/
+      # - name: SSH connection to Actions
+      #   if: always()
+      #   uses: csexton/debugger-action@master
+      - name: Deployment
+        run: |
+          git submodule update --init --recursive
+          tar -xf $(find SDK_Archive -name "*sdk*") -C .
+          mv $(ls | grep "sdk") ${{matrix.source}}_sdk
+          mkdir ${HOME}/apt || true
+      - name: CacheAPT
+        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
+        uses: actions/cache@v1
+        with:
+          path: ${{env.HOME}}/apt
+          key: Ubuntu18.06-apt
+      - name: Envirment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          docker rmi $(docker images -q)
+          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+          sudo -E apt-get update -y
+          #sudo -E apt-get full-upgrade -y
+          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
+          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] || sudo cp /var/cache/apt/archives/*.deb ${HOME}/apt
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+      # - name: Assignment task
+      #   working-directory: ./sdk
+      #   run: |
+      #     ../scripts/sdk-assignment.sh
+      - name: Configurate
+        working-directory: ./${{matrix.source}}_sdk
+        run: |
+          ../build_${{matrix.source}}.sh --sdk --feeds
+          mkdir dl || true
+      - name: CacheDL
+        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
+        uses: actions/cache@v1
+        with:
+          path: ./${{matrix.source}}_sdk/dl
+          key: OpenWRT-DL
+      - name: Download
+        working-directory: ./sdk
+        run: make download -j8 || true
+      - name: Make
+        working-directory: ./sdk
+        run: |
+          let make_process=$(nproc)+1
+          make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1
+      - name: Upload Package${{matrix.taskNo}}
+        uses: actions/upload-artifact@master
+        with:
+          name: Package${{matrix.taskNo}}
+          path: sdk/bin
+      # - name: SSH connection to Actions
+      #   if: always()
+      #   uses: csexton/debugger-action@master
+        # download artifact
+        # unpack to $${{matrix.source}}
+        # replace feeds(remeber add base/package feeds, adding to documents tail)
+        # feed update and install
+        # Configure
+        # # CONFIG_ALL_NONSHARED=n
+        # # CONFIG_ALL_KMODS=n
+        # # CONFIG_ALL=n
+        # # CONFIG_BUILD_LOG=y
+        # # make defconfig
+  # Images: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
+  #   # needs: [SDK, Packages]
+  #   needs: SDK
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Download Imagebuilder
+  #       uses: actions/download-artifact@master
+  #       with:
+  #         name: Imagebuilder
+  #         path: .
+  #     - run: |
+  #         ls ~
+  #         echo "--------"
+  #         ls /home/runner/work/BuildOpenWRT/BuildOpenWRT/~/
+  #         echo "--------"
+  #         ls /home/runner/work/BuildOpenWRT/BuildOpenWRT

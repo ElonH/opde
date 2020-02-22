@@ -1,54 +1,42 @@
 #!/bin/bash
 SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
+source $SCRIPT_ABS_PATH/scripts/common-func.sh
 
-cd $SCRIPT_ABS_PATH/ctcgfw
+SOURCE_NAME=ctcfgw
+SOURCE_BASE_PATH=$SCRIPT_ABS_PATH/$SOURCE_NAME
+cd $SOURCE_BASE_PATH
 
-cat>feeds.conf<<EOF
+FEEDS_CONF="
 src-link packages ${SCRIPT_ABS_PATH}/feeds/ctcgfw/packages
 src-link luci ${SCRIPT_ABS_PATH}/feeds/ctcgfw/luci
 src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
 src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
-EOF
+"
 
-# just stop script
-source $SCRIPT_ABS_PATH/scripts/deploy-feeds.sh
+# add base feeds (only for SDK)
+source $SCRIPT_ABS_PATH/scripts/base-feeds.sh
+source $SCRIPT_ABS_PATH/scripts/change-to-sdk.sh
+
+echo "${FEEDS_CONF}">feeds.conf
 
 # just enable/disable feeds update and install
 source $SCRIPT_ABS_PATH/scripts/feeds.sh
 
-cat>.config<<'EOF'
-CONFIG_TARGET_ROOTFS_EXT4FS=y
-CONFIG_TARGET_ROOTFS_SQUASHFS=y
-CONFIG_VMDK_IMAGES=y
-CONFIG_TARGET_IMAGES_GZIP=y
-CONFIG_TARGET_IMAGES_PAD=n
-CONFIG_TARGET_KERNEL_PARTSIZE=32
-CONFIG_TARGET_ROOTFS_PARTSIZE=1024
+source ${SCRIPT_ABS_PATH}/scripts/common-vars.sh
+CONFIG_CONTS="
+$(TARGET_X86_64)
 
-CONFIG_DEVEL=y
+$(IMG_SETTING)
+$(ENABLE_LOG)
 # CONFIG_CCACHE=y
-CONFIG_BUILD_LOG=y
 
-CONFIG_PACKAGE_tmate=y
-# CONFIG_PACKAGE_sudo=y
-# CONFIG_PACKAGE_vim-runtime=y
-# CONFIG_PACKAGE_zsh=y
-# #ssh
-# CONFIG_PACKAGE_autossh=y
-# CONFIG_PACKAGE_openssh-client-utils=y
-# CONFIG_PACKAGE_openssh-moduli=y
-# CONFIG_PACKAGE_openssh-server=y
-# CONFIG_PACKAGE_openssh-server-pam=y
-# CONFIG_PACKAGE_openssh-sftp-avahi-service=y
-# CONFIG_PACKAGE_openssh-sftp-client=y
-# CONFIG_PACKAGE_sshtunnel=y
-# #git
-# CONFIG_PACKAGE_git-http=y
-# #web server
-# CONFIG_PACKAGE_nginx-all-module=y
+"
+source $SCRIPT_ABS_PATH/scripts/default-extra-config.sh
+source $SCRIPT_ABS_PATH/scripts/sdk-config.sh
+ADDON_CONFIG_CONTS="
 
 # LUCI
-# theme
+# LUCI theme
 CONFIG_PACKAGE_luci-theme-opentomato=y
 CONFIG_PACKAGE_luci-theme-material=m
 CONFIG_PACKAGE_luci-theme-argon=m
@@ -144,7 +132,10 @@ CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_GoQuiet-client=y
 CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_GoQuiet-server=y
 CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_v2ray-plugin=y
 
-EOF
-
+"
+source $SCRIPT_ABS_PATH/scripts/addon-packages.sh
+source $SCRIPT_ABS_PATH/scripts/help-exit.sh
+echo "${CONFIG_CONTS}"
+echo "${CONFIG_CONTS}">.config
 make defconfig
 

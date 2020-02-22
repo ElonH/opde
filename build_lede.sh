@@ -1,36 +1,40 @@
 #!/bin/bash
 SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
+source $SCRIPT_ABS_PATH/scripts/common-func.sh
 
-cd $SCRIPT_ABS_PATH/lede
+SOURCE_NAME=latest
+SOURCE_BASE_PATH=$SCRIPT_ABS_PATH/$SOURCE_NAME
+cd $SOURCE_BASE_PATH
 
-cat>feeds.conf<<EOF
+FEEDS_CONF="
 src-link packages ${SCRIPT_ABS_PATH}/feeds/lede/packages
 src-link luci ${SCRIPT_ABS_PATH}/feeds/lede/luci
 src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
 # src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
-EOF
+"
 
-# just stop script
-source $SCRIPT_ABS_PATH/scripts/deploy-feeds.sh
+# add base feeds (only for SDK)
+source $SCRIPT_ABS_PATH/scripts/base-feeds.sh
+source $SCRIPT_ABS_PATH/scripts/change-to-sdk.sh
+
+echo "${FEEDS_CONF}">feeds.conf
 
 # just enable/disable feeds update and install
 source $SCRIPT_ABS_PATH/scripts/feeds.sh
 
-cat>.config<<'EOF'
-CONFIG_TARGET_ROOTFS_EXT4FS=y
-CONFIG_TARGET_ROOTFS_SQUASHFS=y
-CONFIG_VMDK_IMAGES=y
-CONFIG_TARGET_IMAGES_GZIP=y
-CONFIG_TARGET_IMAGES_PAD=n
-CONFIG_TARGET_KERNEL_PARTSIZE=32
-CONFIG_TARGET_ROOTFS_PARTSIZE=1024
+source ${SCRIPT_ABS_PATH}/scripts/common-vars.sh
+CONFIG_CONTS="
+$(TARGET_X86_64)
 
-CONFIG_DEVEL=y
+$(IMG_SETTING)
+$(ENABLE_LOG)
 # CONFIG_CCACHE=y
-CONFIG_BUILD_LOG=y
 
-# LUCI
-# theme
+"
+source $SCRIPT_ABS_PATH/scripts/default-extra-config.sh
+source $SCRIPT_ABS_PATH/scripts/sdk-config.sh
+ADDON_CONFIG_CONTS="
+# LUCI theme
 CONFIG_PACKAGE_luci-theme-material=y
 
 CONFIG_PACKAGE_luci-app-aria2=y
@@ -54,7 +58,9 @@ CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
 
 CONFIG_PACKAGE_luci-app-vpnbypass=y
-EOF
-
+"
+source $SCRIPT_ABS_PATH/scripts/addon-packages.sh
+source $SCRIPT_ABS_PATH/scripts/help-exit.sh
+echo "${CONFIG_CONTS}"
+echo "${CONFIG_CONTS}">.config
 make defconfig
-

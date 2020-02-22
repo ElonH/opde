@@ -1,29 +1,15 @@
 #!/bin/bash
 
-GLOBAL_ARGS="$@"
-
-argsContains () {
-    for item in $GLOBAL_ARGS
-    do
-        if [ "$item" == "$1" ] ; then
-            return 0
-        fi
-    done
-    return 1
-}
-
 show_help () {
     echo -e "
     -i          interactive mode
     --help      show this message
-    ----------
     --feeds     update and install feeds[default is disable]
     "
 }
 
 if ( argsContains "--help" );then
     show_help
-    exit 1
 fi
 
 if ( argsContains "--feeds" );then
