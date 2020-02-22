@@ -102,7 +102,7 @@ jobs:
           name: Imagebuilder
           path: ${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}
   Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
-    # needs: SDK  
+    needs: SDK  
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
@@ -165,10 +165,10 @@ jobs:
           path: ./${{matrix.source}}_sdk/dl
           key: OpenWRT-DL
       - name: Download
-        working-directory: ./sdk
+        working-directory: ./${{matrix.source}}_sdk
         run: make download -j8 || true
       - name: Make
-        working-directory: ./sdk
+        working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
           make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1
@@ -176,7 +176,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: Package${{matrix.taskNo}}
-          path: sdk/bin
+          path: ${{matrix.source}}_sdk/bin
       # - name: SSH connection to Actions
       #   if: always()
       #   uses: csexton/debugger-action@master
