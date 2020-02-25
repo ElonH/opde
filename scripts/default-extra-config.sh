@@ -7,6 +7,7 @@ fi
 
 if ( argsContains "--build-sdk" );then
     CONFIG_CONTS+="
+CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
 $(DEFAULT_EXTRA_PACKAGE n)
 "

@@ -34,6 +34,9 @@ $(ENABLE_LOG)
 source $SCRIPT_ABS_PATH/scripts/default-extra-config.sh
 source $SCRIPT_ABS_PATH/scripts/sdk-config.sh
 ADDON_CONFIG_CONTS="
+
+$(CTCGFW_PACKAGES y)
+
 $(OFFICIAL_LUCI_APP m)
 CONFIG_PACKAGE_luci-app-rclone=y
 "

@@ -38,6 +38,68 @@ function SAVE_SPACE {
     echo "CONFIG_BUILDBOT=$1"
 }
 
+function CTCGFW_PACKAGES {
+    echo "
+CONFIG_PACKAGE_baidupcs-web=$1
+CONFIG_PACKAGE_ChinaDNS=$1
+CONFIG_PACKAGE_cups-bjnp=$1
+CONFIG_PACKAGE_cups=$1
+CONFIG_PACKAGE_filebrowser=$1
+CONFIG_PACKAGE_gq-client=$1
+CONFIG_PACKAGE_iptvhelper=$1
+CONFIG_PACKAGE_jpcre2=$1
+CONFIG_PACKAGE_lua-maxminddb=$1
+CONFIG_PACKAGE_luci-app-233ddns=$1
+CONFIG_PACKAGE_luci-app-adguardhome=$1
+CONFIG_PACKAGE_luci-app-airwhu=$1
+CONFIG_PACKAGE_luci-app-appfilter=$1
+CONFIG_PACKAGE_luci-app-autoipsetadder=$1
+CONFIG_PACKAGE_luci-app-baidupcs-web=$1
+CONFIG_PACKAGE_luci-app-chinadns=$1
+CONFIG_PACKAGE_luci-app-diskman=$1
+CONFIG_PACKAGE_luci-app-dockerman=$1
+CONFIG_PACKAGE_luci-app-filebrowser=$1
+CONFIG_PACKAGE_luci-app-frpserver=$1
+CONFIG_PACKAGE_luci-app-iptvhelper=$1
+CONFIG_PACKAGE_luci-app-k3screenctrl=$1
+CONFIG_PACKAGE_luci-app-koolproxyR=$1
+CONFIG_PACKAGE_luci-app-mentohust=$1
+CONFIG_PACKAGE_luci-app-onliner=$1
+CONFIG_PACKAGE_luci-app-openclash=$1
+CONFIG_PACKAGE_luci-app-rclone=$1
+CONFIG_PACKAGE_luci-app-serverchan=$1
+CONFIG_PACKAGE_luci-app-smstool=$1
+CONFIG_PACKAGE_luci-app-ssocks=$1
+CONFIG_PACKAGE_luci-app-ssr-plus-Jo=$1
+CONFIG_PACKAGE_luci-app-unblockneteasemusic-go=$1
+CONFIG_PACKAGE_luci-app-unblockneteasemusic=$1
+CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini=$1
+CONFIG_PACKAGE_luci-app-usb3disable=$1
+CONFIG_PACKAGE_luci-app-vssr=$1
+CONFIG_PACKAGE_luci-lib-docker=$1
+CONFIG_PACKAGE_msgpack-c=$1
+CONFIG_PACKAGE_mwol=$1
+CONFIG_PACKAGE_oaf=$1
+CONFIG_PACKAGE_appfilter=$1
+CONFIG_PACKAGE_chinadns-ng=$1
+CONFIG_PACKAGE_simple-obfs=$1
+CONFIG_PACKAGE_ssocks=$1
+CONFIG_PACKAGE_speederv2-tunnel=$1
+CONFIG_PACKAGE_v2ray-plugin=$1
+CONFIG_PACKAGE_parted=$1
+CONFIG_PACKAGE_port-mirroring=$1
+CONFIG_PACKAGE_fs-qntfs=$1
+CONFIG_PACKAGE_rapidjson=$1
+CONFIG_PACKAGE_rclone=$1
+CONFIG_PACKAGE_rclone-webui-react=$1
+CONFIG_PACKAGE_subconverter=$1
+CONFIG_PACKAGE_tcping-simple=$1
+CONFIG_PACKAGE_thefuck=$1
+CONFIG_PACKAGE_tmate=$1
+CONFIG_PACKAGE_UnblockNeteaseMusic-Go=$1
+CONFIG_PACKAGE_you-get=$1
+"
+}
 function DEFAULT_EXTRA_PACKAGE {
     echo "
 CONFIG_PACKAGE_base-files=$1

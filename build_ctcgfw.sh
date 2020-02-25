@@ -2,7 +2,7 @@
 SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
 source $SCRIPT_ABS_PATH/scripts/common-func.sh
 
-SOURCE_NAME=ctcfgw
+SOURCE_NAME=ctcgfw
 SOURCE_BASE_PATH=$SCRIPT_ABS_PATH/$SOURCE_NAME
 cd $SOURCE_BASE_PATH
 
@@ -34,6 +34,8 @@ $(ENABLE_LOG)
 source $SCRIPT_ABS_PATH/scripts/default-extra-config.sh
 source $SCRIPT_ABS_PATH/scripts/sdk-config.sh
 ADDON_CONFIG_CONTS="
+
+$(CTCGFW_PACKAGES y)
 
 # LUCI
 # LUCI theme
