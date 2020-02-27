@@ -143,6 +143,21 @@ CONFIG_PACKAGE_block-mount=$1
 CONFIG_PACKAGE_fdisk=$1
 CONFIG_PACKAGE_lsblk=$1
 CONFIG_PACKAGE_mdadm=$1
+CONFIG_PACKAGE_partx-utils=$1
+CONFIG_PACKAGE_mkf2fs=$1
+CONFIG_PACKAGE_fdisk=$1
+CONFIG_PACKAGE_e2fsprogs=$1
+CONFIG_PACKAGE_wpad=$1
+CONFIG_PACKAGE_ath10k-firmware-qca988x=$1
+CONFIG_PACKAGE_ath10k-firmware-qca9888=$1
+CONFIG_PACKAGE_ath10k-firmware-qca9984=$1
+CONFIG_PACKAGE_brcmfmac-firmware-43602a1-pcie=$1
+CONFIG_PACKAGE_alsa-utils=$1
+CONFIG_PACKAGE_htop=$1
+CONFIG_PACKAGE_lm-sensors=$1
+CONFIG_PACKAGE_autocore=$1
+CONFIG_PACKAGE_luci-proto-bonding=$1
+CONFIG_PACKAGE_ca-certificates=$1
 "
 }
 
