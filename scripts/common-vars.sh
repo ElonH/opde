@@ -42,8 +42,8 @@ function CTCGFW_PACKAGES {
     echo "
 CONFIG_PACKAGE_baidupcs-web=$1
 CONFIG_PACKAGE_ChinaDNS=$1
-CONFIG_PACKAGE_cups-bjnp=$1
-CONFIG_PACKAGE_cups=$1
+# CONFIG_PACKAGE_cups-bjnp=$1
+# CONFIG_PACKAGE_cups=$1
 CONFIG_PACKAGE_filebrowser=$1
 CONFIG_PACKAGE_gq-client=$1
 CONFIG_PACKAGE_iptvhelper=$1
