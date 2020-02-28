@@ -72,7 +72,7 @@ jobs:
         working-directory: ./${{matrix.source}}
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} || ( make package/usign/host/compile -j{make_process} && make package/index && make -j{make_process} ) || make -j1 V=s
+          make -j${make_process} || ( make package/usign/host/compile -j${make_process} && make package/index && make -j${make_process} ) || make -j1 V=s
       - name: SDKLog
         if: failure()
         uses: actions/upload-artifact@master
