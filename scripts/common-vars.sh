@@ -102,7 +102,7 @@ CONFIG_PACKAGE_you-get=$1
 }
 function DEFAULT_EXTRA_PACKAGE {
     echo "
-CONFIG_PACKAGE_base-files=$1
+# CONFIG_PACKAGE_base-files=$1
 CONFIG_PACKAGE_libc=$1
 CONFIG_PACKAGE_libgcc=$1
 CONFIG_PACKAGE_busybox=$1
