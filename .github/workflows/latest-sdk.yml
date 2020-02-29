@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt-${{env.GITHUB_SHA}}
+          key: Ubuntu18.06-apt-${{github.sha}}
           restore-keys: Ubuntu18.06-apt
       - name: Envirment
         env:
@@ -61,7 +61,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}/dl
-          key: OpenWRT-DL-${{env.GITHUB_SHA}}
+          key: OpenWRT-DL-${{github.sha}}
           restore-keys: OpenWRT-DL
       - name: Download
         working-directory: ./${{matrix.source}}
@@ -137,7 +137,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt-${{env.GITHUB_SHA}}
+          key: Ubuntu18.06-apt-${{github.sha}}
           restore-keys: Ubuntu18.06-apt
       - name: Envirment
         env:
@@ -169,7 +169,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}_sdk/dl
-          key: OpenWRT-DL-${{env.GITHUB_SHA}}
+          key: OpenWRT-DL-${{github.sha}}
           restore-keys: OpenWRT-DL
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
@@ -233,7 +233,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt-image-${{env.GITHUB_SHA}}
+          key: Ubuntu18.06-apt-image-${{github.sha}}
           restore-keys: Ubuntu18.06-apt-image
       - name: Envirment
         env:
