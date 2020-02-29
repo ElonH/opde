@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt
+          key: Ubuntu18.06-apt-{{github.sha}}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -59,8 +59,8 @@ jobs:
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
-          path: ./${{matrix.source}}/dl # TODO: using commit hash
-          key: OpenWRT-DL
+          path: ./${{matrix.source}}/dl
+          key: OpenWRT-DL-{{github.sha}}
       - name: Download
         working-directory: ./${{matrix.source}}
         run: make download -j8 || true
@@ -132,7 +132,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt
+          key: Ubuntu18.06-apt-{{github.sha}}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -163,7 +163,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}_sdk/dl
-          key: OpenWRT-DL
+          key: OpenWRT-DL-{{github.sha}}
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
         run: make download -j8 || true
