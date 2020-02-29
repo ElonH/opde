@@ -197,61 +197,61 @@ jobs:
         # # CONFIG_ALL=n
         # # CONFIG_BUILD_LOG=y
         # # make defconfig
-  Images: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-    # needs: [SDK, Packages]
-    # needs: SDK
-    runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
-      matrix:
-        source: [latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Download IB and Package
-        run: |
-          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Imagebuilder.zip -o Imagebuilder.zip
-          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Package.zip -o Package.zip
-          unzip -d ./IB_Archive/ Imagebuilder.zip
-          mkdir -p ./${{matrix.source}}_sdk/bin/
-          unzip -d ./${{matrix.source}}_sdk/bin/ Package.zip
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: SDK
-      #     path: ./SDK_Archive/
-      # - name: SSH connection to Actions
-      #   if: always()
-      #   uses: csexton/debugger-action@master
-      - name: Deployment
-        run: |
-          tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
-          mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
-          rm ${{matrix.source}}_ib/packages -rf
-          mkdir ${HOME}/apt || true
-      - name: CacheAPT
-        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
-        uses: actions/cache@v1
-        with:
-          path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt-image-${{github.sha}}
-          restore-keys: Ubuntu18.06-apt-image
-      - name: Envirment
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
-          sudo apt-get update
-          sudo apt-get install tmate build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
-      # - name: Download Imagebuilder
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: Imagebuilder
-      #     path: .
-      - name: SSH connection to Actions
-        if: always()
-        uses: csexton/debugger-action@master
-      - name: Build
-        working-directory: ./${{matrix.source}}_ib
-        run: |
-          ../build_${{matrix.source}}.sh --image
-          make image
+  # Images: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
+  #   # needs: [SDK, Packages]
+  #   # needs: SDK
+  #   runs-on: ubuntu-18.04
+  #   strategy:
+  #     fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
+  #     matrix:
+  #       source: [latest]
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Download IB and Package
+  #       run: |
+  #         curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Imagebuilder.zip -o Imagebuilder.zip
+  #         curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Package.zip -o Package.zip
+  #         unzip -d ./IB_Archive/ Imagebuilder.zip
+  #         mkdir -p ./${{matrix.source}}_sdk/bin/
+  #         unzip -d ./${{matrix.source}}_sdk/bin/ Package.zip
+  #     #   uses: actions/download-artifact@master
+  #     #   with:
+  #     #     name: SDK
+  #     #     path: ./SDK_Archive/
+  #     # - name: SSH connection to Actions
+  #     #   if: always()
+  #     #   uses: csexton/debugger-action@master
+  #     - name: Deployment
+  #       run: |
+  #         tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
+  #         mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
+  #         rm ${{matrix.source}}_ib/packages -rf
+  #         mkdir ${HOME}/apt || true
+  #     - name: CacheAPT
+  #       # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
+  #       uses: actions/cache@v1
+  #       with:
+  #         path: ${{env.HOME}}/apt
+  #         key: Ubuntu18.06-apt-image-${{github.sha}}
+  #         restore-keys: Ubuntu18.06-apt-image
+  #     - name: Envirment
+  #       env:
+  #         DEBIAN_FRONTEND: noninteractive
+  #       run: |
+  #         [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
+  #         sudo apt-get update
+  #         sudo apt-get install tmate build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
+  #     # - name: Download Imagebuilder
+  #     #   uses: actions/download-artifact@master
+  #     #   with:
+  #     #     name: Imagebuilder
+  #     #     path: .
+  #     - name: SSH connection to Actions
+  #       if: always()
+  #       uses: csexton/debugger-action@master
+  #     - name: Build
+  #       working-directory: ./${{matrix.source}}_ib
+  #       run: |
+  #         ../build_${{matrix.source}}.sh --image
+  #         make image
