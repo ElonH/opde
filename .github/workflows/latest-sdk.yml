@@ -102,22 +102,25 @@ jobs:
           name: Imagebuilder
           path: ${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}
   Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
-    needs: SDK  
+    # needs: SDK
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
         source: [latest]
         # taskNo: [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-        taskNo: [j]
+        # taskNo: [j]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Download SDK
-        uses: actions/download-artifact@master
-        with:
-          name: SDK
-          path: ./SDK_Archive/
+        run: |
+        curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/SDK.zip -o SDK.zip
+        unzip -d ./SDK_Archive/ SDK.zip
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: SDK
+      #     path: ./SDK_Archive/
       # - name: SSH connection to Actions
       #   if: always()
       #   uses: csexton/debugger-action@master
@@ -172,10 +175,10 @@ jobs:
         run: |
           let make_process=$(nproc)+1
           make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1
-      - name: Upload Package${{matrix.taskNo}}
+      - name: Upload Package
         uses: actions/upload-artifact@master
         with:
-          name: Package${{matrix.taskNo}}
+          name: Package
           path: ${{matrix.source}}_sdk/bin
       # - name: SSH connection to Actions
       #   if: always()
