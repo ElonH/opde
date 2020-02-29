@@ -250,4 +250,5 @@ jobs:
       - name: Build
         working-directory: ./${{matrix.source}}_ib
         run: |
+          ../build_${{matrix.source}}.sh --image
           make image
