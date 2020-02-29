@@ -31,6 +31,7 @@ jobs:
         with:
           path: ${{env.HOME}}/apt
           key: Ubuntu18.06-apt-{{github.sha}}
+          restore-keys: Ubuntu18.06-apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -61,6 +62,7 @@ jobs:
         with:
           path: ./${{matrix.source}}/dl
           key: OpenWRT-DL-{{github.sha}}
+          restore-keys: OpenWRT-DL
       - name: Download
         working-directory: ./${{matrix.source}}
         run: make download -j8 || true
@@ -136,6 +138,7 @@ jobs:
         with:
           path: ${{env.HOME}}/apt
           key: Ubuntu18.06-apt-{{github.sha}}
+          restore-keys: Ubuntu18.06-apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -167,6 +170,7 @@ jobs:
         with:
           path: ./${{matrix.source}}_sdk/dl
           key: OpenWRT-DL-{{github.sha}}
+          restore-keys: OpenWRT-DL
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
         run: make download -j8 || true
