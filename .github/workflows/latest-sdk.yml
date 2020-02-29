@@ -178,7 +178,7 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1
+          make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1 || true
       - name: Upload Package
         uses: actions/upload-artifact@master
         with:
