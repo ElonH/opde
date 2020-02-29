@@ -197,21 +197,42 @@ jobs:
         # # CONFIG_ALL=n
         # # CONFIG_BUILD_LOG=y
         # # make defconfig
-  # Images: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-  #   # needs: [SDK, Packages]
-  #   needs: SDK
-  #   runs-on: ubuntu-18.04
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Download Imagebuilder
-  #       uses: actions/download-artifact@master
-  #       with:
-  #         name: Imagebuilder
-  #         path: .
-  #     - run: |
-  #         ls ~
-  #         echo "--------"
-  #         ls /home/runner/work/BuildOpenWRT/BuildOpenWRT/~/
-  #         echo "--------"
-  #         ls /home/runner/work/BuildOpenWRT/BuildOpenWRT
+  Images: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
+    # needs: [SDK, Packages]
+    # needs: SDK
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
+      matrix:
+        source: [latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download IB and Package
+        run: |
+          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Imagebuilder.zip -o Imagebuilder.zip
+          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Package.zip -o Package.zip
+          unzip -d ./IB_Archive/ Imagebuilder.zip
+          mkdir -p ./${{matrix.source}}_sdk/bin/
+          unzip -d ./${{matrix.source}}_sdk/bin/ Package.zip
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: SDK
+      #     path: ./SDK_Archive/
+      # - name: SSH connection to Actions
+      #   if: always()
+      #   uses: csexton/debugger-action@master
+      - name: Deployment
+        run: |
+          tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
+          mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
+          rm ${{matrix.source}}_ib/packages -rf
+      # - name: Download Imagebuilder
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: Imagebuilder
+      #     path: .
+      - name: Build
+        working-directory: ./${{matrix.source}}_ib
+        run: |
+          make image
