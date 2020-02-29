@@ -91,7 +91,7 @@ elif ( argsContains "--build-sdk" );then
 elif ( argsContains "--sdk" );then
 	# add base feeds (only for SDK)
 	FEEDS_CONF+="
-src-link base $SOURCE_BASE_PATH
+src-link base $SCRIPT_ABS_PATH/$SOURCE_NAME
 "
 	echo "${FEEDS_CONF}">feeds.conf
 fi
