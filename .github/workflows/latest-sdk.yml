@@ -36,7 +36,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv -t /var/cache/apt/archives ${HOME}/apt/*.deb 
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
@@ -143,7 +143,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv -t /var/cache/apt/archives ${HOME}/apt/*.deb 
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
@@ -239,9 +239,9 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv -t /var/cache/apt/archives ${HOME}/apt/*.deb 
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           sudo apt-get update
-          sudo apt-get install build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
+          sudo apt-get install tmate build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
       # - name: Download Imagebuilder
       #   uses: actions/download-artifact@master
       #   with:
