@@ -30,13 +30,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt-{{github.sha}}
+          key: Ubuntu18.06-apt-${{env.GITHUB_SHA}}
           restore-keys: Ubuntu18.06-apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv ${HOME}/apt/*.deb /var/cache/apt/archives
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
@@ -61,7 +61,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}/dl
-          key: OpenWRT-DL-{{github.sha}}
+          key: OpenWRT-DL-${{env.GITHUB_SHA}}
           restore-keys: OpenWRT-DL
       - name: Download
         working-directory: ./${{matrix.source}}
@@ -137,13 +137,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: Ubuntu18.06-apt-{{github.sha}}
+          key: Ubuntu18.06-apt-${{env.GITHUB_SHA}}
           restore-keys: Ubuntu18.06-apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv ${HOME}/apt/*.deb /var/cache/apt/archives
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
@@ -169,7 +169,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}_sdk/dl
-          key: OpenWRT-DL-{{github.sha}}
+          key: OpenWRT-DL-${{env.GITHUB_SHA}}
           restore-keys: OpenWRT-DL
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
