@@ -247,6 +247,9 @@ jobs:
       #   with:
       #     name: Imagebuilder
       #     path: .
+      - name: SSH connection to Actions
+        if: always()
+        uses: csexton/debugger-action@master
       - name: Build
         working-directory: ./${{matrix.source}}_ib
         run: |
