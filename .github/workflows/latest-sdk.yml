@@ -36,7 +36,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv -t /var/cache/apt/archives ${HOME}/apt/*.deb 
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
@@ -143,7 +143,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv -t /var/cache/apt/archives ${HOME}/apt/*.deb 
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
@@ -239,7 +239,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv ${HOME}/apt/*.deb /var/cache/apt/archives
+          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || sudo mv -t /var/cache/apt/archives ${HOME}/apt/*.deb 
           sudo update
           sudo apt-get install build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
       # - name: Download Imagebuilder
