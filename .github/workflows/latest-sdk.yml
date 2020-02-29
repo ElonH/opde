@@ -234,7 +234,7 @@ jobs:
         with:
           path: ${{env.HOME}}/apt
           key: Ubuntu18.06-apt-image-${{env.GITHUB_SHA}}
-          restore-keys: [Ubuntu18.06-apt-image]
+          restore-keys: Ubuntu18.06-apt-image
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
