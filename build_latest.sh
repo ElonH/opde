@@ -26,10 +26,10 @@ $(ENABLE_LOG)
 # this packages will not be added to conf when building SDK
 USER_PACK_CONF="
 
-$(CTCGFW_PACKAGES y)
 
-$(OFFICIAL_LUCI_APP m)
-CONFIG_PACKAGE_luci-app-rclone=y
 "
+# $(OFFICIAL_LUCI_APP m)
+# CONFIG_PACKAGE_luci-app-rclone=y
+# $(CTCGFW_PACKAGES y)
 
 source "${SCRIPT_ABS_PATH}/scripts/main-build.sh"
