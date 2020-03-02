@@ -100,7 +100,7 @@ jobs:
           name: Imagebuilder
           path: ${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}
   Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
-    # needs: SDK
+    needs: SDK
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
@@ -110,14 +110,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Download SDK
-        run: |
-          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/SDK.zip -o SDK.zip
-          unzip -d ./SDK_Archive/ SDK.zip
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: SDK
-      #     path: ./SDK_Archive/
+      # - name: Download SDK
+      #   run: |
+      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/SDK.zip -o SDK.zip
+      #     unzip -d ./SDK_Archive/ SDK.zip
+      - uses: actions/download-artifact@master
+        with:
+          name: SDK
+          path: ./SDK_Archive/
       - name: Deployment
         run: |
           git submodule update --init --recursive
@@ -202,8 +202,7 @@ jobs:
       #   if: always()
       #   uses: csexton/debugger-action@master
   Targets: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-    # needs: [SDK, Packages]
-    # needs: SDK
+    needs: [SDK, Packages]
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
@@ -212,22 +211,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Download IB and Package
-        run: |
-          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Imagebuilder.zip -o Imagebuilder.zip
-          curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Package.zip -o Package.zip
-          unzip -d ./IB_Archive/ Imagebuilder.zip
-          unzip -d ./Packages_Archive/ Package.zip
-      # - name: Download Imagebuilder
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: Imagebuilder
-      #     path: ./IB_Archive/
-      # - name: Download Packages
-      #   uses: actions/download-artifact@master
-      #   with:
-      #     name: Package
-      #     path: ./Packages_Archive/
+      # - name: Download IB and Package
+      #   run: |
+      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Imagebuilder.zip -o Imagebuilder.zip
+      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Package.zip -o Package.zip
+      #     unzip -d ./IB_Archive/ Imagebuilder.zip
+      #     unzip -d ./Packages_Archive/ Package.zip
+      - name: Download Imagebuilder
+        uses: actions/download-artifact@master
+        with:
+          name: Imagebuilder
+          path: ./IB_Archive/
+      - name: Download Packages
+        uses: actions/download-artifact@master
+        with:
+          name: Package
+          path: ./Packages_Archive/
       - name: Deployment
         run: |
           mkdir -p ./${{matrix.source}}_sdk/
