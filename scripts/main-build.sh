@@ -119,7 +119,6 @@ if ( argsContains "--sdk" );then
 CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
-CONFIG_CCACHE=y
 "
 	if (argsContains "--packages-default"); then
 		SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
