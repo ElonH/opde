@@ -8,6 +8,7 @@ on:
       - '**.md' # ignore *.md files
     branches:
       - CI # TODO: only for debug
+      # TODO: release tag trigger
 
 env:
   HOME: /home/runner/work/BuildOpenWRT
