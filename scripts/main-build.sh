@@ -52,12 +52,12 @@ if ( argsContains "--help" );then
 						change to sdk directory (useful for SDK)[default is disable]
 						sdk configure head (useful for SDK)[default is disable]
 	--feeds				update and install feeds[default is disable]
-	--build-sdk			disable extra default package (useful for build SDK)[default is disable]
+	--build-sdk			disable extra default packages (useful for build SDK)[default is disable]
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
-	--package-default	append default packages set when '--sdk' is chosen
-	--package-official	append official luci application set when '--sdk' is chosen
-	--package-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
+	--packages-default	append default packages set when '--sdk' is chosen
+	--packages-official	append official luci application set when '--sdk' is chosen
+	--packages-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
 	"
 	exit 0
 fi
@@ -123,11 +123,11 @@ CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 CONFIG_CCACHE=y
 "
-	if (argsContains "--package-default"); then
+	if (argsContains "--packages-default"); then
 		SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
-	elif (argsContains "--package-official"); then
+	elif (argsContains "--packages-official"); then
 		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
-	elif (argsContains "--package-ctcgfw"); then
+	elif (argsContains "--packages-ctcgfw"); then
 		SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
 	else
 		SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'

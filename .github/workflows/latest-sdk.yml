@@ -110,8 +110,7 @@ jobs:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
         source: [latest]
-        # taskNo: [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-        # taskNo: [j]
+        packages: [default, official, ctcgfw]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -162,7 +161,7 @@ jobs:
       - name: Configurate
         working-directory: ./${{matrix.source}}_sdk
         run: |
-          ../build_${{matrix.source}}.sh --sdk --feeds
+          ../build_${{matrix.source}}.sh --sdk --feeds --packages-${{matrix.packages}}
           mkdir dl || true
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
@@ -179,10 +178,10 @@ jobs:
         run: |
           let make_process=$(nproc)+1
           make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1 || true
-      - name: Upload Package
+      - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
-          name: Package
+          name: Packages-${{matrix.packages}}
           path: ${{matrix.source}}_sdk/bin
       # - name: SSH connection to Actions
       #   if: always()
