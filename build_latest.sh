@@ -25,7 +25,7 @@ $(ENABLE_LOG)
 
 # this packages will not be added to conf when building SDK
 USER_PACK_CONF="
-
+$(DEFAULT_EXTRA_PACKAGE m)
 
 "
 # $(OFFICIAL_LUCI_APP m)
