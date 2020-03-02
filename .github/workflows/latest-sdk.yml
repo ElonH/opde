@@ -39,12 +39,16 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
+          docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
           sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
           [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] || sudo cp /var/cache/apt/archives/*.deb ${HOME}/apt
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
       - name: Configurate
         working-directory: ./${{matrix.source}}
         run: |
@@ -144,6 +148,9 @@ jobs:
           [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] || sudo cp /var/cache/apt/archives/*.deb ${HOME}/apt
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
       - name: Configurate
         working-directory: ./${{matrix.source}}_sdk
         run: |
