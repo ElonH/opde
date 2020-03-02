@@ -246,7 +246,7 @@ jobs:
         run: |
           tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
           mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
-          rm ${{matrix.source}}_ib/packages -rf
+          # rm ${{matrix.source}}_ib/packages -rf
           mkdir ${HOME}/apt || true
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
