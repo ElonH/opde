@@ -48,13 +48,16 @@ fi
 # main program
 if ( argsContains "--help" );then
 	echo -e "Args:
-	--sdk			add base feeds (useful for SDK)[default is disable]
-					change to sdk directory (useful for SDK)[default is disable]
-					sdk configure head (useful for SDK)[default is disable]
-	--feeds			update and install feeds[default is disable]
-	--build-sdk		disable extra default package (useful for build SDK)[default is disable]
-					do not add addon packages (useful for build SDK)[default is disable]
-	--image			build image using pre-build packages
+	--sdk				add base feeds (useful for SDK)[default is disable]
+						change to sdk directory (useful for SDK)[default is disable]
+						sdk configure head (useful for SDK)[default is disable]
+	--feeds				update and install feeds[default is disable]
+	--build-sdk			disable extra default package (useful for build SDK)[default is disable]
+						do not add addon packages (useful for build SDK)[default is disable]
+	--image				build image using pre-build packages
+	--package-default	append default packages set when '--sdk' is chosen
+	--package-official	append official luci application set when '--sdk' is chosen
+	--package-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
 	"
 	exit 0
 fi
@@ -119,13 +122,21 @@ CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 CONFIG_CCACHE=y
-
-$USER_PACK_CONF
 "
+	if (argsContains "--package-default"); then
+		SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
+	elif (argsContains "--package-official"); then
+		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
+	elif (argsContains "--package-ctcgfw"); then
+		SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
+	else
+		SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
+	fi
 fi
 
 
 PACK_CONF+="$BASE_PACK_CONF $BUILD_SDK_PACK_CONF $SDK_PACK_CONF"
+exit 0
 
 echo "${PACK_CONF}"
 echo "${PACK_CONF}">.config
