@@ -136,7 +136,6 @@ fi
 
 
 PACK_CONF+="$BASE_PACK_CONF $BUILD_SDK_PACK_CONF $SDK_PACK_CONF"
-exit 0
 
 echo "${PACK_CONF}"
 echo "${PACK_CONF}">.config
