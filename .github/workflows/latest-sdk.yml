@@ -261,12 +261,13 @@ jobs:
         run: |
           [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           sudo apt-get update -y
-          sudo apt-get install -y tmate build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
+          sudo apt-get install -y build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
       - name: Build
         working-directory: ./${{matrix.source}}_ib
         run: |
           ../build_${{matrix.source}}.sh --image
           make image
-      - name: SSH connection to Actions
-        if: always()
-        uses: csexton/debugger-action@master
+      - uses: actions/upload-artifact@master
+        with:
+          name: Targets
+          path: ./${{matrix.source}}_ib/bin
