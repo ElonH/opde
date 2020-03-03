@@ -209,7 +209,7 @@ jobs:
       #   if: always()
       #   uses: csexton/debugger-action@master
   Targets: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-    needs: [SDK, Packages]
+    needs: [Merge]
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
