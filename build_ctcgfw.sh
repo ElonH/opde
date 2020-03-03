@@ -3,7 +3,7 @@ SCRIPT_ABS_PATH="$(cd $(dirname "$0"); pwd)"
 source "${SCRIPT_ABS_PATH}/scripts/common-vars.sh"
 
 # directory name corresponds to openwrt source
-SOURCE_NAME=latest
+SOURCE_NAME=ctcgfw
 
 # feeds locations
 FEEDS_CONF="
