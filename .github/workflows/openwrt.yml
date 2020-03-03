@@ -54,7 +54,8 @@ jobs:
         id: conf
         run: |
           ../build_${{matrix.source}}.sh --build-sdk --feeds
-          mkdir dl || true
+          mkdir -p dl || true
+          mkdir -p logs && cp .config logs/
           echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
