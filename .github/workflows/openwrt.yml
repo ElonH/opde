@@ -51,15 +51,17 @@ jobs:
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
       - name: Configurate
         working-directory: ./${{matrix.source}}
+        id: conf
         run: |
           ../build_${{matrix.source}}.sh --build-sdk --feeds
           mkdir dl || true
+          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}/dl
-          key: dl-sdk-${{github.sha}}
+          key: dl-sdk-${{steps.conf.outputs.date}}
           restore-keys: |
             dl-sdk-
             dl-
@@ -153,15 +155,17 @@ jobs:
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
       - name: Configurate
         working-directory: ./${{matrix.source}}_sdk
+        id: conf
         run: |
           ../build_${{matrix.source}}.sh --sdk --feeds --packages-${{matrix.packages}}
           mkdir dl || true
+          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}_sdk/dl
-          key: dl-packages-${{github.sha}}
+          key: dl-packages-${{steps.conf.outputs.time}}
           restore-keys: |
             dl-packages-
             dl-
