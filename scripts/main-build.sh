@@ -103,34 +103,38 @@ if ( argsContains "--feeds" );then
     ./scripts/feeds update -a && ./scripts/feeds install -a
 fi
 
-if ( argsContains "--build-sdk" );then
-    BUILD_SDK_PACK_CONF="
+if ( argsContains "--build-sdk" ) || ( argsContains "--sdk" ); then
+	if ( argsContains "--build-sdk" );then
+		BUILD_SDK_PACK_CONF="
 CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
 $(DEFAULT_EXTRA_PACKAGE n)
 "
-else
-	BUILD_SDK_PACK_CONF=""
-fi
+	else
+		BUILD_SDK_PACK_CONF=""
+	fi
 
 
-if ( argsContains "--sdk" );then
-    SDK_PACK_CONF="
+	if ( argsContains "--sdk" );then
+		SDK_PACK_CONF="
 CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 "
-	if (argsContains "--packages-default"); then
-		SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
-	elif (argsContains "--packages-official"); then
-		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
-	elif (argsContains "--packages-ctcgfw"); then
-		SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
-	else
-		SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
+		if (argsContains "--packages-default"); then
+			SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
+		elif (argsContains "--packages-official"); then
+			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
+		elif (argsContains "--packages-ctcgfw"); then
+			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
+		else
+			SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
+		fi
 	fi
+else
+	BUILD_SDK_PACK_CONF=""
+	SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
 fi
-
 
 PACK_CONF+="
 $BASE_PACK_CONF
