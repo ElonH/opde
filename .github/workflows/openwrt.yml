@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -79,7 +79,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@master
         with:
-          name: SDKLogs
+          name: ${{matrix.source}}-SDKLogs
           path: ${{matrix.source}}/logs
       - name: Find Archives
         id: Find
@@ -93,7 +93,7 @@ jobs:
       - name: Upload SDK
         uses: actions/upload-artifact@master
         with:
-          name: SDK
+          name: ${{matrix.source}}-SDK
           path: ${{matrix.source}}/${{steps.Find.outputs.SDK_PATH}}
       # - name: SSH connection to Actions
       #   if: always()
@@ -101,7 +101,7 @@ jobs:
       - name: Upload Imagebuilder
         uses: actions/upload-artifact@master
         with:
-          name: Imagebuilder
+          name: ${{matrix.source}}-Imagebuilder
           path: ${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}
   Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
     needs: SDK
@@ -109,18 +109,18 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
         packages: [default, official, ctcgfw]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       # - name: Download SDK
       #   run: |
-      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/SDK.zip -o SDK.zip
+      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/${{matrix.source}}-SDK.zip -o SDK.zip
       #     unzip -d ./SDK_Archive/ SDK.zip
       - uses: actions/download-artifact@master
         with:
-          name: SDK
+          name: ${{matrix.source}}-SDK
           path: ./SDK_Archive/
       - name: Deployment
         run: |
@@ -176,7 +176,7 @@ jobs:
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
-          name: Packages-${{matrix.packages}}
+          name: ${{matrix.source}}-Packages-${{matrix.packages}}
           # TODO: ${{matrix.source}}_sdk/bin/packages
           path: ${{matrix.source}}_sdk/bin
   Merge:
@@ -185,25 +185,25 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: actions/download-artifact@master
         with:
-          name: Packages-default
+          name: ${{matrix.source}}-Packages-default
           path: ./Packages/
       - uses: actions/download-artifact@master
         with:
-          name: Packages-official
+          name: ${{matrix.source}}-Packages-official
           path: ./Packages/
       - uses: actions/download-artifact@master
         with:
-          name: Packages-ctcgfw
+          name: ${{matrix.source}}-Packages-ctcgfw
           path: ./Packages/
       - uses: actions/upload-artifact@master
         with:
-          name: Packages
+          name: ${{matrix.source}}-Packages
           path: ./Packages
       # - name: SSH connection to Actions
       #   if: always()
@@ -214,25 +214,25 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       # - name: Download IB and Package
       #   run: |
-      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Imagebuilder.zip -o Imagebuilder.zip
-      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/Package.zip -o Package.zip
+      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/${{matrix.source}}-Imagebuilder.zip -o Imagebuilder.zip
+      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/${{matrix.source}}-Package.zip -o Package.zip
       #     unzip -d ./IB_Archive/ Imagebuilder.zip
       #     unzip -d ./Packages_Archive/ Package.zip
       - name: Download Imagebuilder
         uses: actions/download-artifact@master
         with:
-          name: Imagebuilder
+          name: ${{matrix.source}}-Imagebuilder
           path: ./IB_Archive/
       - name: Download Packages
         uses: actions/download-artifact@master
         with:
-          name: Packages
+          name: ${{matrix.source}}-Packages
           path: ./Packages_Archive/
       - name: Deployment
         run: |
@@ -265,5 +265,5 @@ jobs:
           make image
       - uses: actions/upload-artifact@master
         with:
-          name: Targets
+          name: ${{matrix.source}}-Targets
           path: ./${{matrix.source}}_ib/bin/targets
