@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
+        source: [latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -111,7 +111,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
+        source: [latest]
         packages: [default, official, ctcgfw]
     steps:
       - name: Checkout
@@ -189,7 +189,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
+        source: [latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -218,7 +218,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
+        source: [latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
