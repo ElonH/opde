@@ -23,6 +23,7 @@ CONFIG_CCACHE=y
 
 CONFIG_PACKAGE_kmod-batman-adv=n
 CONFIG_PACKAGE_kmod-mt_wifi=n
+CONFIG_PACKAGE_kmod-rtl8821cu=n
 "
 
 # this packages will not be added to conf when building SDK
