@@ -21,6 +21,7 @@ $(IMG_SETTING)
 $(ENABLE_LOG)
 CONFIG_CCACHE=y
 
+CONFIG_PACKAGE_kmod-batman-adv=n
 "
 
 # this packages will not be added to conf when building SDK
