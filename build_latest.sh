@@ -7,7 +7,7 @@ SOURCE_NAME=latest
 
 # feeds locations
 function feeds_conf {
-    FEEDS_CONF="
+FEEDS_CONF="
 src-link packages ${SCRIPT_ABS_PATH}/feeds/openwrt/packages
 src-link luci ${SCRIPT_ABS_PATH}/feeds/openwrt/luci
 src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
