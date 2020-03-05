@@ -320,3 +320,39 @@ CONFIG_PACKAGE_luci-app-wol=$1
 CONFIG_PACKAGE_luci-app-yggdrasil=$1
 "
 }
+
+function _scans_packages() {
+    for i in "$1"/**/Makefile; do
+        [[ $(cat "$i" | grep "rules.mk") == 'include $(TOPDIR)/rules.mk' ]] || continue # opkg Makefile must be contain 'rules.mk'
+        DIR_NAME=$(dirname "$i")
+        DIR_NAME="${DIR_NAME##*/}" # is directory name, is NOT path
+        # echo "$i"
+        grep '$(eval $(call BuildPackage,.*))' < "$i" | while IFS= read -r j ; do
+            # echo "$j"
+            PKG_NAME="${j##*,}"
+            PKG_NAME="${PKG_NAME%%))}" # $(eval $(call BuildPackage,[PKG_NAME]))
+            if [[ "$PKG_NAME" == '$(PKG_NAME)' ]]; then
+                REAL_NAME=$(cat "$i" | grep "PKG_NAME:=" | sed  's/^PKG_NAME:=//') # PKG_NAME:=[REAL_NAME]
+                # echo "$REAL_NAME"
+                PKG_NAME="$REAL_NAME"
+            fi
+            echo "$PKG_NAME"
+            # break
+        done
+        if [[ $(cat "$i" | grep "luci.mk" | sed 's/^.*luci.mk/luci.mk/') == "luci.mk" ]];then
+            echo "$DIR_NAME"
+        fi
+        # break;
+    done
+}
+
+# $1: dir path
+# $2: 'n','y','m'
+function obtain_packages_conf() {
+    if ! [ -d "$1" ]; then
+        echo -e "#Dir '$1' not exist"
+        return
+    fi
+    CONTENTS=$(_scans_packages "$1" | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
+    echo $'\n'"$CONTENTS"
+}
