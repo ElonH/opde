@@ -58,6 +58,7 @@ if ( argsContains "--help" );then
 	--packages-default	append default packages set when '--sdk' is chosen
 	--packages-official	append official luci application set when '--sdk' is chosen
 	--packages-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
+	--packages-lean		append lean packages set when '--sdk' is chosen
 	"
 	exit 0
 fi
@@ -127,6 +128,8 @@ CONFIG_ALL=n
 			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
 		elif (argsContains "--packages-ctcgfw"); then
 			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
+		elif (argsContains "--packages-lean"); then
+			SDK_PACK_CONF+="$(LEAN_PACKAGES m)"$'\n'
 		else
 			SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
 		fi

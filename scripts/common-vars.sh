@@ -115,6 +115,63 @@ CONFIG_PACKAGE_UnblockNeteaseMusic-Go=$1
 CONFIG_PACKAGE_you-get=$1
 "
 }
+function LEAN_PACKAGES {
+    echo "
+CONFIG_PACKAGE_adbyby=$1
+CONFIG_PACKAGE_aMule=$1
+CONFIG_PACKAGE_antfs=$1
+CONFIG_PACKAGE_antfs-mount=$1
+CONFIG_PACKAGE_antileech=$1
+CONFIG_PACKAGE_autocore=$1
+CONFIG_PACKAGE_automount=$1
+CONFIG_PACKAGE_autosamba=$1
+CONFIG_PACKAGE_coremark=$1
+CONFIG_PACKAGE_csstidy=$1
+CONFIG_PACKAGE_ddns-scripts_aliyun=$1
+CONFIG_PACKAGE_ddns-scripts_dnspod=$1
+CONFIG_PACKAGE_default-settings=$1
+CONFIG_PACKAGE_dnsforwarder=$1
+CONFIG_PACKAGE_dsmboot=$1
+CONFIG_PACKAGE_ipset-lists=$1
+CONFIG_PACKAGE_ipv6helper=$1
+CONFIG_PACKAGE_k3wifi=$1
+CONFIG_PACKAGE_libcryptopp=$1
+CONFIG_PACKAGE_libidn2=$1
+CONFIG_PACKAGE_libtorrent-rasterbar=$1
+CONFIG_PACKAGE_luci-app-accesscontrol=$1
+CONFIG_PACKAGE_luci-app-adbyby-plus=$1
+CONFIG_PACKAGE_luci-app-cpufreq=$1
+CONFIG_PACKAGE_luci-app-familycloud=$1
+CONFIG_PACKAGE_luci-app-haproxy-tcp=$1
+CONFIG_PACKAGE_luci-app-openvpn-server=$1
+CONFIG_PACKAGE_luci-app-qbittorrent=$1
+CONFIG_PACKAGE_luci-app-ssr-plus=$1
+CONFIG_PACKAGE_luci-app-unblockmusic=$1
+CONFIG_PACKAGE_luci-app-unblockneteasemusic-go=$1
+CONFIG_PACKAGE_luci-app-xlnetacc=$1
+CONFIG_PACKAGE_luci-lib-fs=$1
+CONFIG_PACKAGE_n2n_v2=$1
+CONFIG_PACKAGE_nft-qos=$1
+CONFIG_PACKAGE_npc=$1
+CONFIG_PACKAGE_openwrt-frp=$1
+CONFIG_PACKAGE_fullconenat=$1
+CONFIG_PACKAGE_openwrt-kcptun=$1
+CONFIG_PACKAGE_pdnsd=$1
+CONFIG_PACKAGE_polarssl=$1
+CONFIG_PACKAGE_qBittorrent-Enhanced-Edition=$1
+CONFIG_PACKAGE_qt5=$1
+CONFIG_PACKAGE_r8125=$1
+CONFIG_PACKAGE_usb-net-rtl8152=$1
+CONFIG_PACKAGE_shadowsocksr-libev=$1
+CONFIG_PACKAGE_srelay=$1
+CONFIG_PACKAGE_UnblockNeteaseMusic-Go=$1
+CONFIG_PACKAGE_UnblockNeteaseMusic=$1
+CONFIG_PACKAGE_v2ray=$1
+CONFIG_PACKAGE_vlmcsd=$1
+CONFIG_PACKAGE_vsftpd-alt=$1
+CONFIG_PACKAGE_wxbase=$1
+"
+}
 function DEFAULT_EXTRA_PACKAGE {
     echo "
 # CONFIG_PACKAGE_base-files=$1
