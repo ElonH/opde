@@ -3,6 +3,22 @@
 echoerr() { echo "$@" 1>&2; }
 exiterr() { echoerr "$@" ; exit 1; }
 
+# function exist
+function_exists() {
+    declare -f -F "$1" > /dev/null
+    return $?
+}
+
+function check_func_not_set() {
+	if function_exists "$1"; then
+		# echo "[info]: $1 = ${!1}"
+		return 0
+	else
+		echoerr "[ERROR]: Function '$1' is not defined"
+		exit 1
+	fi
+}
+
 # variable check if exist
 function check_var_not_set() {
 	if [[ -v $1 ]]; then
@@ -15,16 +31,25 @@ function check_var_not_set() {
 }
 
 check_var_not_set SCRIPT_ABS_PATH
+check_func_not_set feeds_conf
+check_func_not_set base_pack_conf
+check_func_not_set user_pack_conf
+
+# internal variable
+SOURCE_BASE_PATH="$SCRIPT_ABS_PATH/$SOURCE_NAME"
+SOURCE_ORIGIN_PATH="$SOURCE_BASE_PATH"
+GLOBAL_ARGS="$@"
+PACK_CONF=""
+BUILD_SDK_PACK_CONF=""
+
+feeds_conf
+base_pack_conf
+user_pack_conf
+
 check_var_not_set SOURCE_NAME
 check_var_not_set FEEDS_CONF
 check_var_not_set BASE_PACK_CONF
 check_var_not_set USER_PACK_CONF
-
-# internal variable
-SOURCE_BASE_PATH="$SCRIPT_ABS_PATH/$SOURCE_NAME"
-GLOBAL_ARGS="$@"
-PACK_CONF=""
-BUILD_SDK_PACK_CONF=""
 
 # args check
 argsContains () {
@@ -95,7 +120,7 @@ elif ( argsContains "--build-sdk" );then
 elif ( argsContains "--sdk" );then
 	# add base feeds (only for SDK)
 	FEEDS_CONF+="
-src-link base $SCRIPT_ABS_PATH/$SOURCE_NAME
+src-link base $SOURCE_ORIGIN_PATH
 "
 	echo "${FEEDS_CONF}">feeds.conf
 fi
