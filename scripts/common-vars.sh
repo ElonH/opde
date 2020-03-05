@@ -171,6 +171,8 @@ CONFIG_PACKAGE_vlmcsd=$1
 CONFIG_PACKAGE_vsftpd-alt=$1
 CONFIG_PACKAGE_wxbase=$1
 "
+function NTLF9T_PACKAGES {
+    obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ntlf9t" "$1"
 }
 function DEFAULT_EXTRA_PACKAGE {
     echo "

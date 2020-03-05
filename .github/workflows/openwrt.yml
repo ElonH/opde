@@ -113,7 +113,7 @@ jobs:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
         source: [latest, ctcgfw]
-        packages: [default, official, ctcgfw, lean]
+        packages: [default, official, ctcgfw, lean, ntlf9t]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -205,6 +205,14 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: ${{matrix.source}}-Packages-ctcgfw
+          path: ./Packages/
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-lean
+          path: ./Packages/
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-ntlf9t
           path: ./Packages/
       - uses: actions/upload-artifact@master
         with:
