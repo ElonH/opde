@@ -77,6 +77,7 @@ if ( argsContains "--help" );then
 						change to sdk directory (useful for SDK)[default is disable]
 						sdk configure head (useful for SDK)[default is disable]
 	--feeds				update and install feeds[default is disable]
+	--save-space		Deleting build directories after compiling (to save space)
 	--build-sdk			disable extra default packages (useful for build SDK)[default is disable]
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
@@ -89,6 +90,9 @@ if ( argsContains "--help" );then
 	exit 0
 fi
 
+if ( argsContains "--save-space" ); then
+	BASE_PACK_CONF+="$(SAVE_SPACE y)"$'\n'
+fi
 
 if ( argsContains "--sdk" );then
     SOURCE_BASE_PATH="${SOURCE_BASE_PATH}_sdk"
