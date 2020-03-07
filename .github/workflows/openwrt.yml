@@ -49,7 +49,7 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-      - name: Configurate
+      - name: Configure
         working-directory: ./${{matrix.source}}
         id: conf
         run: |
@@ -154,7 +154,7 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-      - name: Configurate
+      - name: Configure
         working-directory: ./${{matrix.source}}_sdk
         id: conf
         run: |
@@ -184,45 +184,8 @@ jobs:
           name: ${{matrix.source}}-Packages-${{matrix.packages}}
           # TODO: ${{matrix.source}}_sdk/bin/packages
           path: ${{matrix.source}}_sdk/bin
-  Merge:
-    needs: [Packages]
-    runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
-      matrix:
-        source: [latest, ctcgfw]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-default
-          path: ./Packages/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official
-          path: ./Packages/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-ctcgfw
-          path: ./Packages/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-lean
-          path: ./Packages/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-ntlf9t
-          path: ./Packages/
-      - uses: actions/upload-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages
-          path: ./Packages
-      # - name: SSH connection to Actions
-      #   if: always()
-      #   uses: csexton/debugger-action@master
   Targets: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-    needs: [Merge]
+    needs: [Packages]
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
@@ -242,10 +205,25 @@ jobs:
         with:
           name: ${{matrix.source}}-Imagebuilder
           path: ./IB_Archive/
-      - name: Download Packages
-        uses: actions/download-artifact@master
+      - uses: actions/download-artifact@master
         with:
-          name: ${{matrix.source}}-Packages
+          name: ${{matrix.source}}-Packages-default
+          path: ./Packages_Archive/
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-official
+          path: ./Packages_Archive/
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-ctcgfw
+          path: ./Packages_Archive/
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-lean
+          path: ./Packages_Archive/
+      - uses: actions/download-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-ntlf9t
           path: ./Packages_Archive/
       - name: Deployment
         run: |
@@ -271,10 +249,17 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
           [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] || sudo cp /var/cache/apt/archives/*.deb ${HOME}/apt
-      - name: Build
+      - name: Configure
         working-directory: ./${{matrix.source}}_ib
         run: |
           ../build_${{matrix.source}}.sh --image
+      - uses: actions/upload-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages
+          path: ./${{matrix.source}}_sdk/bin
+      - name: Build
+        working-directory: ./${{matrix.source}}_ib
+        run: |
           make image
       - uses: actions/upload-artifact@master
         with:
