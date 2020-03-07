@@ -106,19 +106,40 @@ if ( argsContains "--image" );then
 	REPO_BASE_PATH="$SCRIPT_ABS_PATH/${SOURCE_NAME}_sdk/bin"
 	[ -d "$REPO_BASE_PATH" ] || exiterr "repo path '$REPO_BASE_PATH' not exist"
 	REPOS_PATH=$(find "$REPO_BASE_PATH/packages" -name "Packages")
-	FEEDS_CONF="src imagebuilder file:packages
-"
+	FEEDS_CONF=""
+
 	for item in ${REPOS_PATH[*]}
 	do
 		item=${item%/*}
 		name=${item##*/}
 		# echo $item
 		# echo $name
-		FEEDS_CONF+="src $name file://$item
-"
+		[ -e "$item/Packages.manifest" ] && rm "$item/Packages.manifest"
+		[ -e "$item/Packages.sig" ] && rm "$item/Packages.sig"
+		FEEDS_CONF+="src $name file://$item"$'\n'
 	done
+	TARGET_REPOS_PATH=$(find "$REPO_BASE_PATH/targets" -name "Packages")
+	REPOS_PATH=("$TARGET_REPOS_PATH" "${REPOS_PATH[@]}")
+	TARGET_REPOS_PATH=${TARGET_REPOS_PATH%/*}
+	FEEDS_CONF="src imagebuilder file://$TARGET_REPOS_PATH"$'\n'"${FEEDS_CONF}"
+
 	echo "$FEEDS_CONF">repositories.conf
 	echo "$FEEDS_CONF"
+
+	cp -rf "$SOURCE_BASE_PATH"/packages/*.ipk "$TARGET_REPOS_PATH"
+	echo "refresh repo manifest"
+	export PATH="$SOURCE_BASE_PATH/staging_dir/host/bin:$PATH"
+	for item in ${REPOS_PATH[*]}
+	do
+		PACKAGE_DIR=${item%/*}
+		echo "refresh $PACKAGE_DIR ..."
+		( \
+			cd "$PACKAGE_DIR" || exit 1; \
+			"$SOURCE_BASE_PATH"/scripts/ipkg-make-index.sh . > Packages.manifest;\
+			grep -vE '^(Maintainer|LicenseFiles|Source|SourceName|Require)' Packages.manifest > Packages; \
+			gzip -9nc Packages > Packages.gz; \
+		) 2>/dev/null
+	done
 	exit 0
 elif ( argsContains "--build-sdk" );then
 	echo "${FEEDS_CONF}">feeds.conf
