@@ -162,7 +162,6 @@ if ( argsContains "--build-sdk" ) || ( argsContains "--sdk" ); then
 		BUILD_SDK_PACK_CONF="
 CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
-$(DEFAULT_EXTRA_PACKAGE n)
 "
 	else
 		BUILD_SDK_PACK_CONF=""
