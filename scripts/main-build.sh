@@ -149,6 +149,8 @@ elif ( argsContains "--sdk" );then
 src-link base $SOURCE_ORIGIN_PATH
 "
 	echo "${FEEDS_CONF}">feeds.conf
+else
+	echo "${FEEDS_CONF}">feeds.conf
 fi
 
 if ( argsContains "--feeds" );then
