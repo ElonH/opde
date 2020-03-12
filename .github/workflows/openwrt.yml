@@ -8,7 +8,8 @@ on:
       - '**.md' # ignore *.md files
     branches:
       - CI # TODO: only for debug
-      # TODO: release tag trigger
+    tags:
+      - v*
 
 env:
   HOME: /home/runner/work/BuildOpenWRT
@@ -261,6 +262,20 @@ jobs:
         with:
           name: ${{matrix.source}}-Packages
           path: ./${{matrix.source}}_sdk/bin
+      - name: Tar
+        if: github.event.ref_type == 'tag'
+        working-directory: ./${{matrix.source}}_sdk
+        run: |
+          cp ./bin ${{matrix.source}}-Packages -rf
+          tar -cf ${{matrix.source}}-Packages.tar ${{matrix.source}}-Packages
+      - uses: svenstaro/upload-release-action@v1-release
+        if: github.event.ref_type == 'tag'
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./${{matrix.source}}_sdk/${{matrix.source}}-Packages.tar
+          asset_name: ${{matrix.source}}-Packages.tar
+          tag: ${{ github.ref }}
+          overwrite: true
       # - name: Build
       #   working-directory: ./${{matrix.source}}_ib
       #   run: |
