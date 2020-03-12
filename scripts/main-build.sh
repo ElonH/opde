@@ -81,7 +81,6 @@ if ( argsContains "--help" );then
 	--build-sdk			disable extra default packages (useful for build SDK)[default is disable]
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
-	--packages-default	append default packages set when '--sdk' is chosen
 	--packages-official	append official luci application set when '--sdk' is chosen
 	--packages-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
 	--packages-lean		append lean packages set when '--sdk' is chosen
@@ -174,9 +173,7 @@ CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 "
-		if (argsContains "--packages-default"); then
-			SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
-		elif (argsContains "--packages-official"); then
+		if (argsContains "--packages-official"); then
 			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
 		elif (argsContains "--packages-ctcgfw"); then
 			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
