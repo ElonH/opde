@@ -212,10 +212,6 @@ jobs:
           path: ./IB_Archive/
       - uses: actions/download-artifact@master
         with:
-          name: ${{matrix.source}}-Packages-default
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
           name: ${{matrix.source}}-Packages-official
           path: ./Packages_Archive/
       - uses: actions/download-artifact@master
