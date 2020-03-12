@@ -81,11 +81,10 @@ if ( argsContains "--help" );then
 	--build-sdk			disable extra default packages (useful for build SDK)[default is disable]
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
-	--packages-default	append default packages set when '--sdk' is chosen
 	--packages-official	append official luci application set when '--sdk' is chosen
 	--packages-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
 	--packages-lean		append lean packages set when '--sdk' is chosen
-	--packages-ntlf9t		append ntlf9t packages set when '--sdk' is chosen
+	--packages-ntlf9t	append ntlf9t packages set when '--sdk' is chosen
 	"
 	exit 0
 fi

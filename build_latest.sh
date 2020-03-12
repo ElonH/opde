@@ -31,12 +31,8 @@ CONFIG_PACKAGE_kmod-rtl8821cu=n
 # this packages will not be added to conf when building SDK
 function user_pack_conf {
 USER_PACK_CONF="
-$(DEFAULT_EXTRA_PACKAGE m)
 
 "
-# $(OFFICIAL_LUCI_APP m)
-# CONFIG_PACKAGE_luci-app-rclone=y
-# $(CTCGFW_PACKAGES y)
 }
 
 source "${SCRIPT_ABS_PATH}/scripts/main-build.sh"

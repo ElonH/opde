@@ -65,66 +65,6 @@ function LEAN_PACKAGES {
 function NTLF9T_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ntlf9t" "$1"
 }
-function DEFAULT_EXTRA_PACKAGE {
-    echo "
-# CONFIG_PACKAGE_base-files=$1
-# CONFIG_PACKAGE_libc=$1
-# CONFIG_PACKAGE_libgcc=$1
-CONFIG_PACKAGE_busybox=$1
-CONFIG_PACKAGE_dropbear=$1
-# CONFIG_PACKAGE_mtd=$1
-CONFIG_PACKAGE_uci=$1
-# CONFIG_PACKAGE_opkg=$1
-# CONFIG_PACKAGE_netifd=$1
-# CONFIG_PACKAGE_fstools=$1
-# CONFIG_PACKAGE_uclient-fetch=$1
-CONFIG_PACKAGE_logd=$1
-CONFIG_PACKAGE_urandom-seed=$1
-CONFIG_PACKAGE_urngd=$1
-# CONFIG_PACKAGE_kmod-nf-nathelper=$1
-# CONFIG_PACKAGE_kmod-nf-nathelper-extra=$1
-# CONFIG_PACKAGE_kmod-ipt-raw=$1
-CONFIG_PACKAGE_wget=$1
-CONFIG_PACKAGE_libustream-openssl=$1
-CONFIG_PACKAGE_ca-certificates=$1
-CONFIG_PACKAGE_luci-proto-relay=$1
-CONFIG_PACKAGE_default-settings=$1
-# CONFIG_PACKAGE_luci=$1
-# CONFIG_PACKAGE_luci-base=$1
-CONFIG_PACKAGE_luci-compat=$1
-CONFIG_PACKAGE_luci-lib-ipkg=$1
-CONFIG_PACKAGE_luci-app-flowoffload=$1
-CONFIG_PACKAGE_dnsmasq-full=$1
-# CONFIG_PACKAGE_iptables=$1
-# CONFIG_PACKAGE_ip6tables=$1
-CONFIG_PACKAGE_ppp=$1
-CONFIG_PACKAGE_ppp-mod-pppoe=$1
-# CONFIG_PACKAGE_firewall=$1
-CONFIG_PACKAGE_odhcpd-ipv6only=$1
-CONFIG_PACKAGE_odhcp6c=$1
-# CONFIG_PACKAGE_kmod-ipt-offload=$1
-# CONFIG_PACKAGE_kmod-tcp-bbr=$1
-CONFIG_PACKAGE_block-mount=$1
-CONFIG_PACKAGE_fdisk=$1
-CONFIG_PACKAGE_lsblk=$1
-CONFIG_PACKAGE_mdadm=$1
-CONFIG_PACKAGE_partx-utils=$1
-CONFIG_PACKAGE_mkf2fs=$1
-CONFIG_PACKAGE_fdisk=$1
-CONFIG_PACKAGE_e2fsprogs=$1
-CONFIG_PACKAGE_wpad=$1
-CONFIG_PACKAGE_ath10k-firmware-qca988x=$1
-CONFIG_PACKAGE_ath10k-firmware-qca9888=$1
-CONFIG_PACKAGE_ath10k-firmware-qca9984=$1
-CONFIG_PACKAGE_brcmfmac-firmware-43602a1-pcie=$1
-CONFIG_PACKAGE_alsa-utils=$1
-CONFIG_PACKAGE_htop=$1
-CONFIG_PACKAGE_lm-sensors=$1
-CONFIG_PACKAGE_autocore=$1
-CONFIG_PACKAGE_luci-proto-bonding=$1
-CONFIG_PACKAGE_ca-certificates=$1
-"
-}
 
 function OFFICIAL_LUCI_APP {
     echo "
