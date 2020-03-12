@@ -215,6 +215,7 @@ CONFIG_PACKAGE_luci-app-yggdrasil=$1
 }
 
 function _scans_packages() {
+    shopt -s globstar
     for i in "$1"/**/Makefile; do
         [[ $(cat "$i" | grep "rules.mk") == 'include $(TOPDIR)/rules.mk' ]] || continue # opkg Makefile must be contain 'rules.mk'
         DIR_NAME=$(dirname "$i")
