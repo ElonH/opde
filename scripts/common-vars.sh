@@ -67,91 +67,7 @@ function NTLF9T_PACKAGES {
 }
 
 function OFFICIAL_LUCI_APP {
-    echo "
-# official luci application
-CONFIG_PACKAGE_luci-app-adblock=$1
-CONFIG_PACKAGE_luci-app-advanced-reboot=$1
-CONFIG_PACKAGE_luci-app-ahcp=$1
-CONFIG_PACKAGE_luci-app-aria2=$1
-CONFIG_PACKAGE_luci-app-attendedsysupgrade=$1
-CONFIG_PACKAGE_luci-app-banip=$1
-CONFIG_PACKAGE_luci-app-bcp38=$1
-CONFIG_PACKAGE_luci-app-bmx7=$1
-CONFIG_PACKAGE_luci-app-clamav=$1
-CONFIG_PACKAGE_luci-app-commands=$1
-CONFIG_PACKAGE_luci-app-coovachilli=$1
-CONFIG_PACKAGE_luci-app-cshark=$1
-CONFIG_PACKAGE_luci-app-dcwapd=$1
-CONFIG_PACKAGE_luci-app-ddns=$1
-CONFIG_PACKAGE_luci-app-diag-core=$1
-CONFIG_PACKAGE_luci-app-dnscrypt-proxy=$1
-CONFIG_PACKAGE_luci-app-dump1090=$1
-CONFIG_PACKAGE_luci-app-dynapoint=$1
-CONFIG_PACKAGE_luci-app-firewall=$1
-CONFIG_PACKAGE_luci-app-frpc=$1
-CONFIG_PACKAGE_luci-app-frps=$1
-CONFIG_PACKAGE_luci-app-fwknopd=$1
-CONFIG_PACKAGE_luci-app-hd-idle=$1
-CONFIG_PACKAGE_luci-app-https-dns-proxy=$1
-CONFIG_PACKAGE_luci-app-ksmbd=$1
-CONFIG_PACKAGE_luci-app-ltqtapi=$1
-CONFIG_PACKAGE_luci-app-lxc=$1
-CONFIG_PACKAGE_luci-app-minidlna=$1
-CONFIG_PACKAGE_luci-app-mjpg-streamer=$1
-CONFIG_PACKAGE_luci-app-mosquitto=$1
-CONFIG_PACKAGE_luci-app-mwan3=$1
-CONFIG_PACKAGE_luci-app-nextdns=$1
-CONFIG_PACKAGE_luci-app-nft-qos=$1
-CONFIG_PACKAGE_luci-app-nlbwmon=$1
-CONFIG_PACKAGE_luci-app-noddos=$1
-CONFIG_PACKAGE_luci-app-ntpc=$1
-CONFIG_PACKAGE_luci-app-nut=$1
-CONFIG_PACKAGE_luci-app-ocserv=$1
-# TODO: fix olsrd package
-CONFIG_PACKAGE_luci-app-olsr=n
-CONFIG_PACKAGE_luci-app-olsr-services=n
-CONFIG_PACKAGE_luci-app-olsr-viz=n
-CONFIG_PACKAGE_luci-app-omcproxy=$1
-CONFIG_PACKAGE_luci-app-openvpn=$1
-CONFIG_PACKAGE_luci-app-opkg=$1
-CONFIG_PACKAGE_luci-app-p910nd=$1
-CONFIG_PACKAGE_luci-app-pagekitec=$1
-CONFIG_PACKAGE_luci-app-polipo=$1
-CONFIG_PACKAGE_luci-app-privoxy=$1
-CONFIG_PACKAGE_luci-app-qos=$1
-CONFIG_PACKAGE_luci-app-radicale=$1
-CONFIG_PACKAGE_luci-app-radicale2=$1
-CONFIG_PACKAGE_luci-app-rosy-file-server=$1
-CONFIG_PACKAGE_luci-app-rp-pppoe-server=$1
-CONFIG_PACKAGE_luci-app-samba=$1
-CONFIG_PACKAGE_luci-app-samba=$1
-CONFIG_PACKAGE_luci-app-ser2net=$1
-CONFIG_PACKAGE_luci-app-shadowsocks-libev=$1
-CONFIG_PACKAGE_luci-app-shairplay=$1
-CONFIG_PACKAGE_luci-app-siitwizard=$1
-CONFIG_PACKAGE_luci-app-simple-adblock=$1
-CONFIG_PACKAGE_luci-app-snmp=$1
-CONFIG_PACKAGE_luci-app-splash=$1
-CONFIG_PACKAGE_luci-app-squid=$1
-CONFIG_PACKAGE_luci-app-statistics=$1
-CONFIG_PACKAGE_luci-app-tinyproxy=$1
-CONFIG_PACKAGE_luci-app-transmission=$1
-CONFIG_PACKAGE_luci-app-travelmate=$1
-CONFIG_PACKAGE_luci-app-ttyd=$1
-CONFIG_PACKAGE_luci-app-udpxy=$1
-CONFIG_PACKAGE_luci-app-uhttpd=$1
-CONFIG_PACKAGE_luci-app-unbound=$1
-CONFIG_PACKAGE_luci-app-upnp=$1
-CONFIG_PACKAGE_luci-app-vnstat=$1
-CONFIG_PACKAGE_luci-app-vnstat2=$1
-CONFIG_PACKAGE_luci-app-vpnbypass=$1
-CONFIG_PACKAGE_luci-app-vpn-policy-routing=$1
-CONFIG_PACKAGE_luci-app-watchcat=$1
-CONFIG_PACKAGE_luci-app-wifischedule=$1
-CONFIG_PACKAGE_luci-app-wireguard=$1
-CONFIG_PACKAGE_luci-app-wol=$1
-CONFIG_PACKAGE_luci-app-yggdrasil=$1
-"
+    obtain_packages_conf "$SOURCE_BASE_PATH/package/feeds/luci" "$1"
 }
 
 function _scans_packages() {
@@ -189,6 +105,6 @@ function obtain_packages_conf() {
         echo -e "#Dir '$1' not exist"
         return
     fi
-    CONTENTS=$(_scans_packages "$1" | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
+    CONTENTS=$(_scans_packages "$1" | sort | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
     echo $'\n'"$CONTENTS"
 }
