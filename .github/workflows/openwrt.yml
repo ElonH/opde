@@ -261,11 +261,11 @@ jobs:
         with:
           name: ${{matrix.source}}-Packages
           path: ./${{matrix.source}}_sdk/bin
-      - name: Build
-        working-directory: ./${{matrix.source}}_ib
-        run: |
-          make image
-      - uses: actions/upload-artifact@master
-        with:
-          name: ${{matrix.source}}-Targets
-          path: ./${{matrix.source}}_ib/bin/targets
+      # - name: Build
+      #   working-directory: ./${{matrix.source}}_ib
+      #   run: |
+      #     make image
+      # - uses: actions/upload-artifact@master
+      #   with:
+      #     name: ${{matrix.source}}-Targets
+      #     path: ./${{matrix.source}}_ib/bin/targets
