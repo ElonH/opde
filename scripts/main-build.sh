@@ -148,6 +148,8 @@ elif ( argsContains "--sdk" );then
 src-link base $SOURCE_ORIGIN_PATH
 "
 	echo "${FEEDS_CONF}">feeds.conf
+else
+	echo "${FEEDS_CONF}">feeds.conf
 fi
 
 if ( argsContains "--feeds" );then
@@ -159,7 +161,6 @@ if ( argsContains "--build-sdk" ) || ( argsContains "--sdk" ); then
 		BUILD_SDK_PACK_CONF="
 CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
-$(DEFAULT_EXTRA_PACKAGE n)
 "
 	else
 		BUILD_SDK_PACK_CONF=""
@@ -172,9 +173,7 @@ CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 "
-		if (argsContains "--packages-default"); then
-			SDK_PACK_CONF+="$(DEFAULT_EXTRA_PACKAGE m)"$'\n'
-		elif (argsContains "--packages-official"); then
+		if (argsContains "--packages-official"); then
 			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
 		elif (argsContains "--packages-ctcgfw"); then
 			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
