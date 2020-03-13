@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
+        source: [latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -117,8 +117,8 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
-        packages: [official, ctcgfw, lean, ntlf9t]
+        source: [latest]
+        packages: [ntlf9t]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -195,7 +195,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest, ctcgfw]
+        source: [latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -210,18 +210,18 @@ jobs:
         with:
           name: ${{matrix.source}}-Imagebuilder
           path: ./IB_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-ctcgfw
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-lean
-          path: ./Packages_Archive/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ${{matrix.source}}-Packages-official
+      #     path: ./Packages_Archive/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ${{matrix.source}}-Packages-ctcgfw
+      #     path: ./Packages_Archive/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ${{matrix.source}}-Packages-lean
+      #     path: ./Packages_Archive/
       - uses: actions/download-artifact@master
         with:
           name: ${{matrix.source}}-Packages-ntlf9t
@@ -301,31 +301,31 @@ jobs:
         with:
           name: latest-Packages
           path: ./latest-Packages/
-      - uses: actions/download-artifact@master
-        with:
-          name: ctcgfw-SDK
-          path: ./ctcgfw-SDK/
-      - uses: actions/download-artifact@master
-        with:
-          name: ctcgfw-Imagebuilder
-          path: ./ctcgfw-Imagebuilder/
-      - uses: actions/download-artifact@master
-        with:
-          name: ctcgfw-Firmware
-          path: ./ctcgfw-Firmware/
-      - uses: actions/download-artifact@master
-        with:
-          name: ctcgfw-Packages
-          path: ./ctcgfw-Packages/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ctcgfw-SDK
+      #     path: ./ctcgfw-SDK/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ctcgfw-Imagebuilder
+      #     path: ./ctcgfw-Imagebuilder/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ctcgfw-Firmware
+      #     path: ./ctcgfw-Firmware/
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: ctcgfw-Packages
+      #     path: ./ctcgfw-Packages/
       - run:
           tar -cf latest-SDK.tar latest-SDK
           tar -cf latest-Imagebuilder.tar latest-Imagebuilder
           tar -cf latest-Firmware.tar latest-Firmware
           tar -cf latest-Packages.tar latest-Packages
-          tar -cf ctcgfw-SDK.tar ctcgfw-SDK
-          tar -cf ctcgfw-Imagebuilder.tar ctcgfw-Imagebuilder
-          tar -cf ctcgfw-Firmware.tar ctcgfw-Firmware
-          tar -cf ctcgfw-Packages.tar ctcgfw-Packages
+          # tar -cf ctcgfw-SDK.tar ctcgfw-SDK
+          # tar -cf ctcgfw-Imagebuilder.tar ctcgfw-Imagebuilder
+          # tar -cf ctcgfw-Firmware.tar ctcgfw-Firmware
+          # tar -cf ctcgfw-Packages.tar ctcgfw-Packages
       - uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
