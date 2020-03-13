@@ -289,6 +289,28 @@ jobs:
     runs-on: ubuntu-18.04
     if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Envirment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo -E apt-get install -y build-essential cmake libcurl4-openssl-dev
+      # - uses: mxschmitt/action-tmate@v1
+      - name: ootoc
+        run: |
+          git clone https://github.com/jbeder/yaml-cpp.git && cd yaml-cpp
+          cmake -DYAML_CPP_BUILD_TESTS:BOOL=OFF -DYAML_BUILD_SHARED_LIBS:BOOL=ON .
+          make && sudo make install
+          git clone https://github.com/gabime/spdlog.git && cd spdlog
+          cmake -DSPDLOG_BUILD_TESTS:BOOL=OFF -DSPDLOG_BUILD_SHARED:BOOL=ON -DSPDLOG_BUILD_EXAMPLE:BOOL=OFF .
+          make && sudo make install
+          git clone https://github.com/ElonH/libtar.git && cd libtar
+          autoreconf --force --install
+          ./configure && make && sudo make install
+          git clone --recursive https://github.com/ElonH/ootoc.git && cd ootoc
+          cmake -DOOTOC_BUILDIN_LIBTAR:BOOL=OFF -DOOTOC_TEST:BOOL=OFF .
+          make && sudo make install
       - uses: actions/download-artifact@master
         with:
           name: latest-SDK
@@ -330,6 +352,7 @@ jobs:
           # tar -cf ctcgfw-Imagebuilder.tar ctcgfw-Imagebuilder
           # tar -cf ctcgfw-Firmware.tar ctcgfw-Firmware
           # tar -cf ctcgfw-Packages.tar ctcgfw-Packages
+          /usr/local/bin/ootocCLI parse -i latest-Packages.tar -o latest-Packages.yml
       - uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -337,3 +360,7 @@ jobs:
           tag: ${{ github.ref }}
           file_glob: true
           overwrite: true
+      - uses: actions/upload-artifact@master
+        with:
+          name: latest-Aux
+          path: ./latest-Packages.yml
