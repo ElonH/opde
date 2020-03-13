@@ -343,7 +343,7 @@ jobs:
       #   with:
       #     name: ctcgfw-Packages
       #     path: ./ctcgfw-Packages/
-      - run:
+      - run: |
           tar -cf latest-SDK.tar latest-SDK
           tar -cf latest-Imagebuilder.tar latest-Imagebuilder
           tar -cf latest-Firmware.tar latest-Firmware
