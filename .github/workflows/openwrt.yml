@@ -258,20 +258,6 @@ jobs:
         with:
           name: ${{matrix.source}}-Packages
           path: ./${{matrix.source}}_sdk/bin
-      - name: Tar
-        if: github.event.ref_type == 'tag'
-        working-directory: ./${{matrix.source}}_sdk
-        run: |
-          cp ./bin ${{matrix.source}}-Packages -rf
-          tar -cf ${{matrix.source}}-Packages.tar ${{matrix.source}}-Packages
-      - uses: svenstaro/upload-release-action@v1-release
-        if: github.event.ref_type == 'tag'
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./${{matrix.source}}_sdk/${{matrix.source}}-Packages.tar
-          asset_name: ${{matrix.source}}-Packages.tar
-          tag: ${{ github.ref }}
-          overwrite: true
       # - name: Build
       #   working-directory: ./${{matrix.source}}_ib
       #   run: |
@@ -280,3 +266,70 @@ jobs:
       #   with:
       #     name: ${{matrix.source}}-Targets
       #     path: ./${{matrix.source}}_ib/bin/targets
+  Release:
+    needs: [Targets]
+    runs-on: ubuntu-18.04
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: true
+      - uses: actions/download-artifact@master
+        with:
+          name: latest-SDK
+          path: ./latest-SDK/
+      - uses: actions/download-artifact@master
+        with:
+          name: latest-Imagebuilder
+          path: ./latest-Imagebuilder/
+      - uses: actions/download-artifact@master
+        with:
+          name: latest-Firmware
+          path: ./latest-Firmware/
+      - uses: actions/download-artifact@master
+        with:
+          name: latest-Packages
+          path: ./latest-Packages/
+      - uses: actions/download-artifact@master
+        with:
+          name: ctcgfw-SDK
+          path: ./ctcgfw-SDK/
+      - uses: actions/download-artifact@master
+        with:
+          name: ctcgfw-Imagebuilder
+          path: ./ctcgfw-Imagebuilder/
+      - uses: actions/download-artifact@master
+        with:
+          name: ctcgfw-Firmware
+          path: ./ctcgfw-Firmware/
+      - uses: actions/download-artifact@master
+        with:
+          name: ctcgfw-Packages
+          path: ./ctcgfw-Packages/
+      - run:
+          tar -cf latest-SDK.tar latest-SDK
+          tar -cf latest-Imagebuilder.tar latest-Imagebuilder
+          tar -cf latest-Firmware.tar latest-Firmware
+          tar -cf latest-Packages.tar latest-Packages
+          tar -cf ctcgfw-SDK.tar ctcgfw-SDK
+          tar -cf ctcgfw-Imagebuilder.tar ctcgfw-Imagebuilder
+          tar -cf ctcgfw-Firmware.tar ctcgfw-Firmware
+          tar -cf ctcgfw-Packages.tar ctcgfw-Packages
+      - uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./*.tar
+          tag: ${{ github.ref }}
+          file_glob: true
+          overwrite: true
