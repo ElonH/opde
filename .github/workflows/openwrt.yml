@@ -266,8 +266,7 @@ jobs:
       #   with:
       #     name: ${{matrix.source}}-Targets
       #     path: ./${{matrix.source}}_ib/bin/targets
-  Release:
-    needs: [Targets]
+  ReleasePre: # https://github.com/actions/create-release/issues/46
     runs-on: ubuntu-18.04
     if: startsWith(github.ref, 'refs/tags/')
     steps:
@@ -285,6 +284,11 @@ jobs:
             - Second Change
           draft: false
           prerelease: true
+  Release:
+    needs: [Targets]
+    runs-on: ubuntu-18.04
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
       - uses: actions/download-artifact@master
         with:
           name: latest-SDK
