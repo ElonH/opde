@@ -311,6 +311,7 @@ jobs:
           git clone --recursive https://github.com/ElonH/ootoc.git && cd ootoc
           cmake -DOOTOC_BUILDIN_LIBTAR:BOOL=OFF -DOOTOC_TEST:BOOL=OFF .
           make && sudo make install
+          ldd /usr/local/bin/ootocCLI
       - uses: actions/download-artifact@master
         with:
           name: latest-SDK
@@ -352,7 +353,7 @@ jobs:
           # tar -cf ctcgfw-Imagebuilder.tar ctcgfw-Imagebuilder
           # tar -cf ctcgfw-Firmware.tar ctcgfw-Firmware
           # tar -cf ctcgfw-Packages.tar ctcgfw-Packages
-          /usr/local/bin/ootocCLI parse -i latest-Packages.tar -o latest-Packages.yml
+          ootocCLI parse -i latest-Packages.tar -o latest-Packages.yml
       - uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
