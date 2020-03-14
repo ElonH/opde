@@ -360,6 +360,13 @@ jobs:
           tag: ${{ github.ref }}
           file_glob: true
           overwrite: true
+      - uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./*.yml
+          tag: ${{ github.ref }}
+          file_glob: true
+          overwrite: true
       - uses: actions/upload-artifact@master
         with:
           name: latest-Aux
