@@ -82,7 +82,7 @@ if ( argsContains "--help" );then
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
 	--packages-official	append official luci application set when '--sdk' is chosen
-	--packages-ctcfgw	append ctcgfw packages set when '--sdk' is chosen
+	--packages-ctcgfw	append ctcgfw packages set when '--sdk' is chosen
 	--packages-lean		append lean packages set when '--sdk' is chosen
 	--packages-ntlf9t	append ntlf9t packages set when '--sdk' is chosen
 	"
