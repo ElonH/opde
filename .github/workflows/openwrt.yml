@@ -311,7 +311,7 @@ jobs:
           git clone --recursive https://github.com/ElonH/ootoc.git && cd ootoc
           cmake -DOOTOC_BUILDIN_LIBTAR:BOOL=OFF -DOOTOC_TEST:BOOL=OFF .
           make && sudo make install
-          ldd /usr/local/bin/ootocCLI
+          sudo ldconfig
       - uses: actions/download-artifact@master
         with:
           name: latest-SDK
