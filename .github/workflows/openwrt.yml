@@ -118,7 +118,7 @@ jobs:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
         source: [latest]
-        packages: [official, ctcfgw, lean, ntlf9t]
+        packages: [official, ctcgfw, lean, ntlf9t]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
