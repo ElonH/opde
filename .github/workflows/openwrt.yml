@@ -1,13 +1,11 @@
 ## refs: https://github.com/project-openwrt/build-openwrt/blob/master/.github/workflows/main.yml
 
-name: CI
+name: OpenWRT
 
 on:
   push:
     paths-ignore:
       - '**.md' # ignore *.md files
-    branches:
-      - CI # TODO: only for debug
     tags:
       - v*
 
