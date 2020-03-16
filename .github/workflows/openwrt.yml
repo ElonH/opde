@@ -380,6 +380,8 @@ jobs:
           path: ./latest-Packages.yml
       - if: startsWith(github.ref, 'refs/heads/')
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add latest-Packages
           git commit -m "Release latest-Packages" -a
       - name: Push Packages
