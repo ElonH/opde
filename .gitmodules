@@ -25,15 +25,6 @@
 [submodule "feeds/openwrt/rclone"]
 	path = feeds/openwrt/rclone
 	url = https://github.com/ElonH/Rclone-OpenWrt.git
-[submodule "lede"]
-	path = lede
-	url = https://github.com/coolsnowwolf/lede.git
-[submodule "feeds/lede/packages"]
-	path = feeds/lede/packages
-	url = https://github.com/coolsnowwolf/packages
-[submodule "feeds/lede/luci"]
-	path = feeds/lede/luci
-	url = https://github.com/coolsnowwolf/luci
 [submodule "latest"]
 	path = latest
 	url = https://github.com/project-openwrt/openwrt-latest.git
