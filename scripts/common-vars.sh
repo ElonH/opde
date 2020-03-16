@@ -62,6 +62,11 @@ CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_v2ray-plugin=y
 function LEAN_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/lean" "$1"
 }
+function LIENOL_ZXLHHYCCC_PACKAGES {
+    obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/lienol" "$1"
+    obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/zxlhhyccc" "$1"
+}
+
 function NTLF9T_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ntlf9t" "$1"
 }
