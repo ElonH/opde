@@ -28,3 +28,9 @@
 [submodule "latest"]
 	path = latest
 	url = https://github.com/project-openwrt/openwrt-latest.git
+[submodule "feeds/latest/packages"]
+	path = feeds/latest/packages
+	url = https://github.com/project-openwrt/packages-latest.git
+[submodule "feeds/latest/luci"]
+	path = feeds/latest/luci
+	url = https://github.com/project-openwrt/luci-latest.git
