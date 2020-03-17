@@ -182,7 +182,7 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1 || true
+          make -j${make_process} IGNORE_ERRORS=1 || make -j1 IGNORE_ERRORS=1 || true # TODO: remove `make -j1` ??
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
@@ -197,14 +197,7 @@ jobs:
       matrix:
         source: [latest]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      # - name: Download IB and Package
-      #   run: |
-      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/${{matrix.source}}-Imagebuilder.zip -o Imagebuilder.zip
-      #     curl -L https://github.com/ElonH/BuildOpenWRT/releases/download/v1.0.0/${{matrix.source}}-Package.zip -o Package.zip
-      #     unzip -d ./IB_Archive/ Imagebuilder.zip
-      #     unzip -d ./Packages_Archive/ Package.zip
+      - uses: actions/checkout@v2
       - name: Download Imagebuilder
         uses: actions/download-artifact@master
         with:
@@ -270,11 +263,12 @@ jobs:
       #   with:
       #     name: ${{matrix.source}}-Targets
       #     path: ./${{matrix.source}}_ib/bin/targets
-  ReleasePre: # https://github.com/actions/create-release/issues/46
+  Release:
+    needs: [Targets]
     runs-on: ubuntu-18.04
-    if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - name: Create Release
+      - name: Create Release # https://github.com/actions/create-release/issues/46
+        if: startsWith(github.ref, 'refs/tags/')
         id: create_release
         uses: actions/create-release@latest
         env:
@@ -288,12 +282,7 @@ jobs:
             - Second Change
           draft: false
           prerelease: true
-  Release:
-    needs: [Targets]
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -331,31 +320,11 @@ jobs:
         with:
           name: latest-Packages
           path: ./latest-Packages/
-      # - uses: actions/download-artifact@master
-      #   with:
-      #     name: ctcgfw-SDK
-      #     path: ./ctcgfw-SDK/
-      # - uses: actions/download-artifact@master
-      #   with:
-      #     name: ctcgfw-Imagebuilder
-      #     path: ./ctcgfw-Imagebuilder/
-      # - uses: actions/download-artifact@master
-      #   with:
-      #     name: ctcgfw-Firmware
-      #     path: ./ctcgfw-Firmware/
-      # - uses: actions/download-artifact@master
-      #   with:
-      #     name: ctcgfw-Packages
-      #     path: ./ctcgfw-Packages/
       - run: |
           tar -cf latest-SDK.tar latest-SDK
           tar -cf latest-Imagebuilder.tar latest-Imagebuilder
           tar -cf latest-Firmware.tar latest-Firmware
           tar -cf latest-Packages.tar latest-Packages
-          # tar -cf ctcgfw-SDK.tar ctcgfw-SDK
-          # tar -cf ctcgfw-Imagebuilder.tar ctcgfw-Imagebuilder
-          # tar -cf ctcgfw-Firmware.tar ctcgfw-Firmware
-          # tar -cf ctcgfw-Packages.tar ctcgfw-Packages
           ootocCLI parse -i latest-Packages.tar -o latest-Packages.yml
       - uses: svenstaro/upload-release-action@v1-release
         if: startsWith(github.ref, 'refs/tags/')
