@@ -25,6 +25,8 @@ $(ENABLE_LOG)
 CONFIG_CCACHE=y
 
 CONFIG_PACKAGE_kmod-rtl8821cu=n
+CONFIG_PACKAGE_kmod-dahdi=n
+CONFIG_PACKAGE_kmod-ipt-ndpi=n
 "
 }
 
@@ -32,7 +34,7 @@ CONFIG_PACKAGE_kmod-rtl8821cu=n
 function user_pack_conf {
 USER_PACK_CONF="
 CONFIG_PACKAGE_ootoc=y
-CONFIG_TESTING_KERNEL=y
+
 "
 }
 
