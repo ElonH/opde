@@ -1,0 +1,79 @@
+#!/usr/bin/python3
+import pycurl
+import certifi
+from io import BytesIO
+import os
+import json
+from multiprocessing import Pool, freeze_support, cpu_count
+
+
+def main(repo, runid, user, token):
+    if runid == "":
+        print("Waring: delete all artifacts in repo.")
+        buffer = BytesIO()
+        c = pycurl.Curl()
+        c.setopt(
+            c.URL, 'https://api.github.com/repos/{}/actions/runs'.format(repo))
+        c.setopt(pycurl.WRITEFUNCTION, buffer.write)
+        c.setopt(c.CAINFO, certifi.where())
+        c.perform()
+        c.close()
+        body = buffer.getvalue().decode('UTF-8')
+        # print(body)
+        runid_list = json.loads(body)["workflow_runs"]
+        if os.name == "nt":
+            freeze_support()
+        pool = Pool(cpu_count())
+        pool.starmap(delByRunID, [(repo, item['id'], user, token) for item in runid_list])
+    else:
+        delByRunID(repo, runid, user, token)
+
+
+def delByRunID(repo, runid, user, token):
+    print("deleting runid: %s" % runid)
+    buffer = BytesIO()
+    c = pycurl.Curl()
+    c.setopt(
+        c.URL, 'https://api.github.com/repos/{}/actions/runs/{}/artifacts'.format(repo, runid))
+    c.setopt(pycurl.WRITEFUNCTION, buffer.write)
+    c.setopt(c.CAINFO, certifi.where())
+    c.perform()
+    c.close()
+
+    body = buffer.getvalue().decode('UTF-8')
+    # print(body)
+
+    arti_list = json.loads(body)["artifacts"]
+    for item in arti_list:
+        arti_id = item['id']
+        print("deleting artifacts: %s" % item['name'])
+        c = pycurl.Curl()
+        c.setopt(
+            c.URL, 'https://api.github.com/repos/{}/actions/artifacts/{}'.format(repo, arti_id))
+        c.setopt(c.CAINFO, certifi.where())
+        c.setopt(pycurl.CUSTOMREQUEST, 'DELETE')
+        c.setopt(c.USERNAME, user)
+        c.setopt(c.PASSWORD, token)
+        c.perform()
+        c.close()
+    pass
+    if len(arti_list) == 0:
+        print("it seem doesn't exist any artifacts")
+    print("Done")
+    return True
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Create a ArcHydro schema')
+    parser.add_argument('--repo', type=str, required=True,
+                        help='the github repo name[example: Codertocat/Hello-World]')
+    parser.add_argument('--runid', type=str, default="",
+                        help='runid of workflow, if not specify, mean that select all runid in repo')
+    parser.add_argument('--user', type=str, required=True,
+                        help='github user who have permission to delete artifacts')
+    parser.add_argument('--token', type=str, required=True,
+                        help='user token')
+    args = parser.parse_args()
+    main(repo=args.repo, runid=args.runid, user=args.user, token=args.token)
