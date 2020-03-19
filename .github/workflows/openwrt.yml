@@ -271,6 +271,13 @@ jobs:
       matrix:
         source: [latest]
     steps:
+      - name: tag-name
+        id: tag
+        run: |
+          tag="${{github.ref}}"
+          [[ $tag == refs/heads/* ]] && tag="snapshot"
+          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags}"
+          echo "::set-output name=tagName::$tag"
       - uses: actions/checkout@v2
       # - uses: mxschmitt/action-tmate@v1
       - name: ootoc
@@ -308,11 +315,11 @@ jobs:
           name: ${{matrix.source}}-Packages
           path: ./${{matrix.source}}-Packages/
       - run: |
-          tar -cf ${{matrix.source}}-SDK.tar ${{matrix.source}}-SDK
-          tar -cf ${{matrix.source}}-Imagebuilder.tar ${{matrix.source}}-Imagebuilder
-          tar -cf ${{matrix.source}}-Firmware.tar ${{matrix.source}}-Firmware
-          tar -cf ${{matrix.source}}-Packages.tar ${{matrix.source}}-Packages
-          ootocCLI parse -i ${{matrix.source}}-Packages.tar -o ${{matrix.source}}-Packages.yml
+          tar -cf ${{matrix.source}}-SDK-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-SDK
+          tar -cf ${{matrix.source}}-Imagebuilder-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Imagebuilder
+          tar -cf ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Firmware
+          tar -cf ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Packages
+          ootocCLI parse -i ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
       - uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-Aux
@@ -323,7 +330,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add ${{matrix.source}}-Packages
-          git commit -m "Release ${{matrix.source}}-Packages ${{github.sha}}"
+          git commit -m "Release ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}} ${{github.sha}}"
       - if: startsWith(github.ref, 'refs/heads/')
         uses: ad-m/github-push-action@master
         with:
@@ -331,12 +338,6 @@ jobs:
           force: true
           tags: true
           branch: snapshot
-      - name: tag-name
-        id: tag
-        run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot"
-          echo "::set-output name=tagName::$tag"
       - name: Create Release # https://github.com/actions/create-release/issues/46
         if: startsWith(github.ref, 'refs/tags/')
         id: create_release
