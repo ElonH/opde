@@ -171,7 +171,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}_sdk/dl
-          key: dl-packages-${{steps.conf.outputs.time}}
+          key: dl-packages-${{steps.conf.outputs.date}}
           restore-keys: |
             dl-packages-
             dl-
