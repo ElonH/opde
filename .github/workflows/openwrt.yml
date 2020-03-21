@@ -284,9 +284,10 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{steps.tag.outputs.tagName}}
           body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+            update By ootoc
+            ``` bash
+            bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/BuildOpenWRT@master/feeds/scripts/update-by-ootoc.sh) ${{steps.tag.outputs.tagName}}
+            ```
           draft: false
           prerelease: false
   Release:
