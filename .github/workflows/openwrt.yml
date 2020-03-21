@@ -273,7 +273,7 @@ jobs:
         run: |
           tag="${{github.ref}}"
           [[ $tag == refs/heads/* ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags}"
+          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
       - name: Create Release # https://github.com/actions/create-release/issues/46
         id: create_release
@@ -302,7 +302,7 @@ jobs:
         run: |
           tag="${{github.ref}}"
           [[ $tag == refs/heads/* ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags}"
+          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
       - uses: actions/checkout@v2
       # - uses: mxschmitt/action-tmate@v1
@@ -321,7 +321,7 @@ jobs:
           autoreconf --force --install
           ./configure && make && sudo make install
           git clone --recursive https://github.com/ElonH/ootoc.git && cd ootoc
-          cmake -DOOTOC_BUILDIN_LIBTAR:BOOL=OFF -DOOTOC_TEST:BOOL=OFF .
+          cmake -DOOTOC_TEST:BOOL=OFF .
           make && sudo make install
           sudo ldconfig
       - uses: actions/download-artifact@master
@@ -346,10 +346,13 @@ jobs:
           tar -cf ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Firmware
           tar -cf ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Packages
           ootocCLI parse -i ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
+          cp ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml ${{matrix.source}}-Packages.yml
       - uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-Aux
-          path: ./${{matrix.source}}-Packages.yml
+          path: ./${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
+      - run: |
+          rm ./${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
       - name: snapshot update
         if: startsWith(github.ref, 'refs/heads/')
         run: |
