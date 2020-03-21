@@ -350,9 +350,9 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-Aux
-          path: ./${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
+          path: ./${{matrix.source}}-Packages.yml
       - run: |
-          rm ./${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
+          rm ./${{matrix.source}}-Packages.yml
       - name: snapshot update
         if: startsWith(github.ref, 'refs/heads/')
         run: |
