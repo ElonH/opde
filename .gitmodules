@@ -34,3 +34,20 @@
 [submodule "feeds/latest/luci"]
 	path = feeds/latest/luci
 	url = https://github.com/project-openwrt/luci-latest.git
+[submodule "ctcgfw-19.07"]
+	path = ctcgfw-19.07
+	url = https://github.com/project-openwrt/openwrt-19.07.git
+[submodule "feeds/ctcgfw-19.07/packages"]
+	path = feeds/ctcgfw-19.07/packages
+	url = https://github.com/project-openwrt/packages-19.07.git
+[submodule "feeds/ctcgfw-19.07/luci"]
+	path = feeds/ctcgfw-19.07/luci
+	url = https://github.com/project-openwrt/luci-19.07.git
+[submodule "feeds/ctcgfw-19.07/routing"]
+	path = feeds/ctcgfw-19.07/routing
+	url = https://git.openwrt.org/feed/routing.git
+	branch = openwrt-19.07
+[submodule "feeds/ctcgfw-19.07/telephony"]
+	path = feeds/ctcgfw-19.07/telephony
+	url = https://git.openwrt.org/feed/telephony.git
+	branch = openwrt-19.07
