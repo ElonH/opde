@@ -361,13 +361,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add ${{matrix.source}}-Packages
           git commit -m "Release ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}} ${{github.sha}}"
-      - if: startsWith(github.ref, 'refs/heads/')
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.RELEASE_TOKEN }}
-          force: true
-          tags: true
-          branch: snapshot
+          git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" snapshot --force
       - uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.RELEASE_TOKEN }}
