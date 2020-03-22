@@ -91,7 +91,7 @@ jobs:
           echo "::set-output name=SDK_PATH::${SDK_PATH}"
           IB_PATH=$(find bin -name "*imagebuilder*")
           echo "::set-output name=IB_PATH::${IB_PATH}"
-          FIRMWARE_PATH=$(find bin -name "openwrt-*-combined-*.img.gz")
+          FIRMWARE_PATH=$(find bin -name "openwrt-*-combined*.img.gz")
           echo "::set-output name=FIRMWARE_PATH::${FIRMWARE_PATH}"
       - name: Upload SDK
         uses: actions/upload-artifact@master
