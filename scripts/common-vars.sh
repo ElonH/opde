@@ -74,6 +74,53 @@ function NTLF9T_PACKAGES {
 function OFFICIAL_LUCI_APP {
     obtain_packages_conf "$SOURCE_BASE_PATH/package/feeds/luci" "$1"
 }
+function OFFICIAL_PACKAGES_LANG {
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
+}
+function OFFICIAL_PACKAGES_LIB {
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1"
+}
+function OFFICIAL_PACKAGES_NET {
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1"
+}
+function OFFICIAL_PACKAGES_UTILS {
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/utils" "$1"
+}
+function OFFICIAL_PACKAGES_MEDIA {
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/sound" "$1"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/multimedia" "$1"
+}
+function OFFICIAL_PACKAGES_OTHER {
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/admin" "$1"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/devel" "$1"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/ipv6" "$1"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/mail" "$1"
+    echo "
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Italic=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Italic=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-BoldItalic=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Bold=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-BoldItalic=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Bold=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-Oblique=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-Oblique=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-BoldOblique=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-Bold=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-ExtraLight=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-Oblique=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-BoldOblique=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-Bold=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-BoldOblique=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-Bold=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans=$1
+CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuMathTeXGyre=$1
+"
+}
+
 
 function _scans_packages() {
     shopt -s globstar

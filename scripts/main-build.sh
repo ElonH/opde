@@ -81,7 +81,13 @@ if ( argsContains "--help" );then
 	--build-sdk			disable extra default packages (useful for build SDK)[default is disable]
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
-	--packages-official		append official luci application set when '--sdk' is chosen
+	--packages-official-luci	append official luci application set when '--sdk' is chosen
+	--packages-official-lib
+	--packages-official-lang
+	--packages-official-net
+	--packages-official-utils
+	--packages-official-media
+	--packages-official-other
 	--packages-ctcgfw		append ctcgfw packages set when '--sdk' is chosen
 	--packages-lean			append lean packages set when '--sdk' is chosen
 	--packages-ntlf9t		append ntlf9t packages set when '--sdk' is chosen
@@ -174,8 +180,20 @@ CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 "
-		if (argsContains "--packages-official"); then
+		if (argsContains "--packages-official-luci"); then
 			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
+		elif (argsContains "--packages-official-lang"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG m)"$'\n'
+		elif (argsContains "--packages-official-lib"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB m)"$'\n'
+		elif (argsContains "--packages-official-net"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET m)"$'\n'
+		elif (argsContains "--packages-official-utils"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS m)"$'\n'
+		elif (argsContains "--packages-official-media"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_MEDIA m)"$'\n'
+		elif (argsContains "--packages-official-other"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER m)"$'\n'
 		elif (argsContains "--packages-ctcgfw"); then
 			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
 		elif (argsContains "--packages-lean"); then
