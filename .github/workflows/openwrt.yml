@@ -368,5 +368,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add ${{matrix.source}}-Packages
           git commit -m "Release ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}} ${{github.sha}}"
+          git tag snapshot --force
           git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" snapshot --force
 
