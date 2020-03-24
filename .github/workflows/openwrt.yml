@@ -111,6 +111,7 @@ jobs:
   Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
     needs: SDK
     runs-on: ubuntu-18.04
+    timeout-minutes: 3600
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
