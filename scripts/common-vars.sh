@@ -77,8 +77,15 @@ function OFFICIAL_LUCI_APP {
 function OFFICIAL_PACKAGES_LANG {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
 }
-function OFFICIAL_PACKAGES_LIB {
-    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1"
+function OFFICIAL_PACKAGES_LIB_1 {
+	ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1")
+    PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
+    echo "$ALL_PACKAGE_LIBS" | head -$(("$PACKAGES_CNT"/2))
+}
+function OFFICIAL_PACKAGES_LIB_2 {
+	ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1")
+    PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
+    echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_NET {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1"

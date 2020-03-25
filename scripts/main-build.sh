@@ -82,7 +82,8 @@ if ( argsContains "--help" );then
 						do not add addon packages (useful for build SDK)[default is disable]
 	--image				build image using pre-build packages
 	--packages-official-luci	append official luci application set when '--sdk' is chosen
-	--packages-official-lib
+	--packages-official-lib-1
+	--packages-official-lib-2
 	--packages-official-lang
 	--packages-official-net
 	--packages-official-utils
@@ -184,8 +185,10 @@ CONFIG_ALL=n
 			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
 		elif (argsContains "--packages-official-lang"); then
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG m)"$'\n'
-		elif (argsContains "--packages-official-lib"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB m)"$'\n'
+		elif (argsContains "--packages-official-lib-1"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 m)"$'\n'
+		elif (argsContains "--packages-official-lib-2"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 m)"$'\n'
 		elif (argsContains "--packages-official-net"); then
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET m)"$'\n'
 		elif (argsContains "--packages-official-utils"); then
