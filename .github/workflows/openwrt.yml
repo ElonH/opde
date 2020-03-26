@@ -115,7 +115,7 @@ jobs:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
         source: [latest]
-        packages: [official-luci, official-lib-1, official-lib-2, official-lib-3, official-net, official-lang, official-utils, official-media, official-other, ctcgfw, lean, ntlf9t, lienol-zxlhhyccc]
+        packages: [official-luci, official-lib-1, official-lib-2, official-lib-3, official-net, official-lang, official-utils, official-media, official-other, ctcgfw, lean, lienol-zxlhhyccc-ntlf9t]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -242,11 +242,7 @@ jobs:
           path: ./Packages_Archive/
       - uses: actions/download-artifact@master
         with:
-          name: ${{matrix.source}}-Packages-lienol-zxlhhyccc
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-ntlf9t
+          name: ${{matrix.source}}-Packages-lienol-zxlhhyccc-ntlf9t
           path: ./Packages_Archive/
       - name: Deployment
         run: |

@@ -73,15 +73,15 @@ fi
 # main program
 if ( argsContains "--help" );then
 	echo -e "Args:
-	--sdk				add base feeds (useful for SDK)[default is disable]
-						change to sdk directory (useful for SDK)[default is disable]
-						sdk configure head (useful for SDK)[default is disable]
-	--feeds				update and install feeds[default is disable]
-	--save-space			Deleting build directories after compiling (to save space)
-	--build-sdk			disable extra default packages (useful for build SDK)[default is disable]
-						do not add addon packages (useful for build SDK)[default is disable]
-	--image				build image using pre-build packages
-	--packages-official-luci	append official luci application set when '--sdk' is chosen
+	--sdk					add base feeds (useful for SDK)[default is disable]
+							change to sdk directory (useful for SDK)[default is disable]
+							sdk configure head (useful for SDK)[default is disable]
+	--feeds					update and install feeds[default is disable]
+	--save-space				Deleting build directories after compiling (to save space)
+	--build-sdk				disable extra default packages (useful for build SDK)[default is disable]
+							do not add addon packages (useful for build SDK)[default is disable]
+	--image					build image using pre-build packages
+	--packages-official-luci		append official luci application set when '--sdk' is chosen
 	--packages-official-lib-1
 	--packages-official-lib-2
 	--packages-official-lib-3
@@ -90,10 +90,9 @@ if ( argsContains "--help" );then
 	--packages-official-utils
 	--packages-official-media
 	--packages-official-other
-	--packages-ctcgfw		append ctcgfw packages set when '--sdk' is chosen
-	--packages-lean			append lean packages set when '--sdk' is chosen
-	--packages-ntlf9t		append ntlf9t packages set when '--sdk' is chosen
-	--packages-lienol-zxlhhyccc	append lienol and zxlhhyccc packages set when '--sdk' is chosen
+	--packages-ctcgfw			append ctcgfw packages set when '--sdk' is chosen
+	--packages-lean				append lean packages set when '--sdk' is chosen
+	--packages-lienol-zxlhhyccc-ntlf9t	append ntlf9t, lienol and zxlhhyccc packages set when '--sdk' is chosen
 	"
 	exit 0
 fi
@@ -204,10 +203,8 @@ CONFIG_ALL=n
 			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
 		elif (argsContains "--packages-lean"); then
 			SDK_PACK_CONF+="$(LEAN_PACKAGES m)"$'\n'
-		elif (argsContains "--packages-ntlf9t"); then
-			SDK_PACK_CONF+="$(NTLF9T_PACKAGES m)"$'\n'
-		elif (argsContains "--packages-lienol-zxlhhyccc"); then
-			SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_PACKAGES m)"$'\n'
+		elif (argsContains "--packages-lienol-zxlhhyccc-ntlf9t"); then
+			SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES m)"$'\n'
 		else
 			SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
 		fi
