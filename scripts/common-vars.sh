@@ -96,8 +96,17 @@ function OFFICIAL_PACKAGES_LIB_3 {
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
 }
-function OFFICIAL_PACKAGES_NET {
-    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1"
+function OFFICIAL_PACKAGES_NET_1 {
+    # 0-50%
+    ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1")
+    PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
+    echo "$ALL_PACKAGE_LIBS" | head -$(("$PACKAGES_CNT"/2))
+}
+function OFFICIAL_PACKAGES_NET_2 {
+    # 50-100%
+    ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1")
+    PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
+    echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_UTILS {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/utils" "$1"

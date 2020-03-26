@@ -86,7 +86,8 @@ if ( argsContains "--help" );then
 	--packages-official-lib-2
 	--packages-official-lib-3
 	--packages-official-lang
-	--packages-official-net
+	--packages-official-net-1
+	--packages-official-net-2
 	--packages-official-utils
 	--packages-official-media
 	--packages-official-other
@@ -191,8 +192,10 @@ CONFIG_ALL=n
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 m)"$'\n'
 		elif (argsContains "--packages-official-lib-3"); then
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 m)"$'\n'
-		elif (argsContains "--packages-official-net"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET m)"$'\n'
+		elif (argsContains "--packages-official-net-1"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 m)"$'\n'
+		elif (argsContains "--packages-official-net-2"); then
+			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 m)"$'\n'
 		elif (argsContains "--packages-official-utils"); then
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS m)"$'\n'
 		elif (argsContains "--packages-official-media"); then
