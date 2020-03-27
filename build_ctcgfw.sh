@@ -34,7 +34,7 @@ CONFIG_PACKAGE_ootoc=y
 # this configuration will be added only when  building SDK
 function build_sdk_pack_conf {
 # cancel default packages
-BUILD_SDK_CONF="
+BUILD_SDK_PACK_CONF="
 CONFIG_PACKAGE_luci-app-ddns=n
 CONFIG_PACKAGE_luci-app-sqm=n
 CONFIG_PACKAGE_luci-app-upnp=n
