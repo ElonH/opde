@@ -124,7 +124,6 @@ jobs:
           - official-net-2
           - official-lang
           - official-utils
-          - official-media
           - official-other
           - ctcgfw
           - lean
@@ -240,10 +239,6 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: ${{matrix.source}}-Packages-official-utils
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-media
           path: ./Packages_Archive/
       - uses: actions/download-artifact@master
         with:
