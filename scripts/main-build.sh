@@ -89,7 +89,6 @@ if ( argsContains "--help" );then
 	--packages-official-net-1
 	--packages-official-net-2
 	--packages-official-utils
-	--packages-official-media
 	--packages-official-other
 	--packages-ctcgfw			append ctcgfw packages set when '--sdk' is chosen
 	--packages-lean				append lean packages set when '--sdk' is chosen
@@ -198,8 +197,6 @@ CONFIG_ALL=n
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 m)"$'\n'
 		elif (argsContains "--packages-official-utils"); then
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS m)"$'\n'
-		elif (argsContains "--packages-official-media"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_MEDIA m)"$'\n'
 		elif (argsContains "--packages-official-other"); then
 			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER m)"$'\n'
 		elif (argsContains "--packages-ctcgfw"); then

@@ -111,15 +111,13 @@ function OFFICIAL_PACKAGES_NET_2 {
 function OFFICIAL_PACKAGES_UTILS {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/utils" "$1"
 }
-function OFFICIAL_PACKAGES_MEDIA {
-    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/sound" "$1"
-    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/multimedia" "$1"
-}
 function OFFICIAL_PACKAGES_OTHER {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/admin" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/devel" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/ipv6" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/mail" "$1"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/sound" "$1"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/multimedia" "$1"
     echo "
 CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Italic=$1
 CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Italic=$1
