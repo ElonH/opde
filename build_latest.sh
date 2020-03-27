@@ -31,6 +31,13 @@ CONFIG_PACKAGE_ootoc=y
 "
 }
 
+# this configuration will be added only when  building SDK
+function build_sdk_pack_conf {
+# cancel default packages
+BUILD_SDK_CONF="
+"
+}
+
 # this packages will not be added to conf when building SDK
 function user_pack_conf {
 USER_PACK_CONF="

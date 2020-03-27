@@ -33,6 +33,7 @@ function check_var_not_set() {
 check_var_not_set SCRIPT_ABS_PATH
 check_func_not_set feeds_conf
 check_func_not_set base_pack_conf
+check_func_not_set build_sdk_pack_conf
 check_func_not_set user_pack_conf
 
 # internal variable
@@ -44,11 +45,13 @@ BUILD_SDK_PACK_CONF=""
 
 feeds_conf
 base_pack_conf
+build_sdk_pack_conf
 user_pack_conf
 
 check_var_not_set SOURCE_NAME
 check_var_not_set FEEDS_CONF
 check_var_not_set BASE_PACK_CONF
+check_var_not_set BUILD_SDK_PACK_CONF
 check_var_not_set USER_PACK_CONF
 
 # args check
@@ -169,6 +172,7 @@ if ( argsContains "--build-sdk" ) || ( argsContains "--sdk" ); then
 		BUILD_SDK_PACK_CONF="
 CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
+$(BUILD_SDK_PACK_CONF)
 "
 	else
 		BUILD_SDK_PACK_CONF=""
