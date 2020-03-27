@@ -48,6 +48,7 @@ CONFIG_PACKAGE_ddns-scripts_dnspod=n
 CONFIG_PACKAGE_kmod-batman-adv=n
 CONFIG_PACKAGE_kmod-mt_wifi=n
 CONFIG_PACKAGE_kmod-rtl8821cu=n
+CONFIG_PACKAGE_ootoc=y
 "
 }
 
