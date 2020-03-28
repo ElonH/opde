@@ -15,7 +15,6 @@ OpenWrt Development Environment
     `ootoc` as an agent, providing OpenWrt packages in the remote tar file.
     ``` bash
     bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/BuildOpenWRT@master/feeds/scripts/activate-ootoc.sh) [source] [version tag]
-    # TODO: shorten url via git.io
     ```
     > Note:  
     > [source]-Firmware-[version tag].tar is your downloaded firmware.  
@@ -61,14 +60,12 @@ OpenWrt Development Environment
 ### Advance Usage
 #### SDK compile
 
-if there is not exist your favourite package or you need to compile your private packages running on this firmware, the better way is that using SDK to compile packages.
-
 - without building the whole openwrt.
 - build newer version packages
 - build private packages.
 - ...
 
-Note: SDK shouldn't build kernel packages.
+Note: shouldn't use SDK to build kernel packages.
 
 TODO: a document that how to setup SDK environment
 
