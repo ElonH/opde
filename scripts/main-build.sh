@@ -184,29 +184,29 @@ CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 "
 	if (argsContains "--packages-official-luci"); then
-		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP y)"$'\n'
 	elif (argsContains "--packages-official-lang"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG y)"$'\n'
 	elif (argsContains "--packages-official-lib-1"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 y)"$'\n'
 	elif (argsContains "--packages-official-lib-2"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 y)"$'\n'
 	elif (argsContains "--packages-official-lib-3"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 y)"$'\n'
 	elif (argsContains "--packages-official-net-1"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 y)"$'\n'
 	elif (argsContains "--packages-official-net-2"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 y)"$'\n'
 	elif (argsContains "--packages-official-utils"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS y)"$'\n'
 	elif (argsContains "--packages-official-other"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER m)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER y)"$'\n'
 	elif (argsContains "--packages-ctcgfw"); then
-		SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
+		SDK_PACK_CONF+="$(CTCGFW_PACKAGES y)"$'\n'
 	elif (argsContains "--packages-lean"); then
-		SDK_PACK_CONF+="$(LEAN_PACKAGES m)"$'\n'
+		SDK_PACK_CONF+="$(LEAN_PACKAGES y)"$'\n'
 	elif (argsContains "--packages-lienol-zxlhhyccc-ntlf9t"); then
-		SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES m)"$'\n'
+		SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES y)"$'\n'
 	fi
 else
 	BUILD_SDK_PACK_CONF=""
