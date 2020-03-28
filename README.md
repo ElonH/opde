@@ -19,7 +19,7 @@ OpenWrt Development Environment
     > Note:  
     > [source]-Firmware-[version tag].tar is your downloaded firmware.  
     > source: 'latest' or 'ctcgfw'.  
-    > version tag: the tag in release (eg: v20.03.1 etc.)
+    > version tag: the tag in release (eg: snapshot, v20.03.1 etc.)
 
 4. watch log file `tail -f /var/log/ootoc` and wait ootoc deployment done.
 
