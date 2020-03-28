@@ -33,6 +33,7 @@ function check_var_not_set() {
 check_var_not_set SCRIPT_ABS_PATH
 check_func_not_set feeds_conf
 check_func_not_set base_pack_conf
+check_func_not_set build_sdk_pack_conf
 check_func_not_set user_pack_conf
 
 # internal variable
@@ -44,11 +45,13 @@ BUILD_SDK_PACK_CONF=""
 
 feeds_conf
 base_pack_conf
+build_sdk_pack_conf
 user_pack_conf
 
 check_var_not_set SOURCE_NAME
 check_var_not_set FEEDS_CONF
 check_var_not_set BASE_PACK_CONF
+check_var_not_set BUILD_SDK_PACK_CONF
 check_var_not_set USER_PACK_CONF
 
 # args check
@@ -164,60 +167,57 @@ if ( argsContains "--feeds" );then
     ./scripts/feeds update -a && ./scripts/feeds install -a
 fi
 
-if ( argsContains "--build-sdk" ) || ( argsContains "--sdk" ); then
-	if ( argsContains "--build-sdk" );then
-		BUILD_SDK_PACK_CONF="
+if ( argsContains "--build-sdk" );then
+	SDK_PACK_CONF=""
+	USER_PACK_CONF=""
+	BUILD_SDK_PACK_CONF="
 CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
+$BUILD_SDK_PACK_CONF
 "
-	else
-		BUILD_SDK_PACK_CONF=""
-	fi
-
-
-	if ( argsContains "--sdk" );then
-		SDK_PACK_CONF="
+elif ( argsContains "--sdk" );then
+	BUILD_SDK_PACK_CONF=""
+	USER_PACK_CONF=""
+	SDK_PACK_CONF="
 CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 "
-		if (argsContains "--packages-official-luci"); then
-			SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
-		elif (argsContains "--packages-official-lang"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG m)"$'\n'
-		elif (argsContains "--packages-official-lib-1"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 m)"$'\n'
-		elif (argsContains "--packages-official-lib-2"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 m)"$'\n'
-		elif (argsContains "--packages-official-lib-3"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 m)"$'\n'
-		elif (argsContains "--packages-official-net-1"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 m)"$'\n'
-		elif (argsContains "--packages-official-net-2"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 m)"$'\n'
-		elif (argsContains "--packages-official-utils"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS m)"$'\n'
-		elif (argsContains "--packages-official-other"); then
-			SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER m)"$'\n'
-		elif (argsContains "--packages-ctcgfw"); then
-			SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
-		elif (argsContains "--packages-lean"); then
-			SDK_PACK_CONF+="$(LEAN_PACKAGES m)"$'\n'
-		elif (argsContains "--packages-lienol-zxlhhyccc-ntlf9t"); then
-			SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES m)"$'\n'
-		else
-			SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
-		fi
+	if (argsContains "--packages-official-luci"); then
+		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP m)"$'\n'
+	elif (argsContains "--packages-official-lang"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG m)"$'\n'
+	elif (argsContains "--packages-official-lib-1"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 m)"$'\n'
+	elif (argsContains "--packages-official-lib-2"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 m)"$'\n'
+	elif (argsContains "--packages-official-lib-3"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 m)"$'\n'
+	elif (argsContains "--packages-official-net-1"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 m)"$'\n'
+	elif (argsContains "--packages-official-net-2"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 m)"$'\n'
+	elif (argsContains "--packages-official-utils"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS m)"$'\n'
+	elif (argsContains "--packages-official-other"); then
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER m)"$'\n'
+	elif (argsContains "--packages-ctcgfw"); then
+		SDK_PACK_CONF+="$(CTCGFW_PACKAGES m)"$'\n'
+	elif (argsContains "--packages-lean"); then
+		SDK_PACK_CONF+="$(LEAN_PACKAGES m)"$'\n'
+	elif (argsContains "--packages-lienol-zxlhhyccc-ntlf9t"); then
+		SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES m)"$'\n'
 	fi
 else
 	BUILD_SDK_PACK_CONF=""
-	SDK_PACK_CONF+="$USER_PACK_CONF"$'\n'
+	SDK_PACK_CONF=""
 fi
 
 PACK_CONF+="
 $BASE_PACK_CONF
 $BUILD_SDK_PACK_CONF
 $SDK_PACK_CONF
+$USER_PACK_CONF
 "
 
 echo "${PACK_CONF}"

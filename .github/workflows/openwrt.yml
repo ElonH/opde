@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -114,7 +114,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
         packages: 
           - official-luci
           - official-lib-1
@@ -200,7 +200,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
     steps:
       - uses: actions/checkout@v2
       - name: Download Imagebuilder
@@ -329,7 +329,7 @@ jobs:
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
-        source: [latest]
+        source: [latest, ctcgfw]
     steps:
       - name: tag-name
         id: tag
