@@ -61,6 +61,10 @@ CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_v2ray-plugin=y
 }
 function LEAN_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/lean" "$1"
+    echo "CONFIG_PACKAGE_kcptun-client=$1
+CONFIG_PACKAGE_kcptun-server=$1
+PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+"
 }
 function LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ntlf9t" "$1"
