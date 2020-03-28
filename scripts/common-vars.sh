@@ -42,21 +42,17 @@ function CTCGFW_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ctcgfw" "$1"
     echo "CONFIG_PACKAGE_cups-bjnp=n
 CONFIG_PACKAGE_cups=n
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_Trojan=y
 CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_Kcptun=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_Shadowsocks_Server=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_Shadowsocks_Socks=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_dnscrypt_proxy=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_dnsforwarder=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_ChinaDNS=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_haproxy=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_privoxy=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_simple-obfs=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_simple-obfs-server=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_ipt2socks=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_GoQuiet-client=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_GoQuiet-server=y
-CONFIG_PACKAGE_luci-app-ssr-plus-Jo_INCLUDE_v2ray-plugin=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_mdadm=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_raid456=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linear=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_microsocks=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_dns2socks=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_haproxy=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_GoQuiet-client=y
+CONFIG_PACKAGE_luci-app-vssr_INCLUDE_GoQuiet-server=y
 "
 }
 function LEAN_PACKAGES {
