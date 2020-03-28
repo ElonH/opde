@@ -70,6 +70,15 @@ function LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES {
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ntlf9t" "$1"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/lienol" "$1"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/zxlhhyccc" "$1"
+    echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs=y
+"
 }
 
 function OFFICIAL_LUCI_APP {
