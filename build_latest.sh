@@ -15,7 +15,7 @@ src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 "
 }
 
-# basic configuration whatever build SDK or build packages
+# basic configuration whatever build SDK, build packages or develepment
 function base_pack_conf {
 BASE_PACK_CONF="
 $(TARGET_X86_64)
@@ -31,14 +31,14 @@ CONFIG_PACKAGE_ootoc=y
 "
 }
 
-# this configuration will be added only when  building SDK
+# this configuration will be added only when building SDK
 function build_sdk_pack_conf {
 # cancel default packages
-BUILD_SDK_CONF="
+BUILD_SDK_PACK_CONF="
 "
 }
 
-# this packages will not be added to conf when building SDK
+# this configuration will be add in develepment envirment
 function user_pack_conf {
 USER_PACK_CONF="
 
