@@ -7,9 +7,7 @@ on:
     paths-ignore:
       - '**.md' # ignore *.md files
     branches:
-      - master
-    tags:
-      - v*.*.*
+      - k2p
 
 env:
   HOME: /home/runner
@@ -86,7 +84,7 @@ jobs:
         id: Find
         working-directory: ./${{matrix.source}}
         run: |
-          ls bin/targets/x86/64/
+          ls bin/targets/*/*/
           SDK_PATH=$(find bin -name "*sdk*")
           echo "::set-output name=SDK_PATH::${SDK_PATH}"
           IB_PATH=$(find bin -name "*imagebuilder*")
