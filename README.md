@@ -8,13 +8,13 @@ OpenWrt Development Environment
 ## Consumer Usage:
 
 ### Basic
-1. download compiled firmware from [release](https://github.com/ElonH/BuildOpenWRT/releases) and burn it into the router(required 512M+32M space).
+1. download compiled firmware from [release](https://github.com/ElonH/opde/releases) and burn it into the router(required 512M+32M space).
 2. ssh the router
 3. run command to active `ootoc`
 
     `ootoc` as an agent, providing OpenWrt packages in the remote tar file.
     ``` bash
-    bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/BuildOpenWRT@master/feeds/scripts/activate-ootoc.sh) [source] [version tag]
+    bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/opde@master/feeds/scripts/activate-ootoc.sh) [source] [version tag]
     ```
     > Note:  
     > [source]-Firmware-[version tag].tar is your downloaded firmware.  
@@ -23,11 +23,11 @@ OpenWrt Development Environment
 
 4. watch log file `tail -f /var/log/ootoc` and wait ootoc deployment done.
 
-    For example: [latest-snapshot](https://github.com/ElonH/BuildOpenWRT/releases/tag/snapshot)
+    For example: [latest-snapshot](https://github.com/ElonH/opde/releases/tag/snapshot)
     ```
     [ootoc] [14:17:57.080] [8913] [debug] auxilary file downloaded: 451063+1048
     [ootoc] [14:17:57.080] [8913] [debug] auxilary file downloaded: 452111+5406
-    [ootoc] [14:17:57.080] [8913] [info] fetching range success: https://github.com/ElonH/BuildOpenWRT/releases/download/snapshot/latest-Packages-snapshot.yml
+    [ootoc] [14:17:57.080] [8913] [info] fetching range success: https://github.com/ElonH/opde/releases/download/snapshot/latest-Packages-snapshot.yml
     [ootoc] [14:17:57.080] [8913] [info] auxilary file download completed
     [ootoc] [14:17:57.080] [8913] [info] auxilary file size: 457517
     [ootoc] [14:17:57.791] [8913] [info] subscription: save content to '/etc/opkg/distfeeds.conf'
@@ -77,8 +77,8 @@ TODO: a document that how to setup SDK environment
 ### init
 
 ```bash
-git clone https://github.com/ElonH/BuildOpenWRT.git --recursive
-cd BuildOpenWRT
+git clone https://github.com/ElonH/opde.git --recursive
+cd opde
 
 ./build-official.sh --feeds
 # or ./build-lede.sh --feeds
