@@ -7,3 +7,5 @@ SDK*
 *.yml
 *.sign
 IB*
+*-Firmware/
+*-Packages/
