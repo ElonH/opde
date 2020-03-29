@@ -389,8 +389,10 @@ jobs:
         with:
           name: ${{matrix.source}}-Aux
           path: ./${{matrix.source}}-Packages.yml
-      - run: |
+      - name: checksum
+        run: |
           rm ./${{matrix.source}}-Packages.yml
+          sha256sum *.tar *.yml | tee ${{matrix.source}}-SHA256SUM-${{steps.tag.outputs.tagName}}.sign
       - uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.RELEASE_TOKEN }}
@@ -402,6 +404,13 @@ jobs:
         with:
           repo_token: ${{ secrets.RELEASE_TOKEN }}
           file: ./*.yml
+          tag: ${{steps.tag.outputs.tagName}}
+          file_glob: true
+          overwrite: true
+      - uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.RELEASE_TOKEN }}
+          file: ./*.sign
           tag: ${{steps.tag.outputs.tagName}}
           file_glob: true
           overwrite: true
