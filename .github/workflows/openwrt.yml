@@ -12,7 +12,7 @@ on:
       - v*
 
 env:
-  HOME: /home/runner/work/BuildOpenWRT
+  HOME: /home/runner
 
 jobs:
   SDK:
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v2
       - run: |
           git submodule update --init --recursive
-          mkdir -p ${HOME}/apt 
+          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
@@ -39,12 +39,12 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
+          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${{env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
           sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${HOME}/apt;done 
+          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
           sudo -E apt-get autoremove -y --purge
@@ -140,7 +140,7 @@ jobs:
           git submodule update --init --recursive
           tar -xf $(find SDK_Archive -name "*sdk*") -C .
           mv $(ls | grep "sdk") ${{matrix.source}}_sdk
-          mkdir ${HOME}/apt || true
+          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
@@ -153,12 +153,12 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
+          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${{env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
           sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${HOME}/apt;done 
+          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
           sudo -E apt-get autoremove -y --purge
@@ -263,7 +263,7 @@ jobs:
           tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
           mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
           # rm ${{matrix.source}}_ib/packages -rf
-          mkdir ${HOME}/apt || true
+          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
@@ -276,10 +276,10 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${HOME}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${HOME}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
+          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           sudo apt-get update -y
           sudo apt-get install -y build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${HOME}/apt;done 
+          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
       - name: Configure
         working-directory: ./${{matrix.source}}_ib
         run: |
@@ -319,11 +319,11 @@ jobs:
           body: |
             Activate `ootoc` in `latest`
             ``` bash
-            bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/BuildOpenWRT@master/feeds/scripts/activate-ootoc.sh) latest ${{steps.tag.outputs.tagName}}
+            bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@master/feeds/scripts/activate-ootoc.sh) latest ${{steps.tag.outputs.tagName}}
             ```
             Activate `ootoc` in `ctcgfw`
             ``` bash
-            bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/BuildOpenWRT@master/feeds/scripts/activate-ootoc.sh) ctcgfw ${{steps.tag.outputs.tagName}}
+            bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@master/feeds/scripts/activate-ootoc.sh) ctcgfw ${{steps.tag.outputs.tagName}}
             ```
           draft: false
           prerelease: false
