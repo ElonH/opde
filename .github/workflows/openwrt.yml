@@ -327,6 +327,12 @@ jobs:
             ```
           draft: false
           prerelease: false
+      - name: Remove old artifacts
+        uses: c-hive/gha-remove-artifacts@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          age: '3 days'
+          skip-tags: true
   Release:
     needs: [Targets]
     runs-on: ubuntu-18.04
