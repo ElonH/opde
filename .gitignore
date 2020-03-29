@@ -3,4 +3,7 @@ SDK*
 *ib*/
 *imagebuilder*
 *.zip
+*.tar
+*.yml
+*.sign
 IB*
