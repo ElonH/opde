@@ -18,9 +18,10 @@ src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 # basic configuration whatever build SDK, build packages or develepment
 function base_pack_conf {
 BASE_PACK_CONF="
-$(TARGET_X86_64)
+CONFIG_TARGET_ramips=y
+CONFIG_TARGET_ramips_mt7621=y
+CONFIG_TARGET_ramips_mt7621_DEVICE_phicomm_k2p=y
 
-$(IMG_SETTING)
 $(ENABLE_LOG)
 CONFIG_CCACHE=y
 
