@@ -89,23 +89,28 @@ jobs:
           echo "::set-output name=SDK_PATH::${SDK_PATH}"
           IB_PATH=$(find bin -name "*imagebuilder*")
           echo "::set-output name=IB_PATH::${IB_PATH}"
-          FIRMWARE_PATH=$(find bin -name "openwrt-*-combined*.img.gz")
-          echo "::set-output name=FIRMWARE_PATH::${FIRMWARE_PATH}"
       - name: Upload SDK
         uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-SDK
           path: ${{matrix.source}}/${{steps.Find.outputs.SDK_PATH}}
-      - name: Upload Firmware
-        uses: actions/upload-artifact@master
-        with:
-          name: ${{matrix.source}}-Firmware
-          path: ${{matrix.source}}/${{steps.Find.outputs.FIRMWARE_PATH}}
       - name: Upload Imagebuilder
         uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-Imagebuilder
           path: ${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}
+      - name: Prepare Firmware
+        working-directory: ./${{matrix.source}}
+        run: |
+          rm bin/targets/*/*/packages -rf
+          rm ${{steps.Find.outputs.SDK_PATH}} -rf
+          rm ${{steps.Find.outputs.IB_PATH}} -rf
+          ls bin/targets/*/*/
+      - name: Upload Firmware
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{matrix.source}}-Firmware
+          path: ${{matrix.source}}/bin/targets
   Packages: # refs: https://openwrt.org/docs/guide-developer/using_the_sdk
     needs: SDK
     runs-on: ubuntu-18.04

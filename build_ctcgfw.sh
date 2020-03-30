@@ -20,7 +20,6 @@ function base_pack_conf {
 BASE_PACK_CONF="
 $(TARGET_X86_64)
 
-$(IMG_SETTING)
 $(ENABLE_LOG)
 CONFIG_CCACHE=y
 
