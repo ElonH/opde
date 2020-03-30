@@ -22,17 +22,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: |
+      - id: time
+        run: |
           git submodule update --init --recursive
           mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: apt-sdk
+          key: apt-sdk-${{steps.time.outputs.date}}
           restore-keys: |
-            apt-
+            apt-sdk
+            apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -41,7 +44,7 @@ jobs:
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
-          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler cmake libcurl4-openssl-dev
+          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler cmake libcurl4-openssl-dev libncursesw5-dev xsltproc
           [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
@@ -50,21 +53,18 @@ jobs:
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
       - name: Configure
         working-directory: ./${{matrix.source}}
-        id: conf
         run: |
           ../build_${{matrix.source}}.sh --build-sdk --feeds --save-space
           mkdir -p dl || true
           mkdir -p logs && cp .config logs/
-          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}/dl
-          key: dl-sdk-${{steps.conf.outputs.date}}
+          key: dl-sdk-${{steps.time.outputs.date}}
           restore-keys: |
-            dl-sdk-
-            dl-
+            dl-sdk
       - name: Download
         working-directory: ./${{matrix.source}}
         run: make download -j8 || true
@@ -139,19 +139,22 @@ jobs:
           name: ${{matrix.source}}-SDK
           path: ./SDK_Archive/
       - name: Deployment
+        id: time
         run: |
           git submodule update --init --recursive
           tar -xf $(find SDK_Archive -name "*sdk*") -C .
           mv $(ls | grep "sdk") ${{matrix.source}}_sdk
           mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: apt-sdk
+          key: apt-sdk-${{steps.time.outputs.date}}
           restore-keys: |
-            apt-
+            apt-sdk
+            apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -173,16 +176,14 @@ jobs:
         run: |
           ../build_${{matrix.source}}.sh --sdk --feeds --packages-${{matrix.packages}} --save-space
           mkdir dl || true
-          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ./${{matrix.source}}_sdk/dl
-          key: dl-packages-${{steps.conf.outputs.date}}
+          key: dl-packages-${{matrix.packages}}-${{steps.time.outputs.date}}
           restore-keys: |
-            dl-packages-
-            dl-
+            dl-packages-${{matrix.packages}}
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
         run: make download -j8 || true
@@ -190,12 +191,20 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} IGNORE_ERRORS="y m n" || make -j1 IGNORE_ERRORS="y m n" || true # TODO: remove `make -j1` ??
+          make -j${make_process} IGNORE_ERRORS="y m n" |& tee -a log.out
+      - name: Create issues
+        working-directory: ./${{matrix.source}}_sdk
+        run: |
+          pip3 install --upgrade pip
+          pip3 install setuptools
+          PYCURL_SSL_LIBRARY=openssl pip3 install pycurl
+          # ./scripts/create-issues --repo ${{github.repository}} --log ./log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          ../create-issues --repo ElonH/testAction --log ./log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          # TODO: debug
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-Packages-${{matrix.packages}}
-          # TODO: ${{matrix.source}}_sdk/bin/packages
           path: ${{matrix.source}}_sdk/bin
   Targets: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
     needs: [Packages]
@@ -260,6 +269,7 @@ jobs:
           name: ${{matrix.source}}-Packages-lienol-zxlhhyccc-ntlf9t
           path: ./Packages_Archive/
       - name: Deployment
+        id: time
         run: |
           mkdir -p ./${{matrix.source}}_sdk/
           mv ./Packages_Archive ./${{matrix.source}}_sdk/bin
@@ -267,14 +277,16 @@ jobs:
           mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
           # rm ${{matrix.source}}_ib/packages -rf
           mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: apt-targets
+          key: apt-sdk-${{steps.time.outputs.date}}
           restore-keys: |
-            apt-
+            apt-sdk
+            apt
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -359,9 +371,10 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{env.HOME}}/apt
-          key: apt-sdk
+          key: apt-sdk-${{steps.time.outputs.date}}
           restore-keys: |
-            apt-
+            apt-sdk
+            apt
       - name: ootoc
         env:
           DEBIAN_FRONTEND: noninteractive

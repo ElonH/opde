@@ -1,0 +1,117 @@
+#!/usr/bin/python3
+import pycurl
+import certifi
+from io import BytesIO
+import os
+import json
+import re
+
+def get_exist_err_packs(repo):
+    buffer = BytesIO()
+    c = pycurl.Curl()
+    c.setopt(
+        c.URL, 'https://api.github.com/repos/{}/issues'.format(repo))
+    c.setopt(pycurl.WRITEFUNCTION, buffer.write)
+    c.setopt(c.CAINFO, certifi.where())
+    c.perform()
+    c.close()
+    body = buffer.getvalue().decode('UTF-8')
+    # print(body)
+    issues = json.loads(body)
+    # print(issues)
+    exist_err_packs = []
+    for issue in issues:
+        labels = issue['labels']
+        # print(labels)
+        # issue's label must contain 'bug'
+        if 'bug' not in map(lambda x: x['name'], labels):
+            continue
+        err_packs = re.findall('ERROR: (.*) failed to build', issue['title'])
+        exist_err_packs.extend(err_packs)
+        pass
+    return exist_err_packs
+
+
+def create_issue(pack, repo, op_top, user, token):
+    compile_log_path = '%s/logs/%s/compile.txt' % (op_top, pack)
+    # print(compile_log_path)
+    with open(compile_log_path, 'r') as f:
+        compile_log = f.read()
+    c = pycurl.Curl()
+    c.setopt(c.URL, 'https://api.github.com/repos/{}/issues'.format(repo))
+    c.setopt(c.CAINFO, certifi.where())
+    c.setopt(c.CUSTOMREQUEST, 'POST')
+    c.setopt(c.USERNAME, user)
+    c.setopt(c.PASSWORD, token)
+    buffer = BytesIO()
+    c.setopt(pycurl.WRITEFUNCTION, buffer.write)
+
+    post_data = {
+        'title': 'ERROR: %s failed to build' % pack,
+        'labels': ['bug'],
+        'body':
+        '''
+Package `{}` compiled error.
+Dalao fix it, please!
+
+
+---
+
+<details>
+<summary>
+Log detail
+</summary>
+
+> Note: This issue is created from [opde](https://github.com/ElonH/opde) action
+
+```
+{}
+```
+</details>
+
+        '''.format(pack, compile_log),
+    }
+    # print(post_data['body'])
+    # return
+    c.setopt(c.POSTFIELDS, json.dumps(post_data))
+    c.perform()
+    c.close()
+    print("created issue: %s" % pack)
+    pass
+
+
+def main(repo, log_path, op_top, user, token):
+    opened_issues = set(get_exist_err_packs(repo))
+    compiled_err_issues = []
+    print('opened issues: %s' % opened_issues)
+    with open(log_path, 'r') as f:
+        for line in f:
+            err_packs = re.findall('ERROR: (.*) failed to build', line)
+            compiled_err_issues.extend(err_packs)
+    compiled_err_issues = set(compiled_err_issues)
+    print('current packages need to be fixed: %s' % compiled_err_issues)
+    push_issues = compiled_err_issues.difference(opened_issues)
+    print('need to create issues: %s' % push_issues)
+    for issue in push_issues:
+        create_issue(issue, repo, op_top, user, token)
+    pass
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description='Create compiled error issue from Build log')
+    parser.add_argument('--repo', type=str, required=True,
+                        help='the github repo name[example: Codertocat/Hello-World]')
+    parser.add_argument('--log', type=str, required=True,
+                        help='log path')
+    parser.add_argument('--op', type=str, required=True,
+                        help='openwrt top directory')
+    parser.add_argument('--user', type=str, required=True,
+                        help='github user who have permission to delete artifacts')
+    parser.add_argument('--token', type=str, required=True,
+                        help='user token')
+    args = parser.parse_args()
+    main(repo=args.repo, log_path=args.log,
+         op_top=args.op, user=args.user, token=args.token)
