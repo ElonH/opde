@@ -193,7 +193,16 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} IGNORE_ERRORS="y m n" || make -j1 IGNORE_ERRORS="y m n" || true # TODO: remove `make -j1` ??
+          make -j${make_process} IGNORE_ERRORS="y m n" |& tee -a log.out
+      - name: Create issues
+        working-directory: ./${{matrix.source}}_sdk
+        run: |
+          pip3 install --upgrade pip
+          pip3 install setuptools
+          PYCURL_SSL_LIBRARY=openssl pip3 install pycurl
+          # ./scripts/create-issues --repo ${{github.repository}} --log ./log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          ../create-issues --repo ElonH/testAction --log ./log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          # TODO: debug
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
