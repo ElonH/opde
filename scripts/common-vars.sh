@@ -19,6 +19,14 @@ CONFIG_TARGET_ROOTFS_PARTSIZE=512
 "
 }
 
+function TARGET_RAMIPS_MT7621 {
+echo "
+CONFIG_TARGET_ramips=y
+CONFIG_TARGET_ramips_mt7621=y
+CONFIG_TARGET_ramips_mt7621_DEVICE_phicomm_k2p=y
+"
+}
+
 function ENABLE_LOG {
     echo "
 CONFIG_DEVEL=y
