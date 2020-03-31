@@ -37,6 +37,8 @@ def create_issue(pack, repo, op_top, user, token):
     # print(compile_log_path)
     with open(compile_log_path, 'r') as f:
         compile_log = f.read()
+    with open("%s/logs/minial_config" % op_top, 'r') as f:
+        config_contents = f.read()
     c = pycurl.Curl()
     c.setopt(c.URL, 'https://api.github.com/repos/{}/issues'.format(repo))
     c.setopt(c.CAINFO, certifi.where())
@@ -64,12 +66,24 @@ Log detail
 
 > Note: This issue is created from [opde](https://github.com/ElonH/opde) action
 
+
+```
+{}
+```
+
+</details>
+
+<details>
+<summary>
+Configuration detail
+</summary>
+
 ```
 {}
 ```
 </details>
 
-        '''.format(pack, compile_log),
+        '''.format(pack, compile_log, config_contents),
     }
     # print(post_data['body'])
     # return
