@@ -20,8 +20,7 @@ function base_pack_conf {
 BASE_PACK_CONF="
 $(TARGET_X86_64)
 
-$(ENABLE_LOG)
-CONFIG_CCACHE=y
+$(GENERAL_SETTING)
 
 CONFIG_PACKAGE_kmod-batman-adv=n
 CONFIG_PACKAGE_kmod-mt_wifi=n
