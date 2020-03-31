@@ -193,7 +193,7 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} IGNORE_ERRORS="y m n" |& tee -a logs/log.out
+          make -j${make_process} IGNORE_ERRORS="y m n" |& tee logs/log.out
       - name: Create issues
         working-directory: ./${{matrix.source}}_sdk
         run: |
