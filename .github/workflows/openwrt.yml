@@ -177,7 +177,7 @@ jobs:
         id: conf
         run: |
           ../build_${{matrix.source}}.sh --sdk --feeds --packages-${{matrix.packages}} --save-space
-          mkdir dl || true
+          mkdir -p dl logs 2>/dev/null || true
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
@@ -193,15 +193,15 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         run: |
           let make_process=$(nproc)+1
-          make -j${make_process} IGNORE_ERRORS="y m n" |& tee -a log.out
+          make -j${make_process} IGNORE_ERRORS="y m n" |& tee -a logs/log.out
       - name: Create issues
         working-directory: ./${{matrix.source}}_sdk
         run: |
           pip3 install --upgrade pip
           pip3 install setuptools
           PYCURL_SSL_LIBRARY=openssl pip3 install pycurl
-          # ./scripts/create-issues --repo ${{github.repository}} --log ./log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
-          ../create-issues --repo ElonH/testAction --log ./log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          # ./scripts/create-issues --repo ${{github.repository}} --log ./logs/log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          ../create-issues --repo ElonH/testAction --log ./logs/log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
           # TODO: debug
       - name: Upload Packages
         uses: actions/upload-artifact@master
