@@ -34,6 +34,7 @@ check_var_not_set SCRIPT_ABS_PATH
 check_func_not_set feeds_conf
 check_func_not_set base_pack_conf
 check_func_not_set build_sdk_pack_conf
+check_func_not_set sdk_pack_conf
 check_func_not_set user_pack_conf
 
 # internal variable
@@ -46,12 +47,14 @@ BUILD_SDK_PACK_CONF=""
 feeds_conf
 base_pack_conf
 build_sdk_pack_conf
+sdk_pack_conf
 user_pack_conf
 
 check_var_not_set SOURCE_NAME
 check_var_not_set FEEDS_CONF
 check_var_not_set BASE_PACK_CONF
 check_var_not_set BUILD_SDK_PACK_CONF
+check_var_not_set SDK_PACK_CONF
 check_var_not_set USER_PACK_CONF
 
 # args check
@@ -182,6 +185,7 @@ elif ( argsContains "--sdk" );then
 CONFIG_ALL_NONSHARED=n
 CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
+$SDK_PACK_CONF
 "
 	if (argsContains "--packages-official-luci"); then
 		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP y)"$'\n'
