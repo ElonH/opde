@@ -27,10 +27,13 @@ CONFIG_TARGET_ramips_mt7621_DEVICE_phicomm_k2p=y
 "
 }
 
-function ENABLE_LOG {
+function GENERAL_SETTING {
     echo "
 CONFIG_DEVEL=y
 CONFIG_BUILD_LOG=y
+CONFIG_CCACHE=y
+CONFIG_TOOLCHAINOPTS=y
+CONFIG_GDB=n
 "
 }
 

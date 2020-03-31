@@ -6,11 +6,18 @@ import os
 import json
 import re
 
-def get_exist_err_packs(repo):
+issue_repo = ""
+log_path = ""
+openwrt_top_path = ""
+github_user = ""
+github_token = ""
+
+
+def get_exist_err_packs():
     buffer = BytesIO()
     c = pycurl.Curl()
     c.setopt(
-        c.URL, 'https://api.github.com/repos/{}/issues'.format(repo))
+        c.URL, 'https://api.github.com/repos/{}/issues'.format(issue_repo))
     c.setopt(pycurl.WRITEFUNCTION, buffer.write)
     c.setopt(c.CAINFO, certifi.where())
     c.perform()
@@ -29,25 +36,35 @@ def get_exist_err_packs(repo):
         err_packs = re.findall('ERROR: (.*) failed to build', issue['title'])
         exist_err_packs.extend(err_packs)
         pass
-    return exist_err_packs
+    return set(exist_err_packs)
 
 
-def create_issue(pack, repo, op_top, user, token):
-    compile_log_path = '%s/logs/%s/compile.txt' % (op_top, pack)
+def create_issue(pack_name):
+    compile_log_path = '%s/logs/%s/compile.txt' % (
+        openwrt_top_path, pack_name)
     # print(compile_log_path)
-    with open(compile_log_path, 'r') as f:
-        compile_log = f.read()
+    compile_log = "Sorry, can't provide valid compile log."
+    if not os.path.exists(compile_log_path) or not os.path.isfile(compile_log_path):
+        print("Compiel Log not exist: %s" % compile_log_path)
+    else:
+        with open(compile_log_path, 'r') as f:
+            compile_log = f.read()
+    config_contents = "Sorry, configuration missing."
+    config_path = "%s/logs/minial_config" % openwrt_top_path
+    if os.path.exists(config_path) and os.path.isfile(config_path):
+        with open(config_path, 'r') as f:
+            config_contents = f.read()
     c = pycurl.Curl()
-    c.setopt(c.URL, 'https://api.github.com/repos/{}/issues'.format(repo))
+    c.setopt(c.URL, 'https://api.github.com/repos/{}/issues'.format(issue_repo))
     c.setopt(c.CAINFO, certifi.where())
     c.setopt(c.CUSTOMREQUEST, 'POST')
-    c.setopt(c.USERNAME, user)
-    c.setopt(c.PASSWORD, token)
+    c.setopt(c.USERNAME, github_user)
+    c.setopt(c.PASSWORD, github_token)
     buffer = BytesIO()
     c.setopt(pycurl.WRITEFUNCTION, buffer.write)
 
     post_data = {
-        'title': 'ERROR: %s failed to build' % pack,
+        'title': 'ERROR: %s failed to build' % pack_name,
         'labels': ['bug'],
         'body':
         '''
@@ -64,36 +81,55 @@ Log detail
 
 > Note: This issue is created from [opde](https://github.com/ElonH/opde) action
 
+
+```
+{}
+```
+
+</details>
+
+<details>
+<summary>
+Configuration detail
+</summary>
+
 ```
 {}
 ```
 </details>
 
-        '''.format(pack, compile_log),
+        '''.format(pack_name, compile_log, config_contents),
     }
     # print(post_data['body'])
     # return
     c.setopt(c.POSTFIELDS, json.dumps(post_data))
     c.perform()
     c.close()
-    print("created issue: %s" % pack)
+    print("created issue: %s" % pack_name)
     pass
 
 
-def main(repo, log_path, op_top, user, token):
-    opened_issues = set(get_exist_err_packs(repo))
+def extra_err_packs():
     compiled_err_issues = []
-    print('opened issues: %s' % opened_issues)
+    if not os.path.exists(log_path) or not os.path.isfile(log_path):
+        print("Log path not exist: %s" % log_path)
+        exit(1)
     with open(log_path, 'r') as f:
         for line in f:
             err_packs = re.findall('ERROR: (.*) failed to build', line)
             compiled_err_issues.extend(err_packs)
-    compiled_err_issues = set(compiled_err_issues)
+    return set(compiled_err_issues)
+
+
+def main():
+    opened_issues = get_exist_err_packs()
+    print('opened issues: %s' % opened_issues)
+    compiled_err_issues = extra_err_packs()
     print('current packages need to be fixed: %s' % compiled_err_issues)
     push_issues = compiled_err_issues.difference(opened_issues)
     print('need to create issues: %s' % push_issues)
     for issue in push_issues:
-        create_issue(issue, repo, op_top, user, token)
+        create_issue(issue)
     pass
 
 
@@ -113,5 +149,9 @@ if __name__ == "__main__":
     parser.add_argument('--token', type=str, required=True,
                         help='user token')
     args = parser.parse_args()
-    main(repo=args.repo, log_path=args.log,
-         op_top=args.op, user=args.user, token=args.token)
+    issue_repo = args.repo
+    log_path = args.log
+    openwrt_top_path = args.op
+    github_user = args.user
+    github_token = args.token
+    main()

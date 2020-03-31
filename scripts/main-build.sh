@@ -222,4 +222,6 @@ $USER_PACK_CONF
 
 echo "${PACK_CONF}"
 echo "${PACK_CONF}">.config
+mkdir -p logs 2>/dev/null
+echo "${PACK_CONF}">logs/minial_config
 make defconfig

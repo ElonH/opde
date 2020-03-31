@@ -20,8 +20,7 @@ function base_pack_conf {
 BASE_PACK_CONF="
 $(TARGET_RAMIPS_MT7621)
 
-$(ENABLE_LOG)
-CONFIG_CCACHE=y
+$(GENERAL_SETTING)
 
 CONFIG_PACKAGE_kmod-batman-adv=n
 CONFIG_PACKAGE_kmod-mt_wifi=n
@@ -47,6 +46,9 @@ CONFIG_PACKAGE_luci-app-accesscontrol=n
 CONFIG_PACKAGE_luci-app-cpufreq=n
 CONFIG_PACKAGE_ddns-scripts_aliyun=n
 CONFIG_PACKAGE_ddns-scripts_dnspod=n
+CONFIG_PACKAGE_luci-app-airplay2=n
+CONFIG_PACKAGE_luci-app-xlnetacc=n
+CONFIG_PACKAGE_luci-app-zerotier=n
 "
 }
 
