@@ -49,6 +49,7 @@ CONFIG_PACKAGE_ddns-scripts_dnspod=n
 CONFIG_PACKAGE_luci-app-airplay2=n
 CONFIG_PACKAGE_luci-app-xlnetacc=n
 CONFIG_PACKAGE_luci-app-zerotier=n
+CONFIG_PACKAGE_luci-app-samba=n
 "
 }
 
