@@ -200,8 +200,8 @@ jobs:
           pip3 install --upgrade pip
           pip3 install setuptools
           PYCURL_SSL_LIBRARY=openssl pip3 install pycurl
-          # ./scripts/create-issues --repo ${{github.repository}} --log ./logs/log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
-          ../create-issues --repo ElonH/testAction --log ./logs/log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}}
+          # ../scripts/create-issues --repo ${{github.repository}} --log ./logs/log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}} || true
+          ../scripts/create-issues --repo ElonH/testAction --log ./logs/log.out --op . --user ${{github.actor}} --token ${{secrets.RELEASE_TOKEN}} || true
           # TODO: debug
       - name: Upload Packages
         uses: actions/upload-artifact@master
