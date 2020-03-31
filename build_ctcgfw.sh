@@ -22,9 +22,11 @@ $(TARGET_RAMIPS_MT7621)
 
 $(GENERAL_SETTING)
 
+CONFIG_PACKAGE_kmod-i40e=n
+CONFIG_PACKAGE_kmod-i40evf=n
 CONFIG_PACKAGE_kmod-batman-adv=n
-CONFIG_PACKAGE_kmod-mt_wifi=n
-CONFIG_PACKAGE_kmod-rtl8821cu=n
+CONFIG_PACKAGE_kmod-ath10k-ct=n
+CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers=n
 
 CONFIG_PACKAGE_luci-app-ddns=n
 CONFIG_PACKAGE_luci-app-sqm=n
