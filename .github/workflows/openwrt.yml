@@ -24,6 +24,7 @@ jobs:
         run: |
           echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
+        id: cache
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
@@ -32,7 +33,8 @@ jobs:
           # restore-keys: |
           #   apt-sdk
           #   apt
-      - run: |
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: |
           sudo -E apt-get update -y
           sudo -E apt install -y apt-rdepends
           ./scripts/download-apt.sh
