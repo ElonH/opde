@@ -99,7 +99,7 @@ Configuration detail
 
         '''.format(pack_name, current_repo, compile_log, config_contents),
     }
-    print(post_data['body'])
+    # print(post_data['body'])
     # return
     c.setopt(c.POSTFIELDS, json.dumps(post_data))
     c.perform()
