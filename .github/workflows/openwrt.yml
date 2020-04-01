@@ -85,7 +85,6 @@ jobs:
         run: |
           ../build_${{matrix.source}}.sh --build-sdk --feeds --save-space
           mkdir -p dl || true
-          mkdir -p logs && cp .config logs/
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
@@ -199,7 +198,7 @@ jobs:
         id: conf
         run: |
           ../build_${{matrix.source}}.sh --sdk --feeds --packages-${{matrix.packages}} --save-space
-          mkdir -p dl logs 2>/dev/null || true
+          mkdir -p dl 2>/dev/null || true
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1

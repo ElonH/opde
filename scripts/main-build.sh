@@ -229,3 +229,4 @@ echo "${PACK_CONF}">.config
 mkdir -p logs 2>/dev/null
 echo "${PACK_CONF}">logs/minial_config
 make defconfig
+cp .config logs/fully-config
