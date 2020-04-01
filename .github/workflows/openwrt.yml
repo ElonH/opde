@@ -222,6 +222,9 @@ jobs:
           echo "source url: $SOURCE_URL"
           ISSUES_REPO="$(echo "$SOURCE_URL" | cut -d "/" -f 4-5 | cut -d "." -f 1)-isco"
           echo "issues repo: $ISSUES_REPO"
+          echo "mini-config:"
+          cat logs/minial_config
+          echo "--------------"
           # avoid creating issues in other organization
           # [[ $(echo "$ISSUES_REPO" | cut -d '/' -f 1)  == "project-openwrt" ]] && (../scripts/create-issues -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs/log.out -op . -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true)
       - name: Upload Packages
