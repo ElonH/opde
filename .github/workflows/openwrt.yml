@@ -227,6 +227,8 @@ jobs:
           echo "--------------"
           # avoid creating issues in other organization
           # [[ $(echo "$ISSUES_REPO" | cut -d '/' -f 1)  == "project-openwrt" ]] && (../scripts/create-issues -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs/log.out -op . -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true)
+          # dry run
+          ../scripts/create-issues -d -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs/log.out -op . -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:

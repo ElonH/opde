@@ -12,6 +12,7 @@ log_path = ""
 openwrt_top_path = ""
 github_user = ""
 github_token = ""
+dry_run = False
 
 
 def get_exist_err_packs():
@@ -102,7 +103,8 @@ Configuration detail
     # print(post_data['body'])
     # return
     c.setopt(c.POSTFIELDS, json.dumps(post_data))
-    c.perform()
+    if dry_run == False:
+        c.perform()
     c.close()
     print("created issue: %s" % pack_name)
     pass
@@ -137,6 +139,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
         description='Create compiled error issue from Build log')
+    parser.add_argument('-d', '--dry-run', action='store_true',
+                      help='dry run, not push issues')
     parser.add_argument('-ipo', '--issue-repo', type=str, required=True,
                         help='the github repo name that need to create issues[example: Codertocat/Hello-World]')
     parser.add_argument('-cpo', '--curr-repo', type=str, required=True,
@@ -156,4 +160,5 @@ if __name__ == "__main__":
     openwrt_top_path = args.openwrt_top_dir
     github_user = args.user
     github_token = args.token
+    dry_run = args.dry_run
     main()
