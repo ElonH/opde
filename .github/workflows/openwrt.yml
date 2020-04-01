@@ -15,8 +15,32 @@ env:
   HOME: /home/runner
 
 jobs:
+  APT:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - id: time
+        run: |
+          echo "::set-output name=date::$(date +'%Y-%m')"
+      - name: CacheAPT
+        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
+        uses: actions/cache@v1
+        with:
+          path: ./scripts/apt
+          key: apt-sdk-test-${{steps.time.outputs.date}}
+          # restore-keys: |
+          #   apt-sdk
+          #   apt
+      - run: |
+          sudo -E apt-get update -y
+          sudo -E apt install -y apt-rdepends
+          ./scripts/download-apt.sh
+          # sudo dpkg -i ./scripts/apt/*.deb
+
   SDK:
     runs-on: ubuntu-18.04
+    needs: [APT]
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
       matrix:
@@ -27,32 +51,27 @@ jobs:
       - id: time
         run: |
           git submodule update --init --recursive
-          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+          mkdir -p ./scripts/apt 2>/dev/null || true
           echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
-          path: ${{env.HOME}}/apt
-          key: apt-sdk-${{steps.time.outputs.date}}
-          restore-keys: |
-            apt-sdk
-            apt
+          path: ./scripts/apt
+          key: apt-sdk-test-${{steps.time.outputs.date}}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${{env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
-          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler cmake libcurl4-openssl-dev libncursesw5-dev xsltproc genisoimage python3-pycurl
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
-          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
-          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
       - name: Configure
         working-directory: ./${{matrix.source}}
         run: |
@@ -146,32 +165,27 @@ jobs:
           git submodule update --init --recursive
           tar -xf $(find SDK_Archive -name "*sdk*") -C .
           mv $(ls | grep "sdk") ${{matrix.source}}_sdk
-          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+          mkdir -p ./scripts/apt 2>/dev/null || true
           echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
-          path: ${{env.HOME}}/apt
-          key: apt-sdk-${{steps.time.outputs.date}}
-          restore-keys: |
-            apt-sdk
-            apt
+          path: ./scripts/apt
+          key: apt-sdk-test-${{steps.time.outputs.date}}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${{env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
-          sudo -E apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-8 gcc++-8 gcc-8-multilib g++-8-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler python3-pycurl
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
-          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
-          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
       - name: Configure
         working-directory: ./${{matrix.source}}_sdk
         id: conf
@@ -278,25 +292,27 @@ jobs:
           tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
           mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
           # rm ${{matrix.source}}_ib/packages -rf
-          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+          mkdir -p ./scripts/apt 2>/dev/null || true
           echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
-          path: ${{env.HOME}}/apt
-          key: apt-sdk-${{steps.time.outputs.date}}
-          restore-keys: |
-            apt-sdk
-            apt
+          path: ./scripts/apt
+          key: apt-sdk-test-${{steps.time.outputs.date}}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
-          sudo apt-get update -y
-          sudo apt-get install -y build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
+          docker rmi $(docker images -q)
+          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+          sudo -E apt-get update -y
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
       - name: Configure
         working-directory: ./${{matrix.source}}_ib
         run: |
@@ -367,24 +383,31 @@ jobs:
           [[ $tag == refs/heads/* ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
-          mkdir -p ${{env.HOME}}/apt 2>/dev/null || true
+      - id: time
+        run: |
+          mkdir -p ./scripts/apt 2>/dev/null || true
+          echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
         uses: actions/cache@v1
         with:
-          path: ${{env.HOME}}/apt
-          key: apt-sdk-${{steps.time.outputs.date}}
-          restore-keys: |
-            apt-sdk
-            apt
-      - name: ootoc
+          path: ./scripts/apt
+          key: apt-sdk-test-${{steps.time.outputs.date}}
+      - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          [[ $(ls ${{env.HOME}}/apt/ | grep -c ".deb") == "0" ]] || for item in $(ls ${{env.HOME}}/apt/*.deb );do sudo mv $item /var/cache/apt/archives;done
+          docker rmi $(docker images -q)
+          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
           sudo -E apt-get update -y
-          sudo -E apt-get install -y build-essential cmake libcurl4-openssl-dev
-          [[ $(ls /var/cache/apt/archives/ | grep -c ".deb") == "0" ]] ||  for item in $(ls /var/cache/apt/archives/*.deb );do sudo cp $item ${{env.HOME}}/apt;done 
+          sudo -E apt-get autoremove -y --purge
+          sudo -E apt-get clean -y
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+      - name: ootoc
+        run: |
           git clone https://github.com/jbeder/yaml-cpp.git && cd yaml-cpp
           cmake -DYAML_CPP_BUILD_TESTS:BOOL=OFF -DYAML_BUILD_SHARED_LIBS:BOOL=ON .
           make && sudo make install
