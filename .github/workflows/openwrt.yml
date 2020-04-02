@@ -377,7 +377,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
           age: '3 days'
-          skip-tags: true
+          skip-tags: false
   Release:
     needs: [Targets]
     runs-on: ubuntu-18.04
