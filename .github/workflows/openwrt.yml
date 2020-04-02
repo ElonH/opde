@@ -11,9 +11,6 @@ on:
     tags:
       - v*.*.*
 
-env:
-  HOME: /home/runner
-
 jobs:
   APT:
     runs-on: ubuntu-18.04
