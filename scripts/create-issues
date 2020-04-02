@@ -7,10 +7,12 @@ import json
 import re
 
 issue_repo = ""
+current_repo = ""
 log_path = ""
 openwrt_top_path = ""
 github_user = ""
 github_token = ""
+dry_run = False
 
 
 def get_exist_err_packs():
@@ -68,9 +70,10 @@ def create_issue(pack_name):
         'labels': ['bug'],
         'body':
         '''
-Package `{}` compiled error.
+Package `{0}` compiled error.
 Dalao fix it, please!
 
+> Note: This issue is created from [{1}](https://github.com/{1}) action
 
 ---
 
@@ -79,11 +82,8 @@ Dalao fix it, please!
 Log detail
 </summary>
 
-> Note: This issue is created from [opde](https://github.com/ElonH/opde) action
-
-
 ```
-{}
+{2}
 ```
 
 </details>
@@ -94,16 +94,17 @@ Configuration detail
 </summary>
 
 ```
-{}
+{3}
 ```
 </details>
 
-        '''.format(pack_name, compile_log, config_contents),
+        '''.format(pack_name, current_repo, compile_log, config_contents),
     }
     # print(post_data['body'])
     # return
     c.setopt(c.POSTFIELDS, json.dumps(post_data))
-    c.perform()
+    if dry_run == False:
+        c.perform()
     c.close()
     print("created issue: %s" % pack_name)
     pass
@@ -138,20 +139,26 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
         description='Create compiled error issue from Build log')
-    parser.add_argument('--repo', type=str, required=True,
-                        help='the github repo name[example: Codertocat/Hello-World]')
-    parser.add_argument('--log', type=str, required=True,
-                        help='log path')
-    parser.add_argument('--op', type=str, required=True,
+    parser.add_argument('-d', '--dry-run', action='store_true',
+                      help='dry run, not push issues')
+    parser.add_argument('-ipo', '--issue-repo', type=str, required=True,
+                        help='the github repo name that need to create issues[example: Codertocat/Hello-World]')
+    parser.add_argument('-cpo', '--curr-repo', type=str, required=True,
+                        help='this repo name[example: Codertocat/Hello-World]')
+    parser.add_argument('-l', '--log', type=str, required=True,
+                        help='log file path')
+    parser.add_argument('-op', '--openwrt-top-dir', type=str, required=True,
                         help='openwrt top directory')
-    parser.add_argument('--user', type=str, required=True,
+    parser.add_argument('-u', '--user', type=str, required=True,
                         help='github user who have permission to delete artifacts')
-    parser.add_argument('--token', type=str, required=True,
+    parser.add_argument('-t', '--token', type=str, required=True,
                         help='user token')
     args = parser.parse_args()
-    issue_repo = args.repo
+    issue_repo = args.issue_repo
+    current_repo = args.curr_repo
     log_path = args.log
-    openwrt_top_path = args.op
+    openwrt_top_path = args.openwrt_top_dir
     github_user = args.user
     github_token = args.token
+    dry_run = args.dry_run
     main()
