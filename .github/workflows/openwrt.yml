@@ -133,7 +133,9 @@ jobs:
           rm bin/targets/*/*/packages -rf
           rm ${{steps.Find.outputs.SDK_PATH}} -rf
           rm ${{steps.Find.outputs.IB_PATH}} -rf
-          ls bin/targets/*/*/
+          ls -l bin/targets/*/*/
+          ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi
+          ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk
       - name: Upload Firmware
         uses: actions/upload-artifact@master
         with:
