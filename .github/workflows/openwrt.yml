@@ -6,8 +6,8 @@ on:
   push:
     paths-ignore:
       - '**.md' # ignore *.md files
-    # branches:
-    #   - k2p
+    branches:
+      - k2p
 
 env:
   HOME: /home/runner
