@@ -208,7 +208,7 @@ jobs:
             dl-packages-${{matrix.packages}}
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
-        run: make download -j8 || true
+        run: make download -j8 || make download -j8 || make download -j8 || true # TODO: cache will execeed 5Gb
       - name: Make
         working-directory: ./${{matrix.source}}_sdk
         run: |
