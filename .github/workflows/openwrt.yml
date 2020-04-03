@@ -154,7 +154,6 @@ jobs:
         packages: 
           - official-lib-1
           - official-lib-2
-          - official-lib-3
           - official-net-1
           - official-net-2
           - official-lang
@@ -259,10 +258,6 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: ${{matrix.source}}-Packages-official-lib-2
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-lib-3
           path: ./Packages_Archive/
       - uses: actions/download-artifact@master
         with:

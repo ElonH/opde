@@ -89,7 +89,6 @@ if ( argsContains "--help" );then
 	--image					build image using pre-build packages
 	--packages-official-lib-1
 	--packages-official-lib-2
-	--packages-official-lib-3
 	--packages-official-lang
 	--packages-official-net-1
 	--packages-official-net-2
@@ -190,10 +189,9 @@ $SDK_PACK_CONF
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG y)"$'\n'
 	elif (argsContains "--packages-official-lib-1"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 y)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 y)"$'\n'
 	elif (argsContains "--packages-official-lib-2"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 y)"$'\n'
-	elif (argsContains "--packages-official-lib-3"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 y)"$'\n'
 	elif (argsContains "--packages-official-net-1"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 y)"$'\n'
 	elif (argsContains "--packages-official-net-2"); then
