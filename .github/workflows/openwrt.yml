@@ -20,7 +20,7 @@ jobs:
       - name: tag-name-${{github.ref}}
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot"
+          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "$tag"
       - id: time
