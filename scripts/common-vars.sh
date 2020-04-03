@@ -41,6 +41,7 @@ function SAVE_SPACE {
 }
 
 function CTCGFW_PACKAGES {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ctcgfw" "$1"
     echo "CONFIG_PACKAGE_cups-bjnp=n
 CONFIG_PACKAGE_cups=n
@@ -58,6 +59,7 @@ CONFIG_PACKAGE_luci-app-vssr_INCLUDE_GoQuiet-server=y
 "
 }
 function LEAN_PACKAGES {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/lean" "$1"
     echo "CONFIG_PACKAGE_kcptun-client=$1
 CONFIG_PACKAGE_kcptun-server=$1
@@ -65,6 +67,7 @@ PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
 "
 }
 function LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/ntlf9t" "$1"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/lienol" "$1"
     obtain_packages_conf "$SOURCE_ORIGIN_PATH/package/zxlhhyccc" "$1"
@@ -80,18 +83,22 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs=y
 }
 
 function OFFICIAL_LUCI_APP {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/package/feeds/luci" "$1"
 }
 function OFFICIAL_PACKAGES_LANG {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
 }
 function OFFICIAL_PACKAGES_LIB_1 {
     # 0-50%
+    echo "# ${FUNCNAME[0]}"
     ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1")
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | head -$(("$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_LIB_2 {
+    echo "# ${FUNCNAME[0]}"
     # 50%-75%
     ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1")
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
@@ -100,6 +107,7 @@ function OFFICIAL_PACKAGES_LIB_2 {
     echo "$ALL_PACKAGE_LIBS" | head -$(("$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_LIB_3 {
+    echo "# ${FUNCNAME[0]}"
     # 75%-100%
     ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1")
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
@@ -108,21 +116,25 @@ function OFFICIAL_PACKAGES_LIB_3 {
     echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_NET_1 {
+    echo "# ${FUNCNAME[0]}"
     # 0-50%
     ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1")
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | head -$(("$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_NET_2 {
+    echo "# ${FUNCNAME[0]}"
     # 50-100%
     ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/net" "$1")
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
 }
 function OFFICIAL_PACKAGES_UTILS {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/utils" "$1"
 }
 function OFFICIAL_PACKAGES_OTHER {
+    echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/admin" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/devel" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/ipv6" "$1"
