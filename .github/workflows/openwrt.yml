@@ -9,9 +9,6 @@ on:
     branches:
       - k2p
 
-env:
-  HOME: /home/runner
-
 jobs:
   APT:
     runs-on: ubuntu-18.04
@@ -131,9 +128,9 @@ jobs:
           rm bin/targets/*/*/packages -rf
           rm ${{steps.Find.outputs.SDK_PATH}} -rf
           rm ${{steps.Find.outputs.IB_PATH}} -rf
-          ls -l bin/targets/*/*/
-          ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi
-          ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk
+          ls -lh bin/targets/*/*/ || true
+          ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
+          ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
       - name: Upload Firmware
         uses: actions/upload-artifact@master
         with:
@@ -229,6 +226,11 @@ jobs:
           # [[ $(echo "$ISSUES_REPO" | cut -d '/' -f 1)  == "project-openwrt" ]] && (../scripts/create-issues -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs/log.out -op . -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true)
           # dry run
           ../scripts/create-issues -d -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs/log.out -op . -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
+      - name: Upload Logs
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{matrix.source}}-Logs-${{matrix.packages}}
+          path: ${{matrix.source}}_sdk/logs
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
@@ -344,23 +346,27 @@ jobs:
   ReleasePre:
     needs: [Targets]
     runs-on: ubuntu-18.04
-    if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - uses: actions/checkout@v2
       - name: tag-name
         id: tag
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot"
+          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
+      - name: Update Tag
+        run: |
+          git tag ${{steps.tag.outputs.tagName}} --force
+          git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" ${{steps.tag.outputs.tagName}} --force
       - name: Create Release # https://github.com/actions/create-release/issues/46
         id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        uses: svenstaro/upload-release-action@v1-release
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{steps.tag.outputs.tagName}}
+          token: ${{ secrets.RELEASE_TOKEN }}
+          tag: ${{steps.tag.outputs.tagName}}
+          name: Release ${{steps.tag.outputs.tagName}}
+          allow_override: true
           body: |
             Activate `ootoc` in `latest`
             ``` bash
@@ -370,8 +376,6 @@ jobs:
             ``` bash
             bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@master/feeds/scripts/activate-ootoc.sh) ctcgfw ${{steps.tag.outputs.tagName}}
             ```
-          draft: false
-          prerelease: false
       - name: Remove old artifacts
         uses: c-hive/gha-remove-artifacts@v1
         with:
@@ -392,7 +396,7 @@ jobs:
         id: tag
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot"
+          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
       - id: time
