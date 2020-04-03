@@ -147,9 +147,10 @@ def extra_err_packs():
         print("Log path not exist: %s" % log_path)
         exit(1)
     with open(log_path, 'r') as f:
-        for line in f:
-            err_packs = re.findall('ERROR: (.*) failed to build', line)
-            compiled_err_issues.extend(err_packs)
+        conts = f.read()
+        compiled_err_issues = re.findall('ERROR: (.*) failed to build[.]', conts)
+        for item in re.findall('ERROR: (.*) failed to build [(]build variant: (.*)[)].', conts):
+            compiled_err_issues.append('%s/%s' % (item[0], item[1]))
     return set(compiled_err_issues)
 
 
