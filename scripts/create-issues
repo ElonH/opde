@@ -32,11 +32,6 @@ def get_exist_err_packs():
         issues = json.loads(body)
         # print(issues)
         for issue in issues:
-            labels = issue['labels']
-            # print(labels)
-            # issue's label must contain 'bug'
-            if 'bug' not in map(lambda x: x['name'], labels):
-                continue
             err_packs = re.findall(
                 'ERROR: (.*) failed to build', issue['title'])
             exist_err_packs.extend(err_packs)
@@ -111,7 +106,6 @@ def create_issue(pack_name):
 
     post_data = {
         'title': 'ERROR: %s failed to build' % pack_name,
-        'labels': ['bug'],
         'body':
         '''
 Package `{0}` compiled error.
