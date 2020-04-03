@@ -10,7 +10,7 @@ function feeds_conf {
 FEEDS_CONF="
 src-link packages ${SCRIPT_ABS_PATH}/feeds/latest/packages
 src-link luci ${SCRIPT_ABS_PATH}/feeds/latest/luci
-src-link routing ${SCRIPT_ABS_PATH}/feeds/openwrt/routing
+src-link routing ${SCRIPT_ABS_PATH}/feeds/ctcgfw/routing
 src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 "
 }

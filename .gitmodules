@@ -34,3 +34,7 @@
 [submodule "feeds/latest/luci"]
 	path = feeds/latest/luci
 	url = https://github.com/project-openwrt/luci-latest.git
+[submodule "feeds/ctcgfw/routing"]
+	path = feeds/ctcgfw/routing
+	url = https://github.com/project-openwrt/routing.git
+	branch = master
