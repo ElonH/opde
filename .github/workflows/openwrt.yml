@@ -18,7 +18,7 @@ jobs:
       - name: tag-name-${{github.ref}}
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}-alpha"
+          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "$tag"
@@ -344,7 +344,7 @@ jobs:
         id: tag
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}-alpha"
+          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
@@ -354,7 +354,7 @@ jobs:
           git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" ${{steps.tag.outputs.tagName}} --force
       - name: Create Release # https://github.com/actions/create-release/issues/46
         id: create_release
-        uses: svenstaro/upload-release-action@v1-release
+        uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
           tag: ${{steps.tag.outputs.tagName}}
@@ -389,7 +389,7 @@ jobs:
         id: tag
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}-alpha"
+          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
