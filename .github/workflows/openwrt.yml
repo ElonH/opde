@@ -356,7 +356,7 @@ jobs:
           git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" ${{steps.tag.outputs.tagName}} --force
       - name: Create Release # https://github.com/actions/create-release/issues/46
         id: create_release
-        uses: svenstaro/upload-release-action@v1-release
+        uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
           tag: ${{steps.tag.outputs.tagName}}
