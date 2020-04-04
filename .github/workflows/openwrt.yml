@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - '**.md' # ignore *.md files
     branches:
-      - k2p
+      - ramips-mt7621
 
 jobs:
   APT:
