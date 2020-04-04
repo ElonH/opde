@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./scripts/apt
-          key: apt-sdk-test-${{steps.time.outputs.date}}
+          key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
           # restore-keys: |
           #   apt-sdk
           #   apt
@@ -64,7 +64,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./scripts/apt
-          key: apt-sdk-test-${{steps.time.outputs.date}}
+          key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -183,7 +183,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./scripts/apt
-          key: apt-sdk-test-${{steps.time.outputs.date}}
+          key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -312,7 +312,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./scripts/apt
-          key: apt-sdk-test-${{steps.time.outputs.date}}
+          key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -409,7 +409,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ./scripts/apt
-          key: apt-sdk-test-${{steps.time.outputs.date}}
+          key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
       - name: Envirment
         env:
           DEBIAN_FRONTEND: noninteractive
