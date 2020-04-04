@@ -43,47 +43,6 @@ def get_exist_err_packs():
         url = next_link[0]
     return set(exist_err_packs)
 
-
-def readme_collapse_sta(title, intend=0):
-    ans = ""
-    for i in range(intend):
-        ans += "    "
-    ans += "<details><summary>{}</summary>\n\n".format(title)
-    return ans
-
-
-def readme_collapse_end(intend=0):
-    ans = ""
-    for i in range(intend):
-        ans += "    "
-    ans += "</details>\n"
-    return ans
-
-
-def readme_node_sta(title, intend=0):
-    ans = ""
-    for i in range(intend):
-        ans += "    "
-    ans += " -  {}\n\n".format(title)
-    return ans
-
-
-def readme_node_end(intend=0):
-    ans = ""
-    for i in range(intend):
-        ans += "    "
-    ans += "\n"
-    return ans
-
-
-def readme_node_contents(conts, intend=0):
-    itd = ""
-    conts = '\n'+conts
-    for i in range(intend):
-        itd += "    "
-    return conts.replace('\n', '\n'+itd)
-
-
 def create_issue(pack_name):
     issue_log_dir = '%s/%s' % (log_dir, pack_name)
     # print(compile_log_path)
@@ -98,16 +57,13 @@ def create_issue(pack_name):
             log_detail = "\n```\n"
             with open('%s/%s' % (curdir, file), 'r') as f:
                 log_detail += f.read()
-            log_detail += "\n```"
+            log_detail += "\n```\n"
             if file == 'compile.txt':
-                readme_node_node = readme_node_contents(file, 0)
-                readme_node_node += readme_node_contents(log_detail, 0)+'\n'
-                readme_node_node += readme_node_end(0)
+                readme_node_node = ' -  ' + file + '\n' + log_detail + '\n'
                 readme_node_sublist = [readme_node_node] + readme_node_sublist
             else:
-                readme_node_node = readme_collapse_sta(file, 0)
-                readme_node_node += readme_node_contents(log_detail, 0)+'\n'
-                readme_node_node += readme_collapse_end(0)
+                readme_node_node = "<details><summary>" + file + \
+                    "</summary>\n\n" + log_detail + '</details>\n'
                 readme_node_sublist.append(readme_node_node)
         readme_node = ''.join(readme_node_sublist)
         readme += readme_node
