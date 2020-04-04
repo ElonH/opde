@@ -162,7 +162,6 @@ jobs:
           - official-other
           - ctcgfw
           - lean
-          - other
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -292,10 +291,6 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: ${{matrix.source}}-Packages-lean
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-other
           path: ./Packages_Archive/
       - name: Deployment
         id: time
