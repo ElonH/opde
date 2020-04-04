@@ -209,6 +209,9 @@ jobs:
         with:
           path: ./${{matrix.source}}_sdk/dl
           key: dl-test-${{steps.time.outputs.date}}
+      - name: Download
+        working-directory: ./${{matrix.source}}_sdk
+        run: make download -j8 || true
       - name: Make
         working-directory: ./${{matrix.source}}_sdk
         run: |
