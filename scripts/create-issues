@@ -44,24 +44,41 @@ def get_exist_err_packs():
     return set(exist_err_packs)
 
 
-def readme_intend_sta(title, intend=0):
+def readme_collapse_sta(title, intend=0):
     ans = ""
     for i in range(intend):
         ans += "    "
-    ans += " -  <details><summary>{}</summary>\n\n".format(title)
+    ans += "<details><summary>{}</summary>\n\n".format(title)
     return ans
 
 
-def readme_intend_end(intend=0):
+def readme_collapse_end(intend=0):
     ans = ""
     for i in range(intend):
         ans += "    "
-    ans += "    </details>\n"
+    ans += "</details>\n"
     return ans
 
 
-def readme_intend_cont(conts, intend=0):
-    itd = "    "
+def readme_node_sta(title, intend=0):
+    ans = ""
+    for i in range(intend):
+        ans += "    "
+    ans += " -  {}\n\n".format(title)
+    return ans
+
+
+def readme_node_end(intend=0):
+    ans = ""
+    for i in range(intend):
+        ans += "    "
+    ans += "\n"
+    return ans
+
+
+def readme_node_contents(conts, intend=0):
+    itd = ""
+    conts = '\n'+conts
     for i in range(intend):
         itd += "    "
     return conts.replace('\n', '\n'+itd)
@@ -70,25 +87,33 @@ def readme_intend_cont(conts, intend=0):
 def create_issue(pack_name):
     issue_log_dir = '%s/%s' % (log_dir, pack_name)
     # print(compile_log_path)
-    readme_contents = ""
+    readme = ""
     for curdir, subdirs, files in os.walk(issue_log_dir):
         if len(subdirs) != 0:
             continue
         if len(files) == 0:
             continue
-        readme_contents += readme_intend_sta(curdir[len(log_dir)+1:])
+        readme_node_sublist = []
         for file in files:
-            readme_contents += readme_intend_sta(file, 1)
             log_detail = "\n```\n"
             with open('%s/%s' % (curdir, file), 'r') as f:
                 log_detail += f.read()
             log_detail += "\n```"
-            readme_contents += readme_intend_cont(log_detail, 1)+'\n'
-            readme_contents += readme_intend_end(1)
-        readme_contents += readme_intend_end()
-    # print(readme_contents)
-    # with open('output', 'w') as f:
-    #     f.write(readme_contents)
+            if file == 'compile.txt':
+                readme_node_node = readme_node_contents(file, 0)
+                readme_node_node += readme_node_contents(log_detail, 0)+'\n'
+                readme_node_node += readme_node_end(0)
+                readme_node_sublist = [readme_node_node] + readme_node_sublist
+            else:
+                readme_node_node = readme_collapse_sta(file, 0)
+                readme_node_node += readme_node_contents(log_detail, 0)+'\n'
+                readme_node_node += readme_collapse_end(0)
+                readme_node_sublist.append(readme_node_node)
+        readme_node = ''.join(readme_node_sublist)
+        readme += readme_node
+    # print(readme)
+    # with open('output.md', 'w') as f:
+    #     f.write(readme)
     # exit(0)
     config_contents = "Sorry, configuration missing."
     config_path = "%s/minial_config" % log_dir
@@ -128,7 +153,7 @@ Dalao fix it, please!
 ```
 </details>
 
-        '''.format(pack_name, current_repo, readme_contents, config_contents),
+        '''.format(pack_name, current_repo, readme, config_contents),
     }
     # print(post_data['body'])
     # return
