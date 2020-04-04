@@ -352,7 +352,7 @@ jobs:
           echo "::set-output name=tagName::$tag"
       - name: Update Tag
         run: |
-          git tag ${{steps.tag.outputs.tagName}} --force
+          git tag ${{steps.tag.outputs.tagName}} ${{github.sha}} --force
           git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" ${{steps.tag.outputs.tagName}} --force
       - name: Create Release # https://github.com/actions/create-release/issues/46
         id: create_release
