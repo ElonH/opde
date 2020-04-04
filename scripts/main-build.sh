@@ -87,10 +87,8 @@ if ( argsContains "--help" );then
 	--build-sdk				disable extra default packages (useful for build SDK)[default is disable]
 							do not add addon packages (useful for build SDK)[default is disable]
 	--image					build image using pre-build packages
-	--packages-official-luci		append official luci application set when '--sdk' is chosen
 	--packages-official-lib-1
 	--packages-official-lib-2
-	--packages-official-lib-3
 	--packages-official-lang
 	--packages-official-net-1
 	--packages-official-net-2
@@ -98,7 +96,7 @@ if ( argsContains "--help" );then
 	--packages-official-other
 	--packages-ctcgfw			append ctcgfw packages set when '--sdk' is chosen
 	--packages-lean				append lean packages set when '--sdk' is chosen
-	--packages-lienol-zxlhhyccc-ntlf9t	append ntlf9t, lienol and zxlhhyccc packages set when '--sdk' is chosen
+	--packages-other	append  official luci application, ntlf9t, lienol and zxlhhyccc packages set when '--sdk' is chosen
 	"
 	exit 0
 fi
@@ -187,16 +185,13 @@ CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 $SDK_PACK_CONF
 "
-	if (argsContains "--packages-official-luci"); then
-		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP y)"$'\n'
-	elif (argsContains "--packages-official-lang"); then
+	if (argsContains "--packages-official-lang"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG y)"$'\n'
 	elif (argsContains "--packages-official-lib-1"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 y)"$'\n'
+		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 y)"$'\n'
 	elif (argsContains "--packages-official-lib-2"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 y)"$'\n'
-	elif (argsContains "--packages-official-lib-3"); then
-		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 y)"$'\n'
 	elif (argsContains "--packages-official-net-1"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 y)"$'\n'
 	elif (argsContains "--packages-official-net-2"); then
@@ -209,7 +204,8 @@ $SDK_PACK_CONF
 		SDK_PACK_CONF+="$(CTCGFW_PACKAGES y)"$'\n'
 	elif (argsContains "--packages-lean"); then
 		SDK_PACK_CONF+="$(LEAN_PACKAGES y)"$'\n'
-	elif (argsContains "--packages-lienol-zxlhhyccc-ntlf9t"); then
+	elif (argsContains "--packages-other"); then
+		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP y)"$'\n'
 		SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES y)"$'\n'
 	fi
 else
