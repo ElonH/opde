@@ -94,9 +94,8 @@ if ( argsContains "--help" );then
 	--packages-official-net-2
 	--packages-official-utils
 	--packages-official-other
-	--packages-ctcgfw			append ctcgfw packages set when '--sdk' is chosen
+	--packages-ctcgfw			append ctcgfw, official luci application, ntlf9t, lienol and zxlhhycccpackages set when '--sdk' is chosen
 	--packages-lean				append lean packages set when '--sdk' is chosen
-	--packages-other	append  official luci application, ntlf9t, lienol and zxlhhyccc packages set when '--sdk' is chosen
 	"
 	exit 0
 fi
@@ -202,11 +201,10 @@ $SDK_PACK_CONF
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER y)"$'\n'
 	elif (argsContains "--packages-ctcgfw"); then
 		SDK_PACK_CONF+="$(CTCGFW_PACKAGES y)"$'\n'
-	elif (argsContains "--packages-lean"); then
-		SDK_PACK_CONF+="$(LEAN_PACKAGES y)"$'\n'
-	elif (argsContains "--packages-other"); then
 		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP y)"$'\n'
 		SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES y)"$'\n'
+	elif (argsContains "--packages-lean"); then
+		SDK_PACK_CONF+="$(LEAN_PACKAGES y)"$'\n'
 	fi
 else
 	BUILD_SDK_PACK_CONF=""
