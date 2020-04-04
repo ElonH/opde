@@ -20,7 +20,7 @@ jobs:
       - name: tag-name-${{github.ref}}
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}-alpha"
+          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "$tag"
@@ -346,7 +346,7 @@ jobs:
         id: tag
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}-alpha"
+          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
@@ -391,7 +391,7 @@ jobs:
         id: tag
         run: |
           tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="${tag#refs/heads/}-alpha"
+          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
