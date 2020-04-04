@@ -12,7 +12,11 @@ OpenWrt Development Environment
 2. ssh the router
 3. run command to active `ootoc`
 
-    `ootoc` as an agent, providing OpenWrt packages in the remote tar file.
+    > `ootoc` as an agent, providing OpenWrt packages in the remote tar file.
+    > 
+    > You can install `.ipk` file directly from Packages.tar (in [Release](https://github.com/ElonH/opde/releases), contains 4000+ `.ipk`)
+    >  - no need to download whole Packages.tar(~1GB), `ootoc` will automatically download required data
+
     ``` bash
     bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/opde@master/feeds/scripts/activate-ootoc.sh) [source] [version tag]
     ```
