@@ -241,71 +241,8 @@ jobs:
         with:
           name: ${{matrix.source}}-Packages-${{matrix.packages}}
           path: ${{matrix.source}}_sdk/bin
-  Targets: # refs: https://openwrt.org/docs/guide-user/additional-software/imagebuilder
-    needs: [Packages]
-    runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
-      matrix:
-        source: [latest, ctcgfw]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download Imagebuilder
-        uses: elonh/download-artifact-regexp@master
-        with:
-          pattern: ^${{matrix.source}}-Imagebuilder$
-          path: ./IB_Archive/
-      - uses: elonh/download-artifact-regexp@master
-        with:
-          pattern: ^${{matrix.source}}-Packages.*$
-          path: ./Packages_Archive/
-      - name: Deployment
-        id: time
-        run: |
-          mkdir -p ./${{matrix.source}}_sdk/bin
-          rsync -av ./Packages_Archive/*/ ./${{matrix.source}}_sdk/bin/
-          tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
-          mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
-          # rm ${{matrix.source}}_ib/packages -rf
-          mkdir -p ./scripts/apt 2>/dev/null || true
-          echo "::set-output name=date::$(date +'%Y-%m')"
-      - name: CacheAPT
-        # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
-        uses: actions/cache@v1
-        with:
-          path: ./scripts/apt
-          key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
-          docker rmi $(docker images -q)
-          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-          sudo -E apt-get update -y
-          sudo -E apt-get autoremove -y --purge
-          sudo -E apt-get clean -y
-          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
-          sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
-          sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
-      - name: Configure
-        working-directory: ./${{matrix.source}}_ib
-        run: |
-          ../build_${{matrix.source}}.sh --image
-      - uses: actions/upload-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages
-          path: ./${{matrix.source}}_sdk/bin
-      # - name: Build
-      #   working-directory: ./${{matrix.source}}_ib
-      #   run: |
-      #     make image
-      # - uses: actions/upload-artifact@master
-      #   with:
-      #     name: ${{matrix.source}}-Targets
-      #     path: ./${{matrix.source}}_ib/bin/targets
   ReleasePre:
-    needs: [Targets]
+    needs: [Packages]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -345,7 +282,7 @@ jobs:
           age: '3 days'
           skip-tags: false
   Release:
-    needs: [Targets]
+    needs: [Packages]
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false #https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
@@ -353,7 +290,13 @@ jobs:
         source: [latest, ctcgfw]
     steps:
       - uses: actions/checkout@v2
-      # - uses: mxschmitt/action-tmate@v1
+      - uses: elonh/download-artifact-regexp@master
+        with:
+          pattern: ^${{matrix.source}}-Packages.*$
+          path: ./${{matrix.source}}-Packages/
+      - uses: elonh/download-artifact-regexp@master
+        with:
+          pattern: ^${{matrix.source}}-(SDK|Imagebuilder|Firmware)$
       - name: tag-name
         id: tag
         run: |
@@ -362,8 +305,11 @@ jobs:
           [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
           echo "::set-output name=tagName::$tag"
-      - id: time
+      - name: Deployment Imagebuilder
+        id: time
         run: |
+          tar -xf $(find ${{matrix.source}}-Imagebuilder -name "*imagebuilder*") -C .
+          mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
           mkdir -p ./scripts/apt 2>/dev/null || true
           echo "::set-output name=date::$(date +'%Y-%m')"
       - name: CacheAPT
@@ -400,23 +346,29 @@ jobs:
           cmake -DOOTOC_TEST:BOOL=OFF .
           make && sudo make install
           sudo ldconfig
-      - uses: elonh/download-artifact-regexp@master
-        with:
-          pattern: ^${{matrix.source}}-(SDK|Imagebuilder|Firmware)$
-      - run: |
+      - name: Make Index
+        run: |
+          mkdir -p ./${{matrix.source}}_sdk/bin
+          rsync -av ./${{matrix.source}}-Packages/*/ ./${{matrix.source}}_sdk/bin/
+          rm ./${{matrix.source}}-Packages -rf
+          ./build_${{matrix.source}}.sh --image
+          mv ./${{matrix.source}}_sdk/bin ${{matrix.source}}-Packages
+      # - name: Build
+      #   working-directory: ./${{matrix.source}}_ib
+      #   run: |
+      #     make image
+      # - uses: actions/upload-artifact@master
+      #   with:
+      #     name: ${{matrix.source}}-Targets
+      #     path: ./${{matrix.source}}_ib/bin/targets
+      # - uses: mxschmitt/action-tmate@v1
+      - name: Generate Aux and Signature
+        run: |
           tar -cf ${{matrix.source}}-SDK-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-SDK
           tar -cf ${{matrix.source}}-Imagebuilder-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Imagebuilder
           tar -cf ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Firmware
           tar -cf ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Packages
           ootocCLI parse -i ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
-          cp ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml ${{matrix.source}}-Packages.yml
-      - uses: actions/upload-artifact@master
-        with:
-          name: ${{matrix.source}}-Aux
-          path: ./${{matrix.source}}-Packages.yml
-      - name: checksum
-        run: |
-          rm ./${{matrix.source}}-Packages.yml
           sha256sum *.tar *.yml | tee ${{matrix.source}}-SHA256SUM-${{steps.tag.outputs.tagName}}.sign
       - uses: svenstaro/upload-release-action@v1-release
         with:
