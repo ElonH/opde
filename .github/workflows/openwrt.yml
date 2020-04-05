@@ -165,15 +165,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: actions/download-artifact@master
+      - uses: elonh/download-artifact-regexp@master
         with:
-          name: ${{matrix.source}}-SDK
-          path: ./SDK_Archive/
+          pattern: ^${{matrix.source}}-SDK$
       - name: Deployment
         id: time
         run: |
           git submodule update --init --recursive
-          tar -xf $(find SDK_Archive -name "*sdk*") -C .
+          tar -xf $(find ${{matrix.source}}-SDK -name "*sdk*") -C .
           mv $(ls | grep "sdk") ${{matrix.source}}_sdk
           mkdir -p ./scripts/apt 2>/dev/null || true
           echo "::set-output name=date::$(date +'%Y-%m')"
@@ -252,51 +251,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download Imagebuilder
-        uses: actions/download-artifact@master
+        uses: elonh/download-artifact-regexp@master
         with:
-          name: ${{matrix.source}}-Imagebuilder
+          pattern: ^${{matrix.source}}-Imagebuilder$
           path: ./IB_Archive/
-      - uses: actions/download-artifact@master
+      - uses: elonh/download-artifact-regexp@master
         with:
-          name: ${{matrix.source}}-Packages-official-lib-1
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-lib-2
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-net-1
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-net-2
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-lang
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-utils
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-official-other
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-ctcgfw
-          path: ./Packages_Archive/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages-lean
+          pattern: ^${{matrix.source}}-Packages.*$
           path: ./Packages_Archive/
       - name: Deployment
         id: time
         run: |
-          mkdir -p ./${{matrix.source}}_sdk/
-          mv ./Packages_Archive ./${{matrix.source}}_sdk/bin
+          mkdir -p ./${{matrix.source}}_sdk/bin
+          rsync -av ./Packages_Archive/*/ ./${{matrix.source}}_sdk/bin/
           tar -xf $(find IB_Archive -name "*imagebuilder*") -C .
           mv $(ls | grep "imagebuilder") ${{matrix.source}}_ib
           # rm ${{matrix.source}}_ib/packages -rf
@@ -433,22 +400,9 @@ jobs:
           cmake -DOOTOC_TEST:BOOL=OFF .
           make && sudo make install
           sudo ldconfig
-      - uses: actions/download-artifact@master
+      - uses: elonh/download-artifact-regexp@master
         with:
-          name: ${{matrix.source}}-SDK
-          path: ./${{matrix.source}}-SDK/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Imagebuilder
-          path: ./${{matrix.source}}-Imagebuilder/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Firmware
-          path: ./${{matrix.source}}-Firmware/
-      - uses: actions/download-artifact@master
-        with:
-          name: ${{matrix.source}}-Packages
-          path: ./${{matrix.source}}-Packages/
+          pattern: ^${{matrix.source}}-(SDK|Imagebuilder|Firmware)$
       - run: |
           tar -cf ${{matrix.source}}-SDK-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-SDK
           tar -cf ${{matrix.source}}-Imagebuilder-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Imagebuilder
