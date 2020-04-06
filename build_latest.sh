@@ -24,6 +24,8 @@ $(GENERAL_SETTING)
 
 CONFIG_PACKAGE_kmod-i40e=n
 CONFIG_PACKAGE_kmod-i40evf=n
+CONFIG_PACKAGE_kmod-rtl8821cu=n
+CONFIG_PACKAGE_kmod-ipt-ndpi=n
 "
 }
 
