@@ -71,7 +71,7 @@ jobs:
         run: |
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-          sudo -E apt-get update -y
+          sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
@@ -188,7 +188,7 @@ jobs:
         run: |
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-          sudo -E apt-get update -y
+          sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
@@ -324,7 +324,7 @@ jobs:
         run: |
           docker rmi $(docker images -q)
           sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-          sudo -E apt-get update -y
+          sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
