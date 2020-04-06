@@ -96,6 +96,11 @@ function OFFICIAL_PACKAGES_LIB_1 {
     ALL_PACKAGE_LIBS=$(obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/libs" "$1")
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | head -$(("$PACKAGES_CNT"/2))
+    echo "
+# no maintainer
+CONFIG_PACKAGE_classpath=n
+
+"
 }
 function OFFICIAL_PACKAGES_LIB_2 {
     echo "# ${FUNCNAME[0]}"
@@ -114,6 +119,11 @@ function OFFICIAL_PACKAGES_LIB_3 {
     ALL_PACKAGE_LIBS=$(echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2)))
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
+    echo "
+# no maintainer
+CONFIG_PACKAGE_rxtx=n
+
+"
 }
 function OFFICIAL_PACKAGES_NET_1 {
     echo "# ${FUNCNAME[0]}"
