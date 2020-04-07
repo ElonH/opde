@@ -89,6 +89,19 @@ function OFFICIAL_LUCI_APP {
 function OFFICIAL_PACKAGES_LANG {
     echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
+    PHP7_MODULES=(
+        bcmath calendar ctype curl dom exif fileinfo filter ftp gettext gd gmp
+        iconv imap intl json ldap mbstring mysqli mysqlnd opcache openssl pcntl pdo pdo-mysql pdo-pgsql pdo-sqlite pgsql phar
+        session shmop simplexml snmp soap sockets sqlite3 sysvmsg sysvsem sysvshm tokenizer xml xmlreader xmlwriter zip
+    )
+    for PHP7_MOD_NAME in ${PHP7_MODULES[*]}; do
+        echo "CONFIG_PACKAGE_php7-mod-$PHP7_MOD_NAME=$1"
+    done
+    echo "
+CONFIG_PHP7_FULLICUDATA=y
+CONFIG_PACKAGE_php7-pecl-dio=$1
+CONFIG_PACKAGE_php7-pecl-libevent=$1
+"
 }
 function OFFICIAL_PACKAGES_LIB_1 {
     # 0-50%
