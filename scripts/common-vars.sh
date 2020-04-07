@@ -89,6 +89,7 @@ function OFFICIAL_LUCI_APP {
 function OFFICIAL_PACKAGES_LANG {
     echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
+    obtain_packages_conf_from_file "$SOURCE_BASE_PATH/feeds/packages/lang/perl/perlbase.mk" "$1"
     PHP7_MODULES=(
         bcmath calendar ctype curl dom exif fileinfo filter ftp gettext gd gmp
         iconv imap intl json ldap mbstring mysqli mysqlnd opcache openssl pcntl pdo pdo-mysql pdo-pgsql pdo-sqlite pgsql phar
@@ -176,6 +177,23 @@ function OFFICIAL_PACKAGES_OTHER {
 }
 
 
+function _scans_packages_from_file(){
+    grep '$(eval $(call BuildPackage,.*))' < "$1" | while IFS= read -r j ; do
+        # echo "$j"
+        PKG_NAME="${j#*,}"
+        PKG_NAME="${PKG_NAME%%))}" # $(eval $(call BuildPackage,[PKG_NAME]))
+        PKG_NAME="${PKG_NAME%%,*}" # [PKG_NAME],+zlib,+some_package...
+        # echo "$PKG_NAME"
+        if [[ "$PKG_NAME" == *'$(PKG_NAME)'* ]]; then
+            REAL_NAME=$(cat "$1" | grep "PKG_NAME:=" | sed  's/^PKG_NAME:=//') # PKG_NAME:=[REAL_NAME]
+            # echo "$REAL_NAME"
+            PKG_NAME=${PKG_NAME//'$(PKG_NAME)'/$REAL_NAME}
+        fi
+        echo "$PKG_NAME"
+        # break
+    done
+}
+
 function _scans_packages() {
     shopt -s globstar
     for i in "$1"/**/Makefile; do
@@ -183,20 +201,7 @@ function _scans_packages() {
         DIR_NAME=$(dirname "$i")
         DIR_NAME="${DIR_NAME##*/}" # is directory name, is NOT path
         # echo "$i"
-        grep '$(eval $(call BuildPackage,.*))' < "$i" | while IFS= read -r j ; do
-            # echo "$j"
-            PKG_NAME="${j#*,}"
-            PKG_NAME="${PKG_NAME%%))}" # $(eval $(call BuildPackage,[PKG_NAME]))
-            PKG_NAME="${PKG_NAME%%,*}" # [PKG_NAME],+zlib,+some_package...
-            # echo "$PKG_NAME"
-            if [[ "$PKG_NAME" == *'$(PKG_NAME)'* ]]; then
-                REAL_NAME=$(cat "$i" | grep "PKG_NAME:=" | sed  's/^PKG_NAME:=//') # PKG_NAME:=[REAL_NAME]
-                # echo "$REAL_NAME"
-                PKG_NAME=${PKG_NAME//'$(PKG_NAME)'/$REAL_NAME}
-            fi
-            echo "$PKG_NAME"
-            # break
-        done
+        _scans_packages_from_file "$i"
         if [[ $(cat "$i" | grep "luci.mk" | sed 's/^.*luci.mk/luci.mk/') == "luci.mk" ]];then
             echo "$DIR_NAME"
         fi
@@ -212,5 +217,16 @@ function obtain_packages_conf() {
         return
     fi
     CONTENTS=$(_scans_packages "$1" | sort | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
+    echo $'\n'"$CONTENTS"
+}
+
+# $1: file path
+# $2: 'n','y','m'
+function obtain_packages_conf_from_file() {
+    if ! [ -f "$1" ]; then
+        echo -e "#File '$1' not exist"
+        return
+    fi
+    CONTENTS=$(_scans_packages_from_file "$1" | sort | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
     echo $'\n'"$CONTENTS"
 }
