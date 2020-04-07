@@ -133,6 +133,13 @@ function OFFICIAL_PACKAGES_LIB_3 {
     ALL_PACKAGE_LIBS=$(echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2)))
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
+    LIBEXTRACTOR_PLUGINS=(
+        archive deb dvi flac gif gstreamer it jpeg man mime mpeg
+        nsf nsfe odf ogg png ps riff s3m sid thumbnailffmpeg tiff wav xm zip
+    )
+    for PLUGIN_NAME in ${LIBEXTRACTOR_PLUGINS[*]}; do
+        echo "CONFIG_PACKAGE_libextractor-plugin-$PLUGIN_NAME=$1"
+    done
     echo "
 # no maintainer
 CONFIG_PACKAGE_rxtx=n
