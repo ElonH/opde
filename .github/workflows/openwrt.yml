@@ -90,6 +90,8 @@ jobs:
         with:
           path: ./${{matrix.source}}/dl
           key: dl-test-${{steps.time.outputs.date}}
+          restore-keys: |
+            dl-test
       - name: Download
         working-directory: ./${{matrix.source}}
         run: make download -j8 || true
@@ -207,6 +209,8 @@ jobs:
         with:
           path: ./${{matrix.source}}_sdk/dl
           key: dl-test-${{steps.time.outputs.date}}
+          restore-keys: |
+            dl-test
       - name: Download
         working-directory: ./${{matrix.source}}_sdk
         run: make download -j8 || true
