@@ -167,9 +167,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: elonh/download-artifact-regexp@master
+      - uses: actions/download-artifact@v1 
         with:
-          pattern: ^${{matrix.source}}-SDK$
+          name: ${{matrix.source}}-SDK
+          path: ./${{matrix.source}}-SDK
       - name: Deployment
         id: time
         run: |
@@ -294,13 +295,61 @@ jobs:
         source: [latest, ctcgfw]
     steps:
       - uses: actions/checkout@v2
-      - uses: elonh/download-artifact-regexp@master
+      # - uses: elonh/download-artifact-regexp@master
+      #   with:
+      #     pattern: ^${{matrix.source}}-Packages.*$
+      #     path: ./${{matrix.source}}-Packages/
+      # - uses: elonh/download-artifact-regexp@master
+      #   with:
+      #     pattern: ^${{matrix.source}}-(SDK|Imagebuilder|Firmware)$
+      - uses: actions/download-artifact@v1 
         with:
-          pattern: ^${{matrix.source}}-Packages.*$
-          path: ./${{matrix.source}}-Packages/
-      - uses: elonh/download-artifact-regexp@master
+          name: ${{matrix.source}}-SDK
+          path: ./${{matrix.source}}-SDK/
+      - uses: actions/download-artifact@v1 
         with:
-          pattern: ^${{matrix.source}}-(SDK|Imagebuilder|Firmware)$
+          name: ${{matrix.source}}-Imagebuilder
+          path: ./${{matrix.source}}-Imagebuilder/
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Firmware
+          path: ./${{matrix.source}}-Firmware/
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-lib-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-lib-1
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-lib-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-lib-2
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-net-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-net-1
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-net-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-net-2
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-lang
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-lang
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-utils
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-utils
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-official-other
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-other
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-ctcgfw
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ctcgfw
+      - uses: actions/download-artifact@v1 
+        with:
+          name: ${{matrix.source}}-Packages-lean
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-lean
       - name: tag-name
         id: tag
         run: |
