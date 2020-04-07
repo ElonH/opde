@@ -164,30 +164,15 @@ function OFFICIAL_PACKAGES_OTHER {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/mail" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/sound" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/multimedia" "$1"
-    echo "
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Italic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Italic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-BoldItalic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-BoldItalic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-Oblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-Oblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-BoldOblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-ExtraLight=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-Oblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-BoldOblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-BoldOblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuMathTeXGyre=$1
-"
+    DEJAVU_FONTS=(
+        DejaVuSerif-Italic DejaVuSerifCondensed-Italic DejaVuSerifCondensed-BoldItalic DejaVuSerifCondensed-Bold DejaVuSerifCondensed
+        DejaVuSerif-BoldItalic DejaVuSerif-Bold DejaVuSerif DejaVuSans-Oblique DejaVuSansMono-Oblique DejaVuSansMono-BoldOblique
+        DejaVuSansMono-Bold DejaVuSansMono DejaVuSans-ExtraLight DejaVuSansCondensed-Oblique DejaVuSansCondensed-BoldOblique
+        DejaVuSansCondensed-Bold DejaVuSansCondensed DejaVuSans-BoldOblique DejaVuSans-Bold DejaVuSans DejaVuMathTeXGyre
+    )
+    for FONT_NAME in ${DEJAVU_FONTS[*]}; do
+        echo "CONFIG_PACKAGE_dejavu-fonts-ttf-$FONT_NAME=$1"
+    done
 }
 
 
