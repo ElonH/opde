@@ -1,39 +1,51 @@
 [submodule "ctcgfw"]
 	path = ctcgfw
 	url = https://github.com/project-openwrt/openwrt.git
+	branch = openwrt-18.06
 [submodule "feeds/ctcgfw/packages"]
 	path = feeds/ctcgfw/packages
 	url = https://github.com/project-openwrt/packages
+	branch = openwrt-18.06
 [submodule "feeds/ctcgfw/luci"]
 	path = feeds/ctcgfw/luci
-	url = https://github.com/project-openwrt/luci
+	url = https://github.com/project-openwrt/luci.git
+	branch = openwrt-18.06
 [submodule "openwrt"]
 	path = openwrt
 	url = https://github.com/openwrt/openwrt.git
+	branch = master
 [submodule "feeds/openwrt/packages"]
 	path = feeds/openwrt/packages
 	url = https://github.com/openwrt/packages.git
+	branch = master
 [submodule "feeds/openwrt/luci"]
 	path = feeds/openwrt/luci
 	url = https://github.com/openwrt/luci.git
+	branch = master
 [submodule "feeds/openwrt/routing"]
 	path = feeds/openwrt/routing
 	url = https://github.com/openwrt-routing/packages.git
+	branch = master
 [submodule "feeds/openwrt/telephony"]
 	path = feeds/openwrt/telephony
 	url = https://github.com/openwrt/telephony.git
+	branch = master
 [submodule "feeds/openwrt/rclone"]
 	path = feeds/openwrt/rclone
 	url = https://github.com/ElonH/Rclone-OpenWrt.git
+	branch = master
 [submodule "latest"]
 	path = latest
-	url = https://github.com/project-openwrt/openwrt-latest.git
+	url = https://github.com/project-openwrt/openwrt.git
+	branch = master
 [submodule "feeds/latest/packages"]
 	path = feeds/latest/packages
-	url = https://github.com/project-openwrt/packages-latest.git
+	url = https://github.com/project-openwrt/packages.git
+	branch = master
 [submodule "feeds/latest/luci"]
 	path = feeds/latest/luci
-	url = https://github.com/project-openwrt/luci-latest.git
+	url = https://github.com/project-openwrt/luci.git
+	branch = master
 [submodule "feeds/ctcgfw/routing"]
 	path = feeds/ctcgfw/routing
 	url = https://github.com/project-openwrt/routing.git
