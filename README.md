@@ -132,7 +132,9 @@ It is a way to using SDK in opde.
 
 #### TODO: ImageBuilder
 
-## Configure OpenWrt Compile
+## Other Architecture, Target, Subtarget or Devices
+
+search in [Opde Derivate Index](DerivateIndex.md)
 
 ### init
 
