@@ -98,6 +98,20 @@ function OFFICIAL_LUCI_APP {
 function OFFICIAL_PACKAGES_LANG {
     echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
+    obtain_packages_conf_from_file "$SOURCE_BASE_PATH/feeds/packages/lang/perl/perlbase.mk" "$1"
+    PHP7_MODULES=(
+        bcmath calendar ctype curl dom exif fileinfo filter ftp gettext gd gmp
+        iconv imap intl json ldap mbstring mysqli mysqlnd opcache openssl pcntl pdo pdo-mysql pdo-pgsql pdo-sqlite pgsql phar
+        session shmop simplexml snmp soap sockets sqlite3 sysvmsg sysvsem sysvshm tokenizer xml xmlreader xmlwriter zip
+    )
+    for PHP7_MOD_NAME in ${PHP7_MODULES[*]}; do
+        echo "CONFIG_PACKAGE_php7-mod-$PHP7_MOD_NAME=$1"
+    done
+    echo "
+CONFIG_PHP7_FULLICUDATA=y
+CONFIG_PACKAGE_php7-pecl-dio=$1
+CONFIG_PACKAGE_php7-pecl-libevent=$1
+"
 }
 function OFFICIAL_PACKAGES_LIB_1 {
     # 0-50%
@@ -128,6 +142,13 @@ function OFFICIAL_PACKAGES_LIB_3 {
     ALL_PACKAGE_LIBS=$(echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2)))
     PACKAGES_CNT=$(echo "$ALL_PACKAGE_LIBS" | wc -l)
     echo "$ALL_PACKAGE_LIBS" | tail -$(("$PACKAGES_CNT"-"$PACKAGES_CNT"/2))
+    LIBEXTRACTOR_PLUGINS=(
+        archive deb dvi flac gif gstreamer it jpeg man mime mpeg
+        nsf nsfe odf ogg png ps riff s3m sid thumbnailffmpeg tiff wav xm zip
+    )
+    for PLUGIN_NAME in ${LIBEXTRACTOR_PLUGINS[*]}; do
+        echo "CONFIG_PACKAGE_libextractor-plugin-$PLUGIN_NAME=$1"
+    done
     echo "
 # no maintainer
 CONFIG_PACKAGE_rxtx=n
@@ -160,32 +181,34 @@ function OFFICIAL_PACKAGES_OTHER {
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/mail" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/sound" "$1"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/multimedia" "$1"
-    echo "
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Italic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Italic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-BoldItalic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerifCondensed=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-BoldItalic=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSerif=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-Oblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-Oblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-BoldOblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansMono=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-ExtraLight=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-Oblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-BoldOblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSansCondensed=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-BoldOblique=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans-Bold=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuSans=$1
-CONFIG_PACKAGE_dejavu-fonts-ttf-DejaVuMathTeXGyre=$1
-"
+    DEJAVU_FONTS=(
+        DejaVuSerif-Italic DejaVuSerifCondensed-Italic DejaVuSerifCondensed-BoldItalic DejaVuSerifCondensed-Bold DejaVuSerifCondensed
+        DejaVuSerif-BoldItalic DejaVuSerif-Bold DejaVuSerif DejaVuSans-Oblique DejaVuSansMono-Oblique DejaVuSansMono-BoldOblique
+        DejaVuSansMono-Bold DejaVuSansMono DejaVuSans-ExtraLight DejaVuSansCondensed-Oblique DejaVuSansCondensed-BoldOblique
+        DejaVuSansCondensed-Bold DejaVuSansCondensed DejaVuSans-BoldOblique DejaVuSans-Bold DejaVuSans DejaVuMathTeXGyre
+    )
+    for FONT_NAME in ${DEJAVU_FONTS[*]}; do
+        echo "CONFIG_PACKAGE_dejavu-fonts-ttf-$FONT_NAME=$1"
+    done
 }
 
+
+function _scans_packages_from_file(){
+    grep '$(eval $(call BuildPackage,.*))' < "$1" | while IFS= read -r j ; do
+        # echo "$j"
+        PKG_NAME="${j#*,}"
+        PKG_NAME="${PKG_NAME%%))}" # $(eval $(call BuildPackage,[PKG_NAME]))
+        PKG_NAME="${PKG_NAME%%,*}" # [PKG_NAME],+zlib,+some_package...
+        # echo "$PKG_NAME"
+        if [[ "$PKG_NAME" == *'$(PKG_NAME)'* ]]; then
+            REAL_NAME=$(cat "$1" | grep "PKG_NAME:=" | sed  's/^PKG_NAME:=//') # PKG_NAME:=[REAL_NAME]
+            # echo "$REAL_NAME"
+            PKG_NAME=${PKG_NAME//'$(PKG_NAME)'/$REAL_NAME}
+        fi
+        echo "$PKG_NAME"
+        # break
+    done
+}
 
 function _scans_packages() {
     shopt -s globstar
@@ -194,20 +217,7 @@ function _scans_packages() {
         DIR_NAME=$(dirname "$i")
         DIR_NAME="${DIR_NAME##*/}" # is directory name, is NOT path
         # echo "$i"
-        grep '$(eval $(call BuildPackage,.*))' < "$i" | while IFS= read -r j ; do
-            # echo "$j"
-            PKG_NAME="${j#*,}"
-            PKG_NAME="${PKG_NAME%%))}" # $(eval $(call BuildPackage,[PKG_NAME]))
-            PKG_NAME="${PKG_NAME%%,*}" # [PKG_NAME],+zlib,+some_package...
-            # echo "$PKG_NAME"
-            if [[ "$PKG_NAME" == *'$(PKG_NAME)'* ]]; then
-                REAL_NAME=$(cat "$i" | grep "PKG_NAME:=" | sed  's/^PKG_NAME:=//') # PKG_NAME:=[REAL_NAME]
-                # echo "$REAL_NAME"
-                PKG_NAME=${PKG_NAME//'$(PKG_NAME)'/$REAL_NAME}
-            fi
-            echo "$PKG_NAME"
-            # break
-        done
+        _scans_packages_from_file "$i"
         if [[ $(cat "$i" | grep "luci.mk" | sed 's/^.*luci.mk/luci.mk/') == "luci.mk" ]];then
             echo "$DIR_NAME"
         fi
@@ -223,5 +233,16 @@ function obtain_packages_conf() {
         return
     fi
     CONTENTS=$(_scans_packages "$1" | sort | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
+    echo $'\n'"$CONTENTS"
+}
+
+# $1: file path
+# $2: 'n','y','m'
+function obtain_packages_conf_from_file() {
+    if ! [ -f "$1" ]; then
+        echo -e "#File '$1' not exist"
+        return
+    fi
+    CONTENTS=$(_scans_packages_from_file "$1" | sort | sed "s/^/CONFIG_PACKAGE_/" | sed "s/$/=$2/")
     echo $'\n'"$CONTENTS"
 }
