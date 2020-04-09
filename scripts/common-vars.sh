@@ -31,6 +31,15 @@ CONFIG_KERNEL_CC_OPTIMIZE_FOR_SIZE=y
 "
 }
 
+function TARGET_ipq40xx_generic {
+echo "
+CONFIG_TARGET_ipq40xx=y
+CONFIG_TARGET_ipq40xx_generic=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_ALL_PROFILES=y
+"
+}
+
 function GENERAL_SETTING {
     echo "
 CONFIG_DEVEL=y
