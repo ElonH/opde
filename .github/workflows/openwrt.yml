@@ -410,6 +410,7 @@ jobs:
           tar -cf ${{matrix.source}}-Imagebuilder-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Imagebuilder
           tar -cf ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Firmware
           tar -cf ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Packages
+          ootocCLI parse -i ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.yml
           ootocCLI parse -i ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
           sha256sum *.tar *.yml | tee ${{matrix.source}}-SHA256SUM-${{steps.tag.outputs.tagName}}.sign
       - uses: svenstaro/upload-release-action@v1-release

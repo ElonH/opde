@@ -136,6 +136,10 @@ It is a way to using SDK in opde.
 
 search in [Opde Derivate Index](DerivateIndex.md)
 
+## Miscellaneous
+
+### TODO: Download Firmware Quickly
+
 ### init
 
 ```bash
