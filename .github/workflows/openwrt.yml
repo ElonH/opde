@@ -8,8 +8,6 @@ on:
       - '**.md' # ignore *.md files
     branches:
       - master
-    tags:
-      - v*.*.*
 
 jobs:
   APT:
@@ -17,12 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: tag-name-${{github.ref}}
+      - name: tag-name
         run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
-          [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
+          tag="v$(date +'%y.%m').${{github.run_number}}"
           echo "$tag"
       - id: time
         run: |
@@ -254,10 +249,7 @@ jobs:
       - name: tag-name
         id: tag
         run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
-          [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
+          tag="v$(date +'%y.%m').${{github.run_number}}"
           echo "::set-output name=tagName::$tag"
       - name: Update Tag
         run: |
@@ -353,10 +345,7 @@ jobs:
       - name: tag-name
         id: tag
         run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
-          [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
+          tag="v$(date +'%y.%m').${{github.run_number}}"
           echo "::set-output name=tagName::$tag"
       - name: Deployment Imagebuilder
         id: time
@@ -444,13 +433,4 @@ jobs:
           tag: ${{steps.tag.outputs.tagName}}
           file_glob: true
           overwrite: true
-      # - name: snapshot update
-      #   if: startsWith(github.ref, 'refs/heads/')
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git add ${{matrix.source}}-Packages
-      #     git commit -m "Release ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}} ${{github.sha}}"
-      #     git tag snapshot --force
-      #     git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" snapshot --force
 
