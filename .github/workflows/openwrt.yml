@@ -73,6 +73,7 @@ jobs:
           sudo dpkg -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo ln -s /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: Configure
         working-directory: ./${{matrix.source}}
         run: |
