@@ -8,8 +8,6 @@ on:
       - '**.md' # ignore *.md files
     branches:
       - master
-    tags:
-      - v*.*.*
 
 jobs:
   APT:
@@ -17,12 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: tag-name-${{github.ref}}
+      - name: tag-name
         run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
-          [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
+          tag="v$(date +'%y.%m').${{github.run_number}}"
           echo "$tag"
       - id: time
         run: |
@@ -223,14 +218,14 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}_sdk
         run: |
-          SOURCE_URL=$(cat ../.gitmodules| grep "path = ${{matrix.source}}$" -A 2 | grep "url = .*git$" -o | cut -d " " -f 3)
-          echo "source url: $SOURCE_URL"
-          ISSUES_REPO="$(echo "$SOURCE_URL" | cut -d "/" -f 4-5 | cut -d "." -f 1)-isco"
+          ISSUES_REPO="ElonH/testAction"
+          [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
+          [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
           echo "issues repo: $ISSUES_REPO"
           # avoid creating issues in other organization
-          # [[ $(echo "$ISSUES_REPO" | cut -d '/' -f 1)  == "project-openwrt" ]] && (../scripts/create-issues -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true)
+          ../scripts/create-issues -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
           # dry run
-          ../scripts/create-issues -d -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
+          # ../scripts/create-issues -d -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
           # test only
           # ../scripts/create-issues -cpo ${{github.repository}} -ipo ElonH/testAction -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
           echo "--------------"
@@ -254,10 +249,7 @@ jobs:
       - name: tag-name
         id: tag
         run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
-          [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
+          tag="v$(date +'%y.%m').${{github.run_number}}"
           echo "::set-output name=tagName::$tag"
       - name: Update Tag
         run: |
@@ -353,10 +345,7 @@ jobs:
       - name: tag-name
         id: tag
         run: |
-          tag="${{github.ref}}"
-          [[ $tag == refs/heads/* ]] && tag="snapshot-${tag#refs/heads/}"
-          [[ ${{github.ref}} == refs/heads/master ]] && tag="snapshot"
-          [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}"
+          tag="v$(date +'%y.%m').${{github.run_number}}"
           echo "::set-output name=tagName::$tag"
       - name: Deployment Imagebuilder
         id: time
@@ -421,6 +410,7 @@ jobs:
           tar -cf ${{matrix.source}}-Imagebuilder-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Imagebuilder
           tar -cf ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Firmware
           tar -cf ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Packages
+          ootocCLI parse -i ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.yml
           ootocCLI parse -i ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml
           sha256sum *.tar *.yml | tee ${{matrix.source}}-SHA256SUM-${{steps.tag.outputs.tagName}}.sign
       - uses: svenstaro/upload-release-action@v1-release
@@ -444,13 +434,4 @@ jobs:
           tag: ${{steps.tag.outputs.tagName}}
           file_glob: true
           overwrite: true
-      # - name: snapshot update
-      #   if: startsWith(github.ref, 'refs/heads/')
-      #   run: |
-      #     git config --local user.email "action@github.com"
-      #     git config --local user.name "GitHub Action"
-      #     git add ${{matrix.source}}-Packages
-      #     git commit -m "Release ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}} ${{github.sha}}"
-      #     git tag snapshot --force
-      #     git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" snapshot --force
 
