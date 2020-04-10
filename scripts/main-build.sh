@@ -101,6 +101,7 @@ if ( argsContains "--help" );then
 						feeds/packages/net [50-100%]
 	--packages-official-utils
 						feeds/packages/utils
+						package/firmware
 	--packages-official-other
 						feeds/packages/admin
 						feeds/packages/devel
@@ -218,6 +219,7 @@ $SDK_PACK_CONF
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 y)"$'\n'
 	elif (argsContains "--packages-official-utils"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS y)"$'\n'
+		SDK_PACK_CONF+="$(FIRMWARE_PACKAGES y)"$'\n'
 	elif (argsContains "--packages-official-other"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER y)"$'\n'
 	elif (argsContains "--packages-ctcgfw"); then

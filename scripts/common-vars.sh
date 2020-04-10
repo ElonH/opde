@@ -102,6 +102,10 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs=y
 "
 }
+function FIRMWARE_PACKAGES {
+    echo "# ${FUNCNAME[0]}"
+    obtain_packages_conf "$SOURCE_BASE_PATH/package/firmware" "$1"
+}
 
 function OFFICIAL_LUCI_APP {
     echo "# ${FUNCNAME[0]}"
