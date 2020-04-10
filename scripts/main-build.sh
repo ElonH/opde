@@ -87,15 +87,36 @@ if ( argsContains "--help" );then
 	--build-sdk				disable extra default packages (useful for build SDK)[default is disable]
 							do not add addon packages (useful for build SDK)[default is disable]
 	--image					build image using pre-build packages
+	----------------------------------------------
+	append packages set only when '--sdk' is enable
 	--packages-official-lib-1
+						feeds/packages/libs [0-50%,75%-100%]
 	--packages-official-lib-2
+						feeds/packages/libs [50%-75%]
 	--packages-official-lang
+						feeds/packages/lang
 	--packages-official-net-1
+						feeds/packages/net [0-50%]
 	--packages-official-net-2
+						feeds/packages/net [50-100%]
 	--packages-official-utils
+						feeds/packages/utils
 	--packages-official-other
-	--packages-ctcgfw			append ctcgfw, official luci application, ntlf9t, lienol and zxlhhycccpackages set when '--sdk' is chosen
-	--packages-lean				append lean packages set when '--sdk' is chosen
+						feeds/packages/admin
+						feeds/packages/devel
+						feeds/packages/ipv6
+						feeds/packages/mail
+						feeds/packages/sound
+						feeds/packages/mutltimedia
+						feeds/packages/fonts
+	--packages-ctcgfw
+						package/ctcgfw
+						package/ntlf9t
+						package/lienol
+						package/zxlhhyccc
+						feeds/luci
+	--packages-lean
+						package/lean
 	"
 	exit 0
 fi
