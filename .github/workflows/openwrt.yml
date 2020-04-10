@@ -151,13 +151,13 @@ jobs:
       matrix:
         source: [latest, ctcgfw]
         packages: 
-          - official-lib-1
-          - official-lib-2
-          - official-net-1
-          - official-net-2
-          - official-lang
-          - official-utils
-          - official-other
+          - ofc-lib-1
+          - ofc-lib-2
+          - ofc-net-1
+          - ofc-net-2
+          - ofc-lang
+          - ofc-utils
+          - ofc-other
           - ctcgfw
           - lean
     steps:
@@ -198,7 +198,7 @@ jobs:
         working-directory: ./${{matrix.source}}_sdk
         id: conf
         run: |
-          ../build_${{matrix.source}}.sh --sdk --feeds --packages-${{matrix.packages}} --save-space
+          ../build_${{matrix.source}}.sh --sdk --feeds --packs-${{matrix.packages}} --save-space
           mkdir -p dl 2>/dev/null || true
       - name: CacheDL
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
@@ -309,32 +309,32 @@ jobs:
           path: ./${{matrix.source}}-Firmware/
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-lib-1
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-lib-1
+          name: ${{matrix.source}}-packages-ofc-lib-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lib-1
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-lib-2
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-lib-2
+          name: ${{matrix.source}}-packages-ofc-lib-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lib-2
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-net-1
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-net-1
+          name: ${{matrix.source}}-packages-ofc-net-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-net-1
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-net-2
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-net-2
+          name: ${{matrix.source}}-packages-ofc-net-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-net-2
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-lang
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-lang
+          name: ${{matrix.source}}-packages-ofc-lang
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lang
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-utils
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-utils
+          name: ${{matrix.source}}-packages-ofc-utils
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-utils
       - uses: actions/download-artifact@v1 
         with:
-          name: ${{matrix.source}}-Packages-official-other
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-official-other
+          name: ${{matrix.source}}-packages-ofc-other
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-other
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-Packages-ctcgfw
