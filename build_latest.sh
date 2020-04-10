@@ -24,7 +24,6 @@ $(GENERAL_SETTING)
 
 CONFIG_PACKAGE_kmod-rtl8821cu=n
 CONFIG_PACKAGE_kmod-dahdi=n
-CONFIG_PACKAGE_kmod-ipt-ndpi=n
 "
 }
 
