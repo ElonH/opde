@@ -21,8 +21,8 @@ jobs:
       - name: Update Tag
         run: |
           ISSUES_REPO="ElonH/testAction"
-          [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
-          [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
+          [[ ${{steps.tag.outputs.tagName}} =~ ctcgfw* ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
+          [[ ${{steps.tag.outputs.tagName}} =~ latest* ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
           echo "issues repo: $ISSUES_REPO"
           ls
           ./issues-push -i issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.GITHUB_TOKEN}}" || true

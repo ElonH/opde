@@ -230,7 +230,7 @@ jobs:
           git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" "${{matrix.source}}-${{matrix.packages}}-issues" --force
           echo "--------------"
           echo "mini-config:"
-          cat logs/minial_config
+          cat logs/minial_config || true
       - name: Upload Logs
         uses: actions/upload-artifact@master
         with:
