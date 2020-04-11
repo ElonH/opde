@@ -7,11 +7,10 @@ import json
 import re
 
 issue_repo = ""
-current_repo = ""
-log_dir = ""
 github_user = ""
 github_token = ""
 dry_run = False
+input_path = ""
 
 
 def get_exist_err_packs():
@@ -43,39 +42,8 @@ def get_exist_err_packs():
         url = next_link[0]
     return set(exist_err_packs)
 
-def create_issue(pack_name):
-    issue_log_dir = '%s/%s' % (log_dir, pack_name)
-    # print(compile_log_path)
-    readme = ""
-    for curdir, subdirs, files in os.walk(issue_log_dir):
-        if len(subdirs) != 0:
-            continue
-        if len(files) == 0:
-            continue
-        readme_node_sublist = []
-        for file in files:
-            log_detail = "\n```\n"
-            with open('%s/%s' % (curdir, file), 'r') as f:
-                log_detail += f.read()
-            log_detail += "\n```\n"
-            if file == 'compile.txt':
-                readme_node_node = ' -  ' + file + '\n' + log_detail + '\n'
-                readme_node_sublist = [readme_node_node] + readme_node_sublist
-            else:
-                readme_node_node = "<details><summary>" + file + \
-                    "</summary>\n\n" + log_detail + '</details>\n'
-                readme_node_sublist.append(readme_node_node)
-        readme_node = ''.join(readme_node_sublist)
-        readme += readme_node
-    # print(readme)
-    # with open('output.md', 'w') as f:
-    #     f.write(readme)
-    # exit(0)
-    config_contents = "Sorry, configuration missing."
-    config_path = "%s/minial_config" % log_dir
-    if os.path.exists(config_path) and os.path.isfile(config_path):
-        with open(config_path, 'r') as f:
-            config_contents = f.read()
+
+def push_issue(post_data):
     c = pycurl.Curl()
     c.setopt(c.URL, 'https://api.github.com/repos/{}/issues'.format(issue_repo))
     c.setopt(c.CAINFO, certifi.where())
@@ -84,66 +52,28 @@ def create_issue(pack_name):
     c.setopt(c.PASSWORD, github_token)
     buffer = BytesIO()
     c.setopt(pycurl.WRITEFUNCTION, buffer.write)
-
-    post_data = {
-        'title': 'ERROR: %s failed to build' % pack_name,
-        'body':
-        '''
-Package `{0}` compiled error.
-Dalao fix it, please!
-
-> Note: This issue is created from [{1}](https://github.com/{1}) action
-
----
-
-<details><summary>Log detail</summary>
-
-{2}
-
-</details>
-
-<details><summary>Configuration detail</summary>
-
-```
-{3}
-```
-</details>
-
-        '''.format(pack_name, current_repo, readme, config_contents),
-    }
     # print(post_data['body'])
     # return
     c.setopt(c.POSTFIELDS, json.dumps(post_data))
     if dry_run == False:
         c.perform()
     c.close()
-    print("created issue: %s" % pack_name)
     pass
-
-
-def extra_err_packs():
-    compiled_err_issues = []
-    log_path = "%s/log.out" % log_dir
-    if not os.path.exists(log_path) or not os.path.isfile(log_path):
-        print("Log path not exist: %s" % log_path)
-        exit(1)
-    with open(log_path, 'r') as f:
-        conts = f.read()
-        compiled_err_issues = re.findall('ERROR: (.*) failed to build[.]', conts)
-        for item in re.findall('ERROR: (.*) failed to build [(]build variant: (.*)[)].', conts):
-            compiled_err_issues.append('%s/%s' % (item[0], item[1]))
-    return set(compiled_err_issues)
 
 
 def main():
     opened_issues = get_exist_err_packs()
     print('opened issues[%s]: %s' % (len(opened_issues), opened_issues))
-    compiled_err_issues = extra_err_packs()
+    with open(input_path, 'r') as f:
+        issues_collecter = json.loads(f.read())
+    compiled_err_issues = set(issues_collecter.keys())
     print('current packages need to be fixed: %s' % compiled_err_issues)
     push_issues = compiled_err_issues.difference(opened_issues)
+    # push_issues = compiled_err_issues
     print('need to create issues: %s' % push_issues)
     for issue in push_issues:
-        create_issue(issue)
+        push_issue(issues_collecter[issue])
+        print("created issue: %s" % issue)
     pass
 
 
@@ -152,23 +82,20 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
         description='Create compiled error issue from Build log')
+    parser.add_argument('-i', '--input', type=str, required=True,
+                        help='the file path of stroring issues')
     parser.add_argument('-d', '--dry-run', action='store_true',
                         help='dry run, not push issues')
     parser.add_argument('-ipo', '--issue-repo', type=str, required=True,
                         help='the github repo name that need to create issues[example: Codertocat/Hello-World]')
-    parser.add_argument('-cpo', '--curr-repo', type=str, required=True,
-                        help='this repo name[example: Codertocat/Hello-World]')
-    parser.add_argument('-l', '--openwrt-logs-dir', type=str, required=True,
-                        help='log file path')
     parser.add_argument('-u', '--user', type=str, required=True,
                         help='github user who have permission to delete artifacts')
     parser.add_argument('-t', '--token', type=str, required=True,
                         help='user token')
     args = parser.parse_args()
     issue_repo = args.issue_repo
-    current_repo = args.curr_repo
-    log_dir = args.openwrt_logs_dir
     github_user = args.user
     github_token = args.token
     dry_run = args.dry_run
+    input_path = args.input
     main()
