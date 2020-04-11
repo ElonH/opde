@@ -17,7 +17,7 @@ jobs:
           [[ $tag == refs/tags/* ]] && tag="${tag#refs/tags/}" || false
           echo "$tag"
           echo "::set-output name=tagName::$tag"
-          sudo apt install -y python3-pycurl
+          sudo apt install -y python3-pycurl || ( sleep 60s && sudo apt install -y python3-pycurl ) || ( sleep 60s && sudo apt install -y python3-pycurl )
       - name: Update Tag
         run: |
           ISSUES_REPO="ElonH/testAction"
