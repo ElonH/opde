@@ -309,31 +309,31 @@ jobs:
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lib-1
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lib-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lib-1
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lib-2
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lib-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lib-2
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-net-1
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-net-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-net-1
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-net-2
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-net-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-net-2
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lang
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lang
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lang
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-utils
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-utils
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-utils
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-other
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-other
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-other
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-Packages-ctcgfw
