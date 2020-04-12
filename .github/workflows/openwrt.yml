@@ -163,6 +163,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with: # refs: https://github.community/t5/GitHub-Actions/Action-does-not-trigger-another-on-push-tag-action/td-p/40692
+          token: ${{ secrets.RELEASE_TOKEN }}
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-SDK
@@ -217,21 +219,18 @@ jobs:
           let make_process=$(nproc)+1
           make -j${make_process} IGNORE_ERRORS="y m n" |& tee logs/log.out
       - name: Create issues
-        working-directory: ./${{matrix.source}}_sdk
         run: |
-          ISSUES_REPO="ElonH/testAction"
-          [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
-          [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
-          echo "issues repo: $ISSUES_REPO"
-          # avoid creating issues in other organization
-          ../scripts/create-issues -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
-          # dry run
-          # ../scripts/create-issues -d -cpo ${{github.repository}} -ipo "$ISSUES_REPO" -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
-          # test only
-          # ../scripts/create-issues -cpo ${{github.repository}} -ipo ElonH/testAction -l ./logs -u ${{github.actor}} -t ${{secrets.RELEASE_TOKEN}} || true
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -b issues-branch ${{github.sha}}
+          ./scripts/issues-create -cpo ${{github.repository}} -l ${{matrix.source}}_sdk/logs -o issues.json
+          git add issues.json
+          git commit -m "collect issues from ${{matrix.source}}-${{matrix.packages}}"
+          git tag "${{matrix.source}}-${{matrix.packages}}-issues" --force
+          git push "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" "${{matrix.source}}-${{matrix.packages}}-issues" --force
           echo "--------------"
           echo "mini-config:"
-          cat logs/minial_config
+          cat logs/minial_config || true
       - name: Upload Logs
         uses: actions/upload-artifact@master
         with:
@@ -310,31 +309,31 @@ jobs:
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lib-1
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lib-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lib-1
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lib-2
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lib-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lib-2
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-net-1
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-net-1
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-net-1
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-net-2
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-net-2
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-net-2
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lang
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-lang
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lang
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-utils
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-utils
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-utils
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-other
-          path: ./${{matrix.source}}-Packages/${{matrix.source}}-packages-ofc-other
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-other
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-Packages-ctcgfw

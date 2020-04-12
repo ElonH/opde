@@ -5,6 +5,7 @@ SDK*
 *.zip
 *.tar
 *.yml
+!.github/*/*.yml
 *.sign
 IB*
 *-Firmware/
