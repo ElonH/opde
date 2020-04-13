@@ -24,6 +24,5 @@ jobs:
           [[ ${{steps.tag.outputs.tagName}} =~ ctcgfw* ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
           [[ ${{steps.tag.outputs.tagName}} =~ latest* ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
           echo "issues repo: $ISSUES_REPO"
-          ls
-          ./issues-push -i issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.GITHUB_TOKEN}}" || true
-          git push -d "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" ${{steps.tag.outputs.tagName}}
+          ./scripts/issues-push -i issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.GITHUB_TOKEN}}" || true
+          # git push -d "https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git" ${{steps.tag.outputs.tagName}}
