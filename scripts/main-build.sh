@@ -87,15 +87,37 @@ if ( argsContains "--help" );then
 	--build-sdk				disable extra default packages (useful for build SDK)[default is disable]
 							do not add addon packages (useful for build SDK)[default is disable]
 	--image					build image using pre-build packages
-	--packages-official-lib-1
-	--packages-official-lib-2
-	--packages-official-lang
-	--packages-official-net-1
-	--packages-official-net-2
-	--packages-official-utils
-	--packages-official-other
-	--packages-ctcgfw			append ctcgfw, official luci application, ntlf9t, lienol and zxlhhycccpackages set when '--sdk' is chosen
-	--packages-lean				append lean packages set when '--sdk' is chosen
+	----------------------------------------------
+	append packages set only when '--sdk' is enable
+	--packs-ofc-lib-1
+						feeds/packages/libs [0-50%,75%-100%]
+	--packs-ofc-lib-2
+						feeds/packages/libs [50%-75%]
+	--packs-ofc-lang
+						feeds/packages/lang
+	--packs-ofc-net-1
+						feeds/packages/net [0-50%]
+	--packs-ofc-net-2
+						feeds/packages/net [50-100%]
+	--packs-ofc-utils
+						feeds/packages/utils
+						package/firmware
+	--packs-ofc-other
+						feeds/packages/admin
+						feeds/packages/devel
+						feeds/packages/ipv6
+						feeds/packages/mail
+						feeds/packages/sound
+						feeds/packages/mutltimedia
+						feeds/packages/fonts
+	--packs-ctcgfw
+						package/ctcgfw
+						package/ntlf9t
+						package/lienol
+						package/zxlhhyccc
+						feeds/luci
+	--packs-lean
+						package/lean
 	"
 	exit 0
 fi
@@ -184,26 +206,27 @@ CONFIG_ALL_KMODS=n
 CONFIG_ALL=n
 $SDK_PACK_CONF
 "
-	if (argsContains "--packages-official-lang"); then
+	if (argsContains "--packs-ofc-lang"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LANG y)"$'\n'
-	elif (argsContains "--packages-official-lib-1"); then
+	elif (argsContains "--packs-ofc-lib-1"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_1 y)"$'\n'
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_3 y)"$'\n'
-	elif (argsContains "--packages-official-lib-2"); then
+	elif (argsContains "--packs-ofc-lib-2"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_LIB_2 y)"$'\n'
-	elif (argsContains "--packages-official-net-1"); then
+	elif (argsContains "--packs-ofc-net-1"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_1 y)"$'\n'
-	elif (argsContains "--packages-official-net-2"); then
+	elif (argsContains "--packs-ofc-net-2"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_NET_2 y)"$'\n'
-	elif (argsContains "--packages-official-utils"); then
+	elif (argsContains "--packs-ofc-utils"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_UTILS y)"$'\n'
-	elif (argsContains "--packages-official-other"); then
+		SDK_PACK_CONF+="$(FIRMWARE_PACKAGES y)"$'\n'
+	elif (argsContains "--packs-ofc-other"); then
 		SDK_PACK_CONF+="$(OFFICIAL_PACKAGES_OTHER y)"$'\n'
-	elif (argsContains "--packages-ctcgfw"); then
+	elif (argsContains "--packs-ctcgfw"); then
 		SDK_PACK_CONF+="$(CTCGFW_PACKAGES y)"$'\n'
 		SDK_PACK_CONF+="$(OFFICIAL_LUCI_APP y)"$'\n'
 		SDK_PACK_CONF+="$(LIENOL_ZXLHHYCCC_NTLF9T_PACKAGES y)"$'\n'
-	elif (argsContains "--packages-lean"); then
+	elif (argsContains "--packs-lean"); then
 		SDK_PACK_CONF+="$(LEAN_PACKAGES y)"$'\n'
 	fi
 else

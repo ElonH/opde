@@ -1,0 +1,115 @@
+#!/usr/bin/python3
+import pycurl
+import certifi
+from io import BytesIO
+import os
+import json
+import re
+
+current_repo = ""
+log_dir = ""
+output_path = ""
+
+
+def create_issue(pack_name):
+    issue_log_dir = '%s/%s' % (log_dir, pack_name)
+    # print(compile_log_path)
+    readme = ""
+    for curdir, subdirs, files in os.walk(issue_log_dir):
+        if len(subdirs) != 0:
+            continue
+        if len(files) == 0:
+            continue
+        readme_node_sublist = []
+        for file in files:
+            log_detail = "\n```\n"
+            with open('%s/%s' % (curdir, file), 'r') as f:
+                log_detail += f.read()
+            log_detail += "\n```\n"
+            if file == 'compile.txt':
+                readme_node_node = ' -  ' + file + '\n' + log_detail + '\n'
+                readme_node_sublist = [readme_node_node] + readme_node_sublist
+            else:
+                readme_node_node = "<details><summary>" + file + \
+                    "</summary>\n\n" + log_detail + '</details>\n'
+                readme_node_sublist.append(readme_node_node)
+        readme_node = ''.join(readme_node_sublist)
+        readme += readme_node
+    config_contents = "Sorry, configuration missing."
+    config_path = "%s/minial_config" % log_dir
+    if os.path.exists(config_path) and os.path.isfile(config_path):
+        with open(config_path, 'r') as f:
+            config_contents = f.read()
+
+    post_data = {
+        'title': 'ERROR: %s failed to build' % pack_name,
+        'body':
+        '''
+Package `{0}` compiled error.
+Dalao fix it, please!
+
+> Note: This issue is created from [{1}](https://github.com/{1}) action
+
+---
+
+<details><summary>Log detail</summary>
+
+{2}
+
+</details>
+
+<details><summary>Configuration detail</summary>
+
+```
+{3}
+```
+</details>
+
+        '''.format(pack_name, current_repo, readme, config_contents),
+    }
+    print("created issue: %s" % pack_name)
+    return post_data
+
+
+def extra_err_packs():
+    compiled_err_issues = []
+    log_path = "%s/log.out" % log_dir
+    if not os.path.exists(log_path) or not os.path.isfile(log_path):
+        print("Log path not exist: %s" % log_path)
+        exit(1)
+    with open(log_path, 'r') as f:
+        conts = f.read()
+        compiled_err_issues = re.findall(
+            'ERROR: (.*) failed to build[.]', conts)
+        for item in re.findall('ERROR: (.*) failed to build [(]build variant: (.*)[)].', conts):
+            compiled_err_issues.append('%s/%s' % (item[0], item[1]))
+    return set(compiled_err_issues)
+
+
+def main():
+    compiled_err_issues = extra_err_packs()
+    print('current packages need to be fixed: %s' % compiled_err_issues)
+    issues_collecter = {}
+    for issue in compiled_err_issues:
+        issues_collecter[issue] = create_issue(issue)
+    with open(output_path, 'w') as f:
+        f.write(json.dumps(issues_collecter))
+    print('issues stored in: %s' % output_path)
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description='Create compiled error issue from Build log')
+    parser.add_argument('-cpo', '--current-repo', type=str, required=True,
+                        help='this repo name[example: Codertocat/Hello-World]')
+    parser.add_argument('-l', '--openwrt-logs-dir', type=str, required=True,
+                        help='log file path')
+    parser.add_argument('-o', '--output', type=str, required=True,
+                        help='the file path of stroring issues')
+    args = parser.parse_args()
+    current_repo = args.current_repo
+    log_dir = args.openwrt_logs_dir
+    output_path = args.output
+    main()

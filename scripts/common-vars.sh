@@ -31,6 +31,15 @@ CONFIG_KERNEL_CC_OPTIMIZE_FOR_SIZE=y
 "
 }
 
+function TARGET_ipq40xx_generic {
+echo "
+CONFIG_TARGET_ipq40xx=y
+CONFIG_TARGET_ipq40xx_generic=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_ALL_PROFILES=y
+"
+}
+
 function GENERAL_SETTING {
     echo "
 CONFIG_DEVEL=y
@@ -93,15 +102,16 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_v2ray-plugin=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_simple-obfs=y
 "
 }
+function FIRMWARE_PACKAGES {
+    echo "# ${FUNCNAME[0]}"
+    obtain_packages_conf "$SOURCE_BASE_PATH/package/firmware" "$1"
+}
 
 function OFFICIAL_LUCI_APP {
     echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/package/feeds/luci" "$1"
 }
-function OFFICIAL_PACKAGES_LANG {
-    echo "# ${FUNCNAME[0]}"
-    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
-    obtain_packages_conf_from_file "$SOURCE_BASE_PATH/feeds/packages/lang/perl/perlbase.mk" "$1"
+function PHP7_CONF {
     PHP7_MODULES=(
         bcmath calendar ctype curl dom exif fileinfo filter ftp gettext gd gmp
         iconv imap intl json ldap mbstring mysqli mysqlnd opcache openssl pcntl pdo pdo-mysql pdo-pgsql pdo-sqlite pgsql phar
@@ -110,8 +120,14 @@ function OFFICIAL_PACKAGES_LANG {
     for PHP7_MOD_NAME in ${PHP7_MODULES[*]}; do
         echo "CONFIG_PACKAGE_php7-mod-$PHP7_MOD_NAME=$1"
     done
+    echo "CONFIG_PHP7_FULLICUDATA=y"
+}
+function OFFICIAL_PACKAGES_LANG {
+    echo "# ${FUNCNAME[0]}"
+    obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/lang" "$1"
+    obtain_packages_conf_from_file "$SOURCE_BASE_PATH/feeds/packages/lang/perl/perlbase.mk" "$1"
+    PHP7_CONF "$1"
     echo "
-CONFIG_PHP7_FULLICUDATA=y
 CONFIG_PACKAGE_php7-pecl-dio=$1
 CONFIG_PACKAGE_php7-pecl-libevent=$1
 "
@@ -175,6 +191,7 @@ function OFFICIAL_PACKAGES_NET_2 {
 function OFFICIAL_PACKAGES_UTILS {
     echo "# ${FUNCNAME[0]}"
     obtain_packages_conf "$SOURCE_BASE_PATH/feeds/packages/utils" "$1"
+    PHP7_CONF "$1"
 }
 function OFFICIAL_PACKAGES_OTHER {
     echo "# ${FUNCNAME[0]}"
@@ -193,6 +210,7 @@ function OFFICIAL_PACKAGES_OTHER {
     for FONT_NAME in ${DEJAVU_FONTS[*]}; do
         echo "CONFIG_PACKAGE_dejavu-fonts-ttf-$FONT_NAME=$1"
     done
+    PHP7_CONF "$1"
 }
 
 

@@ -4,6 +4,8 @@
   - x86_64 ([ElonH](https://github.com/ElonH/opde))
 - ramips - MediaTek Ralink MIPS
   - mt7621 - MT7621 based board ([Derren-Bryan](https://github.com/Derren-Bryan/opde-ramips-mt7621))
+- ipq40xx - Qualcomm Atheros IPQ40XX
+  - generic - Generic (TODO: waiting)
 
 ## Join in opde
 
