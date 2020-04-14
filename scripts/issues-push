@@ -57,6 +57,12 @@ def push_issue(post_data):
     c.setopt(c.POSTFIELDS, json.dumps(post_data))
     if dry_run == False:
         c.perform()
+        body = buffer.getvalue().decode('UTF-8')
+        ans = json.loads(body)
+        if 'url' in ans:
+            print("issues url: %s" % ans['url'])
+        else:
+            print(ans)
     c.close()
     pass
 
@@ -72,8 +78,8 @@ def main():
     # push_issues = compiled_err_issues
     print('need to create issues: %s' % push_issues)
     for issue in push_issues:
+        print("create issue: %s" % issue)
         push_issue(issues_collecter[issue])
-        print("created issue: %s" % issue)
     pass
 
 
