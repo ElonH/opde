@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - '**.md' # ignore *.md files
     branches:
-      - master
+      - gcc9
 
 jobs:
   APT:
