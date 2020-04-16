@@ -267,11 +267,11 @@ jobs:
           body: |
             Activate `ootoc` in `latest`
             ``` bash
-            bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@master/feeds/scripts/activate-ootoc.sh) latest ${{steps.tag.outputs.tagName}}
+            bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} latest ${{steps.tag.outputs.tagName}}
             ```
             Activate `ootoc` in `ctcgfw`
             ``` bash
-            bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@master/feeds/scripts/activate-ootoc.sh) ctcgfw ${{steps.tag.outputs.tagName}}
+            bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} ctcgfw ${{steps.tag.outputs.tagName}}
             ```
       - name: Remove old artifacts
         uses: c-hive/gha-remove-artifacts@v1
