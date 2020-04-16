@@ -23,11 +23,12 @@ OpenWrt Development Environment
     >  - no need to download whole Packages.tar(~1GB), `ootoc` will automatically fetch data what it need
 
     ``` bash
-    bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/opde@master/feeds/scripts/activate-ootoc.sh) [source] [version tag]
+    bash <(wget -qO- https://cdn.jsdelivr.net/gh/ElonH/opde@master/feeds/scripts/activate-ootoc.sh) [repo] [source] [version tag]
     ```
 
     > Note:  
     > [source]-Firmware-[version tag].tar is your downloaded firmware.  
+    > repo: eg: 'ElonH/opde' or derivate repo
     > source: 'latest' or 'ctcgfw'.  
     > version tag: the tag in release (eg: snapshot, v20.03.1 etc.)
 
