@@ -19,6 +19,7 @@ src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 function base_pack_conf {
 BASE_PACK_CONF="
 $(TARGET_X86_64)
+CONFIG_TESTING_KERNEL=y
 
 $(GENERAL_SETTING)
 

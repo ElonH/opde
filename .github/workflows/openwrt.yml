@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - '**.md' # ignore *.md files
     branches:
-      - master
+      - kernel-5.4
 
 jobs:
   APT:
