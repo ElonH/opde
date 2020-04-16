@@ -219,13 +219,14 @@ jobs:
           let make_process=$(nproc)+1
           make -j${make_process} IGNORE_ERRORS="y m n" |& tee logs/log.out
       - name: Create issues
+        working-directory: ./${{matrix.source}}_sdk
         run: |
-          ./scripts/issues-create -cpo ${{github.repository}} -l ${{matrix.source}}_sdk/logs -o logs/issues.json
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
           echo "issues repo: $ISSUES_REPO"
-          ./scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
+          ../scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
           echo "--------------"
           echo "mini-config:"
           cat logs/minial_config || true
