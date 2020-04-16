@@ -250,6 +250,9 @@ jobs:
         id: tag
         run: |
           tag="v$(date +'%y.%m').${{github.run_number}}"
+          ref="${{github.ref}}"
+          ref="${ref#refs/heads/}"
+          [[ $ref == master ]] || tag="$ref-$tag"
           echo "::set-output name=tagName::$tag"
       - name: Update Tag
         run: |
@@ -346,6 +349,9 @@ jobs:
         id: tag
         run: |
           tag="v$(date +'%y.%m').${{github.run_number}}"
+          ref="${{github.ref}}"
+          ref="${ref#refs/heads/}"
+          [[ $ref == master ]] || tag="$ref-$tag"
           echo "::set-output name=tagName::$tag"
       - name: Deployment Imagebuilder
         id: time
