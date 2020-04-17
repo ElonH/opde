@@ -44,6 +44,7 @@ def get_exist_err_packs():
 
 
 def push_issue(post_data):
+    post_data['body'] = '\n'.join(post_data['body'])
     c = pycurl.Curl()
     c.setopt(c.URL, 'https://api.github.com/repos/{}/issues'.format(issue_repo))
     c.setopt(c.CAINFO, certifi.where())

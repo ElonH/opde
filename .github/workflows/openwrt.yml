@@ -95,10 +95,24 @@ jobs:
         id: Make
         working-directory: ./${{matrix.source}}
         run: |
-          let make_process=$(nproc)+1
-          make -j${make_process} || make -j1 || make -j1 V=s
+          # let make_process=$(nproc)+1
+          # make -j${make_process} || make -j1 || make -j1 V=s
+          make -j$(($(nproc)+1)) IGNORE_ERRORS="y m n" |& tee logs/log.out || true
+      - name: Create issues
+        working-directory: ./${{matrix.source}}
+        run: |
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          ISSUES_REPO="ElonH/testAction"
+          [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
+          [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
+          echo "issues repo: $ISSUES_REPO"
+          ../scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
+          echo "--------------"
+          echo "mini-config:"
+          cat logs/minial_config || true
+          [[ $(cat logs/issues.json) == "{}" ]] || false
       - name: SDKLog
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@master
         with:
           name: ${{matrix.source}}-SDKLogs
