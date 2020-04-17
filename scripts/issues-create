@@ -65,7 +65,7 @@ Dalao fix it, please!
 ```
 </details>
 
-        '''.format(pack_name, current_repo, readme, config_contents),
+        '''.format(pack_name, current_repo, readme, config_contents).split('\n'),
     }
     print("created issue: %s" % pack_name)
     return post_data
@@ -93,7 +93,7 @@ def main():
     for issue in compiled_err_issues:
         issues_collecter[issue] = create_issue(issue)
     with open(output_path, 'w') as f:
-        f.write(json.dumps(issues_collecter))
+        f.write(json.dumps(issues_collecter, indent=2))
     print('issues stored in: %s' % output_path)
 
 
