@@ -193,7 +193,6 @@ if ( argsContains "--build-sdk" );then
 	SDK_PACK_CONF=""
 	USER_PACK_CONF=""
 	BUILD_SDK_PACK_CONF="
-CONFIG_ALL_KMODS=y
 $(GEN_SDK_IB y)
 $BUILD_SDK_PACK_CONF
 "
