@@ -23,10 +23,6 @@ CONFIG_TESTING_KERNEL=y
 
 $(GENERAL_SETTING)
 
-CONFIG_PACKAGE_kmod-batman-adv=n
-CONFIG_PACKAGE_kmod-mt_wifi=n
-CONFIG_PACKAGE_kmod-rtl8821cu=n
-
 CONFIG_PACKAGE_luci-app-ddns=n
 CONFIG_PACKAGE_luci-app-sqm=n
 CONFIG_PACKAGE_luci-app-upnp=n
