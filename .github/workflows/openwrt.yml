@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Check Release Token
+        run: |
+          [[ "${{secrets.RELEASE_TOKEN}}" ]] || false
       - name: tag-name
         run: |
           tag="v$(date +'%y.%m').${{github.run_number}}"
