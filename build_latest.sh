@@ -18,7 +18,7 @@ src-link telephony ${SCRIPT_ABS_PATH}/feeds/openwrt/telephony
 # basic configuration whatever build SDK, build packages or develepment
 function base_pack_conf {
 BASE_PACK_CONF="
-$(TARGET_X86_64)
+$(TARGET_bcm27xx_bcm2709)
 
 $(GENERAL_SETTING)
 
