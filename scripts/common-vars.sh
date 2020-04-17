@@ -54,6 +54,7 @@ CONFIG_GDB=n
 
 function GEN_SDK_IB {
     echo "
+CONFIG_ALL_KMODS=y
 CONFIG_IB=$1
 CONFIG_SDK=$1
 "
