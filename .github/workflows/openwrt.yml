@@ -63,7 +63,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -73,10 +73,10 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E dpkg --force-all -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
-          sudo ln -s /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
+          sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: Configure
         working-directory: ./${{matrix.source}}
         run: |
@@ -104,7 +104,9 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}
         run: |
-          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          branch="${{github.ref}}"
+          branch="${branch#refs/heads/}"
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b "${branch}" -sha ${{github.sha}}
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-kisco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-kisco"
@@ -200,7 +202,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -210,9 +212,10 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E dpkg --force-all -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo ln -s /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: Configure
         working-directory: ./${{matrix.source}}_sdk
         id: conf
@@ -238,7 +241,9 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}_sdk
         run: |
-          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          branch="${{github.ref}}"
+          branch="${branch#refs/heads/}"
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b "${branch}" -sha ${{github.sha}}
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
@@ -382,7 +387,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -392,9 +397,10 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E dpkg --force-all -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: ootoc
         run: |
           git clone https://github.com/jbeder/yaml-cpp.git && cd yaml-cpp
