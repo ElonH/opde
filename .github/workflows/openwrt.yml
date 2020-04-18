@@ -63,7 +63,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -202,7 +202,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -387,7 +387,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
