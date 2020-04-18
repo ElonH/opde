@@ -104,7 +104,9 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}
         run: |
-          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          branch="${{github.ref}}"
+          branch="${branch#refs/heads/}"
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b "${branch}" -sha ${{github.sha}}
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-kisco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-kisco"
@@ -238,7 +240,9 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}_sdk
         run: |
-          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          branch="${{github.ref}}"
+          branch="${branch#refs/heads/}"
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b "${branch}" -sha ${{github.sha}}
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
