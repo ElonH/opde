@@ -22,6 +22,8 @@ $(TARGET_ipq40xx_generic)
 
 $(GENERAL_SETTING)
 
+# refs: https://github.com/project-openwrt/openwrt-kisco/issues/15
+CONFIG_PACKAGE_kmod-mt_wifi=n
 CONFIG_PACKAGE_kmod-ath10k-ct-smallbuffers=m
 
 CONFIG_PACKAGE_ath10k-firmware-qca4019-ct=n
