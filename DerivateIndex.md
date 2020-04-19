@@ -8,6 +8,8 @@
   - generic - Generic ([Derren-Bryan](https://github.com/Derren-Bryan/opde-ipq40xx-generic))
 - bcm27xx - Broadcom BCM27xx
   - bcm2709 - BCM2709/BCM2710/BCM2711 boards (32 bit) ([Derren-Bryan](https://github.com/Derren-Bryan/opde-bcm27xx-bcm2709))
+- mpc85xx - Freescale MPC85xx
+  - generic - Generic (TODO:waiting)
 
 ## Join in opde
 
