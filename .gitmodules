@@ -1,7 +1,7 @@
 [submodule "ctcgfw"]
 	path = ctcgfw
 	url = https://github.com/project-openwrt/openwrt.git
-	branch = openwrt-18.06
+	branch = 18.06-kernel5.4
 [submodule "feeds/ctcgfw/packages"]
 	path = feeds/ctcgfw/packages
 	url = https://github.com/project-openwrt/packages
