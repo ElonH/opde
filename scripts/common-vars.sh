@@ -151,6 +151,7 @@ function OFFICIAL_PACKAGES_LIB_1 {
     echo "
 # no maintainer
 CONFIG_PACKAGE_classpath=n
+CONFIG_PACKAGE_classpath-tools=n
 
 "
 }
