@@ -22,7 +22,6 @@ $(TARGET_X86_64)
 
 $(GENERAL_SETTING)
 
-CONFIG_PACKAGE_kmod-rtl8821cu=n
 CONFIG_PACKAGE_kmod-dahdi=n
 "
 }
