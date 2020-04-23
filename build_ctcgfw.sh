@@ -70,6 +70,7 @@ function sdk_pack_conf {
 # cancel default packages
 SDK_PACK_CONF="
 CONFIG_PACKAGE_ootoc=n
+CONFIG_PACKAGE_kmod-mtd-rw=n
 "
 }
 
