@@ -144,6 +144,7 @@ jobs:
       - name: Prepare Firmware
         working-directory: ./${{matrix.source}}
         run: |
+          tar -cf tmp.tar bin/targets/*/*/packages
           rm bin/targets/*/*/packages -rf
           rm ${{steps.Find.outputs.SDK_PATH}} -rf
           rm ${{steps.Find.outputs.IB_PATH}} -rf
@@ -155,6 +156,16 @@ jobs:
         with:
           name: ${{matrix.source}}-Firmware
           path: ${{matrix.source}}/bin/targets
+      - name: Prepare Packages
+        working-directory: ./${{matrix.source}}
+        run: |
+          rm bin/targets -rf
+          tar -xf tmp.tar
+      - name: Upload Packages
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-base
+          path: ${{matrix.source}}/bin
       - name: Download ALL dl
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: ./${{matrix.source}}
@@ -330,6 +341,10 @@ jobs:
         with:
           name: ${{matrix.source}}-Firmware
           path: ./${{matrix.source}}-Firmware/
+      - uses: actions/download-artifact@v1
+        with:
+          name: ${{matrix.source}}-packages-base
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-base
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lib-1
