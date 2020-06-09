@@ -94,6 +94,15 @@ def main():
     print('current packages need to be fixed: %s' % compiled_err_issues)
     issues_collecter = {}
     for issue in compiled_err_issues:
+        if issue in ['package/feeds/packages/node-ffi',
+                     'package/feeds/packages/node-ejdb2_node',
+                     'package/feeds/packages/php7',
+                     'package/feeds/packages/ffmpeg/custom',
+                     'package/feeds/packages/seafile-server/python3',
+                     'package/feeds/packages/spidev_test',
+                     'package/feeds/packages/seafile-seahub',
+                     ]:
+            continue
         issues_collecter[issue] = create_issue(issue)
     with open(output_path, 'w') as f:
         f.write(json.dumps(issues_collecter, indent=2))
