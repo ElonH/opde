@@ -111,7 +111,8 @@ jobs:
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-kisco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-kisco"
           echo "issues repo: $ISSUES_REPO"
-          ../scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
+          # ../scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
+          ../scripts/issues-push -d -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
           echo "--------------"
           echo "mini-config:"
           cat logs/minial_config || true
