@@ -22,11 +22,15 @@
 	path = feeds/latest/luci
 	url = https://github.com/project-openwrt/luci.git
 	branch = master
-[submodule "feeds/ctcgfw/routing"]
-	path = feeds/ctcgfw/routing
-	url = https://github.com/project-openwrt/routing.git
+[submodule "openwrt/routing"]
+	path = feeds/openwrt/routing
+	url = https://github.com/openwrt-routing/packages.git
 	branch = master
-[submodule "feeds/openwrt/telephony"]
+[submodule "openwrt/telephony"]
 	path = feeds/openwrt/telephony
 	url = https://github.com/openwrt/telephony.git
+	branch = master
+[submodule "openwrt/freifunk"]
+	path = feeds/openwrt/freifunk
+	url = https://github.com/freifunk/openwrt-packages.git
 	branch = master
