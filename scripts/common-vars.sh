@@ -42,6 +42,24 @@ CONFIG_TARGET_PER_DEVICE_ROOTFS=n
 "
 }
 
+function TARGET_bcm27xx_bcm2709 {
+echo "
+CONFIG_TARGET_bcm27xx=y
+CONFIG_TARGET_bcm27xx_bcm2709=y
+CONFIG_TARGET_bcm27xx_bcm2709_DEVICE_rpi-2=y
+"
+}
+
+function TARGET_mpc85xx_generic {
+echo "
+CONFIG_TARGET_mpc85xx=y
+CONFIG_TARGET_mpc85xx_generic=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_ALL_PROFILES=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=n
+"
+}
+
 function GENERAL_SETTING {
     echo "
 CONFIG_DEVEL=y
@@ -144,6 +162,7 @@ function OFFICIAL_PACKAGES_LIB_1 {
     echo "
 # no maintainer
 CONFIG_PACKAGE_classpath=n
+CONFIG_PACKAGE_classpath-tools=n
 
 "
 }

@@ -9,6 +9,8 @@ import re
 current_repo = ""
 log_dir = ""
 output_path = ""
+current_branch = ""
+current_commit = ""
 
 
 def create_issue(pack_name):
@@ -46,26 +48,27 @@ def create_issue(pack_name):
         'body':
         '''
 Package `{0}` compiled error.
-Dalao fix it, please!
 
-> Note: This issue is created from [{1}](https://github.com/{1}) action
+This issue is created from action.
 
+- repo: [{1} ({2})](https://github.com/{1})
+- commit: https://github.com/{1}/commit/{3}
 ---
 
 <details><summary>Log detail</summary>
 
-{2}
+{4}
 
 </details>
 
 <details><summary>Configuration detail</summary>
 
 ```
-{3}
+{5}
 ```
 </details>
 
-        '''.format(pack_name, current_repo, readme, config_contents).split('\n'),
+        '''.format(pack_name, current_repo, current_branch, current_commit, readme, config_contents).split('\n'),
     }
     print("created issue: %s" % pack_name)
     return post_data
@@ -91,6 +94,15 @@ def main():
     print('current packages need to be fixed: %s' % compiled_err_issues)
     issues_collecter = {}
     for issue in compiled_err_issues:
+        if issue in ['package/feeds/packages/node-ffi',
+                     'package/feeds/packages/node-ejdb2_node',
+                     'package/feeds/packages/php7',
+                     'package/feeds/packages/ffmpeg/custom',
+                     'package/feeds/packages/seafile-server/python3',
+                     'package/feeds/packages/spidev_test',
+                     'package/feeds/packages/seafile-seahub',
+                     ]:
+            continue
         issues_collecter[issue] = create_issue(issue)
     with open(output_path, 'w') as f:
         f.write(json.dumps(issues_collecter, indent=2))
@@ -104,12 +116,18 @@ if __name__ == "__main__":
         description='Create compiled error issue from Build log')
     parser.add_argument('-cpo', '--current-repo', type=str, required=True,
                         help='this repo name[example: Codertocat/Hello-World]')
+    parser.add_argument('-b', '--current-branch', type=str, required=True,
+                        help='this branch name')
+    parser.add_argument('-sha', '--current-commit', type=str, required=True,
+                        help='this commit id')
     parser.add_argument('-l', '--openwrt-logs-dir', type=str, required=True,
                         help='log file path')
     parser.add_argument('-o', '--output', type=str, required=True,
                         help='the file path of stroring issues')
     args = parser.parse_args()
     current_repo = args.current_repo
+    current_branch = args.current_branch
+    current_commit = args.current_commit
     log_dir = args.openwrt_logs_dir
     output_path = args.output
     main()

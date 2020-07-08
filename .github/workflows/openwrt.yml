@@ -63,7 +63,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -73,10 +73,10 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E dpkg --force-all -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
-          sudo ln -s /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
+          sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: Configure
         working-directory: ./${{matrix.source}}
         run: |
@@ -104,12 +104,15 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}
         run: |
-          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          branch="${{github.ref}}"
+          branch="${branch#refs/heads/}"
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b "${branch}" -sha ${{github.sha}}
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-kisco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-kisco"
           echo "issues repo: $ISSUES_REPO"
-          ../scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
+          # ../scripts/issues-push -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
+          ../scripts/issues-push -d -i logs/issues.json -ipo "$ISSUES_REPO" -u "${{github.actor}}" -t "${{secrets.RELEASE_TOKEN}}" || true
           echo "--------------"
           echo "mini-config:"
           cat logs/minial_config || true
@@ -142,6 +145,7 @@ jobs:
       - name: Prepare Firmware
         working-directory: ./${{matrix.source}}
         run: |
+          tar -cf tmp.tar bin/targets/*/*/packages
           rm bin/targets/*/*/packages -rf
           rm ${{steps.Find.outputs.SDK_PATH}} -rf
           rm ${{steps.Find.outputs.IB_PATH}} -rf
@@ -153,6 +157,16 @@ jobs:
         with:
           name: ${{matrix.source}}-Firmware
           path: ${{matrix.source}}/bin/targets
+      - name: Prepare Packages
+        working-directory: ./${{matrix.source}}
+        run: |
+          rm bin/targets -rf
+          tar -xf tmp.tar
+      - name: Upload Packages
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{matrix.source}}-Packages-base
+          path: ${{matrix.source}}/bin
       - name: Download ALL dl
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: ./${{matrix.source}}
@@ -200,7 +214,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -210,9 +224,10 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E dpkg --force-all -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo ln -s /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: Configure
         working-directory: ./${{matrix.source}}_sdk
         id: conf
@@ -238,7 +253,9 @@ jobs:
       - name: Create issues
         working-directory: ./${{matrix.source}}_sdk
         run: |
-          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json
+          branch="${{github.ref}}"
+          branch="${branch#refs/heads/}"
+          ../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b "${branch}" -sha ${{github.sha}}
           ISSUES_REPO="ElonH/testAction"
           [[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO="project-openwrt/openwrt-isco"
           [[ ${{matrix.source}} == latest ]] && ISSUES_REPO="project-openwrt/openwrt-latest-isco"
@@ -325,6 +342,10 @@ jobs:
         with:
           name: ${{matrix.source}}-Firmware
           path: ./${{matrix.source}}-Firmware/
+      - uses: actions/download-artifact@v1
+        with:
+          name: ${{matrix.source}}-packages-base
+          path: ./${{matrix.source}}-Packages/${{matrix.source}}-Packages-base
       - uses: actions/download-artifact@v1 
         with:
           name: ${{matrix.source}}-packages-ofc-lib-1
@@ -382,7 +403,7 @@ jobs:
         with:
           path: ./scripts/apt
           key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}
-      - name: Envirment
+      - name: Environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -392,9 +413,10 @@ jobs:
           sudo -E apt-get autoremove -y --purge
           sudo -E apt-get clean -y
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-          sudo dpkg -i ./scripts/apt/*.deb || true
+          sudo -E dpkg --force-all -i ./scripts/apt/*.deb || true
           sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
           sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+          sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
       - name: ootoc
         run: |
           git clone https://github.com/jbeder/yaml-cpp.git && cd yaml-cpp
