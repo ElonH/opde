@@ -29,10 +29,9 @@ class PackageInfoLexer(InfoLexer):
 
     def t_end2line_string(self, t):
         r'(.*)\n'
-        t.value = [t.lexer.lexdata[t.lexer.line_start:t.lexer.lexpos - 1]]
-        t.lexer.lineno += t.value[0].count('\n') + 1
-        if len(t.value[0]) != 0:
-            t.value[0] = t.value[0][1:]
+        t.value = t.lexer.lexdata[t.lexer.line_start:t.lexer.lexpos - 1]
+        t.lexer.lineno += t.value.count('\n') + 1
+        t.value = t.value[1:]
         t.type = "PARAMS"
         t.lexer.pop_state()
         return t

@@ -28,10 +28,9 @@ class TargetInfoLexer(InfoLexer):
 
     def t_end2line_string(self, t):
         r'(.*)\n'
-        t.value = [t.lexer.lexdata[t.lexer.line_start:t.lexer.lexpos - 1]]
-        t.lexer.lineno += t.value[0].count('\n') + 1
-        if len(t.value[0]) != 0:
-            t.value[0] = t.value[0][1:]
+        t.value = t.lexer.lexdata[t.lexer.line_start:t.lexer.lexpos - 1]
+        t.lexer.lineno += t.value.count('\n') + 1
+        t.value = t.value[1:]
         t.type = "PARAMS"
         t.lexer.pop_state()
         return t
@@ -52,10 +51,9 @@ class TargetInfoLexer(InfoLexer):
 
     def t_end2aa_string(self, t):
         r'(?:(?!@@)(.|\r|\n))+'
-        t.value = [t.lexer.lexdata[t.lexer.doc_start + 1:t.lexer.lexpos]]
-        t.lexer.lineno += t.value[0].count('\n')
-        if len(t.value[0]) != 0:
-            t.value[0] = t.value[0][1:]
+        t.value = t.lexer.lexdata[t.lexer.doc_start + 1:t.lexer.lexpos - 1]
+        t.lexer.lineno += t.value.count('\n') + 1
+        t.value = t.value[1:].splitlines(keepends=False)
         t.type = "PARAMS"
         t.lexer.begin('INITIAL')
         return t
@@ -81,7 +79,6 @@ class TargetInfoLexer(InfoLexer):
     @TOKEN(r'({}){}'.format(packageNameRule, packageItemRule))
     def t_depends_wait_other_selected(self, t):
         t.type = 'ITEM'
-        # print([t.value])
         return t
 
     # A string containing ignored characters (spaces and tabs)
