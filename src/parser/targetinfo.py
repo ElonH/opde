@@ -58,7 +58,7 @@ class TargetInfoParser():
         p[0] = dict()
         p[0].update(p[1])
         p[0].update(p[2])
-        p[0]['subtargets'] = p[3]
+        p[0]['subtargets'] = p[3]  # fixme:
 
     def p_subtar(self, p):
         '''

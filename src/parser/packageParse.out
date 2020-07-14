@@ -1,0 +1,715 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> root
+Rule 1     root -> source
+Rule 2     root -> root source
+Rule 3     packs -> pack
+Rule 4     packs -> packs pack
+Rule 5     depsext -> depend
+Rule 6     depsext -> depsext depend
+Rule 7     confx -> configItem
+Rule 8     confx -> confx configItem
+Rule 9     helpx -> CONFIG_HELP_LINE
+Rule 10    helpx -> helpx CONFIG_HELP_LINE
+Rule 11    deps -> depsext DEPENDS_END
+Rule 12    helpdoc -> helpx CONFIG_HELP_END
+Rule 13    deps -> DEPENDS_END
+Rule 14    helpdoc -> CONFIG_HELP_END
+Rule 15    properties -> kv
+Rule 16    properties -> properties kv
+Rule 17    sourceComb -> sourceid properties
+Rule 18    sourceComb -> sourceid
+Rule 19    packageComb -> packageid properties dependsComb properties
+Rule 20    packageComb -> packageid properties dependsComb properties configComb
+Rule 21    kv -> DERIVATE PARAMS
+Rule 22    kv -> DESCRIPTION PARAMS DELIMITER
+Rule 23    sourceid -> SOURCE PARAMS
+Rule 24    packageid -> PACKAGEID PARAMS
+Rule 25    dependsComb -> DEPENDS deps
+Rule 26    configComb -> CONFIG confx DELIMITER
+Rule 27    configItem -> CONFIG_ITEM PARAMS
+Rule 28    configItem -> CONFIG_HELP helpdoc
+Rule 29    source -> sourceComb packs
+Rule 30    pack -> packageComb
+Rule 31    depend -> DEPENDS_SELECT_OTH
+Rule 32    depend -> DEPENDS_SELECT_OTH_IF
+Rule 33    depend -> DEPENDS_WAIT_SYMBOL
+Rule 34    depend -> DEPENDS_WAIT_OTH_SELECTED
+Rule 35    depend -> DEPENDS_WAIT_OTH_SELECTED_IF
+Rule 36    depend -> DEPENDS_SELECT_SYMBOL
+
+Terminals, with rules where they appear
+
+CONFIG               : 26
+CONFIG_HELP          : 28
+CONFIG_HELP_END      : 12 14
+CONFIG_HELP_LINE     : 9 10
+CONFIG_ITEM          : 27
+DELIMITER            : 22 26
+DEPENDS              : 25
+DEPENDS_END          : 11 13
+DEPENDS_SELECT_OTH   : 31
+DEPENDS_SELECT_OTH_IF : 32
+DEPENDS_SELECT_SYMBOL : 36
+DEPENDS_WAIT_OTH_SELECTED : 34
+DEPENDS_WAIT_OTH_SELECTED_IF : 35
+DEPENDS_WAIT_SYMBOL  : 33
+DERIVATE             : 21
+DESCRIPTION          : 22
+PACKAGEID            : 24
+PARAMS               : 21 22 23 24 27
+SOURCE               : 23
+error                : 
+
+Nonterminals, with rules where they appear
+
+configComb           : 20
+configItem           : 7 8
+confx                : 8 26
+depend               : 5 6
+dependsComb          : 19 20
+deps                 : 25
+depsext              : 6 11
+helpdoc              : 28
+helpx                : 10 12
+kv                   : 15 16
+pack                 : 3 4
+packageComb          : 30
+packageid            : 19 20
+packs                : 4 29
+properties           : 16 17 19 19 20 20
+root                 : 2 0
+source               : 1 2
+sourceComb           : 29
+sourceid             : 17 18
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . root
+    (1) root -> . source
+    (2) root -> . root source
+    (29) source -> . sourceComb packs
+    (17) sourceComb -> . sourceid properties
+    (18) sourceComb -> . sourceid
+    (23) sourceid -> . SOURCE PARAMS
+
+    SOURCE          shift and go to state 5
+
+    root                           shift and go to state 1
+    source                         shift and go to state 2
+    sourceComb                     shift and go to state 3
+    sourceid                       shift and go to state 4
+
+state 1
+
+    (0) S' -> root .
+    (2) root -> root . source
+    (29) source -> . sourceComb packs
+    (17) sourceComb -> . sourceid properties
+    (18) sourceComb -> . sourceid
+    (23) sourceid -> . SOURCE PARAMS
+
+    SOURCE          shift and go to state 5
+
+    source                         shift and go to state 6
+    sourceComb                     shift and go to state 3
+    sourceid                       shift and go to state 4
+
+state 2
+
+    (1) root -> source .
+
+    SOURCE          reduce using rule 1 (root -> source .)
+    $end            reduce using rule 1 (root -> source .)
+
+
+state 3
+
+    (29) source -> sourceComb . packs
+    (3) packs -> . pack
+    (4) packs -> . packs pack
+    (30) pack -> . packageComb
+    (19) packageComb -> . packageid properties dependsComb properties
+    (20) packageComb -> . packageid properties dependsComb properties configComb
+    (24) packageid -> . PACKAGEID PARAMS
+
+    PACKAGEID       shift and go to state 11
+
+    packs                          shift and go to state 7
+    pack                           shift and go to state 8
+    packageComb                    shift and go to state 9
+    packageid                      shift and go to state 10
+
+state 4
+
+    (17) sourceComb -> sourceid . properties
+    (18) sourceComb -> sourceid .
+    (15) properties -> . kv
+    (16) properties -> . properties kv
+    (21) kv -> . DERIVATE PARAMS
+    (22) kv -> . DESCRIPTION PARAMS DELIMITER
+
+    PACKAGEID       reduce using rule 18 (sourceComb -> sourceid .)
+    DERIVATE        shift and go to state 14
+    DESCRIPTION     shift and go to state 15
+
+    properties                     shift and go to state 12
+    kv                             shift and go to state 13
+
+state 5
+
+    (23) sourceid -> SOURCE . PARAMS
+
+    PARAMS          shift and go to state 16
+
+
+state 6
+
+    (2) root -> root source .
+
+    SOURCE          reduce using rule 2 (root -> root source .)
+    $end            reduce using rule 2 (root -> root source .)
+
+
+state 7
+
+    (29) source -> sourceComb packs .
+    (4) packs -> packs . pack
+    (30) pack -> . packageComb
+    (19) packageComb -> . packageid properties dependsComb properties
+    (20) packageComb -> . packageid properties dependsComb properties configComb
+    (24) packageid -> . PACKAGEID PARAMS
+
+    SOURCE          reduce using rule 29 (source -> sourceComb packs .)
+    $end            reduce using rule 29 (source -> sourceComb packs .)
+    PACKAGEID       shift and go to state 11
+
+    pack                           shift and go to state 17
+    packageComb                    shift and go to state 9
+    packageid                      shift and go to state 10
+
+state 8
+
+    (3) packs -> pack .
+
+    PACKAGEID       reduce using rule 3 (packs -> pack .)
+    SOURCE          reduce using rule 3 (packs -> pack .)
+    $end            reduce using rule 3 (packs -> pack .)
+
+
+state 9
+
+    (30) pack -> packageComb .
+
+    PACKAGEID       reduce using rule 30 (pack -> packageComb .)
+    SOURCE          reduce using rule 30 (pack -> packageComb .)
+    $end            reduce using rule 30 (pack -> packageComb .)
+
+
+state 10
+
+    (19) packageComb -> packageid . properties dependsComb properties
+    (20) packageComb -> packageid . properties dependsComb properties configComb
+    (15) properties -> . kv
+    (16) properties -> . properties kv
+    (21) kv -> . DERIVATE PARAMS
+    (22) kv -> . DESCRIPTION PARAMS DELIMITER
+
+    DERIVATE        shift and go to state 14
+    DESCRIPTION     shift and go to state 15
+
+    properties                     shift and go to state 18
+    kv                             shift and go to state 13
+
+state 11
+
+    (24) packageid -> PACKAGEID . PARAMS
+
+    PARAMS          shift and go to state 19
+
+
+state 12
+
+    (17) sourceComb -> sourceid properties .
+    (16) properties -> properties . kv
+    (21) kv -> . DERIVATE PARAMS
+    (22) kv -> . DESCRIPTION PARAMS DELIMITER
+
+    PACKAGEID       reduce using rule 17 (sourceComb -> sourceid properties .)
+    DERIVATE        shift and go to state 14
+    DESCRIPTION     shift and go to state 15
+
+    kv                             shift and go to state 20
+
+state 13
+
+    (15) properties -> kv .
+
+    DERIVATE        reduce using rule 15 (properties -> kv .)
+    DESCRIPTION     reduce using rule 15 (properties -> kv .)
+    PACKAGEID       reduce using rule 15 (properties -> kv .)
+    DEPENDS         reduce using rule 15 (properties -> kv .)
+    CONFIG          reduce using rule 15 (properties -> kv .)
+    SOURCE          reduce using rule 15 (properties -> kv .)
+    $end            reduce using rule 15 (properties -> kv .)
+
+
+state 14
+
+    (21) kv -> DERIVATE . PARAMS
+
+    PARAMS          shift and go to state 21
+
+
+state 15
+
+    (22) kv -> DESCRIPTION . PARAMS DELIMITER
+
+    PARAMS          shift and go to state 22
+
+
+state 16
+
+    (23) sourceid -> SOURCE PARAMS .
+
+    DERIVATE        reduce using rule 23 (sourceid -> SOURCE PARAMS .)
+    DESCRIPTION     reduce using rule 23 (sourceid -> SOURCE PARAMS .)
+    PACKAGEID       reduce using rule 23 (sourceid -> SOURCE PARAMS .)
+
+
+state 17
+
+    (4) packs -> packs pack .
+
+    PACKAGEID       reduce using rule 4 (packs -> packs pack .)
+    SOURCE          reduce using rule 4 (packs -> packs pack .)
+    $end            reduce using rule 4 (packs -> packs pack .)
+
+
+state 18
+
+    (19) packageComb -> packageid properties . dependsComb properties
+    (20) packageComb -> packageid properties . dependsComb properties configComb
+    (16) properties -> properties . kv
+    (25) dependsComb -> . DEPENDS deps
+    (21) kv -> . DERIVATE PARAMS
+    (22) kv -> . DESCRIPTION PARAMS DELIMITER
+
+    DEPENDS         shift and go to state 24
+    DERIVATE        shift and go to state 14
+    DESCRIPTION     shift and go to state 15
+
+    dependsComb                    shift and go to state 23
+    kv                             shift and go to state 20
+
+state 19
+
+    (24) packageid -> PACKAGEID PARAMS .
+
+    DERIVATE        reduce using rule 24 (packageid -> PACKAGEID PARAMS .)
+    DESCRIPTION     reduce using rule 24 (packageid -> PACKAGEID PARAMS .)
+
+
+state 20
+
+    (16) properties -> properties kv .
+
+    DERIVATE        reduce using rule 16 (properties -> properties kv .)
+    DESCRIPTION     reduce using rule 16 (properties -> properties kv .)
+    PACKAGEID       reduce using rule 16 (properties -> properties kv .)
+    DEPENDS         reduce using rule 16 (properties -> properties kv .)
+    CONFIG          reduce using rule 16 (properties -> properties kv .)
+    SOURCE          reduce using rule 16 (properties -> properties kv .)
+    $end            reduce using rule 16 (properties -> properties kv .)
+
+
+state 21
+
+    (21) kv -> DERIVATE PARAMS .
+
+    DERIVATE        reduce using rule 21 (kv -> DERIVATE PARAMS .)
+    DESCRIPTION     reduce using rule 21 (kv -> DERIVATE PARAMS .)
+    PACKAGEID       reduce using rule 21 (kv -> DERIVATE PARAMS .)
+    DEPENDS         reduce using rule 21 (kv -> DERIVATE PARAMS .)
+    CONFIG          reduce using rule 21 (kv -> DERIVATE PARAMS .)
+    SOURCE          reduce using rule 21 (kv -> DERIVATE PARAMS .)
+    $end            reduce using rule 21 (kv -> DERIVATE PARAMS .)
+
+
+state 22
+
+    (22) kv -> DESCRIPTION PARAMS . DELIMITER
+
+    DELIMITER       shift and go to state 25
+
+
+state 23
+
+    (19) packageComb -> packageid properties dependsComb . properties
+    (20) packageComb -> packageid properties dependsComb . properties configComb
+    (15) properties -> . kv
+    (16) properties -> . properties kv
+    (21) kv -> . DERIVATE PARAMS
+    (22) kv -> . DESCRIPTION PARAMS DELIMITER
+
+    DERIVATE        shift and go to state 14
+    DESCRIPTION     shift and go to state 15
+
+    properties                     shift and go to state 26
+    kv                             shift and go to state 13
+
+state 24
+
+    (25) dependsComb -> DEPENDS . deps
+    (11) deps -> . depsext DEPENDS_END
+    (13) deps -> . DEPENDS_END
+    (5) depsext -> . depend
+    (6) depsext -> . depsext depend
+    (31) depend -> . DEPENDS_SELECT_OTH
+    (32) depend -> . DEPENDS_SELECT_OTH_IF
+    (33) depend -> . DEPENDS_WAIT_SYMBOL
+    (34) depend -> . DEPENDS_WAIT_OTH_SELECTED
+    (35) depend -> . DEPENDS_WAIT_OTH_SELECTED_IF
+    (36) depend -> . DEPENDS_SELECT_SYMBOL
+
+    DEPENDS_END     shift and go to state 29
+    DEPENDS_SELECT_OTH shift and go to state 31
+    DEPENDS_SELECT_OTH_IF shift and go to state 32
+    DEPENDS_WAIT_SYMBOL shift and go to state 33
+    DEPENDS_WAIT_OTH_SELECTED shift and go to state 34
+    DEPENDS_WAIT_OTH_SELECTED_IF shift and go to state 35
+    DEPENDS_SELECT_SYMBOL shift and go to state 36
+
+    deps                           shift and go to state 27
+    depsext                        shift and go to state 28
+    depend                         shift and go to state 30
+
+state 25
+
+    (22) kv -> DESCRIPTION PARAMS DELIMITER .
+
+    DERIVATE        reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+    DESCRIPTION     reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+    PACKAGEID       reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+    DEPENDS         reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+    CONFIG          reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+    SOURCE          reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+    $end            reduce using rule 22 (kv -> DESCRIPTION PARAMS DELIMITER .)
+
+
+state 26
+
+    (19) packageComb -> packageid properties dependsComb properties .
+    (20) packageComb -> packageid properties dependsComb properties . configComb
+    (16) properties -> properties . kv
+    (26) configComb -> . CONFIG confx DELIMITER
+    (21) kv -> . DERIVATE PARAMS
+    (22) kv -> . DESCRIPTION PARAMS DELIMITER
+
+    PACKAGEID       reduce using rule 19 (packageComb -> packageid properties dependsComb properties .)
+    SOURCE          reduce using rule 19 (packageComb -> packageid properties dependsComb properties .)
+    $end            reduce using rule 19 (packageComb -> packageid properties dependsComb properties .)
+    CONFIG          shift and go to state 38
+    DERIVATE        shift and go to state 14
+    DESCRIPTION     shift and go to state 15
+
+    configComb                     shift and go to state 37
+    kv                             shift and go to state 20
+
+state 27
+
+    (25) dependsComb -> DEPENDS deps .
+
+    DERIVATE        reduce using rule 25 (dependsComb -> DEPENDS deps .)
+    DESCRIPTION     reduce using rule 25 (dependsComb -> DEPENDS deps .)
+
+
+state 28
+
+    (11) deps -> depsext . DEPENDS_END
+    (6) depsext -> depsext . depend
+    (31) depend -> . DEPENDS_SELECT_OTH
+    (32) depend -> . DEPENDS_SELECT_OTH_IF
+    (33) depend -> . DEPENDS_WAIT_SYMBOL
+    (34) depend -> . DEPENDS_WAIT_OTH_SELECTED
+    (35) depend -> . DEPENDS_WAIT_OTH_SELECTED_IF
+    (36) depend -> . DEPENDS_SELECT_SYMBOL
+
+    DEPENDS_END     shift and go to state 39
+    DEPENDS_SELECT_OTH shift and go to state 31
+    DEPENDS_SELECT_OTH_IF shift and go to state 32
+    DEPENDS_WAIT_SYMBOL shift and go to state 33
+    DEPENDS_WAIT_OTH_SELECTED shift and go to state 34
+    DEPENDS_WAIT_OTH_SELECTED_IF shift and go to state 35
+    DEPENDS_SELECT_SYMBOL shift and go to state 36
+
+    depend                         shift and go to state 40
+
+state 29
+
+    (13) deps -> DEPENDS_END .
+
+    DERIVATE        reduce using rule 13 (deps -> DEPENDS_END .)
+    DESCRIPTION     reduce using rule 13 (deps -> DEPENDS_END .)
+
+
+state 30
+
+    (5) depsext -> depend .
+
+    DEPENDS_END     reduce using rule 5 (depsext -> depend .)
+    DEPENDS_SELECT_OTH reduce using rule 5 (depsext -> depend .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 5 (depsext -> depend .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 5 (depsext -> depend .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 5 (depsext -> depend .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 5 (depsext -> depend .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 5 (depsext -> depend .)
+
+
+state 31
+
+    (31) depend -> DEPENDS_SELECT_OTH .
+
+    DEPENDS_END     reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+    DEPENDS_SELECT_OTH reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 31 (depend -> DEPENDS_SELECT_OTH .)
+
+
+state 32
+
+    (32) depend -> DEPENDS_SELECT_OTH_IF .
+
+    DEPENDS_END     reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+    DEPENDS_SELECT_OTH reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 32 (depend -> DEPENDS_SELECT_OTH_IF .)
+
+
+state 33
+
+    (33) depend -> DEPENDS_WAIT_SYMBOL .
+
+    DEPENDS_END     reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+    DEPENDS_SELECT_OTH reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 33 (depend -> DEPENDS_WAIT_SYMBOL .)
+
+
+state 34
+
+    (34) depend -> DEPENDS_WAIT_OTH_SELECTED .
+
+    DEPENDS_END     reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+    DEPENDS_SELECT_OTH reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 34 (depend -> DEPENDS_WAIT_OTH_SELECTED .)
+
+
+state 35
+
+    (35) depend -> DEPENDS_WAIT_OTH_SELECTED_IF .
+
+    DEPENDS_END     reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+    DEPENDS_SELECT_OTH reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 35 (depend -> DEPENDS_WAIT_OTH_SELECTED_IF .)
+
+
+state 36
+
+    (36) depend -> DEPENDS_SELECT_SYMBOL .
+
+    DEPENDS_END     reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+    DEPENDS_SELECT_OTH reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 36 (depend -> DEPENDS_SELECT_SYMBOL .)
+
+
+state 37
+
+    (20) packageComb -> packageid properties dependsComb properties configComb .
+
+    PACKAGEID       reduce using rule 20 (packageComb -> packageid properties dependsComb properties configComb .)
+    SOURCE          reduce using rule 20 (packageComb -> packageid properties dependsComb properties configComb .)
+    $end            reduce using rule 20 (packageComb -> packageid properties dependsComb properties configComb .)
+
+
+state 38
+
+    (26) configComb -> CONFIG . confx DELIMITER
+    (7) confx -> . configItem
+    (8) confx -> . confx configItem
+    (27) configItem -> . CONFIG_ITEM PARAMS
+    (28) configItem -> . CONFIG_HELP helpdoc
+
+    CONFIG_ITEM     shift and go to state 43
+    CONFIG_HELP     shift and go to state 44
+
+    confx                          shift and go to state 41
+    configItem                     shift and go to state 42
+
+state 39
+
+    (11) deps -> depsext DEPENDS_END .
+
+    DERIVATE        reduce using rule 11 (deps -> depsext DEPENDS_END .)
+    DESCRIPTION     reduce using rule 11 (deps -> depsext DEPENDS_END .)
+
+
+state 40
+
+    (6) depsext -> depsext depend .
+
+    DEPENDS_END     reduce using rule 6 (depsext -> depsext depend .)
+    DEPENDS_SELECT_OTH reduce using rule 6 (depsext -> depsext depend .)
+    DEPENDS_SELECT_OTH_IF reduce using rule 6 (depsext -> depsext depend .)
+    DEPENDS_WAIT_SYMBOL reduce using rule 6 (depsext -> depsext depend .)
+    DEPENDS_WAIT_OTH_SELECTED reduce using rule 6 (depsext -> depsext depend .)
+    DEPENDS_WAIT_OTH_SELECTED_IF reduce using rule 6 (depsext -> depsext depend .)
+    DEPENDS_SELECT_SYMBOL reduce using rule 6 (depsext -> depsext depend .)
+
+
+state 41
+
+    (26) configComb -> CONFIG confx . DELIMITER
+    (8) confx -> confx . configItem
+    (27) configItem -> . CONFIG_ITEM PARAMS
+    (28) configItem -> . CONFIG_HELP helpdoc
+
+    DELIMITER       shift and go to state 45
+    CONFIG_ITEM     shift and go to state 43
+    CONFIG_HELP     shift and go to state 44
+
+    configItem                     shift and go to state 46
+
+state 42
+
+    (7) confx -> configItem .
+
+    DELIMITER       reduce using rule 7 (confx -> configItem .)
+    CONFIG_ITEM     reduce using rule 7 (confx -> configItem .)
+    CONFIG_HELP     reduce using rule 7 (confx -> configItem .)
+
+
+state 43
+
+    (27) configItem -> CONFIG_ITEM . PARAMS
+
+    PARAMS          shift and go to state 47
+
+
+state 44
+
+    (28) configItem -> CONFIG_HELP . helpdoc
+    (12) helpdoc -> . helpx CONFIG_HELP_END
+    (14) helpdoc -> . CONFIG_HELP_END
+    (9) helpx -> . CONFIG_HELP_LINE
+    (10) helpx -> . helpx CONFIG_HELP_LINE
+
+    CONFIG_HELP_END shift and go to state 50
+    CONFIG_HELP_LINE shift and go to state 51
+
+    helpdoc                        shift and go to state 48
+    helpx                          shift and go to state 49
+
+state 45
+
+    (26) configComb -> CONFIG confx DELIMITER .
+
+    PACKAGEID       reduce using rule 26 (configComb -> CONFIG confx DELIMITER .)
+    SOURCE          reduce using rule 26 (configComb -> CONFIG confx DELIMITER .)
+    $end            reduce using rule 26 (configComb -> CONFIG confx DELIMITER .)
+
+
+state 46
+
+    (8) confx -> confx configItem .
+
+    DELIMITER       reduce using rule 8 (confx -> confx configItem .)
+    CONFIG_ITEM     reduce using rule 8 (confx -> confx configItem .)
+    CONFIG_HELP     reduce using rule 8 (confx -> confx configItem .)
+
+
+state 47
+
+    (27) configItem -> CONFIG_ITEM PARAMS .
+
+    DELIMITER       reduce using rule 27 (configItem -> CONFIG_ITEM PARAMS .)
+    CONFIG_ITEM     reduce using rule 27 (configItem -> CONFIG_ITEM PARAMS .)
+    CONFIG_HELP     reduce using rule 27 (configItem -> CONFIG_ITEM PARAMS .)
+
+
+state 48
+
+    (28) configItem -> CONFIG_HELP helpdoc .
+
+    DELIMITER       reduce using rule 28 (configItem -> CONFIG_HELP helpdoc .)
+    CONFIG_ITEM     reduce using rule 28 (configItem -> CONFIG_HELP helpdoc .)
+    CONFIG_HELP     reduce using rule 28 (configItem -> CONFIG_HELP helpdoc .)
+
+
+state 49
+
+    (12) helpdoc -> helpx . CONFIG_HELP_END
+    (10) helpx -> helpx . CONFIG_HELP_LINE
+
+    CONFIG_HELP_END shift and go to state 52
+    CONFIG_HELP_LINE shift and go to state 53
+
+
+state 50
+
+    (14) helpdoc -> CONFIG_HELP_END .
+
+    DELIMITER       reduce using rule 14 (helpdoc -> CONFIG_HELP_END .)
+    CONFIG_ITEM     reduce using rule 14 (helpdoc -> CONFIG_HELP_END .)
+    CONFIG_HELP     reduce using rule 14 (helpdoc -> CONFIG_HELP_END .)
+
+
+state 51
+
+    (9) helpx -> CONFIG_HELP_LINE .
+
+    CONFIG_HELP_END reduce using rule 9 (helpx -> CONFIG_HELP_LINE .)
+    CONFIG_HELP_LINE reduce using rule 9 (helpx -> CONFIG_HELP_LINE .)
+
+
+state 52
+
+    (12) helpdoc -> helpx CONFIG_HELP_END .
+
+    DELIMITER       reduce using rule 12 (helpdoc -> helpx CONFIG_HELP_END .)
+    CONFIG_ITEM     reduce using rule 12 (helpdoc -> helpx CONFIG_HELP_END .)
+    CONFIG_HELP     reduce using rule 12 (helpdoc -> helpx CONFIG_HELP_END .)
+
+
+state 53
+
+    (10) helpx -> helpx CONFIG_HELP_LINE .
+
+    CONFIG_HELP_END reduce using rule 10 (helpx -> helpx CONFIG_HELP_LINE .)
+    CONFIG_HELP_LINE reduce using rule 10 (helpx -> helpx CONFIG_HELP_LINE .)
+

@@ -47,7 +47,6 @@ class PackageInfoLexer(InfoLexer):
     def t_DESCRIPTION(self, t: LexToken):
         r'Description'
         t.lexer.doc_start = t.lexer.lexpos
-        t.type = "DERIVATE"
         t.lexer.push_state('end2aa')
         return t
 
@@ -69,9 +68,24 @@ class PackageInfoLexer(InfoLexer):
         t.lexer.skip(1)
 
     def t_DERIVATE(self, t: LexToken):
-        r'(Source[-]Makefile|(Submenu|Menu)[-]Depends|Build[-](Types|Depends|Variant|Only)|Kernel[-]Config|Build[-]Depends/host|Default[-]Variant|Prereq[-]Check|Require[-]User|Package|Menu|Version|Conflicts|Provides|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
+        r'((Submenu|Menu)[-]Depends|Build[-](Types|Depends|Variant|Only)|Kernel[-]Config|Build[-]Depends/host|Default[-]Variant|Prereq[-]Check|Require[-]User|Menu|Version|Conflicts|Provides|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
         t.lexer.line_start = t.lexer.lexpos
         t.lexer.push_state('end2line')
+        t.value = t.value[:-1]
+        return t
+
+    def t_SOURCE(self, t: LexToken):
+        r'Source[-]Makefile:'
+        t.lexer.line_start = t.lexer.lexpos
+        t.lexer.push_state('end2line')
+        t.value = t.value[:-1]
+        return t
+
+    def t_PACKAGEID(self, t: LexToken):
+        r'Package:'
+        t.lexer.line_start = t.lexer.lexpos
+        t.lexer.push_state('end2line')
+        t.value = t.value[:-1]
         return t
 
     def t_CONFIG(self, t: LexToken):
@@ -127,7 +141,8 @@ class PackageInfoLexer(InfoLexer):
             if not t.value.startswith(t.lexer.help_indent):
                 t.lexer.skip(-len(t.value))
                 t.lexer.pop_state()
-                return
+                t.type = 'CONFIG_HELP_END'
+                return t
         t.type = "CONFIG_HELP_LINE"
         t.lexer.lineno += 1
         return t
@@ -159,19 +174,23 @@ class PackageInfoLexer(InfoLexer):
     tokens = (
         'DERIVATE',
         'PARAMS',
+        'PACKAGEID',
+        'SOURCE',
         'DESCRIPTION',
         'DELIMITER',
         'CONFIG',
         'CONFIG_ITEM',
         'CONFIG_HELP',
         'CONFIG_HELP_LINE',
+        'CONFIG_HELP_END',
         'DEPENDS',
         'DEPENDS_SELECT_OTH',  # +<pkg>
-        'DEPENDS_SELECt_OTH_IF',  # +<symbol>:<pkg>
+        'DEPENDS_SELECT_OTH_IF',  # +<symbol>:<pkg>
         'DEPENDS_WAIT_SYMBOL',  # @<symbol>
         'DEPENDS_WAIT_OTH_SELECTED',  # <pkg>
         'DEPENDS_WAIT_OTH_SELECTED_IF',  # @<symbol>:<pkg>
         'DEPENDS_SELECT_SYMBOL',  # +@<symbol>
+        'DEPENDS_END',
     )
 
     packageNameRule = r'[a-zA-Z-_\d.]+'
@@ -182,25 +201,30 @@ class PackageInfoLexer(InfoLexer):
         r'Depends:'
         t.lexer.doc_start = t.lexer.lexpos
         t.lexer.push_state('depends')
+        t.value = t.value[:-1]
         return t
 
     def t_depends_exit(self, t):
         r'\n'
         t.lexer.pop_state()
         t.lexer.lineno += len(t.value)
+        t.type = 'DEPENDS_END'
+        return t
 
     # @TOKEN(r'(\+[a-zA-Z-_]+)(?=[ \n])')
     @TOKEN(r'(\+{}){}'.format(packageNameRule, packageItemRule))
     def t_depends_select_other(self, t):
         t.type = 'DEPENDS_SELECT_OTH'
-        t.value = t.value[1:]
+        t.value = [t.value[1:]]
+        t.value = [t.type] + t.value
         # print([t.value])
         return t
 
     @TOKEN(r'(\+{}:{}){}'.format(packageSymbolRule, packageNameRule, packageItemRule))
     def t_depends_select_other_if(self, t):
-        t.type = 'DEPENDS_SELECt_OTH_IF'
+        t.type = 'DEPENDS_SELECT_OTH_IF'
         t.value = t.value[1:].split(':')
+        t.value = [t.type] + t.value
         # TODO: laxer for symbol
         # print([t.value])
         return t
@@ -208,7 +232,8 @@ class PackageInfoLexer(InfoLexer):
     @TOKEN(r'(\@{}){}'.format(packageSymbolRule, packageItemRule))
     def t_depends_wait_symbol(self, t):
         t.type = 'DEPENDS_WAIT_SYMBOL'
-        t.value = t.value[1:]
+        t.value = [t.value[1:]]
+        t.value = [t.type] + t.value
         # TODO: laxer for symbol
         # print([t.value])
         return t
@@ -216,13 +241,15 @@ class PackageInfoLexer(InfoLexer):
     @TOKEN(r'({}){}'.format(packageNameRule, packageItemRule))
     def t_depends_wait_other_selected(self, t):
         t.type = 'DEPENDS_WAIT_OTH_SELECTED'
+        t.value = [t.type, t.value]
         # print([t.value])
         return t
 
     @TOKEN(r'(\+\@{}){}'.format(packageSymbolRule, packageItemRule))
     def t_depends_select_symbol(self, t):
         t.type = 'DEPENDS_SELECT_SYMBOL'
-        t.value = t.value[2:]
+        t.value = [t.value[2:]]
+        t.value = [t.type] + t.value
         # TODO: laxer for symbol
         # print([t.value])
         return t
@@ -232,6 +259,7 @@ class PackageInfoLexer(InfoLexer):
     def t_depends_wait_other_selected_if(self, t):
         t.type = 'DEPENDS_WAIT_OTH_SELECTED_IF'
         t.value = t.value.lstrip('@').split(':')
+        t.value = [t.type] + t.value
         # TODO: laxer for symbol
         # print([t.value])
         return t
