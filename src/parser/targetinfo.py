@@ -50,15 +50,27 @@ class TargetInfoParser():
     def p_arch(self, p):
         '''
         arch       : source targetComb subtargets
-                   | source targetComb profiles1
-                   | source targetComb profiles0
                    | source targetComb profiles1 subtargets
         '''
         #    | source targetComb profiles
         p[0] = dict()
         p[0].update(p[1])
         p[0].update(p[2])
-        p[0]['subtargets'] = p[3]  # fixme:
+        if len(p) > 4:
+            p[0]['profiles'] = p[3]
+            p[0]['subtargets'] = p[4]
+        else:
+            p[0]['subtargets'] = p[3]
+
+    def p_arch2(self, p):
+        '''
+        arch       : source targetComb profiles1
+                   | source targetComb profiles0
+        '''
+        p[0] = dict()
+        p[0].update(p[1])
+        p[0].update(p[2])
+        p[0]['profiles'] = p[3]
 
     def p_subtar(self, p):
         '''

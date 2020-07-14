@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'archsDEFAULTPACKAGES DELIMITER DERIVATE ITEM ITEMEND PARAMS PROFILEID SOURCE TARGETFEATURES TARGETID TARGETPROFILEPACKAGESempty :\n        kv      : DERIVATE PARAMS\n                | TARGETFEATURES packs\n                | DEFAULTPACKAGES packs\n                | TARGETPROFILEPACKAGES packs\n        targetid  : TARGETID PARAMS\n        source  : SOURCE PARAMS\n        profileid : PROFILEID PARAMS\n        \n        properties : kv kv\n                   | properties kv\n                   | properties DELIMITER\n        targetComb : targetid properties\n        \n        arch       : source targetComb subtargets\n                   | source targetComb profiles1\n                   | source targetComb profiles0\n                   | source targetComb profiles1 subtargets\n        \n        subtar     : targetComb profiles1\n                    | targetComb profiles0\n        profile    : profileid properties\n        archsext : arch\n        subtargetsext : subtar\n        packsext : ITEM\n        profilesext : profile\n        \n        archsext : archsext arch\n        subtargetsext : subtargetsext subtar\n        packsext      : packsext ITEM\n        profilesext   : profilesext profile\n        \n        packs : packsext ITEMEND\n              | ITEMEND\n        archs : archsext\n        subtargets  : subtargetsext\n        profiles1   : profilesext\n        profiles0   : empty\n        '
+_lr_signature = 'archsDEFAULTPACKAGES DELIMITER DERIVATE ITEM ITEMEND PARAMS PROFILEID SOURCE TARGETFEATURES TARGETID TARGETPROFILEPACKAGESempty :\n        kv      : DERIVATE PARAMS\n                | TARGETFEATURES packs\n                | DEFAULTPACKAGES packs\n                | TARGETPROFILEPACKAGES packs\n        targetid  : TARGETID PARAMS\n        source  : SOURCE PARAMS\n        profileid : PROFILEID PARAMS\n        \n        properties : kv kv\n                   | properties kv\n                   | properties DELIMITER\n        targetComb : targetid properties\n        \n        arch       : source targetComb subtargets\n                   | source targetComb profiles1 subtargets\n        \n        arch       : source targetComb profiles1\n                   | source targetComb profiles0\n        \n        subtar     : targetComb profiles1\n                    | targetComb profiles0\n        profile    : profileid properties\n        archsext : arch\n        subtargetsext : subtar\n        packsext : ITEM\n        profilesext : profile\n        \n        archsext : archsext arch\n        subtargetsext : subtargetsext subtar\n        packsext      : packsext ITEM\n        profilesext   : profilesext profile\n        \n        packs : packsext ITEMEND\n              | ITEMEND\n        archs : archsext\n        subtargets  : subtargetsext\n        profiles1   : profilesext\n        profiles0   : empty\n        '
     
-_lr_action_items = {'SOURCE':([0,2,3,6,7,11,12,13,14,15,16,17,18,19,22,29,30,31,32,33,34,36,37,38,39,40,42,44,45,46,],[5,5,-20,-24,-1,-1,-13,-14,-15,-31,-32,-33,-21,-23,-12,-17,-18,-16,-25,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'$end':([1,2,3,6,7,11,12,13,14,15,16,17,18,19,22,29,30,31,32,33,34,36,37,38,39,40,42,44,45,46,],[0,-30,-20,-24,-1,-1,-13,-14,-15,-31,-32,-33,-21,-23,-12,-17,-18,-16,-25,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'TARGETID':([4,7,10,11,13,15,16,17,18,19,22,29,30,32,33,34,36,37,38,39,40,42,44,45,46,],[9,9,-7,-1,9,9,-32,-33,-21,-23,-12,-17,-18,-25,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'PARAMS':([5,9,21,24,],[10,28,35,39,]),'PROFILEID':([7,11,16,19,22,33,34,36,37,38,39,40,42,44,45,46,],[21,21,21,-23,-12,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'DERIVATE':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[24,24,24,24,-6,24,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'TARGETFEATURES':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[25,25,25,25,-6,25,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'DEFAULTPACKAGES':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[26,26,26,26,-6,26,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'TARGETPROFILEPACKAGES':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[27,27,27,27,-6,27,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'DELIMITER':([22,34,36,37,38,39,40,42,44,45,46,],[37,37,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'ITEMEND':([25,26,27,41,43,47,],[42,42,42,46,-22,-26,]),'ITEM':([25,26,27,41,43,47,],[43,43,43,47,-22,-26,]),}
+_lr_action_items = {'SOURCE':([0,2,3,6,7,11,12,13,14,15,16,17,18,19,22,29,30,31,32,33,34,36,37,38,39,40,42,44,45,46,],[5,5,-20,-24,-1,-1,-13,-15,-16,-31,-32,-33,-21,-23,-12,-17,-18,-14,-25,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'$end':([1,2,3,6,7,11,12,13,14,15,16,17,18,19,22,29,30,31,32,33,34,36,37,38,39,40,42,44,45,46,],[0,-30,-20,-24,-1,-1,-13,-15,-16,-31,-32,-33,-21,-23,-12,-17,-18,-14,-25,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'TARGETID':([4,7,10,11,13,15,16,17,18,19,22,29,30,32,33,34,36,37,38,39,40,42,44,45,46,],[9,9,-7,-1,9,9,-32,-33,-21,-23,-12,-17,-18,-25,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'PARAMS':([5,9,21,24,],[10,28,35,39,]),'PROFILEID':([7,11,16,19,22,33,34,36,37,38,39,40,42,44,45,46,],[21,21,21,-23,-12,-27,-19,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'DERIVATE':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[24,24,24,24,-6,24,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'TARGETFEATURES':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[25,25,25,25,-6,25,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'DEFAULTPACKAGES':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[26,26,26,26,-6,26,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'TARGETPROFILEPACKAGES':([8,20,22,23,28,34,35,36,37,38,39,40,42,44,45,46,],[27,27,27,27,-6,27,-8,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'DELIMITER':([22,34,36,37,38,39,40,42,44,45,46,],[37,37,-10,-11,-9,-2,-3,-29,-4,-5,-28,]),'ITEMEND':([25,26,27,41,43,47,],[42,42,42,46,-22,-26,]),'ITEM':([25,26,27,41,43,47,],[43,43,43,47,-22,-26,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -40,24 +40,24 @@ _lr_productions = [
   ('properties -> properties DELIMITER','properties',2,'p_pack','targetinfo.py',40),
   ('targetComb -> targetid properties','targetComb',2,'p_pack','targetinfo.py',41),
   ('arch -> source targetComb subtargets','arch',3,'p_arch','targetinfo.py',52),
-  ('arch -> source targetComb profiles1','arch',3,'p_arch','targetinfo.py',53),
-  ('arch -> source targetComb profiles0','arch',3,'p_arch','targetinfo.py',54),
-  ('arch -> source targetComb profiles1 subtargets','arch',4,'p_arch','targetinfo.py',55),
-  ('subtar -> targetComb profiles1','subtar',2,'p_subtar','targetinfo.py',65),
-  ('subtar -> targetComb profiles0','subtar',2,'p_subtar','targetinfo.py',66),
-  ('profile -> profileid properties','profile',2,'p_profile','targetinfo.py',73),
-  ('archsext -> arch','archsext',1,'p_listInit','targetinfo.py',80),
-  ('subtargetsext -> subtar','subtargetsext',1,'p_listInit','targetinfo.py',81),
-  ('packsext -> ITEM','packsext',1,'p_listInit','targetinfo.py',82),
-  ('profilesext -> profile','profilesext',1,'p_listInit','targetinfo.py',83),
-  ('archsext -> archsext arch','archsext',2,'p_listAppend','targetinfo.py',92),
-  ('subtargetsext -> subtargetsext subtar','subtargetsext',2,'p_listAppend','targetinfo.py',93),
-  ('packsext -> packsext ITEM','packsext',2,'p_listAppend','targetinfo.py',94),
-  ('profilesext -> profilesext profile','profilesext',2,'p_listAppend','targetinfo.py',95),
-  ('packs -> packsext ITEMEND','packs',2,'p_listEnd','targetinfo.py',101),
-  ('packs -> ITEMEND','packs',1,'p_listEnd','targetinfo.py',102),
-  ('archs -> archsext','archs',1,'p_listEnd','targetinfo.py',103),
-  ('subtargets -> subtargetsext','subtargets',1,'p_listEnd','targetinfo.py',104),
-  ('profiles1 -> profilesext','profiles1',1,'p_listEnd','targetinfo.py',105),
-  ('profiles0 -> empty','profiles0',1,'p_listEnd','targetinfo.py',106),
+  ('arch -> source targetComb profiles1 subtargets','arch',4,'p_arch','targetinfo.py',53),
+  ('arch -> source targetComb profiles1','arch',3,'p_arch2','targetinfo.py',67),
+  ('arch -> source targetComb profiles0','arch',3,'p_arch2','targetinfo.py',68),
+  ('subtar -> targetComb profiles1','subtar',2,'p_subtar','targetinfo.py',77),
+  ('subtar -> targetComb profiles0','subtar',2,'p_subtar','targetinfo.py',78),
+  ('profile -> profileid properties','profile',2,'p_profile','targetinfo.py',85),
+  ('archsext -> arch','archsext',1,'p_listInit','targetinfo.py',92),
+  ('subtargetsext -> subtar','subtargetsext',1,'p_listInit','targetinfo.py',93),
+  ('packsext -> ITEM','packsext',1,'p_listInit','targetinfo.py',94),
+  ('profilesext -> profile','profilesext',1,'p_listInit','targetinfo.py',95),
+  ('archsext -> archsext arch','archsext',2,'p_listAppend','targetinfo.py',104),
+  ('subtargetsext -> subtargetsext subtar','subtargetsext',2,'p_listAppend','targetinfo.py',105),
+  ('packsext -> packsext ITEM','packsext',2,'p_listAppend','targetinfo.py',106),
+  ('profilesext -> profilesext profile','profilesext',2,'p_listAppend','targetinfo.py',107),
+  ('packs -> packsext ITEMEND','packs',2,'p_listEnd','targetinfo.py',113),
+  ('packs -> ITEMEND','packs',1,'p_listEnd','targetinfo.py',114),
+  ('archs -> archsext','archs',1,'p_listEnd','targetinfo.py',115),
+  ('subtargets -> subtargetsext','subtargets',1,'p_listEnd','targetinfo.py',116),
+  ('profiles1 -> profilesext','profiles1',1,'p_listEnd','targetinfo.py',117),
+  ('profiles0 -> empty','profiles0',1,'p_listEnd','targetinfo.py',118),
 ]
