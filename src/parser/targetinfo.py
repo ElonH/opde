@@ -117,7 +117,7 @@ class TargetInfoParser():
         profiles1   : profilesext
         profiles0   : empty
         '''
-        if len(p) == 2:
+        if len(p) == 2 or len(p) == 3:
             p[0] = p[1]
         else:
             p[0] = []
