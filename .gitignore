@@ -11,4 +11,6 @@ IB*
 *-Firmware/
 *-Packages/
 scripts/apt
-.vscode
+.cache
+src/**/__pycache__
+__pycache__

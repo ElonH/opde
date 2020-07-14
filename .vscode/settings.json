@@ -1,0 +1,23 @@
+{
+	"python.pythonPath": ".venv/bin/python",
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"python.linting.enabled": true,
+	"python.linting.lintOnSave": true,
+	"python.linting.pylintEnabled": true,
+	"python.linting.pylintPath": ".venv/bin/pylint",
+	"python.linting.pylintArgs": [
+		"-j 2",
+		"-d misplaced-bare-raise"
+	],
+	"python.linting.pylintCategorySeverity.convention": "Hint",
+	"python.linting.flake8Enabled": false,
+	"python.languageServer": "Jedi",
+	"python.linting.ignorePatterns": [
+		".vscode/*.py",
+		"**/site-packages/**/*.py",
+		".venv/**/*.py",
+		".pytest_cache/**/*.py"
+	],
+	"python.linting.mypyEnabled": false
+}

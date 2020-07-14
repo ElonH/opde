@@ -1,0 +1,707 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> archs
+Rule 1     empty -> <empty>
+Rule 2     kv -> DERIVATE PARAMS
+Rule 3     kv -> TARGETFEATURES packs
+Rule 4     kv -> DEFAULTPACKAGES packs
+Rule 5     kv -> TARGETPROFILEPACKAGES packs
+Rule 6     targetid -> TARGETID PARAMS
+Rule 7     source -> SOURCE PARAMS
+Rule 8     profileid -> PROFILEID PARAMS
+Rule 9     properties -> kv kv
+Rule 10    properties -> properties kv
+Rule 11    properties -> properties DELIMITER
+Rule 12    targetComb -> targetid properties
+Rule 13    arch -> source targetComb subtargets
+Rule 14    arch -> source targetComb profiles1
+Rule 15    arch -> source targetComb profiles0
+Rule 16    arch -> source targetComb profiles1 subtargets
+Rule 17    subtar -> targetComb profiles1
+Rule 18    subtar -> targetComb profiles0
+Rule 19    profile -> profileid properties
+Rule 20    archsext -> arch
+Rule 21    subtargetsext -> subtar
+Rule 22    packsext -> ITEM
+Rule 23    profilesext -> profile
+Rule 24    archsext -> archsext arch
+Rule 25    subtargetsext -> subtargetsext subtar
+Rule 26    packsext -> packsext ITEM
+Rule 27    profilesext -> profilesext profile
+Rule 28    packs -> packsext ITEMEND
+Rule 29    packs -> ITEMEND
+Rule 30    archs -> archsext
+Rule 31    subtargets -> subtargetsext
+Rule 32    profiles1 -> profilesext
+Rule 33    profiles0 -> empty
+
+Terminals, with rules where they appear
+
+DEFAULTPACKAGES      : 4
+DELIMITER            : 11
+DERIVATE             : 2
+ITEM                 : 22 26
+ITEMEND              : 28 29
+PARAMS               : 2 6 7 8
+PROFILEID            : 8
+SOURCE               : 7
+TARGETFEATURES       : 3
+TARGETID             : 6
+TARGETPROFILEPACKAGES : 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+arch                 : 20 24
+archs                : 0
+archsext             : 24 30
+empty                : 33
+kv                   : 9 9 10
+packs                : 3 4 5
+packsext             : 26 28
+profile              : 23 27
+profileid            : 19
+profiles0            : 15 18
+profiles1            : 14 16 17
+profilesext          : 27 32
+properties           : 10 11 12 19
+source               : 13 14 15 16
+subtar               : 21 25
+subtargets           : 13 16
+subtargetsext        : 25 31
+targetComb           : 13 14 15 16 17 18
+targetid             : 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . archs
+    (30) archs -> . archsext
+    (20) archsext -> . arch
+    (24) archsext -> . archsext arch
+    (13) arch -> . source targetComb subtargets
+    (14) arch -> . source targetComb profiles1
+    (15) arch -> . source targetComb profiles0
+    (16) arch -> . source targetComb profiles1 subtargets
+    (7) source -> . SOURCE PARAMS
+
+    SOURCE          shift and go to state 5
+
+    archs                          shift and go to state 1
+    archsext                       shift and go to state 2
+    arch                           shift and go to state 3
+    source                         shift and go to state 4
+
+state 1
+
+    (0) S' -> archs .
+
+
+
+state 2
+
+    (30) archs -> archsext .
+    (24) archsext -> archsext . arch
+    (13) arch -> . source targetComb subtargets
+    (14) arch -> . source targetComb profiles1
+    (15) arch -> . source targetComb profiles0
+    (16) arch -> . source targetComb profiles1 subtargets
+    (7) source -> . SOURCE PARAMS
+
+    $end            reduce using rule 30 (archs -> archsext .)
+    SOURCE          shift and go to state 5
+
+    arch                           shift and go to state 6
+    source                         shift and go to state 4
+
+state 3
+
+    (20) archsext -> arch .
+
+    SOURCE          reduce using rule 20 (archsext -> arch .)
+    $end            reduce using rule 20 (archsext -> arch .)
+
+
+state 4
+
+    (13) arch -> source . targetComb subtargets
+    (14) arch -> source . targetComb profiles1
+    (15) arch -> source . targetComb profiles0
+    (16) arch -> source . targetComb profiles1 subtargets
+    (12) targetComb -> . targetid properties
+    (6) targetid -> . TARGETID PARAMS
+
+    TARGETID        shift and go to state 9
+
+    targetComb                     shift and go to state 7
+    targetid                       shift and go to state 8
+
+state 5
+
+    (7) source -> SOURCE . PARAMS
+
+    PARAMS          shift and go to state 10
+
+
+state 6
+
+    (24) archsext -> archsext arch .
+
+    SOURCE          reduce using rule 24 (archsext -> archsext arch .)
+    $end            reduce using rule 24 (archsext -> archsext arch .)
+
+
+state 7
+
+    (13) arch -> source targetComb . subtargets
+    (14) arch -> source targetComb . profiles1
+    (15) arch -> source targetComb . profiles0
+    (16) arch -> source targetComb . profiles1 subtargets
+    (31) subtargets -> . subtargetsext
+    (32) profiles1 -> . profilesext
+    (33) profiles0 -> . empty
+    (21) subtargetsext -> . subtar
+    (25) subtargetsext -> . subtargetsext subtar
+    (23) profilesext -> . profile
+    (27) profilesext -> . profilesext profile
+    (1) empty -> .
+    (17) subtar -> . targetComb profiles1
+    (18) subtar -> . targetComb profiles0
+    (19) profile -> . profileid properties
+    (12) targetComb -> . targetid properties
+    (8) profileid -> . PROFILEID PARAMS
+    (6) targetid -> . TARGETID PARAMS
+
+    SOURCE          reduce using rule 1 (empty -> .)
+    $end            reduce using rule 1 (empty -> .)
+    PROFILEID       shift and go to state 21
+    TARGETID        shift and go to state 9
+
+    targetComb                     shift and go to state 11
+    subtargets                     shift and go to state 12
+    profiles1                      shift and go to state 13
+    profiles0                      shift and go to state 14
+    subtargetsext                  shift and go to state 15
+    profilesext                    shift and go to state 16
+    empty                          shift and go to state 17
+    subtar                         shift and go to state 18
+    profile                        shift and go to state 19
+    profileid                      shift and go to state 20
+    targetid                       shift and go to state 8
+
+state 8
+
+    (12) targetComb -> targetid . properties
+    (9) properties -> . kv kv
+    (10) properties -> . properties kv
+    (11) properties -> . properties DELIMITER
+    (2) kv -> . DERIVATE PARAMS
+    (3) kv -> . TARGETFEATURES packs
+    (4) kv -> . DEFAULTPACKAGES packs
+    (5) kv -> . TARGETPROFILEPACKAGES packs
+
+    DERIVATE        shift and go to state 24
+    TARGETFEATURES  shift and go to state 25
+    DEFAULTPACKAGES shift and go to state 26
+    TARGETPROFILEPACKAGES shift and go to state 27
+
+    properties                     shift and go to state 22
+    kv                             shift and go to state 23
+
+state 9
+
+    (6) targetid -> TARGETID . PARAMS
+
+    PARAMS          shift and go to state 28
+
+
+state 10
+
+    (7) source -> SOURCE PARAMS .
+
+    TARGETID        reduce using rule 7 (source -> SOURCE PARAMS .)
+
+
+state 11
+
+    (17) subtar -> targetComb . profiles1
+    (18) subtar -> targetComb . profiles0
+    (32) profiles1 -> . profilesext
+    (33) profiles0 -> . empty
+    (23) profilesext -> . profile
+    (27) profilesext -> . profilesext profile
+    (1) empty -> .
+    (19) profile -> . profileid properties
+    (8) profileid -> . PROFILEID PARAMS
+
+    TARGETID        reduce using rule 1 (empty -> .)
+    SOURCE          reduce using rule 1 (empty -> .)
+    $end            reduce using rule 1 (empty -> .)
+    PROFILEID       shift and go to state 21
+
+    profiles1                      shift and go to state 29
+    profiles0                      shift and go to state 30
+    profilesext                    shift and go to state 16
+    empty                          shift and go to state 17
+    profile                        shift and go to state 19
+    profileid                      shift and go to state 20
+
+state 12
+
+    (13) arch -> source targetComb subtargets .
+
+    SOURCE          reduce using rule 13 (arch -> source targetComb subtargets .)
+    $end            reduce using rule 13 (arch -> source targetComb subtargets .)
+
+
+state 13
+
+    (14) arch -> source targetComb profiles1 .
+    (16) arch -> source targetComb profiles1 . subtargets
+    (31) subtargets -> . subtargetsext
+    (21) subtargetsext -> . subtar
+    (25) subtargetsext -> . subtargetsext subtar
+    (17) subtar -> . targetComb profiles1
+    (18) subtar -> . targetComb profiles0
+    (12) targetComb -> . targetid properties
+    (6) targetid -> . TARGETID PARAMS
+
+    SOURCE          reduce using rule 14 (arch -> source targetComb profiles1 .)
+    $end            reduce using rule 14 (arch -> source targetComb profiles1 .)
+    TARGETID        shift and go to state 9
+
+    targetComb                     shift and go to state 11
+    subtargets                     shift and go to state 31
+    subtargetsext                  shift and go to state 15
+    subtar                         shift and go to state 18
+    targetid                       shift and go to state 8
+
+state 14
+
+    (15) arch -> source targetComb profiles0 .
+
+    SOURCE          reduce using rule 15 (arch -> source targetComb profiles0 .)
+    $end            reduce using rule 15 (arch -> source targetComb profiles0 .)
+
+
+state 15
+
+    (31) subtargets -> subtargetsext .
+    (25) subtargetsext -> subtargetsext . subtar
+    (17) subtar -> . targetComb profiles1
+    (18) subtar -> . targetComb profiles0
+    (12) targetComb -> . targetid properties
+    (6) targetid -> . TARGETID PARAMS
+
+    SOURCE          reduce using rule 31 (subtargets -> subtargetsext .)
+    $end            reduce using rule 31 (subtargets -> subtargetsext .)
+    TARGETID        shift and go to state 9
+
+    subtar                         shift and go to state 32
+    targetComb                     shift and go to state 11
+    targetid                       shift and go to state 8
+
+state 16
+
+    (32) profiles1 -> profilesext .
+    (27) profilesext -> profilesext . profile
+    (19) profile -> . profileid properties
+    (8) profileid -> . PROFILEID PARAMS
+
+    TARGETID        reduce using rule 32 (profiles1 -> profilesext .)
+    SOURCE          reduce using rule 32 (profiles1 -> profilesext .)
+    $end            reduce using rule 32 (profiles1 -> profilesext .)
+    PROFILEID       shift and go to state 21
+
+    profile                        shift and go to state 33
+    profileid                      shift and go to state 20
+
+state 17
+
+    (33) profiles0 -> empty .
+
+    SOURCE          reduce using rule 33 (profiles0 -> empty .)
+    $end            reduce using rule 33 (profiles0 -> empty .)
+    TARGETID        reduce using rule 33 (profiles0 -> empty .)
+
+
+state 18
+
+    (21) subtargetsext -> subtar .
+
+    TARGETID        reduce using rule 21 (subtargetsext -> subtar .)
+    SOURCE          reduce using rule 21 (subtargetsext -> subtar .)
+    $end            reduce using rule 21 (subtargetsext -> subtar .)
+
+
+state 19
+
+    (23) profilesext -> profile .
+
+    PROFILEID       reduce using rule 23 (profilesext -> profile .)
+    TARGETID        reduce using rule 23 (profilesext -> profile .)
+    SOURCE          reduce using rule 23 (profilesext -> profile .)
+    $end            reduce using rule 23 (profilesext -> profile .)
+
+
+state 20
+
+    (19) profile -> profileid . properties
+    (9) properties -> . kv kv
+    (10) properties -> . properties kv
+    (11) properties -> . properties DELIMITER
+    (2) kv -> . DERIVATE PARAMS
+    (3) kv -> . TARGETFEATURES packs
+    (4) kv -> . DEFAULTPACKAGES packs
+    (5) kv -> . TARGETPROFILEPACKAGES packs
+
+    DERIVATE        shift and go to state 24
+    TARGETFEATURES  shift and go to state 25
+    DEFAULTPACKAGES shift and go to state 26
+    TARGETPROFILEPACKAGES shift and go to state 27
+
+    properties                     shift and go to state 34
+    kv                             shift and go to state 23
+
+state 21
+
+    (8) profileid -> PROFILEID . PARAMS
+
+    PARAMS          shift and go to state 35
+
+
+state 22
+
+    (12) targetComb -> targetid properties .
+    (10) properties -> properties . kv
+    (11) properties -> properties . DELIMITER
+    (2) kv -> . DERIVATE PARAMS
+    (3) kv -> . TARGETFEATURES packs
+    (4) kv -> . DEFAULTPACKAGES packs
+    (5) kv -> . TARGETPROFILEPACKAGES packs
+
+    PROFILEID       reduce using rule 12 (targetComb -> targetid properties .)
+    TARGETID        reduce using rule 12 (targetComb -> targetid properties .)
+    SOURCE          reduce using rule 12 (targetComb -> targetid properties .)
+    $end            reduce using rule 12 (targetComb -> targetid properties .)
+    DELIMITER       shift and go to state 37
+    DERIVATE        shift and go to state 24
+    TARGETFEATURES  shift and go to state 25
+    DEFAULTPACKAGES shift and go to state 26
+    TARGETPROFILEPACKAGES shift and go to state 27
+
+    kv                             shift and go to state 36
+
+state 23
+
+    (9) properties -> kv . kv
+    (2) kv -> . DERIVATE PARAMS
+    (3) kv -> . TARGETFEATURES packs
+    (4) kv -> . DEFAULTPACKAGES packs
+    (5) kv -> . TARGETPROFILEPACKAGES packs
+
+    DERIVATE        shift and go to state 24
+    TARGETFEATURES  shift and go to state 25
+    DEFAULTPACKAGES shift and go to state 26
+    TARGETPROFILEPACKAGES shift and go to state 27
+
+    kv                             shift and go to state 38
+
+state 24
+
+    (2) kv -> DERIVATE . PARAMS
+
+    PARAMS          shift and go to state 39
+
+
+state 25
+
+    (3) kv -> TARGETFEATURES . packs
+    (28) packs -> . packsext ITEMEND
+    (29) packs -> . ITEMEND
+    (22) packsext -> . ITEM
+    (26) packsext -> . packsext ITEM
+
+    ITEMEND         shift and go to state 42
+    ITEM            shift and go to state 43
+
+    packs                          shift and go to state 40
+    packsext                       shift and go to state 41
+
+state 26
+
+    (4) kv -> DEFAULTPACKAGES . packs
+    (28) packs -> . packsext ITEMEND
+    (29) packs -> . ITEMEND
+    (22) packsext -> . ITEM
+    (26) packsext -> . packsext ITEM
+
+    ITEMEND         shift and go to state 42
+    ITEM            shift and go to state 43
+
+    packs                          shift and go to state 44
+    packsext                       shift and go to state 41
+
+state 27
+
+    (5) kv -> TARGETPROFILEPACKAGES . packs
+    (28) packs -> . packsext ITEMEND
+    (29) packs -> . ITEMEND
+    (22) packsext -> . ITEM
+    (26) packsext -> . packsext ITEM
+
+    ITEMEND         shift and go to state 42
+    ITEM            shift and go to state 43
+
+    packs                          shift and go to state 45
+    packsext                       shift and go to state 41
+
+state 28
+
+    (6) targetid -> TARGETID PARAMS .
+
+    DERIVATE        reduce using rule 6 (targetid -> TARGETID PARAMS .)
+    TARGETFEATURES  reduce using rule 6 (targetid -> TARGETID PARAMS .)
+    DEFAULTPACKAGES reduce using rule 6 (targetid -> TARGETID PARAMS .)
+    TARGETPROFILEPACKAGES reduce using rule 6 (targetid -> TARGETID PARAMS .)
+
+
+state 29
+
+    (17) subtar -> targetComb profiles1 .
+
+    TARGETID        reduce using rule 17 (subtar -> targetComb profiles1 .)
+    SOURCE          reduce using rule 17 (subtar -> targetComb profiles1 .)
+    $end            reduce using rule 17 (subtar -> targetComb profiles1 .)
+
+
+state 30
+
+    (18) subtar -> targetComb profiles0 .
+
+    TARGETID        reduce using rule 18 (subtar -> targetComb profiles0 .)
+    SOURCE          reduce using rule 18 (subtar -> targetComb profiles0 .)
+    $end            reduce using rule 18 (subtar -> targetComb profiles0 .)
+
+
+state 31
+
+    (16) arch -> source targetComb profiles1 subtargets .
+
+    SOURCE          reduce using rule 16 (arch -> source targetComb profiles1 subtargets .)
+    $end            reduce using rule 16 (arch -> source targetComb profiles1 subtargets .)
+
+
+state 32
+
+    (25) subtargetsext -> subtargetsext subtar .
+
+    TARGETID        reduce using rule 25 (subtargetsext -> subtargetsext subtar .)
+    SOURCE          reduce using rule 25 (subtargetsext -> subtargetsext subtar .)
+    $end            reduce using rule 25 (subtargetsext -> subtargetsext subtar .)
+
+
+state 33
+
+    (27) profilesext -> profilesext profile .
+
+    PROFILEID       reduce using rule 27 (profilesext -> profilesext profile .)
+    TARGETID        reduce using rule 27 (profilesext -> profilesext profile .)
+    SOURCE          reduce using rule 27 (profilesext -> profilesext profile .)
+    $end            reduce using rule 27 (profilesext -> profilesext profile .)
+
+
+state 34
+
+    (19) profile -> profileid properties .
+    (10) properties -> properties . kv
+    (11) properties -> properties . DELIMITER
+    (2) kv -> . DERIVATE PARAMS
+    (3) kv -> . TARGETFEATURES packs
+    (4) kv -> . DEFAULTPACKAGES packs
+    (5) kv -> . TARGETPROFILEPACKAGES packs
+
+    PROFILEID       reduce using rule 19 (profile -> profileid properties .)
+    TARGETID        reduce using rule 19 (profile -> profileid properties .)
+    SOURCE          reduce using rule 19 (profile -> profileid properties .)
+    $end            reduce using rule 19 (profile -> profileid properties .)
+    DELIMITER       shift and go to state 37
+    DERIVATE        shift and go to state 24
+    TARGETFEATURES  shift and go to state 25
+    DEFAULTPACKAGES shift and go to state 26
+    TARGETPROFILEPACKAGES shift and go to state 27
+
+    kv                             shift and go to state 36
+
+state 35
+
+    (8) profileid -> PROFILEID PARAMS .
+
+    DERIVATE        reduce using rule 8 (profileid -> PROFILEID PARAMS .)
+    TARGETFEATURES  reduce using rule 8 (profileid -> PROFILEID PARAMS .)
+    DEFAULTPACKAGES reduce using rule 8 (profileid -> PROFILEID PARAMS .)
+    TARGETPROFILEPACKAGES reduce using rule 8 (profileid -> PROFILEID PARAMS .)
+
+
+state 36
+
+    (10) properties -> properties kv .
+
+    DELIMITER       reduce using rule 10 (properties -> properties kv .)
+    DERIVATE        reduce using rule 10 (properties -> properties kv .)
+    TARGETFEATURES  reduce using rule 10 (properties -> properties kv .)
+    DEFAULTPACKAGES reduce using rule 10 (properties -> properties kv .)
+    TARGETPROFILEPACKAGES reduce using rule 10 (properties -> properties kv .)
+    PROFILEID       reduce using rule 10 (properties -> properties kv .)
+    TARGETID        reduce using rule 10 (properties -> properties kv .)
+    SOURCE          reduce using rule 10 (properties -> properties kv .)
+    $end            reduce using rule 10 (properties -> properties kv .)
+
+
+state 37
+
+    (11) properties -> properties DELIMITER .
+
+    DELIMITER       reduce using rule 11 (properties -> properties DELIMITER .)
+    DERIVATE        reduce using rule 11 (properties -> properties DELIMITER .)
+    TARGETFEATURES  reduce using rule 11 (properties -> properties DELIMITER .)
+    DEFAULTPACKAGES reduce using rule 11 (properties -> properties DELIMITER .)
+    TARGETPROFILEPACKAGES reduce using rule 11 (properties -> properties DELIMITER .)
+    PROFILEID       reduce using rule 11 (properties -> properties DELIMITER .)
+    TARGETID        reduce using rule 11 (properties -> properties DELIMITER .)
+    SOURCE          reduce using rule 11 (properties -> properties DELIMITER .)
+    $end            reduce using rule 11 (properties -> properties DELIMITER .)
+
+
+state 38
+
+    (9) properties -> kv kv .
+
+    DELIMITER       reduce using rule 9 (properties -> kv kv .)
+    DERIVATE        reduce using rule 9 (properties -> kv kv .)
+    TARGETFEATURES  reduce using rule 9 (properties -> kv kv .)
+    DEFAULTPACKAGES reduce using rule 9 (properties -> kv kv .)
+    TARGETPROFILEPACKAGES reduce using rule 9 (properties -> kv kv .)
+    PROFILEID       reduce using rule 9 (properties -> kv kv .)
+    TARGETID        reduce using rule 9 (properties -> kv kv .)
+    SOURCE          reduce using rule 9 (properties -> kv kv .)
+    $end            reduce using rule 9 (properties -> kv kv .)
+
+
+state 39
+
+    (2) kv -> DERIVATE PARAMS .
+
+    DERIVATE        reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    TARGETFEATURES  reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    DEFAULTPACKAGES reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    TARGETPROFILEPACKAGES reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    DELIMITER       reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    PROFILEID       reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    TARGETID        reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    SOURCE          reduce using rule 2 (kv -> DERIVATE PARAMS .)
+    $end            reduce using rule 2 (kv -> DERIVATE PARAMS .)
+
+
+state 40
+
+    (3) kv -> TARGETFEATURES packs .
+
+    DERIVATE        reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    TARGETFEATURES  reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    DEFAULTPACKAGES reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    TARGETPROFILEPACKAGES reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    DELIMITER       reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    PROFILEID       reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    TARGETID        reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    SOURCE          reduce using rule 3 (kv -> TARGETFEATURES packs .)
+    $end            reduce using rule 3 (kv -> TARGETFEATURES packs .)
+
+
+state 41
+
+    (28) packs -> packsext . ITEMEND
+    (26) packsext -> packsext . ITEM
+
+    ITEMEND         shift and go to state 46
+    ITEM            shift and go to state 47
+
+
+state 42
+
+    (29) packs -> ITEMEND .
+
+    DERIVATE        reduce using rule 29 (packs -> ITEMEND .)
+    TARGETFEATURES  reduce using rule 29 (packs -> ITEMEND .)
+    DEFAULTPACKAGES reduce using rule 29 (packs -> ITEMEND .)
+    TARGETPROFILEPACKAGES reduce using rule 29 (packs -> ITEMEND .)
+    DELIMITER       reduce using rule 29 (packs -> ITEMEND .)
+    PROFILEID       reduce using rule 29 (packs -> ITEMEND .)
+    TARGETID        reduce using rule 29 (packs -> ITEMEND .)
+    SOURCE          reduce using rule 29 (packs -> ITEMEND .)
+    $end            reduce using rule 29 (packs -> ITEMEND .)
+
+
+state 43
+
+    (22) packsext -> ITEM .
+
+    ITEMEND         reduce using rule 22 (packsext -> ITEM .)
+    ITEM            reduce using rule 22 (packsext -> ITEM .)
+
+
+state 44
+
+    (4) kv -> DEFAULTPACKAGES packs .
+
+    DERIVATE        reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    TARGETFEATURES  reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    DEFAULTPACKAGES reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    TARGETPROFILEPACKAGES reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    DELIMITER       reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    PROFILEID       reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    TARGETID        reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    SOURCE          reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+    $end            reduce using rule 4 (kv -> DEFAULTPACKAGES packs .)
+
+
+state 45
+
+    (5) kv -> TARGETPROFILEPACKAGES packs .
+
+    DERIVATE        reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    TARGETFEATURES  reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    DEFAULTPACKAGES reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    TARGETPROFILEPACKAGES reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    DELIMITER       reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    PROFILEID       reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    TARGETID        reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    SOURCE          reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+    $end            reduce using rule 5 (kv -> TARGETPROFILEPACKAGES packs .)
+
+
+state 46
+
+    (28) packs -> packsext ITEMEND .
+
+    DERIVATE        reduce using rule 28 (packs -> packsext ITEMEND .)
+    TARGETFEATURES  reduce using rule 28 (packs -> packsext ITEMEND .)
+    DEFAULTPACKAGES reduce using rule 28 (packs -> packsext ITEMEND .)
+    TARGETPROFILEPACKAGES reduce using rule 28 (packs -> packsext ITEMEND .)
+    DELIMITER       reduce using rule 28 (packs -> packsext ITEMEND .)
+    PROFILEID       reduce using rule 28 (packs -> packsext ITEMEND .)
+    TARGETID        reduce using rule 28 (packs -> packsext ITEMEND .)
+    SOURCE          reduce using rule 28 (packs -> packsext ITEMEND .)
+    $end            reduce using rule 28 (packs -> packsext ITEMEND .)
+
+
+state 47
+
+    (26) packsext -> packsext ITEM .
+
+    ITEMEND         reduce using rule 26 (packsext -> packsext ITEM .)
+    ITEM            reduce using rule 26 (packsext -> packsext ITEM .)
+
