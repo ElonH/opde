@@ -3,7 +3,10 @@ import ply.yacc as yacc
 
 
 class TargetInfoParser():
+    'parser of .targetinfo'
     tokens = TargetInfoLexer.tokens
+    lexer: TargetInfoLexer
+    parser: yacc.LRParser
 
     # Build the lexer
     def build(self, lexer: TargetInfoLexer, **kwargs):
@@ -128,7 +131,7 @@ class TargetInfoParser():
             print("End of File!")
             return
         # Read ahead looking for a closing '}'
-        for i in range(1, 10):
+        for _ in range(1, 10):
             tok = self.parser.token()             # Get the next token
             print(tok)
             if not tok:

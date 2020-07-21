@@ -4,7 +4,10 @@ from ..lexer.packageinfo import PackageInfoLexer
 
 
 class PackageInfoParser():
+    'parser of .packageinfo'
     tokens = PackageInfoLexer.tokens
+    lexer: PackageInfoLexer
+    parser: yacc.LRParser
 
     # Build the lexer
     def build(self, lexer: PackageInfoLexer, **kwargs):
@@ -75,7 +78,7 @@ class PackageInfoParser():
         dependsComb : DEPENDS deps
         configComb : CONFIG confx DELIMITER
         configItem : CONFIG_ITEM PARAMS
-                   | CONFIG_HELP helpdoc 
+                   | CONFIG_HELP helpdoc
         '''
         #    CONFIG_HELP_LINE
         p[0] = {p[1]: p[2]}
@@ -114,7 +117,7 @@ class PackageInfoParser():
             print("End of File!")
             return
         # Read ahead looking for a closing '}'
-        for i in range(1, 10):
+        for _ in range(1, 10):
             tok = self.parser.token()             # Get the next token
             print(tok)
             if not tok:
