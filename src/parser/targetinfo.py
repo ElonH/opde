@@ -124,7 +124,7 @@ class TargetInfoParser():
 
     def p_error(self, t):
         print("Syntax error at \n%s" % t)
-        if not p:
+        if not t:
             print("End of File!")
             return
         # Read ahead looking for a closing '}'
