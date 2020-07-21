@@ -34,3 +34,8 @@
 	path = feeds/openwrt/freifunk
 	url = https://github.com/freifunk/openwrt-packages.git
 	branch = master
+[submodule "src/worker/libs/json"]
+	path = src/worker/libs/json
+	url = https://github.com/nlohmann/json.git
+	branch = master
+	shallow = true

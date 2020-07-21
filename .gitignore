@@ -14,3 +14,6 @@ scripts/apt
 .cache
 src/**/__pycache__
 __pycache__
+src/worker/build
+!src/worker/libs
+*.json

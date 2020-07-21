@@ -1,6 +1,12 @@
 {
-	"recommendations": [
-		"ms-python.python",
-		"tht13.python",
-	]
+    "recommendations": [
+        "ms-python.python",
+        "tht13.python",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "darktears.dark-c-plus-plus-theme",
+        "cheshirekow.cmake-format",
+        "cschlosser.doxdocgen"
+    ]
 }

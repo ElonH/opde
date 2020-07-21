@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "worker-full",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/worker/build/BuildWorkerPyramid",
+            "args": [
+                "test/full.json",
+                "build/fullRst.json"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/src/worker",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "worker-medium",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/worker/build/BuildWorkerPyramid",
+            "args": [
+                "test/medium.json",
+                "build/mediumRst.json"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/src/worker",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

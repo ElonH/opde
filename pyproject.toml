@@ -9,17 +9,17 @@ python = "^3.6"
 bash = "^0.6"
 PyGithub = "^1.51"
 ply = "^3.11"
+networkx = "^2.4"
+matplotlib = "^3.2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-isort = "4.*"
-wemake-python-styleguide = "^0.14.0"
-autopep8 = "^1.5.3"
-mypy = "^0.782"
 notebook = "^6.0.3"
 rope = "^0.17.0"
 pylint = "^2.5.3"
+autopep8 = "^1.5.3"
+cmake_format = "^0.6.10"
 
 [build-system]
-requires = ["poetry>=0.12"]
+requires = ["poetry>=0.12", "cmake>=3.2.0"]
 build-backend = "poetry.masonry.api"
