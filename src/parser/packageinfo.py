@@ -15,7 +15,7 @@ class PackageInfoParser():
         self.parser = yacc.yacc(
             module=self, tabmodule="packageParseTab", debugfile="packageParse.out", **kwargs)
 
-    def test(self, data: str):
+    def gen_ast(self, data: str):
         return self.parser.parse(input=data, lexer=self.lexer)
 
     precedence = ()
