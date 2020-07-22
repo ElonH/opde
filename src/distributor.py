@@ -16,11 +16,11 @@ class DependsTree():
     dg = nx.DiGraph()
 
     packageInfoAst: object
-    leaf_nodes: list
     # node names through list
     names: list
 
     def draw(self):
+        'draw dag, very slow, not recommand'
         import matplotlib.pyplot as plt
         plt.subplot(111)
         nx.draw_shell(self.dg, with_labels=True, font_weight='normal',
@@ -47,11 +47,9 @@ class DependsTree():
         # pprint(dep)
         # print(self.dg.nodes().data())
         idx = 0
-        self.names = []
         for node in self.dg.nodes():
             # record index in each node for reverse-quering
             self.dg.add_node(node, numid=idx)
-            self.names.append(node)
             idx += 1
         # print(self.dg['base-files'])
         if not nx.is_directed_acyclic_graph(self.dg):
@@ -75,6 +73,7 @@ class DependsTree():
         return json.dumps(ans, indent=2)
 
     def build(self, packageInfoAst):
+        'build tree'
         self.packageInfoAst = packageInfoAst
         self._build_dag()
 
@@ -92,6 +91,7 @@ class WorksDistributor:
     root_packs: list = []
 
     def build(self, tree: DependsTree, skip: bool = False):
+        'build worker pyramid'
         with open(self.json_deps, 'w') as f:
             f.write(tree.to_json())
         for pack in tree.dg.nodes():
