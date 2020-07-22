@@ -1,0 +1,66 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> root
+Rule 1     root -> DETAIL info
+Rule 2     info -> CMDARRAY CODEANDTIME
+
+Terminals, with rules where they appear
+
+CMDARRAY             : 2
+CODEANDTIME          : 2
+DETAIL               : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+info                 : 1
+root                 : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . root
+    (1) root -> . DETAIL info
+
+    DETAIL          shift and go to state 2
+
+    root                           shift and go to state 1
+
+state 1
+
+    (0) S' -> root .
+
+
+
+state 2
+
+    (1) root -> DETAIL . info
+    (2) info -> . CMDARRAY CODEANDTIME
+
+    CMDARRAY        shift and go to state 4
+
+    info                           shift and go to state 3
+
+state 3
+
+    (1) root -> DETAIL info .
+
+    $end            reduce using rule 1 (root -> DETAIL info .)
+
+
+state 4
+
+    (2) info -> CMDARRAY . CODEANDTIME
+
+    CODEANDTIME     shift and go to state 5
+
+
+state 5
+
+    (2) info -> CMDARRAY CODEANDTIME .
+
+    $end            reduce using rule 2 (info -> CMDARRAY CODEANDTIME .)
+

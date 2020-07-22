@@ -1,0 +1,68 @@
+
+import ply.yacc as yacc
+from ..lexer.logs import LogLexer
+import re
+
+
+class LogParser():
+    'parser of .packageinfo'
+    tokens = LogLexer.tokens
+    lexer: LogLexer
+    parser: yacc.LRParser
+
+    # Build the lexer
+    def build(self, lexer: LogLexer, **kwargs):
+        self.lexer = lexer
+        self.parser = yacc.yacc(
+            module=self, tabmodule="logParseTab", debugfile="logParse.out", **kwargs)
+
+    def gen_ast(self, data: str):
+        return self.parser.parse(input=data, lexer=self.lexer)
+
+    precedence = ()
+
+    start = 'root'
+
+    def p_all(self, p):
+        '''
+        root : DETAIL info
+        '''
+        p[0] = dict()
+        p[0].update(p[2])
+        p[0].update({'detail': p[1]})
+
+    def p_info(self, p):
+        '''
+        info : CMDARRAY CODEANDTIME
+        '''
+        p[0] = dict()
+        p[0].update(p[2])
+        ary = re.findall("'(.*?)'", p[1])
+        p[0]['subdir'] = ary[0]
+        p[0]['target'] = ary[1]
+        p[0]['build-type'] = ary[2]
+        p[0]['build-varient'] = ary[3]
+
+    # def p_source(self, p):
+    #     '''
+    #     source : sourceComb packs
+    #     '''
+    #     p[0] = dict()
+    #     p[0].update(p[1])
+    #     p[0]['packages'] = p[2]
+
+    def p_error(self, t):
+        print("Syntax error at \n%s" % t)
+        if not t:
+            print("End of File!")
+            return
+        # Read ahead looking for a closing '}'
+        for _ in range(1, 10):
+            tok = self.parser.token()             # Get the next token
+            print(tok)
+            if not tok:
+                break
+        # print(self.parser.__dir__())
+        print(self.parser.state)
+        raise
+        # self.parser.errok()
