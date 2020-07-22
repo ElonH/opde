@@ -4,18 +4,19 @@ Grammar
 
 Rule 0     S' -> root
 Rule 1     root -> DETAIL info
-Rule 2     info -> CMDARRAY CODEANDTIME
+Rule 2     root -> info
+Rule 3     info -> CMDARRAY CODEANDTIME
 
 Terminals, with rules where they appear
 
-CMDARRAY             : 2
-CODEANDTIME          : 2
+CMDARRAY             : 3
+CODEANDTIME          : 3
 DETAIL               : 1
 error                : 
 
 Nonterminals, with rules where they appear
 
-info                 : 1
+info                 : 1 2
 root                 : 0
 
 Parsing method: LALR
@@ -24,10 +25,14 @@ state 0
 
     (0) S' -> . root
     (1) root -> . DETAIL info
+    (2) root -> . info
+    (3) info -> . CMDARRAY CODEANDTIME
 
     DETAIL          shift and go to state 2
+    CMDARRAY        shift and go to state 4
 
     root                           shift and go to state 1
+    info                           shift and go to state 3
 
 state 1
 
@@ -38,29 +43,36 @@ state 1
 state 2
 
     (1) root -> DETAIL . info
-    (2) info -> . CMDARRAY CODEANDTIME
+    (3) info -> . CMDARRAY CODEANDTIME
 
     CMDARRAY        shift and go to state 4
 
-    info                           shift and go to state 3
+    info                           shift and go to state 5
 
 state 3
+
+    (2) root -> info .
+
+    $end            reduce using rule 2 (root -> info .)
+
+
+state 4
+
+    (3) info -> CMDARRAY . CODEANDTIME
+
+    CODEANDTIME     shift and go to state 6
+
+
+state 5
 
     (1) root -> DETAIL info .
 
     $end            reduce using rule 1 (root -> DETAIL info .)
 
 
-state 4
+state 6
 
-    (2) info -> CMDARRAY . CODEANDTIME
+    (3) info -> CMDARRAY CODEANDTIME .
 
-    CODEANDTIME     shift and go to state 5
-
-
-state 5
-
-    (2) info -> CMDARRAY CODEANDTIME .
-
-    $end            reduce using rule 2 (info -> CMDARRAY CODEANDTIME .)
+    $end            reduce using rule 3 (info -> CMDARRAY CODEANDTIME .)
 

@@ -5,7 +5,7 @@ import re
 
 
 class LogParser():
-    'parser of .packageinfo'
+    'parser of logs/**.txt'
     tokens = LogLexer.tokens
     lexer: LogLexer
     parser: yacc.LRParser
@@ -26,10 +26,15 @@ class LogParser():
     def p_all(self, p):
         '''
         root : DETAIL info
+             | info
         '''
         p[0] = dict()
-        p[0].update(p[2])
-        p[0].update({'detail': p[1]})
+        if len(p) == 3:
+            p[0]['detail'] = p[1]
+            p[0].update(p[2])
+        else:
+            p[0]['detail'] = ''
+            p[0].update(p[1])
 
     def p_info(self, p):
         '''
