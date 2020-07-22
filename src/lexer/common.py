@@ -14,6 +14,7 @@ class InfoLexer():
     def test(self, row_data: str):
         'Test it output'
         self.lexer.input(row_data)
+        self.lexer.lineno = 1
         while True:
             tok = self.lexer.token()
             if not tok:
@@ -23,6 +24,7 @@ class InfoLexer():
     def testSlient(self, row_data: str):
         'Test it output'
         self.lexer.input(row_data)
+        self.lexer.lineno = 1
         while True:
             tok = self.lexer.token()
             if not tok:
@@ -31,6 +33,7 @@ class InfoLexer():
     def saveTo(self, row_data: str, path: str):
         'Save tokens to somewhere'
         self.lexer.input(row_data)
+        self.lexer.lineno = 1
         with open(path, 'w') as f:
             while True:
                 tok = self.lexer.token()
