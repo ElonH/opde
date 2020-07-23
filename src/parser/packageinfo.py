@@ -34,6 +34,8 @@ class PackageInfoParser():
               | confx configItem
         helpx : CONFIG_HELP_LINE
               | helpx CONFIG_HELP_LINE
+        providx : PROVIDES_ITEM
+              | providx PROVIDES_ITEM
         '''
         if len(p) == 3:
             p[0] = p[1] + [p[2]]
@@ -44,6 +46,7 @@ class PackageInfoParser():
         '''
         deps   : depsext DEPENDS_END
         helpdoc : helpx CONFIG_HELP_END
+        provides : providx PROVIDES_END
         '''
         p[0] = p[1]
 
@@ -51,6 +54,7 @@ class PackageInfoParser():
         '''
         deps : DEPENDS_END
         helpdoc : CONFIG_HELP_END
+        provides : PROVIDES_END
         '''
         p[0] = []
 
@@ -73,6 +77,7 @@ class PackageInfoParser():
         '''
         kv : DERIVATE PARAMS
            | DESCRIPTION PARAMS DELIMITER
+           | PROVIDES provides
         sourceid : SOURCE PARAMS
         packageid : PACKAGEID PARAMS
         dependsComb : DEPENDS deps

@@ -66,7 +66,7 @@ class PackageInfoLexer(InfoLexer):
         t.lexer.skip(1)
 
     def t_DERIVATE(self, t: LexToken):
-        r'((Submenu|Menu)[-]Depends|Build[-](Types|Depends|Variant|Only)|Kernel[-]Config|Build[-]Depends/host|Default[-]Variant|Prereq[-]Check|Require[-]User|Menu|Version|Conflicts|Provides|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
+        r'((Submenu|Menu)[-]Depends|Build[-](Types|Depends|Variant|Only)|Kernel[-]Config|Build[-]Depends/host|Default[-]Variant|Prereq[-]Check|Require[-]User|Menu|Version|Conflicts|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
         t.lexer.line_start = t.lexer.lexpos
         t.lexer.push_state('end2line')
         t.value = t.value[:-1]
@@ -84,6 +84,27 @@ class PackageInfoLexer(InfoLexer):
         t.lexer.line_start = t.lexer.lexpos
         t.lexer.push_state('end2line')
         t.value = t.value[:-1]
+        return t
+
+    def t_PROVIDES(self, t: LexToken):
+        r'Provides:'
+        t.lexer.push_state('provides')
+        t.value = t.value[:-1]
+        return t
+
+    t_provides_error = t_error
+    t_provides_ignore = ' '
+
+    def t_provides_end(self, t: LexToken):
+        r'\n'
+        t.type = 'PROVIDES_END'
+        t.lexer.pop_state()
+        t.lexer.lineno += 1
+        return t
+
+    def t_provides_item(self, t: LexToken):
+        r'[^ \n]+'
+        t.type = 'PROVIDES_ITEM'
         return t
 
     def t_CONFIG(self, t: LexToken):
@@ -166,6 +187,7 @@ class PackageInfoLexer(InfoLexer):
         ('config', 'inclusive'),
         ('helpline', 'exclusive'),
         ('depends', 'exclusive'),
+        ('provides', 'exclusive'),
     )
 
     # List of token names.   This is always required
@@ -189,6 +211,9 @@ class PackageInfoLexer(InfoLexer):
         'DEPENDS_WAIT_OTH_SELECTED_IF',  # @<symbol>:<pkg>
         'DEPENDS_SELECT_SYMBOL',  # +@<symbol>
         'DEPENDS_END',
+        'PROVIDES',
+        'PROVIDES_ITEM',
+        'PROVIDES_END',
     )
 
     packageNameRule = r'[a-zA-Z-_\d.]+'

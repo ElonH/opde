@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'rootCONFIG CONFIG_HELP CONFIG_HELP_END CONFIG_HELP_LINE CONFIG_ITEM DELIMITER DEPENDS DEPENDS_END DEPENDS_SELECT_OTH DEPENDS_SELECT_OTH_IF DEPENDS_SELECT_SYMBOL DEPENDS_WAIT_OTH_SELECTED DEPENDS_WAIT_OTH_SELECTED_IF DEPENDS_WAIT_SYMBOL DERIVATE DESCRIPTION PACKAGEID PARAMS SOURCE\n        root : source\n             | root source\n        packs : pack\n              | packs pack\n        depsext : depend\n             | depsext depend\n        confx : configItem\n              | confx configItem\n        helpx : CONFIG_HELP_LINE\n              | helpx CONFIG_HELP_LINE\n        \n        deps   : depsext DEPENDS_END\n        helpdoc : helpx CONFIG_HELP_END\n        \n        deps : DEPENDS_END\n        helpdoc : CONFIG_HELP_END\n        \n        properties : kv\n                    | properties kv\n        sourceComb : sourceid properties\n                   | sourceid\n        packageComb : packageid properties dependsComb properties\n                    | packageid properties dependsComb properties configComb\n        \n        kv : DERIVATE PARAMS\n           | DESCRIPTION PARAMS DELIMITER\n        sourceid : SOURCE PARAMS\n        packageid : PACKAGEID PARAMS\n        dependsComb : DEPENDS deps\n        configComb : CONFIG confx DELIMITER\n        configItem : CONFIG_ITEM PARAMS\n                   | CONFIG_HELP helpdoc\n        \n        source : sourceComb packs\n        \n        pack : packageComb\n        \n        depend : DEPENDS_SELECT_OTH\n               | DEPENDS_SELECT_OTH_IF\n               | DEPENDS_WAIT_SYMBOL\n               | DEPENDS_WAIT_OTH_SELECTED\n               | DEPENDS_WAIT_OTH_SELECTED_IF\n               | DEPENDS_SELECT_SYMBOL\n        '
+_lr_signature = 'rootCONFIG CONFIG_HELP CONFIG_HELP_END CONFIG_HELP_LINE CONFIG_ITEM DELIMITER DEPENDS DEPENDS_END DEPENDS_SELECT_OTH DEPENDS_SELECT_OTH_IF DEPENDS_SELECT_SYMBOL DEPENDS_WAIT_OTH_SELECTED DEPENDS_WAIT_OTH_SELECTED_IF DEPENDS_WAIT_SYMBOL DERIVATE DESCRIPTION PACKAGEID PARAMS PROVIDES PROVIDES_END PROVIDES_ITEM SOURCE\n        root : source\n             | root source\n        packs : pack\n              | packs pack\n        depsext : depend\n             | depsext depend\n        confx : configItem\n              | confx configItem\n        helpx : CONFIG_HELP_LINE\n              | helpx CONFIG_HELP_LINE\n        providx : PROVIDES_ITEM\n              | providx PROVIDES_ITEM\n        \n        deps   : depsext DEPENDS_END\n        helpdoc : helpx CONFIG_HELP_END\n        provides : providx PROVIDES_END\n        \n        deps : DEPENDS_END\n        helpdoc : CONFIG_HELP_END\n        provides : PROVIDES_END\n        \n        properties : kv\n                    | properties kv\n        sourceComb : sourceid properties\n                   | sourceid\n        packageComb : packageid properties dependsComb properties\n                    | packageid properties dependsComb properties configComb\n        \n        kv : DERIVATE PARAMS\n           | DESCRIPTION PARAMS DELIMITER\n           | PROVIDES provides\n        sourceid : SOURCE PARAMS\n        packageid : PACKAGEID PARAMS\n        dependsComb : DEPENDS deps\n        configComb : CONFIG confx DELIMITER\n        configItem : CONFIG_ITEM PARAMS\n                   | CONFIG_HELP helpdoc\n        \n        source : sourceComb packs\n        \n        pack : packageComb\n        \n        depend : DEPENDS_SELECT_OTH\n               | DEPENDS_SELECT_OTH_IF\n               | DEPENDS_WAIT_SYMBOL\n               | DEPENDS_WAIT_OTH_SELECTED\n               | DEPENDS_WAIT_OTH_SELECTED_IF\n               | DEPENDS_SELECT_SYMBOL\n        '
     
-_lr_action_items = {'SOURCE':([0,1,2,6,7,8,9,13,17,20,21,25,26,37,45,],[5,5,-1,-2,-29,-3,-30,-15,-4,-16,-21,-22,-19,-20,-26,]),'$end':([1,2,6,7,8,9,13,17,20,21,25,26,37,45,],[0,-1,-2,-29,-3,-30,-15,-4,-16,-21,-22,-19,-20,-26,]),'PACKAGEID':([3,4,7,8,9,12,13,16,17,20,21,25,26,37,45,],[11,-18,11,-3,-30,-17,-15,-23,-4,-16,-21,-22,-19,-20,-26,]),'DERIVATE':([4,10,12,13,16,18,19,20,21,23,25,26,27,29,39,],[14,14,14,-15,-23,14,-24,-16,-21,14,-22,14,-25,-13,-11,]),'DESCRIPTION':([4,10,12,13,16,18,19,20,21,23,25,26,27,29,39,],[15,15,15,-15,-23,15,-24,-16,-21,15,-22,15,-25,-13,-11,]),'PARAMS':([5,11,14,15,43,],[16,19,21,22,47,]),'DEPENDS':([13,18,20,21,25,],[-15,24,-16,-21,-22,]),'CONFIG':([13,20,21,25,26,],[-15,-16,-21,-22,38,]),'DELIMITER':([22,41,42,46,47,48,50,52,],[25,45,-7,-8,-27,-28,-14,-12,]),'DEPENDS_END':([24,28,30,31,32,33,34,35,36,40,],[29,39,-5,-31,-32,-33,-34,-35,-36,-6,]),'DEPENDS_SELECT_OTH':([24,28,30,31,32,33,34,35,36,40,],[31,31,-5,-31,-32,-33,-34,-35,-36,-6,]),'DEPENDS_SELECT_OTH_IF':([24,28,30,31,32,33,34,35,36,40,],[32,32,-5,-31,-32,-33,-34,-35,-36,-6,]),'DEPENDS_WAIT_SYMBOL':([24,28,30,31,32,33,34,35,36,40,],[33,33,-5,-31,-32,-33,-34,-35,-36,-6,]),'DEPENDS_WAIT_OTH_SELECTED':([24,28,30,31,32,33,34,35,36,40,],[34,34,-5,-31,-32,-33,-34,-35,-36,-6,]),'DEPENDS_WAIT_OTH_SELECTED_IF':([24,28,30,31,32,33,34,35,36,40,],[35,35,-5,-31,-32,-33,-34,-35,-36,-6,]),'DEPENDS_SELECT_SYMBOL':([24,28,30,31,32,33,34,35,36,40,],[36,36,-5,-31,-32,-33,-34,-35,-36,-6,]),'CONFIG_ITEM':([38,41,42,46,47,48,50,52,],[43,43,-7,-8,-27,-28,-14,-12,]),'CONFIG_HELP':([38,41,42,46,47,48,50,52,],[44,44,-7,-8,-27,-28,-14,-12,]),'CONFIG_HELP_END':([44,49,51,53,],[50,52,-9,-10,]),'CONFIG_HELP_LINE':([44,49,51,53,],[51,53,-9,-10,]),}
+_lr_action_items = {'SOURCE':([0,1,2,6,7,8,9,13,18,21,22,24,26,30,31,33,44,52,],[5,5,-1,-2,-34,-3,-35,-19,-4,-20,-25,-27,-18,-26,-15,-23,-24,-31,]),'$end':([1,2,6,7,8,9,13,18,21,22,24,26,30,31,33,44,52,],[0,-1,-2,-34,-3,-35,-19,-4,-20,-25,-27,-18,-26,-15,-23,-24,-31,]),'PACKAGEID':([3,4,7,8,9,12,13,17,18,21,22,24,26,30,31,33,44,52,],[11,-22,11,-3,-35,-21,-19,-28,-4,-20,-25,-27,-18,-26,-15,-23,-24,-31,]),'DERIVATE':([4,10,12,13,17,19,20,21,22,24,26,28,30,31,33,34,36,46,],[14,14,14,-19,-28,14,-29,-20,-25,-27,-18,14,-26,-15,14,-30,-16,-13,]),'DESCRIPTION':([4,10,12,13,17,19,20,21,22,24,26,28,30,31,33,34,36,46,],[15,15,15,-19,-28,15,-29,-20,-25,-27,-18,15,-26,-15,15,-30,-16,-13,]),'PROVIDES':([4,10,12,13,17,19,20,21,22,24,26,28,30,31,33,34,36,46,],[16,16,16,-19,-28,16,-29,-20,-25,-27,-18,16,-26,-15,16,-30,-16,-13,]),'PARAMS':([5,11,14,15,50,],[17,20,22,23,54,]),'DEPENDS':([13,19,21,22,24,26,30,31,],[-19,29,-20,-25,-27,-18,-26,-15,]),'CONFIG':([13,21,22,24,26,30,31,33,],[-19,-20,-25,-27,-18,-26,-15,45,]),'PROVIDES_END':([16,25,27,32,],[26,31,-11,-12,]),'PROVIDES_ITEM':([16,25,27,32,],[27,32,-11,-12,]),'DELIMITER':([23,48,49,53,54,55,57,59,],[30,52,-7,-8,-32,-33,-17,-14,]),'DEPENDS_END':([29,35,37,38,39,40,41,42,43,47,],[36,46,-5,-36,-37,-38,-39,-40,-41,-6,]),'DEPENDS_SELECT_OTH':([29,35,37,38,39,40,41,42,43,47,],[38,38,-5,-36,-37,-38,-39,-40,-41,-6,]),'DEPENDS_SELECT_OTH_IF':([29,35,37,38,39,40,41,42,43,47,],[39,39,-5,-36,-37,-38,-39,-40,-41,-6,]),'DEPENDS_WAIT_SYMBOL':([29,35,37,38,39,40,41,42,43,47,],[40,40,-5,-36,-37,-38,-39,-40,-41,-6,]),'DEPENDS_WAIT_OTH_SELECTED':([29,35,37,38,39,40,41,42,43,47,],[41,41,-5,-36,-37,-38,-39,-40,-41,-6,]),'DEPENDS_WAIT_OTH_SELECTED_IF':([29,35,37,38,39,40,41,42,43,47,],[42,42,-5,-36,-37,-38,-39,-40,-41,-6,]),'DEPENDS_SELECT_SYMBOL':([29,35,37,38,39,40,41,42,43,47,],[43,43,-5,-36,-37,-38,-39,-40,-41,-6,]),'CONFIG_ITEM':([45,48,49,53,54,55,57,59,],[50,50,-7,-8,-32,-33,-17,-14,]),'CONFIG_HELP':([45,48,49,53,54,55,57,59,],[51,51,-7,-8,-32,-33,-17,-14,]),'CONFIG_HELP_END':([51,56,58,60,],[57,59,-9,-10,]),'CONFIG_HELP_LINE':([51,56,58,60,],[58,60,-9,-10,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'root':([0,],[1,]),'source':([0,1,],[2,6,]),'sourceComb':([0,1,],[3,3,]),'sourceid':([0,1,],[4,4,]),'packs':([3,],[7,]),'pack':([3,7,],[8,17,]),'packageComb':([3,7,],[9,9,]),'packageid':([3,7,],[10,10,]),'properties':([4,10,23,],[12,18,26,]),'kv':([4,10,12,18,23,26,],[13,13,20,20,13,20,]),'dependsComb':([18,],[23,]),'deps':([24,],[27,]),'depsext':([24,],[28,]),'depend':([24,28,],[30,40,]),'configComb':([26,],[37,]),'confx':([38,],[41,]),'configItem':([38,41,],[42,46,]),'helpdoc':([44,],[48,]),'helpx':([44,],[49,]),}
+_lr_goto_items = {'root':([0,],[1,]),'source':([0,1,],[2,6,]),'sourceComb':([0,1,],[3,3,]),'sourceid':([0,1,],[4,4,]),'packs':([3,],[7,]),'pack':([3,7,],[8,18,]),'packageComb':([3,7,],[9,9,]),'packageid':([3,7,],[10,10,]),'properties':([4,10,28,],[12,19,33,]),'kv':([4,10,12,19,28,33,],[13,13,21,21,13,21,]),'provides':([16,],[24,]),'providx':([16,],[25,]),'dependsComb':([19,],[28,]),'deps':([29,],[34,]),'depsext':([29,],[35,]),'depend':([29,35,],[37,47,]),'configComb':([33,],[44,]),'confx':([45,],[48,]),'configItem':([45,48,],[49,53,]),'helpdoc':([51,],[55,]),'helpx':([51,],[56,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,40 +27,45 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> root","S'",1,None,None,None),
-  ('root -> source','root',1,'p_list_init','packageinfo.py',24),
-  ('root -> root source','root',2,'p_list_init','packageinfo.py',25),
-  ('packs -> pack','packs',1,'p_list_init','packageinfo.py',26),
-  ('packs -> packs pack','packs',2,'p_list_init','packageinfo.py',27),
-  ('depsext -> depend','depsext',1,'p_list_init','packageinfo.py',28),
-  ('depsext -> depsext depend','depsext',2,'p_list_init','packageinfo.py',29),
-  ('confx -> configItem','confx',1,'p_list_init','packageinfo.py',30),
-  ('confx -> confx configItem','confx',2,'p_list_init','packageinfo.py',31),
-  ('helpx -> CONFIG_HELP_LINE','helpx',1,'p_list_init','packageinfo.py',32),
-  ('helpx -> helpx CONFIG_HELP_LINE','helpx',2,'p_list_init','packageinfo.py',33),
-  ('deps -> depsext DEPENDS_END','deps',2,'p_list_end','packageinfo.py',42),
-  ('helpdoc -> helpx CONFIG_HELP_END','helpdoc',2,'p_list_end','packageinfo.py',43),
-  ('deps -> DEPENDS_END','deps',1,'p_list_singular','packageinfo.py',49),
-  ('helpdoc -> CONFIG_HELP_END','helpdoc',1,'p_list_singular','packageinfo.py',50),
-  ('properties -> kv','properties',1,'p_bundle','packageinfo.py',56),
-  ('properties -> properties kv','properties',2,'p_bundle','packageinfo.py',57),
-  ('sourceComb -> sourceid properties','sourceComb',2,'p_bundle','packageinfo.py',58),
-  ('sourceComb -> sourceid','sourceComb',1,'p_bundle','packageinfo.py',59),
-  ('packageComb -> packageid properties dependsComb properties','packageComb',4,'p_bundle','packageinfo.py',60),
-  ('packageComb -> packageid properties dependsComb properties configComb','packageComb',5,'p_bundle','packageinfo.py',61),
-  ('kv -> DERIVATE PARAMS','kv',2,'p_kv','packageinfo.py',71),
-  ('kv -> DESCRIPTION PARAMS DELIMITER','kv',3,'p_kv','packageinfo.py',72),
-  ('sourceid -> SOURCE PARAMS','sourceid',2,'p_kv','packageinfo.py',73),
-  ('packageid -> PACKAGEID PARAMS','packageid',2,'p_kv','packageinfo.py',74),
-  ('dependsComb -> DEPENDS deps','dependsComb',2,'p_kv','packageinfo.py',75),
-  ('configComb -> CONFIG confx DELIMITER','configComb',3,'p_kv','packageinfo.py',76),
-  ('configItem -> CONFIG_ITEM PARAMS','configItem',2,'p_kv','packageinfo.py',77),
-  ('configItem -> CONFIG_HELP helpdoc','configItem',2,'p_kv','packageinfo.py',78),
-  ('source -> sourceComb packs','source',2,'p_source','packageinfo.py',86),
-  ('pack -> packageComb','pack',1,'p_pack','packageinfo.py',94),
-  ('depend -> DEPENDS_SELECT_OTH','depend',1,'p_depend','packageinfo.py',102),
-  ('depend -> DEPENDS_SELECT_OTH_IF','depend',1,'p_depend','packageinfo.py',103),
-  ('depend -> DEPENDS_WAIT_SYMBOL','depend',1,'p_depend','packageinfo.py',104),
-  ('depend -> DEPENDS_WAIT_OTH_SELECTED','depend',1,'p_depend','packageinfo.py',105),
-  ('depend -> DEPENDS_WAIT_OTH_SELECTED_IF','depend',1,'p_depend','packageinfo.py',106),
-  ('depend -> DEPENDS_SELECT_SYMBOL','depend',1,'p_depend','packageinfo.py',107),
+  ('root -> source','root',1,'p_list_init','packageinfo.py',27),
+  ('root -> root source','root',2,'p_list_init','packageinfo.py',28),
+  ('packs -> pack','packs',1,'p_list_init','packageinfo.py',29),
+  ('packs -> packs pack','packs',2,'p_list_init','packageinfo.py',30),
+  ('depsext -> depend','depsext',1,'p_list_init','packageinfo.py',31),
+  ('depsext -> depsext depend','depsext',2,'p_list_init','packageinfo.py',32),
+  ('confx -> configItem','confx',1,'p_list_init','packageinfo.py',33),
+  ('confx -> confx configItem','confx',2,'p_list_init','packageinfo.py',34),
+  ('helpx -> CONFIG_HELP_LINE','helpx',1,'p_list_init','packageinfo.py',35),
+  ('helpx -> helpx CONFIG_HELP_LINE','helpx',2,'p_list_init','packageinfo.py',36),
+  ('providx -> PROVIDES_ITEM','providx',1,'p_list_init','packageinfo.py',37),
+  ('providx -> providx PROVIDES_ITEM','providx',2,'p_list_init','packageinfo.py',38),
+  ('deps -> depsext DEPENDS_END','deps',2,'p_list_end','packageinfo.py',47),
+  ('helpdoc -> helpx CONFIG_HELP_END','helpdoc',2,'p_list_end','packageinfo.py',48),
+  ('provides -> providx PROVIDES_END','provides',2,'p_list_end','packageinfo.py',49),
+  ('deps -> DEPENDS_END','deps',1,'p_list_singular','packageinfo.py',55),
+  ('helpdoc -> CONFIG_HELP_END','helpdoc',1,'p_list_singular','packageinfo.py',56),
+  ('provides -> PROVIDES_END','provides',1,'p_list_singular','packageinfo.py',57),
+  ('properties -> kv','properties',1,'p_bundle','packageinfo.py',63),
+  ('properties -> properties kv','properties',2,'p_bundle','packageinfo.py',64),
+  ('sourceComb -> sourceid properties','sourceComb',2,'p_bundle','packageinfo.py',65),
+  ('sourceComb -> sourceid','sourceComb',1,'p_bundle','packageinfo.py',66),
+  ('packageComb -> packageid properties dependsComb properties','packageComb',4,'p_bundle','packageinfo.py',67),
+  ('packageComb -> packageid properties dependsComb properties configComb','packageComb',5,'p_bundle','packageinfo.py',68),
+  ('kv -> DERIVATE PARAMS','kv',2,'p_kv','packageinfo.py',78),
+  ('kv -> DESCRIPTION PARAMS DELIMITER','kv',3,'p_kv','packageinfo.py',79),
+  ('kv -> PROVIDES provides','kv',2,'p_kv','packageinfo.py',80),
+  ('sourceid -> SOURCE PARAMS','sourceid',2,'p_kv','packageinfo.py',81),
+  ('packageid -> PACKAGEID PARAMS','packageid',2,'p_kv','packageinfo.py',82),
+  ('dependsComb -> DEPENDS deps','dependsComb',2,'p_kv','packageinfo.py',83),
+  ('configComb -> CONFIG confx DELIMITER','configComb',3,'p_kv','packageinfo.py',84),
+  ('configItem -> CONFIG_ITEM PARAMS','configItem',2,'p_kv','packageinfo.py',85),
+  ('configItem -> CONFIG_HELP helpdoc','configItem',2,'p_kv','packageinfo.py',86),
+  ('source -> sourceComb packs','source',2,'p_source','packageinfo.py',94),
+  ('pack -> packageComb','pack',1,'p_pack','packageinfo.py',102),
+  ('depend -> DEPENDS_SELECT_OTH','depend',1,'p_depend','packageinfo.py',110),
+  ('depend -> DEPENDS_SELECT_OTH_IF','depend',1,'p_depend','packageinfo.py',111),
+  ('depend -> DEPENDS_WAIT_SYMBOL','depend',1,'p_depend','packageinfo.py',112),
+  ('depend -> DEPENDS_WAIT_OTH_SELECTED','depend',1,'p_depend','packageinfo.py',113),
+  ('depend -> DEPENDS_WAIT_OTH_SELECTED_IF','depend',1,'p_depend','packageinfo.py',114),
+  ('depend -> DEPENDS_SELECT_SYMBOL','depend',1,'p_depend','packageinfo.py',115),
 ]
