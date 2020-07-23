@@ -30,10 +30,9 @@ class DependsTree():
         '''
         for makefile in packageInfoAst:
             for pack in makefile['packages']:
-                # self.dg.add_node(pack['Package'])
-                # weight: build(compiled) time
                 self.dg.add_node(pack['Package'], pack=pack,
                                  makefile=makefile, type=pack['Type'], cost=0)
+                # TODO: parse provides
                 for dep in pack['Depends']:
                     # TODO: more depends
                     if dep[0] == 'DEPENDS_SELECT_OTH' or dep[0] == 'DEPENDS_WAIT_OTH_SELECTED':
@@ -47,18 +46,55 @@ class DependsTree():
         # TODO: consider condiction
         for makefile in packageInfoAst:
             source = Path(makefile['Source-Makefile']).parent.as_posix()
-            # if source == 'package/libs/toolchain':
-            # pprint(makefile)
             self.dg.add_node(source, type='source',
                              cost=self._default_cost, makefile=makefile)
+            variants = set()
+            packs = set()
             for pack in makefile['packages']:
-                self.dg.add_edge(source, pack['Package'])
+                packs.add(pack['Package'])
+                if 'Build-Variant' in pack and pack['Build-Variant'] != '':
+                    variant = Path(source).joinpath(
+                        pack['Build-Variant']).as_posix()
+                    variants.add(variant)
+                    self.dg.add_node(variant, makefile=makefile,
+                                     type='variant', cost=self._default_cost)
+                    # self.dg.nodes[source]['cost'] = 0
+                    self.dg.add_edge(variant, pack['Package'])
+                else:
+                    self.dg.add_edge(source, pack['Package'])
+                # if 'Build-Variant' not in pack and pack['Provides'] != '':
+                #     print(pack['Package'])
+            # debug only
+            # n1 = 'wpa-supplicant-mesh-wolfssl'
+            # n2 = 'package/network/services/hostapd'
+            # if self.dg.has_edge(n1, n2):
+            #     raise BaseException('1')
+            # source depends on variants
+            for variant in variants:
+                self.dg.add_edge(source, variant)
+            # if self.dg.has_edge(n1,n2):
+            #     raise BaseException('2')
             for pack in makefile['packages']:
                 for edge in self.dg.in_edges(pack['Package']):
                     # avoid to create cycle path
-                    if edge[0] == source or self.dg.has_edge(source, edge[0]):
+                    if (edge[0] == source) | (edge[0] in variants) | (edge[0] in packs):
                         continue
-                    self.dg.add_edge(edge[0], source)
+                    if 'Build-Variant' in pack and pack['Build-Variant'] != '':
+                        variant = Path(source).joinpath(
+                            pack['Build-Variant']).as_posix()
+                        if self.dg.has_edge(variant, edge[0]):
+                            continue
+                        self.dg.add_edge(edge[0], variant)
+                        # if self.dg.has_edge(n1,n2):
+                        #     raise BaseException('4')
+                    else:
+                        if self.dg.has_edge(source, edge[0]):
+                            continue
+                        self.dg.add_edge(edge[0], source)
+                        # if self.dg.has_edge(n1,n2):
+                        #     raise BaseException('5')
+            # if self.dg.has_edge(n1,n2):
+            #     raise BaseException("3")
         # pprint(dep)
         # print(self.dg.nodes().data())
         idx = 0
