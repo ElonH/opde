@@ -105,6 +105,9 @@ class PackageInfoLexer(InfoLexer):
     def t_provides_item(self, t: LexToken):
         r'[^ \n]+'
         t.type = 'PROVIDES_ITEM'
+        version = re.findall(r'([a-zA-Z-_\d.]+)([>=<]+)([\d.]+)', t.value)
+        if len(version):  # version syntax
+            t.value = version[0]
         return t
 
     def t_CONFIG(self, t: LexToken):
