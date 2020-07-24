@@ -35,8 +35,7 @@ class DependsTree():
             # inject Build-Types
             if 'Build-Types' in makefile and makefile['Build-Types'] == 'host':
                 host = Path(makefile['Source-Makefile']).parent.name + '/host'
-                self.dg.add_node(host, type='host',
-                                 cost=self._default_cost, makefile=makefile)
+                self.dg.add_node(host, type='host', cost=self._default_cost)
                 # inject Build-Depends/host
                 if 'Build-Depends/host' in makefile:
                     for dep in makefile['Build-Depends/host']:
@@ -57,8 +56,7 @@ class DependsTree():
                         raise BaseException('unimplement handler')
                     build_deps.append(dep[1])
             for pack in makefile['packages']:
-                self.dg.add_node(pack['Package'], pack=pack,
-                                 makefile=makefile, type=pack['Type'], cost=0)
+                self.dg.add_node(pack['Package'], type=pack['Type'], cost=0)
                 if 'Provides' in pack and pack['Provides'].count(' ') != 0:
                     print(pack['Provides'])
                 for dep in build_deps:  # inject Build-Depends
@@ -80,7 +78,7 @@ class DependsTree():
         for makefile in packageInfoAst:
             source = Path(makefile['Source-Makefile']).parent.as_posix()
             self.dg.add_node(source, type='source',
-                             cost=self._default_cost, makefile=makefile)
+                             cost=self._default_cost)
             variants = set()
             packs = set()
             for pack in makefile['packages']:
@@ -89,8 +87,8 @@ class DependsTree():
                     variant = Path(source).joinpath(
                         pack['Build-Variant']).as_posix()
                     variants.add(variant)
-                    self.dg.add_node(variant, makefile=makefile,
-                                     type='variant', cost=self._default_cost)
+                    self.dg.add_node(variant, type='variant',
+                                     cost=self._default_cost)
                     # self.dg.nodes[source]['cost'] = 0
                     self.dg.add_edge(variant, pack['Package'])
                     self.dg.add_node(pack['Package'], owner=variant)
