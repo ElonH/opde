@@ -16,4 +16,8 @@ src/**/__pycache__
 __pycache__
 src/worker/build
 !src/worker/libs
-*.json
+tests/
+.ipynb_checkpoints
+未命名*.ipynb
+graph.json
+workers.json
