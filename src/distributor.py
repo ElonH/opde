@@ -9,85 +9,93 @@ class WorksDistributor:
     '''
     Divide tasks
     '''
-    json_deps = Path('graph.json')
-    json_workers = Path('workers.json')
 
-    dg = nx.DiGraph()
-    packs_transformer = {}
-    boss: int
-    root_packs: list = []
+    def __init__(self):
+        self.dg = nx.DiGraph()
 
-    def build(self, tree: DependsTree, skip: bool = False):
+    def build(self, tree_file: str, skip: bool = False):
         'build worker pyramid'
-        with open(self.json_deps, 'w') as f:
-            f.write(tree.to_json())
-        for pack in tree.dg.nodes():
-            self.packs_transformer[tree.dg.nodes[pack]['numid']] = pack
-        if not skip or (not self.json_workers.exists() and not self.json_workers.is_file()):
-            BuildWorkerPyramid(
-                self.json_deps.as_posix(), self.json_workers.as_posix())
+        tree_file = Path(tree_file)
+        worker_file = tree_file.parent.joinpath('workers.pyramid.json')
+        tree_dg = nx.readwrite.json_graph.jit_graph(
+            tree_file.read_text(), create_using=nx.DiGraph())
+
+        if not skip or (not tree_file.exists() and not tree_file.is_file()):
+            BuildWorkerPyramid(tree_file.as_posix(), worker_file.as_posix())
         else:
-            print('%s file exist, skip generation' %
-                  self.json_workers.as_posix())
-        with open(self.json_workers.as_posix(), 'r') as f:
-            j = json.loads(f.read())
-        for w in j:
-            # print(w)
-            self.dg.add_node(w['id'], totalCost=w['totalCost'])
-            for to in w['out']:
-                self.dg.add_edge(w['id'], to)
-        for w in self.dg.nodes():
-            # print(w, self.dg.in_degree(w))
-            if self.dg.in_degree(w) == 0:
-                self.boss = w
-            if self.dg.out_degree(w) == 0:
-                self.root_packs.append(w)
+            print('%s file exist, skip generation' % worker_file.as_posix())
+        worker_dg = nx.readwrite.json_graph.jit_graph(
+            worker_file.read_text(), create_using=nx.DiGraph())
+        self.dg = nx.compose(tree_dg, worker_dg)
 
-    def divide(self, num: int):
+    def to_json(self):
+        'output graph with jit json format data'
+        return nx.readwrite.json_graph.jit_data(self.dg, indent=2)
+
+    @property
+    def boss(self):
+        'return a worker at the top of worker-pyramid'
+        for node in self.dg.nodes:
+            if self.dg.in_degree(node) == 0:
+                return node
+
+    def deduce(self, n: int):
         '''
-        divided into num tasks
+        jurisdiction is deduced from boss to n vice-bosses,
+        depends tree will covered by jurisdictions of these vice-bosses
+        vice-boss can be worker or type of depends node
         '''
-        workers = []
-        packs = []
-        workers.append(self.boss)
-        # workers.append(8655)
-        while len(workers) < num:
-            # print(workers)
-            w = workers[0]
+
+        workers = [self.boss]
+        vice_bosses = []
+        while len(vice_bosses) + len(workers) != n:
+            if len(workers) == 0:
+                print('not enought worker, only %s' % len(vice_bosses))
+                break
+            node = workers[0]
             workers = workers[1:]
-            sub_worker = self.dg.out_edges(w)
-            # print(sub_worker)
-            if len(sub_worker) == 0:  # w is root packs
-                packs.append([self.packs_transformer[w]])
-                num -= 1
+            data = self.dg.nodes[node]
+            if data['type'] != 'worker':
+                vice_bosses.append(node)
                 continue
-            for sub in sub_worker:
-                # print(sub[1])
-                workers.append(sub[1])
-            # break
-        # print(workers+packs)
-        # print(len(workers+packs))
-        for w in workers:
-            packs_set = self.parseWorker(w)
-            # print(packs_set)
-            packs.append([self.packs_transformer[i] for i in packs_set])
-        return packs
+            for edge in self.dg.out_edges(node):
+                workers.append(edge[1])
+        return vice_bosses + workers
 
-    def parseWorker(self, w: int):
+    def deduce_depends(self, n: int):
         '''
-        get all root packs which picked by worker w
+        simailar with deduce
+        btw vice-boss type can not be worker
+        so, use list to represant a vice-boss
         '''
-        ans = []
-        que = []
-        que.append(w)
-        while len(que) != 0:
-            w = que[0]
-            que = que[1:]
-            sub_worker = self.dg.out_edges(w)
-            if len(sub_worker) == 0:  # w is root packs
-                ans.append(w)
-                continue
-            for sub in sub_worker:
-                # print(sub[1])
-                que.append(sub[1])
-        return ans
+        pre_bosses = self.deduce(n)
+        post_bosses = []
+        for boss in pre_bosses:
+            replacer = []
+            workers = [boss]
+            while len(workers) != 0:
+                node = workers[0]
+                workers = workers[1:]
+                if self.dg.nodes[node]['type'] != 'worker':
+                    replacer.append(node)
+                    continue
+                for edge in self.dg.out_edges(node):
+                    workers.append(edge[1])
+            post_bosses.append(replacer)
+        return post_bosses
+
+    def deduce_depends_all(self, n: int):
+        '''
+        simailar with deduce_depends
+        btw vice-boss will contain all depends node in its jurisdiction
+        vice-boss type is list
+        '''
+        pre_bosses = self.deduce_depends(n)
+        post_bosses = []
+        for workers in pre_bosses:
+            replacer = []
+            replacer.extend(workers)
+            for node in workers:
+                replacer.extend(nx.dfs_preorder_nodes(self.dg, node))
+            post_bosses.append(replacer)
+        return post_bosses

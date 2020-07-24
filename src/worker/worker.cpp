@@ -2,6 +2,7 @@
 #include <list>
 #include <nlohmann/json.hpp>
 #include <queue>
+#include <sstream>
 #include <string>
 #include <unordered_set>
 #include <vector>
@@ -401,10 +402,11 @@ public:
         }
     }
 
-    string toJson()
+    string toJson(string id2name[])
     {
         json ans = json::array();
         std::queue<deps_node *> que;
+        std::stringstream ss;
         que.push(*workers.begin());
         while (!que.empty())
         {
@@ -414,17 +416,30 @@ public:
                 // this is not worker
                 continue;
             json j;
-            j["id"] = worker->id;
-            j["totalCost"] = worker->total_cost;
-            vector<int> vec_in, vec_out;
-            for (auto i : worker->in_nodes)
-                vec_in.push_back(i->id);
+            ss.str("");
+            ss << "worker" << worker->id;
+            j["id"] = j["name"] = ss.str();
+            auto data = json::object();
+            data["type"] = "worker";
+            data["cost"] = worker->cost;
+            data["totalCost"] = worker->total_cost;
+            data["numid"] = worker->id;
+            j["data"] = data;
+            auto adjacencies = json::array();
             for (auto i : worker->out_nodes)
             {
-                vec_out.push_back(i->id);
                 que.push(i);
+                ss.str("");
+                if (i->id < worker_id)
+                    ss << id2name[i->id];
+                else
+                    ss << "worker" << i->id;
+                auto edge = json::object();
+                edge["nodeTo"] = ss.str();
+                edge["data"] = json::object({});
+                adjacencies.push_back(edge);
             }
-            j["out"] = vec_out;
+            j["adjacencies"] = adjacencies;
             ans.push_back(j);
         }
         return ans.dump(2);
@@ -439,11 +454,13 @@ string BuildWorkerPyramid(string graph_json)
     std::cout << "constructing depends tree..." << std::endl;
     DependsTree tree;
     std::map<string, size_t> name2id;
+    string id2name[30000];
     for (auto &i : graph)
     {
         // std::cout << i["data"]["numid"] << " " << i["name"] << " " << i["data"]["cost"] << std::endl;
         tree.AddNode(i["data"]["numid"], i["name"], i["data"]["cost"]);
         name2id[i["name"]] = i["data"]["numid"];
+        id2name[i["data"]["numid"]] = i["name"];
     }
     for (auto &i : graph)
     {
@@ -469,7 +486,7 @@ string BuildWorkerPyramid(string graph_json)
     // Let's start to build worker pyramid
     WorkerPyramid wp(&cost_matrix, &tree);
     wp.Build();
-    auto ans = wp.toJson();
+    auto ans = wp.toJson(id2name);
     std::cout << "Done Done Done" << std::endl;
     return ans;
 }
