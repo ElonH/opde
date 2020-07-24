@@ -170,6 +170,24 @@ class DependsTree():
             print('Ring detect! This is not DAG!!', file=sys.stderr)
             print(nx.find_cycle(self.dg))
 
+    def inject_costs(self, logsAST: object):
+        '''
+        inject cost from logs
+        '''
+        for log in logsAST:
+            if log['exit-code'] != 0:  # build has some error
+                continue
+            pkg_name = log['subdir']
+            if log['target'] != '':
+                pkg_name = '/'.join([pkg_name, log['target']])
+            if not self.dg.has_node(pkg_name):
+                print("%s package isn't registed in DependsTree, skip..." % pkg_name)
+                continue
+            # TODO: confuse about user-time system-time and time
+            self.dg.nodes[pkg_name]['cost'] = log['time']
+            # print(log)
+            # break
+
     def to_json(self):
         '''
         output json to represent dag
