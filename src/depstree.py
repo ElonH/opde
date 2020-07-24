@@ -12,10 +12,8 @@ class DependsTree():
 
     _default_cost = 1
 
-    dg = nx.DiGraph()
-
-    # node names through list
-    names: list
+    def __init__(self):
+        self.dg = nx.DiGraph()
 
     def draw(self):
         'draw dag, very slow, not recommand'
