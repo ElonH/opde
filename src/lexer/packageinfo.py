@@ -66,7 +66,7 @@ class PackageInfoLexer(InfoLexer):
         t.lexer.skip(1)
 
     def t_DERIVATE(self, t: LexToken):
-        r'((Submenu|Menu)[-]Depends|Build[-](Types|Depends|Variant|Only)|Kernel[-]Config|Build[-]Depends/host|Default[-]Variant|Prereq[-]Check|Require[-]User|Menu|Version|Conflicts|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
+        r'((Submenu|Menu)[-]Depends|Build[-](Types|Variant|Only)|Kernel[-]Config|Default[-]Variant|Prereq[-]Check|Require[-]User|Menu|Version|Conflicts|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
         t.lexer.line_start = t.lexer.lexpos
         t.lexer.push_state('end2line')
         t.value = t.value[:-1]
@@ -219,12 +219,12 @@ class PackageInfoLexer(InfoLexer):
         'PROVIDES_END',
     )
 
-    packageNameRule = r'[a-zA-Z-_\d.]+'
+    packageNameRule = r'[a-zA-Z-_\d.]+(/host)?'
     packageSymbolRule = r'([a-zA-Z-_\d.!()]|[|]{2}|[&]{2})+'
     packageItemRule = r'(?=[ \n])'
 
     def t_DEPENDS(self, t: LexToken):
-        r'Depends:'
+        r'(Depends|Build[-]Depends(/host)?):'
         t.lexer.doc_start = t.lexer.lexpos
         t.lexer.push_state('depends')
         t.value = t.value[:-1]

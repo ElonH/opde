@@ -64,8 +64,8 @@ class PackageInfoParser():
                     | properties kv
         sourceComb : sourceid properties
                    | sourceid
-        packageComb : packageid properties dependsComb properties
-                    | packageid properties dependsComb properties configComb
+        packageComb : packageid properties
+                    | packageid properties configComb
         '''
         p[0] = dict()
         for i in range(1, len(p)):
@@ -78,9 +78,9 @@ class PackageInfoParser():
         kv : DERIVATE PARAMS
            | DESCRIPTION PARAMS DELIMITER
            | PROVIDES provides
+           | DEPENDS deps
         sourceid : SOURCE PARAMS
         packageid : PACKAGEID PARAMS
-        dependsComb : DEPENDS deps
         configComb : CONFIG confx DELIMITER
         configItem : CONFIG_ITEM PARAMS
                    | CONFIG_HELP helpdoc
