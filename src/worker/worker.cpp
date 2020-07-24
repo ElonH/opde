@@ -318,7 +318,7 @@ public:
                     candidate_greater = node;
             });
             best = candidate_lower ? candidate_lower : candidate_greater;
-            std::cout << best->data << " : ";
+            std::cout << best->data/100 << " : ";
             OlMatrix<int>::Node *it;
             auto worker_i_it = workers.begin();
             auto worker_j_it = workers.begin();
@@ -367,7 +367,7 @@ public:
             tree->AddEdge(new_id, (*worker_j_it)->id);
             std::cout << "worker id:(" << (*worker_i_it)->id << ',' << (*worker_j_it)->id << ")->" << new_id << ' ';
             // std::cout << cnt_i << '|' << cnt_j << ' ';
-            std::cout << "cost:" << best_row_headi->m_row_next->data << '+' << best_row_headj->m_row_next->data;
+            std::cout << "cost:" << best_row_headi->m_row_next->data/100 << '+' << best_row_headj->m_row_next->data/100;
             *worker_i_it = tree->GetNodeById(new_id);
             workers.erase(worker_j_it);
             // update node in diagnal line
@@ -375,7 +375,7 @@ public:
             auto cost_new = best_row_headi->m_row_next;
             auto base_cost = cost_new->data = SumAndMarkedBfs(*worker_i_it, visited_flags, (*worker_i_it)->id);
             maximun_cost = std::max(maximun_cost, base_cost);
-            std::cout << "=" << cost_new->data << " remain workers:" << cost_matrix->m_row_heads.size() << " maxinum cost:" << maximun_cost << std::endl;
+            std::cout << "=" << cost_new->data/100 << " remain workers:" << cost_matrix->m_row_heads.size() << " maxinum cost:" << maximun_cost/100 << std::endl;
             (*worker_i_it)->total_cost = cost_new->data;
             // update nodes in row
             cnt_j = 0;

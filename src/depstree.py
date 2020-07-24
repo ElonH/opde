@@ -214,8 +214,9 @@ class DependsTree():
             if not self.dg.has_node(pkg_name):
                 print("%s package isn't registed in DependsTree, skip..." % pkg_name)
                 continue
-            # TODO: confuse about user-time system-time and time
-            self.dg.nodes[pkg_name]['cost'] = log['time']
+            if log['build-variant'] == 'compile':
+                # TODO: confuse about user-time system-time and time
+                self.dg.nodes[pkg_name]['cost'] += int(log['time'] * 100)
             # print(log)
             # break
 
