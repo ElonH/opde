@@ -32,15 +32,44 @@ class DependsTree():
                 pprint(kwargs)
                 raise BaseException('debug')
         for makefile in packageInfoAst:
+            # inject Build-Types
+            if 'Build-Types' in makefile and makefile['Build-Types'] == 'host':
+                host = Path(makefile['Source-Makefile']).parent.name + '/host'
+                self.dg.add_node(host, type='host',
+                                 cost=self._default_cost, makefile=makefile)
+                # inject Build-Depends/host
+                if 'Build-Depends/host' in makefile:
+                    for dep in makefile['Build-Depends/host']:
+                        if dep[0] != 'DEPENDS_WAIT_OTH_SELECTED':
+                            raise BaseException(
+                                'unimplement handler for non-DEPENDS_WAIT_OTH_SELECTED')
+                        if not self.dg.has_node(dep[1]):
+                            self.dg.add_node(dep[1], cost=0, type='unknown')
+                        self.dg.add_edge(host, dep[1])
+            # inject Build-Depends
+            build_deps = []
+            if 'Build-Depends' in makefile:
+                for dep in makefile['Build-Depends']:
+                    if dep[0] == 'DEPENDS_WAIT_OTH_SELECTED_IF':
+                        continue  # TODO: add depends
+                    if dep[0] != 'DEPENDS_WAIT_OTH_SELECTED':
+                        print(dep, makefile['Source-Makefile'])
+                        raise BaseException('unimplement handler')
+                    build_deps.append(dep[1])
             for pack in makefile['packages']:
                 self.dg.add_node(pack['Package'], pack=pack,
                                  makefile=makefile, type=pack['Type'], cost=0)
                 if 'Provides' in pack and pack['Provides'].count(' ') != 0:
                     print(pack['Provides'])
+                for dep in build_deps:  # inject Build-Depends
+                    if not self.dg.has_node(dep):
+                        self.dg.add_node(dep, cost=0, type='unknown')
+                    self.dg.add_edge(pack['Package'], dep)
                 for dep in pack['Depends']:
                     # TODO: more depends
                     if dep[0] == 'DEPENDS_SELECT_OTH' or dep[0] == 'DEPENDS_WAIT_OTH_SELECTED':
-                        self.dg.add_node(dep[1], cost=0, type='unknown')
+                        if not self.dg.has_node(dep[1]):
+                            self.dg.add_node(dep[1], cost=0, type='unknown')
                         self.dg.add_edge(pack['Package'], dep[1])
                     # if dep[0] == 'DEPENDS_SELECT_OTH_IF': # TODO: check condiction
                     #     self.dg.add_node(dep[2])
@@ -128,7 +157,7 @@ class DependsTree():
                             pyd, self.dg.nodes[pack['Package']]['owner'])
                         # debugger(self.dg.has_edge(n1, n2),pos=7, frm=pyd,
                         #     to=self.dg.nodes[pack['Package']]['owner'])
-                    elif self.dg.nodes[pyd]['type'] == 'variant' or self.dg.nodes[pyd]['type'] == 'source':
+                    elif self.dg.nodes[pyd]['type'] in ['variant', 'source', 'host']:
                         raise BaseException('Impossible!')
                     else:  # type is normal ipkg, bin
                         # print(pyd, self.dg.nodes[pyd].keys())
@@ -178,6 +207,8 @@ class DependsTree():
             if log['exit-code'] != 0:  # build has some error
                 continue
             pkg_name = log['subdir']
+            if log['build-type'] == 'host':
+                pkg_name = Path(log['subdir']).name + '/host'
             if log['target'] != '':
                 pkg_name = '/'.join([pkg_name, log['target']])
             if not self.dg.has_node(pkg_name):
@@ -198,6 +229,8 @@ class DependsTree():
         }
         for node in self.dg.nodes():
             data = self.dg.nodes[node]
+            if 'cost' not in data:
+                raise BaseException('%s %s' % (node, data))
             ans['nodes'].append(
                 {'name': node, 'cost': data['cost'], 'id': data['numid']})
         for edge in self.dg.edges():
