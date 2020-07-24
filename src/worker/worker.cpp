@@ -265,7 +265,7 @@ public:
         // find maximun in diagnal line
         for (auto head : cost_matrix->m_row_heads)
             maximun_cost = std::max(maximun_cost, head->m_row_next->data);
-        std::cout << "maximun cost: " << maximun_cost << std::endl;
+        std::cout << "maximun cost: " << maximun_cost / 100 << std::endl;
         // initialize lots of workers
         // each worker only have one root node in initilization
         auto id = worker_id = tree->max_id + 1;
@@ -318,7 +318,7 @@ public:
                     candidate_greater = node;
             });
             best = candidate_lower ? candidate_lower : candidate_greater;
-            std::cout << best->data/100 << " : ";
+            std::cout << best->data / 100 << " : ";
             OlMatrix<int>::Node *it;
             auto worker_i_it = workers.begin();
             auto worker_j_it = workers.begin();
@@ -367,7 +367,7 @@ public:
             tree->AddEdge(new_id, (*worker_j_it)->id);
             std::cout << "worker id:(" << (*worker_i_it)->id << ',' << (*worker_j_it)->id << ")->" << new_id << ' ';
             // std::cout << cnt_i << '|' << cnt_j << ' ';
-            std::cout << "cost:" << best_row_headi->m_row_next->data/100 << '+' << best_row_headj->m_row_next->data/100;
+            std::cout << "cost:" << best_row_headi->m_row_next->data / 100 << '+' << best_row_headj->m_row_next->data / 100;
             *worker_i_it = tree->GetNodeById(new_id);
             workers.erase(worker_j_it);
             // update node in diagnal line
@@ -375,7 +375,7 @@ public:
             auto cost_new = best_row_headi->m_row_next;
             auto base_cost = cost_new->data = SumAndMarkedBfs(*worker_i_it, visited_flags, (*worker_i_it)->id);
             maximun_cost = std::max(maximun_cost, base_cost);
-            std::cout << "=" << cost_new->data/100 << " remain workers:" << cost_matrix->m_row_heads.size() << " maxinum cost:" << maximun_cost/100 << std::endl;
+            std::cout << "=" << cost_new->data / 100 << " remain workers:" << cost_matrix->m_row_heads.size() << " maxinum cost:" << maximun_cost / 100 << std::endl;
             (*worker_i_it)->total_cost = cost_new->data;
             // update nodes in row
             cnt_j = 0;
@@ -434,25 +434,30 @@ public:
 string BuildWorkerPyramid(string graph_json)
 {
     auto graph = json::parse(graph_json);
-    if (!graph.is_object())
+    if (!graph.is_array())
         return "";
     std::cout << "constructing depends tree..." << std::endl;
     DependsTree tree;
-    auto nodes = graph["nodes"];
-    if (!nodes.is_array())
-        return "";
-    for (auto &i : nodes)
+    std::map<string, size_t> name2id;
+    for (auto &i : graph)
     {
-        // cout << i << endl;
-        tree.AddNode(i["id"], i["name"], i["cost"]);
+        // std::cout << i["data"]["numid"] << " " << i["name"] << " " << i["data"]["cost"] << std::endl;
+        tree.AddNode(i["data"]["numid"], i["name"], i["data"]["cost"]);
+        name2id[i["name"]] = i["data"]["numid"];
     }
-    auto edges = graph["edges"];
-    if (!edges.is_array())
-        return "";
-    for (auto &i : edges)
+    for (auto &i : graph)
     {
-        // cout << i << endl;
-        tree.AddEdge(i["from"], i["to"]);
+        if (i.count("adjacencies") == 0)
+            continue;
+        auto edges = i["adjacencies"];
+        if (!edges.is_array())
+            return "";
+        auto from = i["data"]["numid"];
+        for (auto &j : edges)
+        {
+            // std::cout << from << ' ' << name2id[j["nodeTo"]] << std::endl;
+            tree.AddEdge(from, name2id[j["nodeTo"]]);
+        }
     }
     tree.ExtractRootNodes();
     std::cout << "Initialize cost matrix..." << std::endl;

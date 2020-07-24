@@ -220,19 +220,6 @@ class DependsTree():
 
     def to_json(self):
         '''
-        output json to represent dag
+        output jit json format data to represent dag
         '''
-        ans = {
-            'nodes': [],
-            'edges': []
-        }
-        for node in self.dg.nodes():
-            data = self.dg.nodes[node]
-            if 'cost' not in data:
-                raise BaseException('%s %s' % (node, data))
-            ans['nodes'].append(
-                {'name': node, 'cost': data['cost'], 'id': data['numid']})
-        for edge in self.dg.edges():
-            ans['edges'].append(
-                {'from': self.dg.nodes[edge[0]]['numid'], 'to': self.dg.nodes[edge[1]]['numid']})
-        return json.dumps(ans, indent=2)
+        return nx.readwrite.json_graph.jit_data(self.dg, indent=2)
