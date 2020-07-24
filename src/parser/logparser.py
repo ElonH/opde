@@ -46,7 +46,7 @@ class LogParser():
         p[0]['subdir'] = ary[0]
         p[0]['target'] = ary[1]
         p[0]['build-type'] = ary[2]
-        p[0]['build-varient'] = ary[3]
+        p[0]['build-variant'] = ary[3]
 
     # def p_source(self, p):
     #     '''
