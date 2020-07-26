@@ -3,15 +3,12 @@ import ply.yacc as yacc
 from ..lexer.packageinfo import PackageInfoLexer
 
 
-class PackageInfoParser():
+class PackageInfoParser(PackageInfoLexer):
     'parser of .packageinfo'
-    tokens = PackageInfoLexer.tokens
-    lexer: PackageInfoLexer
-    parser: yacc.LRParser
 
     # Build the lexer
-    def build(self, lexer: PackageInfoLexer, **kwargs):
-        self.lexer = lexer
+    def __init__(self, **kwargs):
+        super(PackageInfoParser, self).__init__(**kwargs)
         self.parser = yacc.yacc(
             module=self, tabmodule="packageParseTab", debugfile="packageParse.out", **kwargs)
 

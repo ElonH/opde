@@ -2,15 +2,11 @@ from ..lexer.targetinfo import TargetInfoLexer
 import ply.yacc as yacc
 
 
-class TargetInfoParser():
+class TargetInfoParser(TargetInfoLexer):
     'parser of .targetinfo'
-    tokens = TargetInfoLexer.tokens
-    lexer: TargetInfoLexer
-    parser: yacc.LRParser
 
-    # Build the lexer
-    def build(self, lexer: TargetInfoLexer, **kwargs):
-        self.lexer = lexer
+    def __init__(self, **kwargs):
+        super(TargetInfoParser, self).__init__(**kwargs)
         self.parser = yacc.yacc(
             module=self, tabmodule="targetParseTab", debugfile="targetParse.out", **kwargs)
 

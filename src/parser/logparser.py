@@ -4,15 +4,12 @@ from ..lexer.logs import LogLexer
 import re
 
 
-class LogParser():
+class LogParser(LogLexer):
     'parser of logs/**.txt'
-    tokens = LogLexer.tokens
-    lexer: LogLexer
-    parser: yacc.LRParser
 
     # Build the lexer
-    def build(self, lexer: LogLexer, **kwargs):
-        self.lexer = lexer
+    def __init__(self, **kwargs):
+        super(LogParser, self).__init__(**kwargs)
         self.parser = yacc.yacc(
             module=self, tabmodule="logParseTab", debugfile="logParse.out", **kwargs)
 

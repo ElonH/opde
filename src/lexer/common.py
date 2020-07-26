@@ -7,7 +7,7 @@ class InfoLexer():
     '''
 
     # Build the lexer
-    def build(self, **kwargs):
+    def __init__(self, **kwargs):
         self.lexer = lex.lex(module=self, **kwargs)
 
     # Test it output
