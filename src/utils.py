@@ -28,5 +28,6 @@ def run(cmd: str, *args, **kwargs):
         stdout = kwargs.pop('stdout', sys.stdout)
         stderr = kwargs.pop('stderr', sys.stderr)
         shell = kwargs.pop('shell', True)
-        sp.run([cmd], check=check, stdout=stdout, stderr=stderr,
+        executable = kwargs.pop('executable', '/bin/bash')
+        sp.run([cmd], check=check, stdout=stdout, stderr=stderr, executable=executable,
                shell=shell, *args, **kwargs)
