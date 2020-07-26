@@ -1,35 +1,13 @@
-import sys
-import subprocess as sp
 from pathlib import Path
+from ..utils import run
 
 
-def in_notebook():
-    try:
-        from IPython import get_ipython
-        if get_ipython() == None or 'IPKernelApp' not in get_ipython().config:  # pragma: no cover
-            return False
-    except ImportError:
-        return False
-    return True
-
-
-def run(cmd: str, *args, **kwargs):
-    '''
-    run bash command
-    '''
-    if in_notebook():
-        from IPython import get_ipython
-        get_ipython().system('{cmd}')
-    else:
-        check = kwargs.pop('check', True)
-        stdout = kwargs.pop('stdout', sys.stdout)
-        stderr = kwargs.pop('stderr', sys.stderr)
-        shell = kwargs.pop('shell', True)
-        sp.run([cmd], check=check, stdout=stdout, stderr=stderr,
-               shell=shell, *args, **kwargs)
+_worked_inited = False
 
 
 def __init__():
+    if _worked_inited:
+        return
     SRC_dir = Path(__file__).parent
     BLD_dir = SRC_dir.joinpath('build')
     cmd = ' '.join([
@@ -44,8 +22,6 @@ def __init__():
 
 
 def BuildWorkerPyramid(tree_json_path: str, output_path: str):
+    __init__()
     exec_bin = Path(__file__).parent.joinpath('build', 'BuildWorkerPyramid')
     run('%s "%s" "%s"' % (exec_bin.as_posix(), tree_json_path, output_path))
-
-
-__init__()
