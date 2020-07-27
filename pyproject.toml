@@ -11,6 +11,9 @@ PyGithub = "^1.51"
 ply = "^3.11"
 networkx = "^2.4"
 matplotlib = "^3.2.2"
+gitpython = "^3.1.7"
+Click = "^7.1.2"
+tinydb = "^4.1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
