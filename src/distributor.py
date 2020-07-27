@@ -94,8 +94,12 @@ class WorksDistributor:
         post_bosses = []
         for workers in pre_bosses:
             replacer = []
-            replacer.extend(workers)
             for node in workers:
-                replacer.extend(nx.dfs_preorder_nodes(self.dg, node))
+                if self.dg.nodes[node]['type'] == 'ipkg':
+                    replacer.append(node)
+                for child in nx.dfs_preorder_nodes(self.dg, node):
+                    if self.dg.nodes[child]['type'] == 'ipkg':
+                        replacer.append(child)
+            post_bosses.append(list(set(replacer)))
             post_bosses.append(replacer)
         return post_bosses
