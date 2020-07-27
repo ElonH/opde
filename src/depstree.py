@@ -1,7 +1,10 @@
-import networkx as nx
 import json
 import sys
 from pathlib import Path
+
+import networkx as nx
+
+from .database import CostDb
 
 
 class DependsTree():
@@ -197,13 +200,12 @@ class DependsTree():
             print('Ring detect! This is not DAG!!', file=sys.stderr)
             print(nx.find_cycle(self.dg))
 
-    def inject_costs(self, logsAST: object):
+    def inject_costs(self, cost_db: CostDb):
         '''
-        inject cost from logs
+        inject cost from cost database
         '''
-        for log in logsAST:
-            if log['exit-code'] != 0:  # build has some error
-                continue
+        logs = cost_db.db.all()
+        for log in logs:
             pkg_name = log['subdir']
             if log['build-type'] == 'host':
                 pkg_name = Path(log['subdir']).name + '/host'
@@ -214,7 +216,8 @@ class DependsTree():
                 continue
             if log['build-variant'] == 'compile':
                 # TODO: confuse about user-time system-time and time
-                self.dg.nodes[pkg_name]['cost'] += int(log['time'] * 100)
+                self.dg.nodes[pkg_name]['cost'] += int(
+                    CostDb.cost_func(log) * 100)
             # print(log)
             # break
 

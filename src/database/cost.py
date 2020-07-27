@@ -63,13 +63,18 @@ class CostDb:
             return []
         costs = []
         for i in lst:
-            cost = 0
-            if i['exit-code'] == 0:
-                for j in range(len(i['time'])):
-                    # print(i['time'], j, len(i['time']))
-                    cost += i['time'][j] / (len(i['time']) - j)
-            costs.append(cost)
+            costs.append(self.cost_func(i))
         return costs, lst
+
+    @classmethod
+    def cost_func(cls, doc: tinydb.table.Document):
+        'a function to caculate cost'
+        cost = 0
+        if doc['exit-code'] == 0:
+            for j in range(len(doc['time'])):
+                # print(i['time'], j, len(i['time']))
+                cost += doc['time'][j] / (len(doc['time']) - j)
+        return cost
 
     def close(self):
         'close dabase'
