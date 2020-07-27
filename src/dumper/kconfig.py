@@ -13,4 +13,5 @@ def KconfigDumper(kconfigAst: object, indent='\t'):
         else:
             ans_item.append('%sdefault "%s"' % (indent, item['default']))
         ans.append('\n'.join(ans_item))
+    ans.append('\n')
     return '\n\n'.join(ans)
