@@ -1,4 +1,4 @@
-from src.parser.logparser import LogParser, LogLexer
+from src.parser.logparser import LogParser
 from pathlib import Path
 import json
 
@@ -9,10 +9,7 @@ class LogsExtractor:
     '''
 
     def __init__(self, LogDir: Path):
-        self._lexer = LogLexer()
-        self._lexer.build()
         self._parser = LogParser()
-        self._parser.build(lexer=self._lexer.lexer)
 
         self.logsAst = []
         for LogFile in LogDir.rglob('*.txt'):
