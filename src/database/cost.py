@@ -1,5 +1,8 @@
-import tinydb
 from pathlib import Path
+
+import tinydb
+from tinydb.middlewares import CachingMiddleware
+from tinydb.storages import JSONStorage
 
 
 class CostDb:
@@ -7,7 +10,9 @@ class CostDb:
     _default_db_path = Path(__file__).parent.joinpath('cost.db.json').as_posix()
 
     def __init__(self, db_path=_default_db_path):
-        self.db = tinydb.TinyDB(db_path)
+        self.db = tinydb.TinyDB(db_path,
+                                storage=CachingMiddleware(JSONStorage),
+                                sort_keys=True, indent=2, separators=(',', ': '))
 
     def _Append(self, kv: object):
         'append result to list'
@@ -65,3 +70,7 @@ class CostDb:
                     cost += i['time'][j] / (len(i['time']) - j)
             costs.append(cost)
         return costs, lst
+
+    def close(self):
+        'close dabase'
+        self.db.close()
