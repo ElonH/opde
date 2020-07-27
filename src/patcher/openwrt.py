@@ -7,7 +7,8 @@ def patchOpenwrt(repo_path: str, dry=False):
     'patch to openwrt source to export some necessery infomation'
     repo = Repo(repo_path)
     patches = [
-        Path(__file__).parent.joinpath('export-some-info-to-logs.patch')
+        Path(__file__).parent.joinpath('export-some-info-to-logs.patch'),
+        Path(__file__).parent.joinpath('hack-sdk.patch'),
     ]
     for i in patches:
         if dry:

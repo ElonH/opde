@@ -21,3 +21,4 @@ tests/
 未命名*.ipynb
 graph.json
 workers.json
+!src/patcher/*.patch
