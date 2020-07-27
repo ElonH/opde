@@ -25,7 +25,7 @@ class DependsTree():
         nx.draw_shell(self.dg, with_labels=True, font_weight='normal',
                       font_size=10, node_color="#F4D03F")
 
-    def inject_package_info(self, packageInfoAst):
+    def inject_package_info(self, packageInfoAst: object):
         '''
         build depends graph from packageinfo ast, this is dag
         '''
@@ -138,10 +138,11 @@ class DependsTree():
                 for i in pack['Provides']:
                     if isinstance(i, str):
                         pyd = i
-                    elif isinstance(i, list):
+                    elif isinstance(i, tuple):
                         pyd = i[0]  # FIXME: ignore version compare
                     else:
-                        raise BaseException('unexpect type')
+                        raise BaseException(
+                            'unexpect type %s\n%s' % (i.__class__, i))
                     if pyd == pack['Package']:
                         continue
                     if not self.dg.has_node(pyd) or self.dg.nodes[pyd]['type'] == 'provider':
