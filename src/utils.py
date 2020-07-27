@@ -23,7 +23,6 @@ def run(cmd: str, *args, **kwargs):
         from IPython import get_ipython
         get_ipython().system('{cmd}')
     else:
-        print(kwargs)
         check = kwargs.pop('check', True)
         stdout = kwargs.pop('stdout', sys.stdout)
         stderr = kwargs.pop('stderr', sys.stderr)
