@@ -7,12 +7,13 @@ class Configer:
     '''
     _conf_dir = Path(__file__).parent
 
-    def mkdir_all(self, targetInfoAst: object):
+    @classmethod
+    def mkdir_all(cls, targetInfoAst: object):
         '''
         generate all config for new arch/board
         '''
         for target in targetInfoAst:
-            target_path = self._conf_dir.joinpath(target['Target-Board'])
+            target_path = cls._conf_dir.joinpath(target['Target-Board'])
             target_path.mkdir(parents=True, exist_ok=True)
             target_confs = [target_path.joinpath(
                 'pre.conf'), target_path.joinpath('post.conf')]
@@ -23,7 +24,7 @@ class Configer:
             if 'subtargets' not in target:
                 continue
             for subtar in target['subtargets']:
-                subtar_path = self._conf_dir.joinpath(subtar['Target'])
+                subtar_path = cls._conf_dir.joinpath(subtar['Target'])
                 subtar_path.mkdir(parents=True, exist_ok=True)
                 subtar_confs = [subtar_path.joinpath(
                     'pre.conf'), subtar_path.joinpath('post.conf')]
