@@ -73,6 +73,9 @@ class CostDb:
         if doc['exit-code'] == 0:
             for j in range(len(doc['time'])):
                 # print(i['time'], j, len(i['time']))
+                #
+                # lim(i=1,+\infinty) 1/1 + 1/2 + ... + 1/i < 2
+                #
                 cost += doc['time'][j] / (len(doc['time']) - j)
         return cost
 
