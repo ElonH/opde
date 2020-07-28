@@ -24,7 +24,6 @@ jobs:
         key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
         path: ./cache/apt
-    - {}
     - run: |2
 
         sudo -E apt-get update
