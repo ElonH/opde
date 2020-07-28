@@ -139,7 +139,7 @@ def assign(ctx, number: int, ke: bool):
     cost_db.close()
     setting.deps_dag = deps_tree.to_json()
     distributor = WorksDistributor()
-    distributor.build(setting.deps_dag_file, True)
+    distributor.build(setting.deps_dag_file)
     setting.tasks_list = distributor.deduce_depends_all(number)
     if not ke:
         linux_embedded_module = set(setting.linux_embedded_module)
