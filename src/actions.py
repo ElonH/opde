@@ -173,7 +173,6 @@ source .venv/bin/activate
 pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
 '''
             },
-            self._gen_debugger_step(),
         ]
 
     def sdk_job(self):
@@ -181,6 +180,13 @@ pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/pyth
         job_apt = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
+        stps.extend([
+            {'run': 'git submodule update --init --recursive'},
+            {'run': 'poetry run python3 builder.py init'},
+            {'run': 'poetry run python3 builder.py feeds'},
+            {'run': 'poetry run python3 builder.py config -sdk -ib -ke'},
+            self._gen_debugger_step(),
+        ])
         job_apt['steps'] = stps
         return job_apt
         pass
