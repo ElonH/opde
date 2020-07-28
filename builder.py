@@ -193,20 +193,6 @@ def _hack_sdk(ctx, directory: str):
     build_conf_path.write_text(KconfigDumper(new_conf))
 
 
-@cli.command()
-@click.pass_context
-def install_sdk(ctx):
-    'Build OpenWrt'
-    setting: OpdeSetting = ctx.obj['set']
-    if ctx.obj['dry']:
-        print('Build Done')
-        return
-    env = os.environ.copy()
-    env['OPDE_PYTHON'] = shutil.which('python3')
-    run('make target/sdk/install -j%s V=s' % os.cpu_count(),
-        cwd=setting.openwrt_dir.as_posix(), env=env)
-
-
 if __name__ == '__main__':
     os.environ['OPDE_BUILDER'] = Path(__file__).absolute().as_posix()
     cli(obj={})
