@@ -1,5 +1,9 @@
 jobs:
   APT:
+    outputs:
+      dataDash: ${{ steps.var.outputs.dataDash }}
+      dataDot: ${{ steps.var.outputs.dataDot }}
+      tag: ${{ steps.var.outputs.tag }}
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
