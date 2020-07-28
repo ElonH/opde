@@ -83,6 +83,19 @@ def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool):
 
 @cli.command()
 @click.pass_context
+def download(ctx):
+    "Download Openwrt's downloaded source bundles"
+    setting: OpdeSetting = ctx.obj['set']
+    if ctx.obj['dry']:
+        print('Download Done')
+        return
+
+    run('make -j{0} download && make -j{0} download && make -j{0} download'.format(os.cpu_count() * 2),
+        cwd=setting.openwrt_dir.as_posix())
+
+
+@cli.command()
+@click.pass_context
 def build(ctx):
     'Build OpenWrt'
     setting: OpdeSetting = ctx.obj['set']
