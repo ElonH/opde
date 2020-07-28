@@ -88,24 +88,24 @@ class WorkFlow:
                 'cache-apt'
             ),
             {
-                'if': "steps.cache-apt.outputs.cache-hit != 'true'",
-                'run': r'''
-docker rmi $(docker images -q)
-sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
-sudo -E apt install -y apt-offline
-APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
-echo "opde install packages list:"
-echo ${APT_PACKS[@]}
-# https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
-sudo -E apt-key exportall | sudo -E gpg --no-default-keyring --import --keyring /etc/apt/trusted.gpg
-sudo -E apt-offline set ./cache/apt/opde-apt.sig --update --upgrade --install-packages ${APT_PACKS[@]}
-apt-offline get cache/apt/opde-apt.sig --bundle ./cache/apt/opde-bundle.zip -t $(($(nproc)*2))
-echo "testing intall..."
-sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
-sudo -E apt-get upgrade
-sudo -E apt-get install ${APT_PACKS[@]}
-'''
+                #                 'if': "steps.cache-apt.outputs.cache-hit != 'true'",
+                #                 'run': r'''
+                # docker rmi $(docker images -q)
+                # sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+                # sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
+                # sudo -E apt install -y apt-offline
+                # APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
+                # echo "opde install packages list:"
+                # echo ${APT_PACKS[@]}
+                # # https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
+                # sudo -E apt-key exportall | sudo -E gpg --no-default-keyring --import --keyring /etc/apt/trusted.gpg
+                # sudo -E apt-offline set ./cache/apt/opde-apt.sig --update --upgrade --install-packages ${APT_PACKS[@]}
+                # apt-offline get cache/apt/opde-apt.sig --bundle ./cache/apt/opde-bundle.zip -t $(($(nproc)*2))
+                # echo "testing intall..."
+                # sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
+                # sudo -E apt-get upgrade
+                # sudo -E apt-get install ${APT_PACKS[@]}
+                # '''
             },
             # self._gen_cache_step(
             #     './cache/python',
@@ -115,6 +115,8 @@ sudo -E apt-get install ${APT_PACKS[@]}
             {
                 # 'if': "steps.cache-python.outputs.cache-hit != 'true'",
                 'run': r'''
+sudo -E apt-get update
+sudo -E apt-get install python3-venv
 cd ./cache/python
 curl -SL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o get-poetry.py
 curl -SL https://github.com/python-poetry/poetry/releases/download/1.0.10/poetry-1.0.10-linux.tar.gz -o poetry.tar.gz
