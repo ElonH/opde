@@ -127,9 +127,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 poetry export -f requirements.txt -o ./cache/python/requirements.txt
 cd ./cache/python
-pip3 download -r requirements.txt
+pip3 download -r requirements.txt -d wheelhouse
 # testing pip install
-pip3 install --no-index --find-links="./tranferred_packages" -r requirements.txt
+pip3 install --no-index --find-links="./wheelhouse" -r requirements.txt
 '''
             },
             {'run': 'sleep 30'},
