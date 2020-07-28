@@ -42,6 +42,7 @@ python3-pip
 python-ply
 python3-ply
 python3-venv
+python3-wheel
 haveged
 lrzsz
 device-tree-compiler
