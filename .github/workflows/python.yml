@@ -13,19 +13,31 @@ jobs:
         echo "::set-output name=tag::$tag"
     - uses: actions/cache@v1
       with:
-        key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/download-apt.sh')
+        key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
         path: ./cache/apt
-    - run: sleep 30
-    - if: always()
-      uses: mxschmitt/action-tmate@v1
     - if: steps.cache.outputs.cache-hit != 'true'
       run: |2
 
-        sudo -E apt-get update -y
-        sudo -E apt install -y apt-rdepends
-        ./scripts/download-apt.sh
-        # sudo dpkg -i ./scripts/apt/*.deb
+        docker rmi $(docker images -q)
+        sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
+        sudo -E apt install -y apt-offline
+        APT_PACKS=($(tr '
+        ' ' ' < ./cache/apt.list.txt))
+        echo "opde install packages list:"
+        echo $APT_PACKS
+        # https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
+        sudo -E apt-key exportall | sudo -E gpg --no-default-keyring --import --keyring /etc/apt/trusted.gpg
+        sudo -E apt-offline set ./cache/apt/opde-apt.sig --update --upgrade --install-packages ${APT_PACKS[@]}
+        apt-offline get cache/apt/opde-apt.sig --bundle ./cache/apt/opde-bundle.zip -t $(nproc)
+        sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
+        sudo -E apt-get upgrade
+        # ./scripts/download-apt.sh
+        # # sudo dpkg -i ./scripts/apt/*.deb
+    - run: sleep 30
+    - if: always()
+      uses: mxschmitt/action-tmate@v1
     strategy:
       fail-fast: false
 name: Python
