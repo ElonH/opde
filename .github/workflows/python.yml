@@ -16,6 +16,9 @@ jobs:
         key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/download-apt.sh')
           }}
         path: ./cache/apt
+    - run: sleep 30
+    - if: always()
+      uses: mxschmitt/action-tmate@v1
     - if: steps.cache.outputs.cache-hit != 'true'
       run: |2
 
