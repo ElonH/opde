@@ -54,6 +54,8 @@ jobs:
 
         cd ./cache/python
         curl -SL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o get-poetry.py
+        # https://github.com/python-poetry/poetry/issues/2106#issuecomment-644471434
+        sed -i 's/allowed_executables = \["python", "python3"\]/allowed_executables = \["python3", "python"\]/' get-poetry.py
         curl -SL https://github.com/python-poetry/poetry/releases/download/1.0.10/poetry-1.0.10-linux.tar.gz -o poetry.tar.gz
         python3 get-poetry.py --file poetry.tar.gz -y
         source $HOME/.poetry/env
