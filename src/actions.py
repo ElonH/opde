@@ -84,16 +84,16 @@ class WorkFlow:
             },
             self._gen_cache_step(
                 './cache/apt',
-                "apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}",
+                "apt-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}",
                 'cache-apt'
             ),
             self._gen_cache_step(
                 './cache/python',
-                "python-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
+                "python-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
                 'cache-python'
             ),
             {
-                'if': "steps.cache-apt.outputs.cache-hit != 'true' && steps.cache-python.outputs.cache-hit != 'true'",
+                'if': "steps.cache-apt.outputs.cache-hit != 'true' || steps.cache-python.outputs.cache-hit != 'true'",
                 'run': r'''
 docker rmi $(docker images -q)
 sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
@@ -139,7 +139,7 @@ pip3 install --no-index --find-links="./wheelhouse" -r requirements.txt
         return [
             self._gen_cache_step(
                 './cache/apt',
-                "apt-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}"
+                "apt-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}"
             ),
             {
                 'env': {'DEBIAN_FRONTEND': 'noninteractive'},
@@ -163,7 +163,7 @@ sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/pr
             },
             self._gen_cache_step(
                 './cache/python',
-                "python-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
+                "python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
             ),
             {
                 'run': r'''

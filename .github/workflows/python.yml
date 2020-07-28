@@ -21,16 +21,16 @@ jobs:
     - id: cache-apt
       uses: actions/cache@v1
       with:
-        key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
+        key: apt-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
         path: ./cache/apt
     - id: cache-python
       uses: actions/cache@v1
       with:
-        key: python-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
+        key: python-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
         path: ./cache/python
-    - if: steps.cache-apt.outputs.cache-hit != 'true' && steps.cache-python.outputs.cache-hit
+    - if: steps.cache-apt.outputs.cache-hit != 'true' || steps.cache-python.outputs.cache-hit
         != 'true'
       run: |2
 
@@ -74,7 +74,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/cache@v1
       with:
-        key: apt-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
+        key: apt-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
         path: ./cache/apt
     - env:
@@ -98,7 +98,7 @@ jobs:
         sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
     - uses: actions/cache@v1
       with:
-        key: python-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
+        key: python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
         path: ./cache/python
     - run: |2
