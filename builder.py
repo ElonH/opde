@@ -91,7 +91,7 @@ def download(ctx):
         print('Download Done')
         return
 
-    run('make -j{0} download && make -j{0} download && make -j{0} download'.format(os.cpu_count() * 2),
+    run('make -j{0} download && make -j{0} download && make -j{0} download'.format(os.cpu_count() * 4),
         cwd=setting.openwrt_dir.as_posix())
 
 
