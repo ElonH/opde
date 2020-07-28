@@ -4,14 +4,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: var
-      run: |2
-
-        tag="v$(date +'%y.%m').${{github.run_number}}"
-        echo "::set-output name=date::$(date +'%Y-%m')"
+      run: |-
+        dataDot=$(date +'%y.%m')
+        echo "::set-output name=dataDot::$dataDot"
+        dataDash=$(date +'%y-%m')
+        echo "::set-output name=dataDash::$dataDash"
+        tag=v$dataDot.${{github.run_number}}
         echo "::set-output name=tag::$tag"
     - uses: actions/cache@v1
       with:
-        key: apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./cache/download-apt.sh')
+        key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/download-apt.sh')
           }}
         path: ./cache/apt
     - if: steps.cache.outputs.cache-hit != 'true'
