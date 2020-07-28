@@ -139,6 +139,7 @@ sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
 sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
 '''
             },
+            self._gen_debugger_step(),
         ]
 
     def sdk_job(self):
