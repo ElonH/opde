@@ -127,9 +127,9 @@ poetry export -f requirements.txt -o ./cache/python/requirements.txt
 cd ./cache/python
 pip3 download -r requirements.txt
 '''
-            }
+            },
             # {'run': 'sleep 30'},
-            # self._gen_debugger_step(),
+            self._gen_debugger_step(),
         ])
         job_apt['steps'] = stps
         return job_apt
