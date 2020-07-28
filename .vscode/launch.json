@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "action",
+            "type": "python",
+            "request": "launch",
+            "program": "src/actions.py",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "worker-full",
             "type": "cppdbg",
             "request": "launch",
