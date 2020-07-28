@@ -130,8 +130,6 @@ pip3 download -r requirements.txt -d wheelhouse
 pip3 install --no-index --find-links="./wheelhouse" -r requirements.txt
 '''
             },
-            {'run': 'sleep 30'},
-            self._gen_debugger_step(),
         ])
         job_apt['steps'] = stps
         return job_apt
