@@ -15,7 +15,8 @@ jobs:
         echo "::set-output name=dataDash::$dataDash"
         tag=v$dataDot.${{github.run_number}}
         echo "::set-output name=tag::$tag"
-    - uses: actions/cache@v1
+    - id: cache
+      uses: actions/cache@v1
       with:
         key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}

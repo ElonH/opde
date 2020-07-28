@@ -84,7 +84,8 @@ class WorkFlow:
             },
             self._gen_cache_step(
                 './cache/apt',
-                "apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}"
+                "apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}",
+                'cache'
             ),
             {
                 'if': "steps.cache.outputs.cache-hit != 'true'",
