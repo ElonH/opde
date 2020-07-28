@@ -6,7 +6,7 @@ jobs:
     - id: var
       run: |2
 
-        tag="v$(date + '%y.%m').${{github.run_number}}"
+        tag="v$(date + '%Y.%m').${{github.run_number}}"
         echo "::set-output name=date::$(date +'%Y-%m')"
         echo "::set-output name=tag::$tag"
     - uses: actions/cache@v1
