@@ -40,6 +40,13 @@ jobs:
         sudo -E  apt-get install ${APT_PACKS[@]}
     strategy:
       fail-fast: false
+  SDK:
+    needs: APT
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    strategy:
+      fail-fast: false
 name: Python
 'on':
   push:
