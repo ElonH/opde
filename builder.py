@@ -28,7 +28,7 @@ def feeds(ctx):
         return
     setting.openwrt_dir.joinpath(
         'feeds.conf').write_text(setting.feeds_conf)
-    shutil.rmtree(setting.openwrt_dir.joinpath('tmp'))
+    shutil.rmtree(setting.openwrt_dir.joinpath('tmp'), ignore_errors=True)
     run('./scripts/feeds update -a && ./scripts/feeds install -a',
         cwd=setting.openwrt_dir.as_posix())
 
