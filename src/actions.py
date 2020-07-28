@@ -169,6 +169,7 @@ sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/pr
                 'run': r'''
 python3 ./cache/python/get-poetry.py --file ./cache/python/poetry.tar.gz -y
 source $HOME/.poetry/env
+sudo -E ln -sf $HOME/.poetry/bin/poetry /usr/bin/poetry
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
