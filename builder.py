@@ -57,6 +57,7 @@ def init(ctx):
 def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool):
     'Configurate openwrt'
     setting: OpdeSetting = ctx.obj['set']
+    setting.openwrt_dir.joinpath('logs').mkdir(parents=True, exist_ok=True)
     configer = Configer()
     configer.compose(*setting.targets)
     configer.download_dir(setting.cache_dir.joinpath('openwrt'))
@@ -76,7 +77,6 @@ def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool):
         print(conf)
         return
     setting.openwrt_dir.joinpath('.config').write_text(configer.commit())
-    setting.openwrt_dir.joinpath('logs').mkdir(parents=True, exist_ok=True)
     shutil.copyfile(setting.openwrt_dir.joinpath('.config'),
                     setting.openwrt_dir.joinpath('logs', 'min-config.in'))
     run('make defconfig', cwd=setting.openwrt_dir.as_posix())
