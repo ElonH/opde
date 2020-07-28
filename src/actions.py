@@ -58,7 +58,7 @@ class WorkFlow:
         ans = []
         for k in kv:
             ans.append(
-                '{0}={1}\necho "::set-output name={0}::${0}"'.format(
+                '{0}={1}\necho ${0}\necho "::set-output name={0}::${0}"'.format(
                     k, kv[k])
             )
         return '\n'.join(ans)

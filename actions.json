@@ -1,0 +1,508 @@
+{
+  "name": "OpenWRT",
+  "on": {
+    "push": {
+      "paths-ignore": [
+        "**.md"
+      ],
+      "branches": [
+        "master"
+      ]
+    }
+  },
+  "jobs": {
+    "APT": {
+      "runs-on": "ubuntu-18.04",
+      "steps": [
+        {
+          "name": "Checkout",
+          "uses": "actions/checkout@v2"
+        },
+        {
+          "name": "Check Release Token",
+          "run": "[[ \"${{secrets.RELEASE_TOKEN}}\" ]] || false\n"
+        },
+        {
+          "name": "tag-name",
+          "run": "tag=\"v$(date +'%y.%m').${{github.run_number}}\"\necho \"$tag\"\n"
+        },
+        {
+          "id": "time",
+          "run": "echo \"::set-output name=date::$(date +'%Y-%m')\"\n"
+        },
+        {
+          "name": "CacheAPT",
+          "id": "cache",
+          "uses": "actions/cache@v1",
+          "with": {
+            "path": "./scripts/apt",
+            "key": "apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}"
+          }
+        },
+        {
+          "if": "steps.cache.outputs.cache-hit != 'true'",
+          "run": "sudo -E apt-get update -y\nsudo -E apt install -y apt-rdepends\n./scripts/download-apt.sh\n# sudo dpkg -i ./scripts/apt/*.deb\n"
+        }
+      ]
+    },
+    "SDK": {
+      "runs-on": "ubuntu-18.04",
+      "needs": [
+        "APT"
+      ],
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "source": [
+            "latest",
+            "ctcgfw"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "name": "Checkout",
+          "uses": "actions/checkout@v2"
+        },
+        {
+          "id": "time",
+          "run": "git submodule update --init --recursive\nmkdir -p ./scripts/apt 2>/dev/null || true\necho \"::set-output name=date::$(date +'%Y-%m')\"\n"
+        },
+        {
+          "name": "CacheAPT",
+          "uses": "actions/cache@v1",
+          "with": {
+            "path": "./scripts/apt",
+            "key": "apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}"
+          }
+        },
+        {
+          "name": "Environment",
+          "env": {
+            "DEBIAN_FRONTEND": "noninteractive"
+          },
+          "run": "docker rmi $(docker images -q)\nsudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*\nsudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)\nsudo -E apt-get autoremove -y --purge\nsudo -E apt-get clean -y\nsudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php\nsudo -E dpkg --force-all -i ./scripts/apt/*.deb || true\nsudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc\nsudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++\nsudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181\n"
+        },
+        {
+          "name": "Configure",
+          "working-directory": "./${{matrix.source}}",
+          "run": "../build_${{matrix.source}}.sh --build-sdk --feeds --save-space\nmkdir -p dl || true\n"
+        },
+        {
+          "name": "CacheDL",
+          "uses": "actions/cache@v1",
+          "id": "cache",
+          "with": {
+            "path": "./${{matrix.source}}/dl",
+            "key": "dl-test-${{steps.time.outputs.date}}",
+            "restore-keys": "dl-test\n"
+          }
+        },
+        {
+          "name": "Download",
+          "working-directory": "./${{matrix.source}}",
+          "run": "make download -j8 || true"
+        },
+        {
+          "name": "Make",
+          "id": "Make",
+          "working-directory": "./${{matrix.source}}",
+          "run": "# let make_process=$(nproc)+1\n# make -j${make_process} || make -j1 || make -j1 V=s\nmake -j$(($(nproc)+1)) IGNORE_ERRORS=\"y m n\" |& tee logs/log.out || true\n"
+        },
+        {
+          "name": "Create issues",
+          "working-directory": "./${{matrix.source}}",
+          "run": "branch=\"${{github.ref}}\"\nbranch=\"${branch#refs/heads/}\"\n../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b \"${branch}\" -sha ${{github.sha}}\nISSUES_REPO=\"ElonH/testAction\"\n[[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO=\"project-openwrt/openwrt-kisco\"\n[[ ${{matrix.source}} == latest ]] && ISSUES_REPO=\"project-openwrt/openwrt-latest-kisco\"\necho \"issues repo: $ISSUES_REPO\"\n# ../scripts/issues-push -i logs/issues.json -ipo \"$ISSUES_REPO\" -u \"${{github.actor}}\" -t \"${{secrets.RELEASE_TOKEN}}\" || true\n../scripts/issues-push -d -i logs/issues.json -ipo \"$ISSUES_REPO\" -u \"${{github.actor}}\" -t \"${{secrets.RELEASE_TOKEN}}\" || true\necho \"--------------\"\necho \"mini-config:\"\ncat logs/minial_config || true\n[[ $(cat logs/issues.json) == \"{}\" ]] || false\n"
+        },
+        {
+          "name": "SDKLog",
+          "if": "always()",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-SDKLogs",
+            "path": "${{matrix.source}}/logs"
+          }
+        },
+        {
+          "name": "Find Archives",
+          "id": "Find",
+          "working-directory": "./${{matrix.source}}",
+          "run": "ls bin/targets/*/*/\nSDK_PATH=$(find bin -name \"*sdk*\")\necho \"::set-output name=SDK_PATH::${SDK_PATH}\"\nIB_PATH=$(find bin -name \"*imagebuilder*\")\necho \"::set-output name=IB_PATH::${IB_PATH}\"\n"
+        },
+        {
+          "name": "Upload SDK",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-SDK",
+            "path": "${{matrix.source}}/${{steps.Find.outputs.SDK_PATH}}"
+          }
+        },
+        {
+          "name": "Upload Imagebuilder",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-Imagebuilder",
+            "path": "${{matrix.source}}/${{steps.Find.outputs.IB_PATH}}"
+          }
+        },
+        {
+          "name": "Prepare Firmware",
+          "working-directory": "./${{matrix.source}}",
+          "run": "tar -cf tmp.tar bin/targets/*/*/packages\nrm bin/targets/*/*/packages -rf\nrm ${{steps.Find.outputs.SDK_PATH}} -rf\nrm ${{steps.Find.outputs.IB_PATH}} -rf\nls -lh bin/targets/*/*/ || true\n( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true\n( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true\n"
+        },
+        {
+          "name": "Upload Firmware",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-Firmware",
+            "path": "${{matrix.source}}/bin/targets"
+          }
+        },
+        {
+          "name": "Prepare Packages",
+          "working-directory": "./${{matrix.source}}",
+          "run": "rm bin/targets -rf\ntar -xf tmp.tar\n"
+        },
+        {
+          "name": "Upload Packages",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-Packages-base",
+            "path": "${{matrix.source}}/bin"
+          }
+        },
+        {
+          "name": "Download ALL dl",
+          "if": "steps.cache.outputs.cache-hit != 'true'",
+          "working-directory": "./${{matrix.source}}",
+          "run": "echo \"CONFIG_ALL=y\" > .config\nmake defconfig\nmake download -j8 || make download -j8 || make download -j8 || true\n"
+        }
+      ]
+    },
+    "Packages": {
+      "needs": "SDK",
+      "runs-on": "ubuntu-18.04",
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "source": [
+            "latest",
+            "ctcgfw"
+          ],
+          "packages": [
+            "ofc-lib-1",
+            "ofc-lib-2",
+            "ofc-net-1",
+            "ofc-net-2",
+            "ofc-lang",
+            "ofc-utils",
+            "ofc-other",
+            "ctcgfw",
+            "lean"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "name": "Checkout",
+          "uses": "actions/checkout@v2",
+          "with": {
+            "token": "${{ secrets.RELEASE_TOKEN }}"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-SDK",
+            "path": "./${{matrix.source}}-SDK"
+          }
+        },
+        {
+          "name": "Deployment",
+          "id": "time",
+          "run": "git submodule update --init --recursive\ntar -xf $(find ${{matrix.source}}-SDK -name \"*sdk*\") -C .\nmv $(ls | grep \"sdk\") ${{matrix.source}}_sdk\nmkdir -p ./scripts/apt 2>/dev/null || true\necho \"::set-output name=date::$(date +'%Y-%m')\"\n"
+        },
+        {
+          "name": "CacheAPT",
+          "uses": "actions/cache@v1",
+          "with": {
+            "path": "./scripts/apt",
+            "key": "apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}"
+          }
+        },
+        {
+          "name": "Environment",
+          "env": {
+            "DEBIAN_FRONTEND": "noninteractive"
+          },
+          "run": "docker rmi $(docker images -q)\nsudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*\nsudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)\nsudo -E apt-get autoremove -y --purge\nsudo -E apt-get clean -y\nsudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php\nsudo -E dpkg --force-all -i ./scripts/apt/*.deb || true\nsudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc\nsudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++\nsudo ln -s /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181\n"
+        },
+        {
+          "name": "Configure",
+          "working-directory": "./${{matrix.source}}_sdk",
+          "id": "conf",
+          "run": "../build_${{matrix.source}}.sh --sdk --feeds --packs-${{matrix.packages}} --save-space\nmkdir -p dl 2>/dev/null || true\n"
+        },
+        {
+          "name": "CacheDL",
+          "uses": "actions/cache@v1",
+          "with": {
+            "path": "./${{matrix.source}}_sdk/dl",
+            "key": "dl-test-${{steps.time.outputs.date}}",
+            "restore-keys": "dl-test\n"
+          }
+        },
+        {
+          "name": "Download",
+          "working-directory": "./${{matrix.source}}_sdk",
+          "run": "make download -j8 || true"
+        },
+        {
+          "name": "Make",
+          "working-directory": "./${{matrix.source}}_sdk",
+          "run": "let make_process=$(nproc)+1\nmake -j${make_process} IGNORE_ERRORS=\"y m n\" |& tee logs/log.out\n"
+        },
+        {
+          "name": "Create issues",
+          "working-directory": "./${{matrix.source}}_sdk",
+          "run": "branch=\"${{github.ref}}\"\nbranch=\"${branch#refs/heads/}\"\n../scripts/issues-create -cpo ${{github.repository}} -l logs -o logs/issues.json -b \"${branch}\" -sha ${{github.sha}}\nISSUES_REPO=\"ElonH/testAction\"\n[[ ${{matrix.source}} == ctcgfw ]] && ISSUES_REPO=\"project-openwrt/openwrt-isco\"\n[[ ${{matrix.source}} == latest ]] && ISSUES_REPO=\"project-openwrt/openwrt-latest-isco\"\necho \"issues repo: $ISSUES_REPO\"\n../scripts/issues-push -i logs/issues.json -ipo \"$ISSUES_REPO\" -u \"${{github.actor}}\" -t \"${{secrets.RELEASE_TOKEN}}\" || true\necho \"--------------\"\necho \"mini-config:\"\ncat logs/minial_config || true\n"
+        },
+        {
+          "name": "Upload Logs",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-Logs-${{matrix.packages}}",
+            "path": "${{matrix.source}}_sdk/logs"
+          }
+        },
+        {
+          "name": "Upload Packages",
+          "uses": "actions/upload-artifact@master",
+          "with": {
+            "name": "${{matrix.source}}-Packages-${{matrix.packages}}",
+            "path": "${{matrix.source}}_sdk/bin"
+          }
+        }
+      ]
+    },
+    "ReleasePre": {
+      "needs": [
+        "Packages"
+      ],
+      "runs-on": "ubuntu-18.04",
+      "steps": [
+        {
+          "uses": "actions/checkout@v2"
+        },
+        {
+          "name": "tag-name",
+          "id": "tag",
+          "run": "tag=\"v$(date +'%y.%m').${{github.run_number}}\"\nref=\"${{github.ref}}\"\nref=\"${ref#refs/heads/}\"\n[[ $ref == master ]] || tag=\"$ref-$tag\"\necho \"::set-output name=tagName::$tag\"\n"
+        },
+        {
+          "name": "Update Tag",
+          "run": "git tag ${{steps.tag.outputs.tagName}} ${{github.sha}} --force\ngit push \"https://${{github.actor}}:${{secrets.RELEASE_TOKEN}}@github.com/${{github.repository}}.git\" ${{steps.tag.outputs.tagName}} --force\n"
+        },
+        {
+          "name": "Create Release",
+          "id": "create_release",
+          "uses": "meeDamian/github-release@2.0",
+          "with": {
+            "token": "${{ secrets.RELEASE_TOKEN }}",
+            "tag": "${{steps.tag.outputs.tagName}}",
+            "name": "Release ${{steps.tag.outputs.tagName}}",
+            "allow_override": true,
+            "body": "Activate `ootoc` in `latest`\n``` bash\nbash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} latest ${{steps.tag.outputs.tagName}}\n```\nActivate `ootoc` in `ctcgfw`\n``` bash\nbash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} ctcgfw ${{steps.tag.outputs.tagName}}\n```\n"
+          }
+        },
+        {
+          "name": "Remove old artifacts",
+          "uses": "c-hive/gha-remove-artifacts@v1",
+          "with": {
+            "GITHUB_TOKEN": "${{ secrets.RELEASE_TOKEN }}",
+            "age": "3 days",
+            "skip-tags": false
+          }
+        }
+      ]
+    },
+    "Release": {
+      "needs": [
+        "Packages"
+      ],
+      "runs-on": "ubuntu-18.04",
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "source": [
+            "latest",
+            "ctcgfw"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "uses": "actions/checkout@v2"
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-SDK",
+            "path": "./${{matrix.source}}-SDK/"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-Imagebuilder",
+            "path": "./${{matrix.source}}-Imagebuilder/"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-Firmware",
+            "path": "./${{matrix.source}}-Firmware/"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-base",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-base"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-lib-1",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lib-1"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-lib-2",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lib-2"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-net-1",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-net-1"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-net-2",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-net-2"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-lang",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-lang"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-utils",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-utils"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-packages-ofc-other",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ofc-other"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-Packages-ctcgfw",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-ctcgfw"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@v1",
+          "with": {
+            "name": "${{matrix.source}}-Packages-lean",
+            "path": "./${{matrix.source}}-Packages/${{matrix.source}}-Packages-lean"
+          }
+        },
+        {
+          "name": "tag-name",
+          "id": "tag",
+          "run": "tag=\"v$(date +'%y.%m').${{github.run_number}}\"\nref=\"${{github.ref}}\"\nref=\"${ref#refs/heads/}\"\n[[ $ref == master ]] || tag=\"$ref-$tag\"\necho \"::set-output name=tagName::$tag\"\n"
+        },
+        {
+          "name": "Deployment Imagebuilder",
+          "id": "time",
+          "run": "tar -xf $(find ${{matrix.source}}-Imagebuilder -name \"*imagebuilder*\") -C .\nmv $(ls | grep \"imagebuilder\") ${{matrix.source}}_ib\nmkdir -p ./scripts/apt 2>/dev/null || true\necho \"::set-output name=date::$(date +'%Y-%m')\"\n"
+        },
+        {
+          "name": "CacheAPT",
+          "uses": "actions/cache@v1",
+          "with": {
+            "path": "./scripts/apt",
+            "key": "apt-sdk-test-${{steps.time.outputs.date}}-${{ hashFiles('./scripts/download-apt.sh') }}"
+          }
+        },
+        {
+          "name": "Environment",
+          "env": {
+            "DEBIAN_FRONTEND": "noninteractive"
+          },
+          "run": "docker rmi $(docker images -q)\nsudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*\nsudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)\nsudo -E apt-get autoremove -y --purge\nsudo -E apt-get clean -y\nsudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php\nsudo -E dpkg --force-all -i ./scripts/apt/*.deb || true\nsudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc\nsudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++\nsudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181\n"
+        },
+        {
+          "name": "ootoc",
+          "run": "git clone https://github.com/jbeder/yaml-cpp.git && cd yaml-cpp\ncmake -DYAML_CPP_BUILD_TESTS:BOOL=OFF -DYAML_BUILD_SHARED_LIBS:BOOL=ON .\nmake && sudo make install\ngit clone https://github.com/gabime/spdlog.git && cd spdlog\ncmake -DSPDLOG_BUILD_TESTS:BOOL=OFF -DSPDLOG_BUILD_SHARED:BOOL=ON -DSPDLOG_BUILD_EXAMPLE:BOOL=OFF .\nmake && sudo make install\ngit clone https://github.com/ElonH/libtar.git && cd libtar\nautoreconf --force --install\n./configure && make && sudo make install\ngit clone --recursive https://github.com/ElonH/ootoc.git && cd ootoc\ncmake -DOOTOC_TEST:BOOL=OFF .\nmake && sudo make install\nsudo ldconfig\n"
+        },
+        {
+          "name": "Make Index",
+          "run": "mkdir -p ./${{matrix.source}}_sdk/bin\nrsync -av ./${{matrix.source}}-Packages/*/ ./${{matrix.source}}_sdk/bin/\nrm ./${{matrix.source}}-Packages -rf\n./build_${{matrix.source}}.sh --image\nmv ./${{matrix.source}}_sdk/bin ${{matrix.source}}-Packages\n"
+        },
+        {
+          "name": "Generate Aux and Signature",
+          "run": "tar -cf ${{matrix.source}}-SDK-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-SDK\ntar -cf ${{matrix.source}}-Imagebuilder-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Imagebuilder\ntar -cf ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Firmware\ntar -cf ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar ${{matrix.source}}-Packages\nootocCLI parse -i ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Firmware-${{steps.tag.outputs.tagName}}.yml\nootocCLI parse -i ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.tar -o ${{matrix.source}}-Packages-${{steps.tag.outputs.tagName}}.yml\nsha256sum *.tar *.yml | tee ${{matrix.source}}-SHA256SUM-${{steps.tag.outputs.tagName}}.sign\n"
+        },
+        {
+          "uses": "svenstaro/upload-release-action@v1-release",
+          "with": {
+            "repo_token": "${{ secrets.RELEASE_TOKEN }}",
+            "file": "./*.tar",
+            "tag": "${{steps.tag.outputs.tagName}}",
+            "file_glob": true,
+            "overwrite": true
+          }
+        },
+        {
+          "uses": "svenstaro/upload-release-action@v1-release",
+          "with": {
+            "repo_token": "${{ secrets.RELEASE_TOKEN }}",
+            "file": "./*.yml",
+            "tag": "${{steps.tag.outputs.tagName}}",
+            "file_glob": true,
+            "overwrite": true
+          }
+        },
+        {
+          "uses": "svenstaro/upload-release-action@v1-release",
+          "with": {
+            "repo_token": "${{ secrets.RELEASE_TOKEN }}",
+            "file": "./*.sign",
+            "tag": "${{steps.tag.outputs.tagName}}",
+            "file_glob": true,
+            "overwrite": true
+          }
+        }
+      ]
+    }
+  }
+}

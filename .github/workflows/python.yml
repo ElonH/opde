@@ -10,10 +10,13 @@ jobs:
     - id: var
       run: |-
         dataDot=$(date +'%y.%m')
+        echo $dataDot
         echo "::set-output name=dataDot::$dataDot"
         dataDash=$(date +'%y-%m')
+        echo $dataDash
         echo "::set-output name=dataDash::$dataDash"
         tag=v$dataDot.${{github.run_number}}
+        echo $tag
         echo "::set-output name=tag::$tag"
     - id: cache
       uses: actions/cache@v1
