@@ -163,7 +163,7 @@ sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/pr
             },
             self._gen_cache_step(
                 './cache/python',
-                "python-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
+                "python-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
             ),
             {
                 'run': r'''
@@ -187,7 +187,18 @@ pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/pyth
             {'run': 'poetry run python3 builder.py init'},
             {'run': 'poetry run python3 builder.py feeds'},
             {'run': 'poetry run python3 builder.py config -sdk -ib -ke'},
-            self._gen_debugger_step(),
+            self._gen_cache_step(
+                './cache/openwrt',
+                # TODO: extract a packs hash metadata from packageinfo
+                "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}",
+            ),
+            {'run': 'poetry run python3 builder.py download'},
+            {'run': 'poetry run python3 builder.py build'},
+            {'run': 'poetry run python3 builder.py assign'},
+            # collect all openwrt's source bundles
+            {'run': 'poetry run python3 builder.py config -sdk -ib -ke -a'},
+            {'run': 'poetry run python3 builder.py download'},
+            # self._gen_debugger_step(),
         ])
         job_apt['steps'] = stps
         return job_apt

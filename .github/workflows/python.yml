@@ -98,13 +98,14 @@ jobs:
         sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
     - uses: actions/cache@v1
       with:
-        key: python-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
+        key: python-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
         path: ./cache/python
     - run: |2
 
         python3 ./cache/python/get-poetry.py --file ./cache/python/poetry.tar.gz -y
         source $HOME/.poetry/env
+        sudo -E ln -sf $HOME/.poetry/bin/poetry /usr/bin/poetry
         python3 -m venv .venv
         source .venv/bin/activate
         pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
@@ -112,8 +113,15 @@ jobs:
     - run: poetry run python3 builder.py init
     - run: poetry run python3 builder.py feeds
     - run: poetry run python3 builder.py config -sdk -ib -ke
-    - if: always()
-      uses: mxschmitt/action-tmate@v1
+    - uses: actions/cache@v1
+      with:
+        key: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
+        path: ./cache/openwrt
+    - run: poetry run python3 builder.py download
+    - run: poetry run python3 builder.py build
+    - run: poetry run python3 builder.py assign
+    - run: poetry run python3 builder.py config -sdk -ib -ke -a
+    - run: poetry run python3 builder.py download
     strategy:
       fail-fast: false
 name: Python
