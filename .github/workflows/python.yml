@@ -18,13 +18,13 @@ jobs:
         tag=v$dataDot.${{github.run_number}}
         echo $tag
         echo "::set-output name=tag::$tag"
-    - id: cache
+    - id: cache-apt
       uses: actions/cache@v1
       with:
         key: apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
         path: ./cache/apt
-    - if: steps.cache.outputs.cache-hit != 'true'
+    - if: steps.cache-apt.outputs.cache-hit != 'true'
       run: |2
 
         docker rmi $(docker images -q)
@@ -42,6 +42,19 @@ jobs:
         sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
         sudo -E apt-get upgrade
         sudo -E apt-get install ${APT_PACKS[@]}
+    - run: |2
+
+        cd ./cache/python
+        curl -SL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o get-poetry.py
+        curl -SL https://github.com/python-poetry/poetry/releases/download/1.0.10/poetry-1.0.10-linux.tar.gz -o poetry.tar.gz
+        python3 get-poetry.py --file poetry.tar.gz -y
+        source $HOME/.poetry/env
+        cd ${{ github.workspace }}
+        python3 -m venv .venv
+        source .venv/bin/activate
+        poetry export -f requirements.txt -o ./cache/python/requirements.txt
+        cd ./cache/python
+        pip3 download -r requirements.txt
     strategy:
       fail-fast: false
   SDK:

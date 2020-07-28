@@ -85,10 +85,10 @@ class WorkFlow:
             self._gen_cache_step(
                 './cache/apt',
                 "apt-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}",
-                'cache'
+                'cache-apt'
             ),
             {
-                'if': "steps.cache.outputs.cache-hit != 'true'",
+                'if': "steps.cache-apt.outputs.cache-hit != 'true'",
                 'run': r'''
 docker rmi $(docker images -q)
 sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
@@ -107,6 +107,27 @@ sudo -E apt-get upgrade
 sudo -E apt-get install ${APT_PACKS[@]}
 '''
             },
+            # self._gen_cache_step(
+            #     './cache/python',
+            #     "python-sdk-test-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
+            #     'cache-python'
+            # ),
+            {
+                # 'if': "steps.cache-python.outputs.cache-hit != 'true'",
+                'run': r'''
+cd ./cache/python
+curl -SL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o get-poetry.py
+curl -SL https://github.com/python-poetry/poetry/releases/download/1.0.10/poetry-1.0.10-linux.tar.gz -o poetry.tar.gz
+python3 get-poetry.py --file poetry.tar.gz -y
+source $HOME/.poetry/env
+cd ${{ github.workspace }}
+python3 -m venv .venv
+source .venv/bin/activate
+poetry export -f requirements.txt -o ./cache/python/requirements.txt
+cd ./cache/python
+pip3 download -r requirements.txt
+'''
+            }
             # {'run': 'sleep 30'},
             # self._gen_debugger_step(),
         ])
