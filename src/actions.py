@@ -248,7 +248,7 @@ class WorkFlow:
                 'run': 'poetry run python3 builder.py extract %s/logs %s ${{github.run_number}}' %
                 (self._in_var('sdk-var', 'openwrt'), self.db_path)
             },
-            {'run': 'poetry run python3 builder.py check % s ${{github.run_number}})' % self.db_path},
+            {'run': 'poetry run python3 builder.py check %s ${{github.run_number}})' % self.db_path},
             # TODO: workflow_dispatch
             {
                 'run': 'poetry run python3 builder.py assign %s %s' % (
