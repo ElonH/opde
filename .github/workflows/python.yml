@@ -124,7 +124,8 @@ jobs:
       with:
         key: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
         path: ./cache/openwrt
-    - run: poetry run python3 builder.py download
+    - if: steps.cache-openwrt.outputs.cache-hit != 'true'
+      run: poetry run python3 builder.py download
     - run: poetry run python3 builder.py build
     - id: sdk-var
       run: |-

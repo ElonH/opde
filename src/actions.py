@@ -234,7 +234,10 @@ class WorkFlow:
                 "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}",
                 'cache-openwrt'
             ),
-            {'run': self.builder + ' download'},
+            {
+                'if': self._hit_cached('cache-openwrt', False),
+                'run': self.builder + ' download'
+            },
             {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',
@@ -289,7 +292,7 @@ class WorkFlow:
                 'Packages-base', self._in_var('sdk-var', 'openwrt') + '/bin'),
             # collect all openwrt's source bundles
             {
-                'if': "steps.cache-openwrt.outputs.cache-hit != 'true'",
+                'if': self._hit_cached('cache-openwrt', False),
                 'run': self.builder + ' config -sdk -ib -ke -a\n' +
                 self.builder + ' download'
             },
