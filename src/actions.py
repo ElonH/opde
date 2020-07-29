@@ -65,7 +65,7 @@ class WorkFlow:
         return '\n'.join(ans)
 
     @classmethod
-    def _gen_get_inner_var_cmd(cls, stepid: str, key: str):
+    def _in_var_cmd(cls, stepid: str, key: str):
         'get variable from same job'
         return '${{steps.%s.outputs.%s}}' % (stepid, key)
 
@@ -87,9 +87,9 @@ class WorkFlow:
         job_apt = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         job_apt['outputs'] = {
-            "dataDot": self._gen_get_inner_var_cmd('var', 'dataDot'),
-            "dataDash": self._gen_get_inner_var_cmd('var', 'dataDash'),
-            "tag": self._gen_get_inner_var_cmd('var', 'tag'),
+            "dataDot": self._in_var_cmd('var', 'dataDot'),
+            "dataDash": self._in_var_cmd('var', 'dataDash'),
+            "tag": self._in_var_cmd('var', 'tag'),
         }
         stps.extend([
             # {'run': '[[ "${{secrets.RELEASE_TOKEN}}" ]] || false'},
@@ -230,7 +230,7 @@ pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/pyth
             },
             {
                 'run': 'poetry run python3 builder.py extract %s/logs %s ${{github.run_number}}' %
-                (self._gen_get_inner_var_cmd('sdk-var', 'openwrt'), self.db_path)
+                (self._in_var_cmd('sdk-var', 'openwrt'), self.db_path)
             },
             {'run': 'poetry run python3 builder.py check % s ${{github.run_number}})' % self.db_path},
             # TODO: workflow_dispatch
@@ -239,16 +239,16 @@ pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/pyth
                     self.worker_num, self.db_path)
             },
             self._gen_upload_artifact_step(
-                'Kernel-Log', self._gen_get_inner_var_cmd(
+                'Kernel-Log', self._in_var_cmd(
                     'sdk-var', 'openwrt') + '/logs',
                 {'if': 'always()'}
             ),
             self._gen_upload_artifact_step(
-                'SDK', self._gen_get_inner_var_cmd('sdk-var', 'sdk-path')),
+                'SDK', self._in_var_cmd('sdk-var', 'sdk-path')),
             self._gen_upload_artifact_step(
-                'ImageBuilder', self._gen_get_inner_var_cmd('sdk-var', 'image-builder-path')),
+                'ImageBuilder', self._in_var_cmd('sdk-var', 'image-builder-path')),
             {
-                'working-directory': self._gen_get_inner_var_cmd('sdk-var', 'openwrt'),
+                'working-directory': self._in_var_cmd('sdk-var', 'openwrt'),
                 'run': '''
 tar -cf tmp.tar bin/targets/*/*/packages
 rm bin/targets/*/*/packages -rf
@@ -258,19 +258,19 @@ ls -lh bin/targets/*/*/ || true
 ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
 ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
 '''.format(
-                    sdk=self._gen_get_inner_var_cmd('sdk-var', 'sdk-path'),
-                    ib=self._gen_get_inner_var_cmd(
+                    sdk=self._in_var_cmd('sdk-var', 'sdk-path'),
+                    ib=self._in_var_cmd(
                         'sdk-var', 'image-builder-path')
                 )
             },
             self._gen_upload_artifact_step(
-                'Firmware', self._gen_get_inner_var_cmd('sdk-var', 'openwrt') + '/bin/targets'),
+                'Firmware', self._in_var_cmd('sdk-var', 'openwrt') + '/bin/targets'),
             {
-                'working-directory': self._gen_get_inner_var_cmd('sdk-var', 'openwrt'),
+                'working-directory': self._in_var_cmd('sdk-var', 'openwrt'),
                 'run': '''rm bin/targets -rf\ntar -xf tmp.tar'''
             },
             self._gen_upload_artifact_step(
-                'Packages-base', self._gen_get_inner_var_cmd('sdk-var', 'openwrt') + '/bin'),
+                'Packages-base', self._in_var_cmd('sdk-var', 'openwrt') + '/bin'),
             # collect all openwrt's source bundles
             {
                 'if': "steps.cache-openwrt.outputs.cache-hit != 'true'",
