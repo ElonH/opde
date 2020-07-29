@@ -2,6 +2,7 @@ import multiprocessing as mp
 import os
 import re
 import shutil
+from multiprocessing.pool import ThreadPool as Pool
 from pathlib import Path
 
 import click
@@ -246,7 +247,7 @@ def gsiu(ctx):
     sms = setting.feeds_repos + [setting.openwrt_repo]
     print(sms)
     N = mp.cpu_count()
-    with mp.Pool(processes=N) as p:
+    with Pool(processes=N) as p:
         p.map(lambda sm: sm.update(recursive=True), sms)
 
 
