@@ -73,7 +73,7 @@ class WorkFlow:
     def _gen_upload_artifact_step(cls, name: str, path: str, addon: object = {}):
         'upload artifact'
         ans = {
-            "uses": "actions/upload-artifact@master",
+            "uses": "actions/upload-artifact@v2",
             "with": {
                 "name": name,
                 "path": path,
@@ -274,7 +274,8 @@ ls -lh bin/targets/*/*/ || true
             # collect all openwrt's source bundles
             {
                 'if': "steps.cache-openwrt.outputs.cache-hit != 'true'",
-                'run': 'poetry run python3 builder.py config -sdk -ib -ke -a\npoetry run python3 builder.py download'
+                'run': 'poetry run python3 builder.py config -sdk -ib -ke -a\n'
+                'poetry run python3 builder.py download'
             },
             # self._gen_debugger_step(),
         ])

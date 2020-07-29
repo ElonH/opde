@@ -143,15 +143,15 @@ jobs:
         ${{github.run_number}})
     - run: poetry run python3 builder.py assign 20 ${{github.workspace}}/../logs.db.json
     - if: always()
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v2
       with:
         name: Kernel-Log
         path: ${{steps.sdk-var.outputs.openwrt}}/logs
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v2
       with:
         name: SDK
         path: ${{steps.sdk-var.outputs.sdk-path}}
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v2
       with:
         name: ImageBuilder
         path: ${{steps.sdk-var.outputs.image-builder-path}}
@@ -165,7 +165,7 @@ jobs:
         ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
         ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
       working-directory: ${{steps.sdk-var.outputs.openwrt}}
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v2
       with:
         name: Firmware
         path: ${{steps.sdk-var.outputs.openwrt}}/bin/targets
@@ -173,7 +173,7 @@ jobs:
         rm bin/targets -rf
         tar -xf tmp.tar
       working-directory: ${{steps.sdk-var.outputs.openwrt}}
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v2
       with:
         name: Packages-base
         path: ${{steps.sdk-var.outputs.openwrt}}/bin
