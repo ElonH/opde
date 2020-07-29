@@ -23,14 +23,14 @@ jobs:
       with:
         key: apt-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
-        path: ./cache/apt
+        path: ${{github.workspace}}/cache/apt
     - id: cache-python
       uses: actions/cache@v1
       with:
         key: python-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
-        path: ./cache/python
-    - if: steps.cache-apt.outputs.cache-hit != 'true' || steps.cache-python.outputs.cache-hit
+        path: ${{github.workspace}}/cache/python
+    - if: steps.cache-apt.outputs.cache-hit != 'true' || steps.cached-python.outputs.cache-hit
         != 'true'
       run: |2
 
@@ -79,7 +79,7 @@ jobs:
       with:
         key: apt-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
-        path: ./cache/apt
+        path: ${{github.workspace}}/cache/apt
     - env:
         DEBIAN_FRONTEND: noninteractive
       run: |2
@@ -105,7 +105,7 @@ jobs:
       with:
         key: python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
-        path: ./cache/python
+        path: ${{github.workspace}}/cache/python
     - run: |2
 
         sed -i 's/allowed_executables = \["python", "python3"\]/allowed_executables = \["python3", "python"\]/' ./cache/python/get-poetry.py

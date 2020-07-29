@@ -41,7 +41,8 @@ class WorkFlow:
             "if": "always()"
         }
 
-    def _gen_cache_step(self, path: str, key: str, step_id: str = None):
+    @classmethod
+    def _gen_cache_step(cls, path: str, key: str, step_id: str = None):
         'cache step'
         stp = {}
         if step_id:
@@ -53,6 +54,14 @@ class WorkFlow:
             'key': key
         }
         return stp
+
+    @classmethod
+    def _hit_cached(cls, step_id: str, rst: bool = True):
+        'a condition of hit cache'
+        ans = "steps.%s.outputs.cache-hit == 'true'" % step_id
+        if not rst:
+            ans = "steps.%s.outputs.cache-hit != 'true'" % step_id
+        return ans
 
     @classmethod
     def _gen_var_step(cls, kv: object):
@@ -108,19 +117,18 @@ class WorkFlow:
                 })
             },
             self._gen_cache_step(
-                './cache/apt',
-                "apt-%s-${{ hashFiles('./cache/apt.list.txt') }}" % self._in_var(
-                    'var', 'dateDash'),
+                self.cache_apt,
+                "apt-%s-%s" % (self._in_var('var', 'dateDash'), self.hash_apt),
                 'cache-apt'
             ),
             self._gen_cache_step(
-                './cache/python',
-                "python-%s-${{ hashFiles('./poetry.lock') }}" % self._in_var(
-                    'var', 'dateDash'),
+                self.cache_python,
+                "python-%s-%s" % (self._in_var('var', 'dateDash'),
+                                  self.hash_python),
                 'cache-python'
             ),
             {
-                'if': "steps.cache-apt.outputs.cache-hit != 'true' || steps.cache-python.outputs.cache-hit != 'true'",
+                'if': "%s || %s" % (self._hit_cached('cache-apt', False), self._hit_cached('cached-python', False)),
                 'run': r'''
                     docker rmi $(docker images -q)
                     sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
@@ -141,7 +149,7 @@ class WorkFlow:
                     '''
             },
             {
-                'if': "steps.cache-python.outputs.cache-hit != 'true'",
+                'if': self._hit_cached('cache-python', False),
                 'run': r'''
                     cd ./cache/python
                     curl -SL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o get-poetry.py
@@ -168,8 +176,8 @@ class WorkFlow:
         'initilize opde common environment'
         return [
             self._gen_cache_step(
-                './cache/apt',
-                "apt-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt') }}"
+                self.cache_apt,
+                "apt-%s-%s" % (self._out_var('APT', 'dateDash'), self.hash_apt),
             ),
             {
                 'env': {'DEBIAN_FRONTEND': 'noninteractive'},
@@ -194,7 +202,7 @@ class WorkFlow:
                     '''
             },
             self._gen_cache_step(
-                './cache/python',
+                self.cache_python,
                 "python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock') }}",
             ),
             {
@@ -295,7 +303,12 @@ class WorkFlow:
         self.branches = ['python']
         # self.own_token = '${{secrets.RELEASE_TOKEN}}'
         self.bot_token = '${{ secrets.GITHUB_TOKEN }}'
-        self.db_path = '${{github.workspace}}/../logs.db.json'
+        self.opde_dir = '${{github.workspace}}'
+        self.db_path = '%s/../logs.db.json' % self.opde_dir
+        self.cache_apt = '%s/cache/apt' % self.opde_dir
+        self.cache_python = '%s/cache/python' % self.opde_dir
+        self.hash_apt = "${{ hashFiles('./cache/apt.list.txt') }}"
+        self.hash_python = "${{ hashFiles('./poetry.lock') }}"
         self.worker_num = 20
         data = {}
 
