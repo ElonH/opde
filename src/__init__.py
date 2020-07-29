@@ -8,6 +8,6 @@ from .setting import OpdeSetting
 from .patcher import patchOpenwrt
 from .lexer import PackageInfoLexer, LogLexer, TargetInfoLexer, KconfigLexer
 from .extractor import LogsExtractor
-from .database import CostDb
+from .database import LogsDb
 from .parser import KconfigParser
 from .dumper import KconfigDumper

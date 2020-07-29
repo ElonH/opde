@@ -27,8 +27,6 @@ class OpdeSetting:
         self.targets = ('x86', '64')
         # cache directory
         self.cache_dir = self.opde_dir.joinpath('cache')
-        # cost database path
-        self.cost_database = self.opde_dir.joinpath('src/database/cost.db.json')
         # ast json file
         self._packageinfo_ast_file = self.openwrt_dir.joinpath(
             'logs', 'package.ast.json')
@@ -40,7 +38,8 @@ class OpdeSetting:
         self._deps_dag_file_loaded = False
         self.deps_dag_file = self.openwrt_dir.joinpath('logs', 'deps.dag.json')
         self._tasks_list = self.openwrt_dir.joinpath('logs', 'tasks.list.json')
-        self._sdk_buildin_ast_file = self.openwrt_dir.joinpath('logs', 'sdk.buildin.ast.json')
+        self._sdk_buildin_ast_file = self.openwrt_dir.joinpath(
+            'logs', 'sdk.buildin.ast.json')
         # worker config directory
         self.worker_conf_dir = self.openwrt_dir.joinpath('logs', 'task')
 
@@ -122,7 +121,6 @@ class OpdeSetting:
     def tasks_list(self, ctx: object):
         self._tasks_list.write_text(json.dumps(ctx, indent=2, sort_keys=True))
 
-
     @property
     def sdk_buildin_ast(self):
         'return text of tasks.list.json'
@@ -130,4 +128,5 @@ class OpdeSetting:
 
     @sdk_buildin_ast.setter
     def sdk_buildin_ast(self, ctx: object):
-        self._sdk_buildin_ast_file.write_text(json.dumps(ctx, indent=2, sort_keys=True))
+        self._sdk_buildin_ast_file.write_text(
+            json.dumps(ctx, indent=2, sort_keys=True))

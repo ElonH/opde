@@ -109,8 +109,10 @@ def build(ctx):
 
 @cli.command()
 @click.argument('logdir', type=click.Path(exists=True, dir_okay=True, file_okay=False))
+@click.argument('database', type=click.Path(file_okay=True, dir_okay=False))
+@click.argument('run-number', type=click.INT)
 @click.pass_context
-def extract(ctx, logdir: str):
+def extract(ctx, logdir: str, database: str, run_number):
     'Extract build information from logs'
     setting: OpdeSetting = ctx.obj['set']
     extractor = LogsExtractor(Path(logdir))
@@ -118,25 +120,27 @@ def extract(ctx, logdir: str):
     if ctx.obj['dry']:
         print('Extract Done')
         return
-    cost_db = CostDb(setting.cost_database)
+    db = LogsDb(database)
     for logAst in setting.logs_ast:
-        cost_db.upsert(logAst, *setting.targets)
-    cost_db.close()
+        item = LogsDb.merge(logAst, *setting.targets, run_number=run_number)
+        db.insert(item)
+    db.close()
 
 
 @cli.command()
 @click.argument('number', type=click.INT, default=20)
+@click.argument('database', type=click.Path(file_okay=True, dir_okay=False))
 @click.option('-ke', '--linux-embedded-modules', 'ke',
               is_flag=True, default=False, help='Disable filter out kernel modules removed in SDK from tasks')
 @click.pass_context
-def assign(ctx, number: int, ke: bool):
+def assign(ctx, number: int, ke: bool, database: str):
     'Assignments all packages to serval(default:20) workers'
     setting: OpdeSetting = ctx.obj['set']
     deps_tree = DependsTree()
     deps_tree.inject_package_info(setting.packageinfo_ast)
-    cost_db = CostDb(setting.cost_database)
-    deps_tree.inject_costs(cost_db)
-    cost_db.close()
+    db = LogsDb(database)
+    deps_tree.inject_costs(db, *setting.targets)
+    db.close()
     setting.deps_dag = deps_tree.to_json()
     distributor = WorksDistributor()
     distributor.build(setting.deps_dag_file)

@@ -3,8 +3,9 @@ import sys
 from pathlib import Path
 
 import networkx as nx
+import tinydb
 
-from .database import CostDb
+from .database import LogsDb
 
 
 class DependsTree():
@@ -201,26 +202,47 @@ class DependsTree():
             print('Ring detect! This is not DAG!!', file=sys.stderr)
             print(nx.find_cycle(self.dg))
 
-    def inject_costs(self, cost_db: CostDb):
+    def inject_costs(self, database: LogsDb, arch, board=None):
         '''
-        inject cost from cost database
+        inject cost from database
         '''
-        logs = cost_db.db.all()
+        item = tinydb.Query()
+        logs = database.search(
+            (item['arch'] == arch) &
+            (item['board'] == board) &
+            (item['build-variant'] == 'compile') &
+            (item['exit-code'] == 0))
+        groups = {}
         for log in logs:
             pkg_name = log['subdir']
-            if log['build-type'] == 'host':
-                pkg_name = Path(log['subdir']).name + '/host'
             if log['target'] != '':
                 pkg_name = '/'.join([pkg_name, log['target']])
+            if log['build-type'] == 'host':
+                pkg_name = Path(log['subdir']).name + '/host'
+            if pkg_name not in groups:
+                groups[pkg_name] = [log]
+            else:
+                groups[pkg_name].append(log)
+        for pkg_name in groups:
             if not self.dg.has_node(pkg_name):
                 print("%s package isn't registed in DependsTree, skip..." % pkg_name)
                 continue
-            if log['build-variant'] == 'compile':
-                # TODO: confuse about user-time system-time and time
-                self.dg.nodes[pkg_name]['cost'] += int(
-                    CostDb.cost_func(log) * 100)
-            # print(log)
-            # break
+            # TODO: confuse about user-time system-time and time
+            self.dg.nodes[pkg_name]['cost'] += int(
+                self.cost_func(groups[pkg_name]) * 100)
+        # break
+
+    @classmethod
+    def cost_func(cls, docs: list):
+        'a function to caculate cost'
+        cost = 0
+        l = len(docs)
+        for i in range(l):
+            #
+            # lim(i=1,+\infinty) 1/1 + 1/2 + ... + 1/i < 2
+            #
+            cost += docs[i]['time'] / (l - i)
+        return cost
 
     def to_json(self):
         '''
