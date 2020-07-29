@@ -43,22 +43,46 @@ class OpdeSetting:
         # worker config directory
         self.worker_conf_dir = self.openwrt_dir.joinpath('logs', 'task')
 
-    @property
-    def feeds_conf(self):
-        'return text of feeds.conf or feeds.default.conf'
+    # def submodule(self, sub_path: str):
+    #     'get submodule class by path'
+    #     sms = self.opde_repo.submodules
+    #     exp_path = Path(sub_path)
+    #     for sm in sms:
+    #         if sm.abspath == exp_path.absolute():
+    #             return sm
+    #     return None
+
+    @ property
+    def openwrt_repo(self):
+        'return submodule of openwrt'
+        sms = []
+        for sm in self.opde_repo.submodules:
+            if self.openwrt_dir.samefile(sm.abspath):
+                return sm
+        return None
+
+    @ property
+    def feeds_repos(self):
+        'return submodules of feeds'
         sms = []
         for sm in self.opde_repo.submodules:
             for feed in self.feeds_dir:
                 if feed.samefile(sm.abspath):
                     sms.append(sm)
                     break
+        return sms
+
+    @ property
+    def feeds_conf(self):
+        'return text of feeds.conf or feeds.default.conf'
+        sms = self.feeds_repos
         feeds_conf = []
         for sm in sms:
             feed_name = Path(sm.abspath).name
             feeds_conf.append('src-link %s %s' % (feed_name, sm.abspath))
         return '\n'.join(feeds_conf)
 
-    @property
+    @ property
     def packageinfo_ast(self):
         'return text of package.ast.json'
         if self._packageinfo_ast_file_loaded:
@@ -79,14 +103,14 @@ class OpdeSetting:
         self._packageinfo_ast_file_loaded = True
         return packageInfoAst
 
-    @property
+    @ property
     def logs_ast(self):
         'return text of logs.ast.json'
         if self._logs_ast_file_loaded:
             return json.loads(self._logs_ast_file.read_text())
         raise RuntimeError('Please set context first')
 
-    @logs_ast.setter
+    @ logs_ast.setter
     def logs_ast(self, logsAst: object):
         self._logs_ast_file.write_text(
             json.dumps(logsAst, indent=2, sort_keys=False))

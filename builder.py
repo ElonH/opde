@@ -1,7 +1,9 @@
+import multiprocessing as mp
 import os
+import re
 import shutil
 from pathlib import Path
-import re
+
 import click
 
 from src import *
@@ -232,6 +234,20 @@ def output_openwrt(ctx, variable):
         print(setting.targets[0])
     elif variable == 'board':
         print(setting.targets[1])
+
+
+@cli.command()
+@click.pass_context
+def gsiu(ctx):
+    '''
+    git submodule init and update in parallel
+    '''
+    setting: OpdeSetting = ctx.obj['set']
+    sms = setting.feeds_repos + [setting.openwrt_repo]
+    print(sms)
+    N = mp.cpu_count()
+    with mp.Pool(processes=N) as p:
+        p.map(lambda sm: sm.update(recursive=True), sms)
 
 
 if __name__ == '__main__':
