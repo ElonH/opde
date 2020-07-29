@@ -53,7 +53,8 @@ class WorkFlow:
         }
         return stp
 
-    def _gen_var_step(self, kv: object):
+    @classmethod
+    def _gen_var_step(cls, kv: object):
         'generate variable'
         ans = []
         for k in kv:
@@ -63,14 +64,32 @@ class WorkFlow:
             )
         return '\n'.join(ans)
 
+    @classmethod
+    def _gen_get_inner_var_cmd(cls, stepid: str, key: str):
+        'get variable from same job'
+        return '${{steps.%s.outputs.%s}}' % (stepid, key)
+
+    @classmethod
+    def _gen_upload_artifact_step(cls, name: str, path: str, addon: object = {}):
+        'upload artifact'
+        ans = {
+            "uses": "actions/upload-artifact@master",
+            "with": {
+                "name": name,
+                "path": path,
+            }
+        }
+        ans.update(addon)
+        return ans
+
     def apt_job(self):
         'cache apt'
         job_apt = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         job_apt['outputs'] = {
-            "dataDot": "${{ steps.var.outputs.dataDot }}",
-            "dataDash": "${{ steps.var.outputs.dataDash }}",
-            "tag": "${{ steps.var.outputs.tag }}",
+            "dataDot": self._gen_get_inner_var_cmd('var', 'dataDot'),
+            "dataDash": self._gen_get_inner_var_cmd('var', 'dataDash'),
+            "tag": self._gen_get_inner_var_cmd('var', 'tag'),
         }
         stps.extend([
             # {'run': '[[ "${{secrets.RELEASE_TOKEN}}" ]] || false'},
@@ -107,7 +126,8 @@ sudo -E apt-key exportall | sudo -E gpg --no-default-keyring --import --keyring 
 sudo -E apt-offline set ./cache/apt/opde-apt.sig --update --upgrade --install-packages ${APT_PACKS[@]}
 apt-offline get cache/apt/opde-apt.sig --bundle ./cache/apt/opde-bundle.zip -t $(($(nproc)*2))
 echo "testing intall..."
-sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
+# --allow-unauthenticated
+sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
 sudo -E apt-get upgrade
 sudo -E apt-get install ${APT_PACKS[@]}
 '''
@@ -155,12 +175,14 @@ sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
 sudo -E apt-get -yq install apt-offline
 APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
 # https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
-sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
+# --allow-unauthenticated
+sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
 sudo -E apt-get -yq upgrade
 sudo -E apt-get -yq install ${APT_PACKS[@]}
 sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
 sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
-sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
+# https://github.com/project-openwrt/openwrt-isco/issues/181
+sudo -E ln -sf /usr/include/asm-generic /usr/include/asm
 '''
             },
             self._gen_cache_step(
@@ -193,13 +215,66 @@ pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/pyth
                 './cache/openwrt',
                 # TODO: extract a packs hash metadata from packageinfo
                 "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}",
+                'cache-openwrt'
             ),
             {'run': 'poetry run python3 builder.py download'},
             {'run': 'poetry run python3 builder.py build'},
-            {'run': 'poetry run python3 builder.py assign'},
+            {
+                'id': 'sdk-var',
+                'run': self._gen_var_step({
+                    'openwrt': '$(poetry run python3 builder.py @output-openwrt)',
+                    'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
+                    'image-builder-path': '$(find ${openwrt}/bin -name "*imagebuilder*")',
+                })
+            },
+            {
+                'run': 'poetry run python3 builder.py extract %s/logs %s ${{github.run_number}}' %
+                (self._gen_get_inner_var_cmd('sdk-var', 'openwrt'), self.db_path)
+            },
+            {'run': 'poetry run python3 builder.py check % s ${{github.run_number}})' % self.db_path},
+            # TODO: workflow_dispatch
+            {
+                'run': 'poetry run python3 builder.py assign %s %s' % (
+                    self.worker_num, self.db_path)
+            },
+            self._gen_upload_artifact_step(
+                'Kernel-Log', self._gen_get_inner_var_cmd(
+                    'sdk-var', 'openwrt') + '/logs',
+                {'if': 'always()'}
+            ),
+            self._gen_upload_artifact_step(
+                'SDK', self._gen_get_inner_var_cmd('sdk-var', 'sdk-path')),
+            self._gen_upload_artifact_step(
+                'ImageBuilder', self._gen_get_inner_var_cmd('sdk-var', 'image-builder-path')),
+            {
+                'working-directory': self._gen_get_inner_var_cmd('sdk-var', 'openwrt'),
+                'run': '''
+tar -cf tmp.tar bin/targets/*/*/packages
+rm bin/targets/*/*/packages -rf
+rm {sdk} -rf
+rm {ib} -rf
+ls -lh bin/targets/*/*/ || true
+( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
+( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
+'''.format(
+                    sdk=self._gen_get_inner_var_cmd('sdk-var', 'sdk-path'),
+                    ib=self._gen_get_inner_var_cmd(
+                        'sdk-var', 'image-builder-path')
+                )
+            },
+            self._gen_upload_artifact_step(
+                'Firmware', self._gen_get_inner_var_cmd('sdk-var', 'openwrt') + '/bin/targets'),
+            {
+                'working-directory': self._gen_get_inner_var_cmd('sdk-var', 'openwrt'),
+                'run': '''rm bin/targets -rf\ntar -xf tmp.tar'''
+            },
+            self._gen_upload_artifact_step(
+                'Packages-base', self._gen_get_inner_var_cmd('sdk-var', 'openwrt') + '/bin'),
             # collect all openwrt's source bundles
-            {'run': 'poetry run python3 builder.py config -sdk -ib -ke -a'},
-            {'run': 'poetry run python3 builder.py download'},
+            {
+                'if': "steps.cache-openwrt.outputs.cache-hit != 'true'",
+                'run': 'poetry run python3 builder.py config -sdk -ib -ke -a\npoetry run python3 builder.py download'
+            },
             # self._gen_debugger_step(),
         ])
         job_apt['steps'] = stps
@@ -210,6 +285,8 @@ pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/pyth
         self.branches = ['python']
         # self.own_token = '${{secrets.RELEASE_TOKEN}}'
         self.bot_token = '${{ secrets.GITHUB_TOKEN }}'
+        self.db_path = '${{github.workspace}}/../logs.db.json'
+        self.worker_num = 20
         data = {}
 
         data['name'] = 'Python'

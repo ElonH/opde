@@ -128,6 +128,24 @@ def extract(ctx, logdir: str, database: str, run_number):
 
 
 @cli.command()
+@click.argument('database', type=click.Path(file_okay=True, dir_okay=False))
+@click.argument('run-number', type=click.INT)
+@click.pass_context
+def check(ctx, database: str, run_number):
+    '''
+    Check if error exist
+    0: not error exist
+    1: exist error
+    '''
+    setting: OpdeSetting = ctx.obj['set']
+    db = LogsDb(database)
+    ans = 1 if db.exist_error(*setting.targets, run_number=run_number) else 0
+    db.close()
+    print(ans)
+    exit(ans)
+
+
+@cli.command()
 @click.argument('number', type=click.INT, default=20)
 @click.argument('database', type=click.Path(file_okay=True, dir_okay=False))
 @click.option('-ke', '--linux-embedded-modules', 'ke',
@@ -195,6 +213,14 @@ def _hack_sdk(ctx, directory: str):
             if gps[0] == 'PACKAGE_' and (gps[1] in linux_embedded_module):
                 new_conf.append(i)
     build_conf_path.write_text(KconfigDumper(new_conf))
+
+
+@cli.command('@output-openwrt', hidden=True)
+@click.pass_context
+def output_openwrt(ctx):
+    'output openwrt source path'
+    setting: OpdeSetting = ctx.obj['set']
+    print(setting.openwrt_dir.absolute())
 
 
 if __name__ == '__main__':

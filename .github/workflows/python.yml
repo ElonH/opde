@@ -1,9 +1,9 @@
 jobs:
   APT:
     outputs:
-      dataDash: ${{ steps.var.outputs.dataDash }}
-      dataDot: ${{ steps.var.outputs.dataDot }}
-      tag: ${{ steps.var.outputs.tag }}
+      dataDash: ${{steps.var.outputs.dataDash}}
+      dataDot: ${{steps.var.outputs.dataDot}}
+      tag: ${{steps.var.outputs.tag}}
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
@@ -46,7 +46,8 @@ jobs:
         sudo -E apt-offline set ./cache/apt/opde-apt.sig --update --upgrade --install-packages ${APT_PACKS[@]}
         apt-offline get cache/apt/opde-apt.sig --bundle ./cache/apt/opde-bundle.zip -t $(($(nproc)*2))
         echo "testing intall..."
-        sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
+        # --allow-unauthenticated
+        sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
         sudo -E apt-get upgrade
         sudo -E apt-get install ${APT_PACKS[@]}
     - if: steps.cache-python.outputs.cache-hit != 'true'
@@ -92,12 +93,14 @@ jobs:
         sudo -E apt-get -yq install apt-offline
         APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
         # https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
-        sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog # --allow-unauthenticated
+        # --allow-unauthenticated
+        sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
         sudo -E apt-get -yq upgrade
         sudo -E apt-get -yq install ${APT_PACKS[@]}
         sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
         sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
-        sudo -E ln -sf /usr/include/asm-generic /usr/include/asm # https://github.com/project-openwrt/openwrt-isco/issues/181
+        # https://github.com/project-openwrt/openwrt-isco/issues/181
+        sudo -E ln -sf /usr/include/asm-generic /usr/include/asm
     - uses: actions/cache@v1
       with:
         key: python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
@@ -115,15 +118,68 @@ jobs:
     - run: poetry run python3 builder.py init
     - run: poetry run python3 builder.py feeds
     - run: poetry run python3 builder.py config -sdk -ib -ke
-    - uses: actions/cache@v1
+    - id: cache-openwrt
+      uses: actions/cache@v1
       with:
         key: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
         path: ./cache/openwrt
     - run: poetry run python3 builder.py download
     - run: poetry run python3 builder.py build
-    - run: poetry run python3 builder.py assign
-    - run: poetry run python3 builder.py config -sdk -ib -ke -a
-    - run: poetry run python3 builder.py download
+    - id: sdk-var
+      run: |-
+        openwrt=$(poetry run python3 builder.py @output-openwrt)
+        echo $openwrt
+        echo "::set-output name=openwrt::$openwrt"
+        sdk-path=$(find ${openwrt}/bin -name "*sdk*")
+        echo $sdk-path
+        echo "::set-output name=sdk-path::$sdk-path"
+        image-builder-path=$(find ${openwrt}/bin -name "*imagebuilder*")
+        echo $image-builder-path
+        echo "::set-output name=image-builder-path::$image-builder-path"
+    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.openwrt}}/logs
+        ${{github.workspace}}/../logs.db.json ${{github.run_number}}
+    - run: poetry run python3 builder.py check ${{github.workspace}}/../logs.db.json
+        ${{github.run_number}})
+    - run: poetry run python3 builder.py assign 20 ${{github.workspace}}/../logs.db.json
+    - if: always()
+      uses: actions/upload-artifact@master
+      with:
+        name: Kernel-Log
+        path: ${{steps.sdk-var.outputs.openwrt}}/logs
+    - uses: actions/upload-artifact@master
+      with:
+        name: SDK
+        path: ${{steps.sdk-var.outputs.sdk-path}}
+    - uses: actions/upload-artifact@master
+      with:
+        name: ImageBuilder
+        path: ${{steps.sdk-var.outputs.image-builder-path}}
+    - run: |2
+
+        tar -cf tmp.tar bin/targets/*/*/packages
+        rm bin/targets/*/*/packages -rf
+        rm ${{steps.sdk-var.outputs.sdk-path}} -rf
+        rm ${{steps.sdk-var.outputs.image-builder-path}} -rf
+        ls -lh bin/targets/*/*/ || true
+        ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
+        ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
+      working-directory: ${{steps.sdk-var.outputs.openwrt}}
+    - uses: actions/upload-artifact@master
+      with:
+        name: Firmware
+        path: ${{steps.sdk-var.outputs.openwrt}}/bin/targets
+    - run: |-
+        rm bin/targets -rf
+        tar -xf tmp.tar
+      working-directory: ${{steps.sdk-var.outputs.openwrt}}
+    - uses: actions/upload-artifact@master
+      with:
+        name: Packages-base
+        path: ${{steps.sdk-var.outputs.openwrt}}/bin
+    - if: steps.cache-openwrt.outputs.cache-hit != 'true'
+      run: |-
+        poetry run python3 builder.py config -sdk -ib -ke -a
+        poetry run python3 builder.py download
     strategy:
       fail-fast: false
 name: Python
