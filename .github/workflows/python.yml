@@ -108,6 +108,7 @@ jobs:
         path: ./cache/python
     - run: |2
 
+        sed -i 's/allowed_executables = \["python", "python3"\]/allowed_executables = \["python3", "python"\]/' ./cache/python/get-poetry.py
         python3 ./cache/python/get-poetry.py --file ./cache/python/poetry.tar.gz -y
         source $HOME/.poetry/env
         sudo -E ln -sf $HOME/.poetry/bin/poetry /usr/bin/poetry
