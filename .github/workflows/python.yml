@@ -1,21 +1,21 @@
 jobs:
   APT:
     outputs:
-      dataDash: ${{steps.var.outputs.dataDash}}
-      dataDot: ${{steps.var.outputs.dataDot}}
+      dateDash: ${{steps.var.outputs.dateDash}}
+      dateDot: ${{steps.var.outputs.dateDot}}
       tag: ${{steps.var.outputs.tag}}
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - id: var
       run: |-
-        dataDot=$(date +'%y.%m')
-        echo $dataDot
-        echo "::set-output name=dataDot::$dataDot"
-        dataDash=$(date +'%y-%m')
-        echo $dataDash
-        echo "::set-output name=dataDash::$dataDash"
-        tag=v$dataDot.${{github.run_number}}
+        dateDot=$(date +'%y.%m')
+        echo $dateDot
+        echo "::set-output name=dateDot::$dateDot"
+        dateDash=$(date +'%y-%m')
+        echo $dateDash
+        echo "::set-output name=dateDash::$dateDash"
+        tag=v$dateDot.${{github.run_number}}
         echo $tag
         echo "::set-output name=tag::$tag"
     - id: cache-apt

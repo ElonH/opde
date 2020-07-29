@@ -87,8 +87,8 @@ class WorkFlow:
         job_apt = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         job_apt['outputs'] = {
-            "dataDot": self._in_var_cmd('var', 'dataDot'),
-            "dataDash": self._in_var_cmd('var', 'dataDash'),
+            "dateDot": self._in_var_cmd('var', 'dateDot'),
+            "dateDash": self._in_var_cmd('var', 'dateDash'),
             "tag": self._in_var_cmd('var', 'tag'),
         }
         stps.extend([
@@ -96,9 +96,9 @@ class WorkFlow:
             {
                 'id': 'var',
                 'run': self._gen_var_step({
-                    'dataDot': "$(date +'%y.%m')",
-                    'dataDash': "$(date +'%y-%m')",
-                    'tag': "v$dataDot.${{github.run_number}}"
+                    'dateDot': "$(date +'%y.%m')",
+                    'dateDash': "$(date +'%y-%m')",
+                    'tag': "v$dateDot.${{github.run_number}}"
                 })
             },
             self._gen_cache_step(
