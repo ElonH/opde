@@ -225,17 +225,17 @@ class WorkFlow:
         stps.extend(self._opde_init_steps())
         stps.extend([
             {'run': 'git submodule update --init --recursive'},
-            {'run': 'poetry run python3 builder.py init'},
-            {'run': 'poetry run python3 builder.py feeds'},
-            {'run': 'poetry run python3 builder.py config -sdk -ib -ke'},
+            {'run': self.builder + ' init'},
+            {'run': self.builder + ' feeds'},
+            {'run': self.builder + ' config -sdk -ib -ke'},
             self._gen_cache_step(
                 './cache/openwrt',
                 # TODO: extract a packs hash metadata from packageinfo
                 "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}",
                 'cache-openwrt'
             ),
-            {'run': 'poetry run python3 builder.py download'},
-            {'run': 'poetry run python3 builder.py build'},
+            {'run': self.builder + ' download'},
+            {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',
                 'run': self._gen_var_step({
@@ -245,13 +245,13 @@ class WorkFlow:
                 })
             },
             {
-                'run': 'poetry run python3 builder.py extract %s/logs %s ${{github.run_number}}' %
+                'run': self.builder + ' extract %s/logs %s ${{github.run_number}}' %
                 (self._in_var('sdk-var', 'openwrt'), self.db_path)
             },
-            {'run': 'poetry run python3 builder.py check %s ${{github.run_number}})' % self.db_path},
+            {'run': self.builder + ' check %s ${{github.run_number}})' % self.db_path},
             # TODO: workflow_dispatch
             {
-                'run': 'poetry run python3 builder.py assign %s %s' % (
+                'run': self.builder + ' assign %s %s' % (
                     self.worker_num, self.db_path)
             },
             self._gen_upload_artifact_step(
@@ -290,8 +290,8 @@ class WorkFlow:
             # collect all openwrt's source bundles
             {
                 'if': "steps.cache-openwrt.outputs.cache-hit != 'true'",
-                'run': 'poetry run python3 builder.py config -sdk -ib -ke -a\n'
-                'poetry run python3 builder.py download'
+                'run': self.builder + ' config -sdk -ib -ke -a\n' +
+                self.builder + ' download'
             },
             # self._gen_debugger_step(),
         ])
@@ -309,6 +309,7 @@ class WorkFlow:
         self.cache_python = '%s/cache/python' % self.opde_dir
         self.hash_apt = "${{ hashFiles('./cache/apt.list.txt') }}"
         self.hash_python = "${{ hashFiles('./poetry.lock') }}"
+        self.builder = 'poetry run python3 builder.py'
         self.worker_num = 20
         data = {}
 
