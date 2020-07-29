@@ -460,7 +460,7 @@ string BuildWorkerPyramid(string graph_json)
         // std::cout << i["data"]["numid"] << " " << i["name"] << " " << i["data"]["cost"] << std::endl;
         tree.AddNode(i["data"]["numid"], i["name"], i["data"]["cost"]);
         name2id[i["name"]] = i["data"]["numid"];
-        id2name[i["data"]["numid"]] = i["name"];
+        id2name[i["data"]["numid"].get<int>()] = i["name"];
     }
     for (auto &i : graph)
     {
