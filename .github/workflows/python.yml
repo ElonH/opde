@@ -30,7 +30,7 @@ jobs:
         key: python-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
         path: ${{github.workspace}}/cache/python
-    - if: steps.cache-apt.outputs.cache-hit != 'true' || steps.cached-python.outputs.cache-hit
+    - if: steps.cache-apt.outputs.cache-hit != 'true' || steps.cache-python.outputs.cache-hit
         != 'true'
       run: |2
 

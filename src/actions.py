@@ -129,7 +129,7 @@ class WorkFlow:
                 'cache-python'
             ),
             {
-                'if': "%s || %s" % (self._hit_cached('cache-apt', False), self._hit_cached('cached-python', False)),
+                'if': "%s || %s" % (self._hit_cached('cache-apt', False), self._hit_cached('cache-python', False)),
                 'run': r'''
                     docker rmi $(docker images -q)
                     sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
