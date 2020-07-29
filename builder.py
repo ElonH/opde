@@ -215,12 +215,23 @@ def _hack_sdk(ctx, directory: str):
     build_conf_path.write_text(KconfigDumper(new_conf))
 
 
-@cli.command('@output-openwrt', hidden=True)
+@cli.command('@output', hidden=True)
+@click.argument('variable', type=str)
 @click.pass_context
-def output_openwrt(ctx):
-    'output openwrt source path'
+def output_openwrt(ctx, variable):
+    '''
+    output variable
+    opdir,arch,board,logdir
+    '''
     setting: OpdeSetting = ctx.obj['set']
-    print(setting.openwrt_dir.absolute())
+    if variable == 'opdir':
+        print(setting.openwrt_dir.absolute())
+    elif variable == 'logdir':
+        print(setting.openwrt_dir.joinpath('logs').absolute())
+    elif variable == 'arch':
+        print(setting.targets[0])
+    elif variable == 'board':
+        print(setting.targets[1])
 
 
 if __name__ == '__main__':

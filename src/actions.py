@@ -223,6 +223,7 @@ class WorkFlow:
         job_apt = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
+        db_path = '%s/logs.db.json' % self._in_var('sdk-var', 'logs')
         stps.extend([
             {'run': 'git submodule update --init --recursive'},
             {'run': self.builder + ' init'},
@@ -242,30 +243,39 @@ class WorkFlow:
             {
                 'id': 'sdk-var',
                 'run': self._gen_var_step({
-                    'openwrt': '$(poetry run python3 builder.py @output-openwrt)',
+                    'openwrt': '$(%s @output opdir)' % self.builder,
+                    'logs': '$(%s @output logdir)' % self.builder,
                     'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
                     'image-builder-path': '$(find ${openwrt}/bin -name "*imagebuilder*")',
                 })
             },
             {
-                'run': self.builder + ' extract %s/logs %s ${{github.run_number}}' %
-                (self._in_var('sdk-var', 'openwrt'), self.db_path)
+                'run': self.builder + ' extract %s %s ${{github.run_number}}' %
+                (self._in_var('sdk-var', 'logs'), db_path)
             },
-            {'run': self.builder + ' check %s ${{github.run_number}})' % self.db_path},
+            {'run': self.builder + ' check %s ${{github.run_number}})' % db_path},
             # TODO: workflow_dispatch
             {
                 'run': self.builder + ' assign %s %s' % (
-                    self.worker_num, self.db_path)
+                    self.worker_num, db_path)
             },
             self._gen_upload_artifact_step(
                 'Kernel-Log', self._in_var(
-                    'sdk-var', 'openwrt') + '/logs',
+                    'sdk-var', 'logs'),
                 {'if': 'always()'}
             ),
+            {
+                'id': 'sdk-var2',
+                'run': self._gen_var_step({
+                    'openwrt': '$(%s @output opdir)' % self.builder,
+                    'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
+                    'image-builder-path': '$(find ${openwrt}/bin -name "*imagebuilder*")',
+                })
+            },
             self._gen_upload_artifact_step(
-                'SDK', self._in_var('sdk-var', 'sdk-path')),
+                'SDK', self._in_var('sdk-var2', 'sdk-path')),
             self._gen_upload_artifact_step(
-                'ImageBuilder', self._in_var('sdk-var', 'image-builder-path')),
+                'ImageBuilder', self._in_var('sdk-var2', 'image-builder-path')),
             {
                 'working-directory': self._in_var('sdk-var', 'openwrt'),
                 'run': '''
@@ -277,9 +287,8 @@ class WorkFlow:
                     ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
                     ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
                     '''.format(
-                    sdk=self._in_var('sdk-var', 'sdk-path'),
-                    ib=self._in_var(
-                        'sdk-var', 'image-builder-path')
+                    sdk=self._in_var('sdk-var2', 'sdk-path'),
+                    ib=self._in_var('sdk-var2', 'image-builder-path')
                 )
             },
             self._gen_upload_artifact_step(
@@ -307,7 +316,6 @@ class WorkFlow:
         # self.own_token = '${{secrets.RELEASE_TOKEN}}'
         self.bot_token = '${{ secrets.GITHUB_TOKEN }}'
         self.opde_dir = '${{github.workspace}}'
-        self.db_path = '%s/../logs.db.json' % self.opde_dir
         self.cache_apt = '%s/cache/apt' % self.opde_dir
         self.cache_python = '%s/cache/python' % self.opde_dir
         self.hash_apt = "${{ hashFiles('./cache/apt.list.txt') }}"

@@ -129,7 +129,31 @@ jobs:
     - run: poetry run python3 builder.py build
     - id: sdk-var
       run: |-
-        openwrt=$(poetry run python3 builder.py @output-openwrt)
+        openwrt=$(poetry run python3 builder.py @output opdir)
+        echo $openwrt
+        echo "::set-output name=openwrt::$openwrt"
+        logs=$(poetry run python3 builder.py @output logdir)
+        echo $logs
+        echo "::set-output name=logs::$logs"
+        sdk-path=$(find ${openwrt}/bin -name "*sdk*")
+        echo $sdk-path
+        echo "::set-output name=sdk-path::$sdk-path"
+        image-builder-path=$(find ${openwrt}/bin -name "*imagebuilder*")
+        echo $image-builder-path
+        echo "::set-output name=image-builder-path::$image-builder-path"
+    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.sdk-var.outputs.logs}}/logs.db.json
+        ${{github.run_number}}
+    - run: poetry run python3 builder.py check ${{steps.sdk-var.outputs.logs}}/logs.db.json
+        ${{github.run_number}})
+    - run: poetry run python3 builder.py assign 20 ${{steps.sdk-var.outputs.logs}}/logs.db.json
+    - if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: Kernel-Log
+        path: ${{steps.sdk-var.outputs.logs}}
+    - id: sdk-var2
+      run: |-
+        openwrt=$(poetry run python3 builder.py @output opdir)
         echo $openwrt
         echo "::set-output name=openwrt::$openwrt"
         sdk-path=$(find ${openwrt}/bin -name "*sdk*")
@@ -138,30 +162,20 @@ jobs:
         image-builder-path=$(find ${openwrt}/bin -name "*imagebuilder*")
         echo $image-builder-path
         echo "::set-output name=image-builder-path::$image-builder-path"
-    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.openwrt}}/logs
-        ${{github.workspace}}/../logs.db.json ${{github.run_number}}
-    - run: poetry run python3 builder.py check ${{github.workspace}}/../logs.db.json
-        ${{github.run_number}})
-    - run: poetry run python3 builder.py assign 20 ${{github.workspace}}/../logs.db.json
-    - if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: Kernel-Log
-        path: ${{steps.sdk-var.outputs.openwrt}}/logs
     - uses: actions/upload-artifact@v2
       with:
         name: SDK
-        path: ${{steps.sdk-var.outputs.sdk-path}}
+        path: ${{steps.sdk-var2.outputs.sdk-path}}
     - uses: actions/upload-artifact@v2
       with:
         name: ImageBuilder
-        path: ${{steps.sdk-var.outputs.image-builder-path}}
+        path: ${{steps.sdk-var2.outputs.image-builder-path}}
     - run: |2
 
         tar -cf tmp.tar bin/targets/*/*/packages
         rm bin/targets/*/*/packages -rf
-        rm ${{steps.sdk-var.outputs.sdk-path}} -rf
-        rm ${{steps.sdk-var.outputs.image-builder-path}} -rf
+        rm ${{steps.sdk-var2.outputs.sdk-path}} -rf
+        rm ${{steps.sdk-var2.outputs.image-builder-path}} -rf
         ls -lh bin/targets/*/*/ || true
         ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
         ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
