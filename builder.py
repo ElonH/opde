@@ -239,4 +239,5 @@ def output_openwrt(ctx, variable):
 
 if __name__ == '__main__':
     os.environ['OPDE_BUILDER'] = Path(__file__).absolute().as_posix()
+    os.environ['OPDE_PYTHON'] = shutil.which('python3')
     cli(obj={})
