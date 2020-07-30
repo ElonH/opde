@@ -294,6 +294,7 @@ class WorkFlow:
             {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',
+                'if': 'always()',
                 'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % self.builder,
                     'logs': '$(%s @output logdir)' % self.builder,

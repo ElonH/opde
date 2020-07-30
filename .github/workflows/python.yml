@@ -149,6 +149,7 @@ jobs:
       run: poetry run python3 builder.py download
     - run: poetry run python3 builder.py build
     - id: sdk-var
+      if: always()
       run: |-
         openwrt=$(poetry run python3 builder.py @output opdir)
         echo $openwrt
