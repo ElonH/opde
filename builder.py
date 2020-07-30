@@ -236,6 +236,7 @@ def output_openwrt(ctx, variable):
     elif variable == 'board':
         print(setting.targets[1])
 
+
 if __name__ == '__main__':
     os.environ['OPDE_BUILDER'] = Path(__file__).absolute().as_posix()
     cli(obj={})

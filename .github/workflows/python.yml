@@ -32,6 +32,7 @@ jobs:
         path: ${{github.workspace}}/cache/python
     - if: steps.cache-apt.outputs.cache-hit != 'true' || steps.cache-python.outputs.cache-hit
         != 'true'
+      name: opde init
       run: |2
 
         # docker rmi $(docker images -q)
@@ -213,6 +214,17 @@ jobs:
       run: |-
         poetry run python3 builder.py config -sdk -ib -ke -a
         poetry run python3 builder.py download
+    - run: |2
+
+        curl -sL https://git.io/file-transfer | sh
+        sudo mv ./transfer /usr/bin
+    - id: db
+      run: |2
+
+        TRANS_RST=$(transfer cow ${{steps.sdk-var.outputs.logs}}/logs.db.json)
+        links=$(echo $TRANS_RST | grep -Pe 'Download Link: ' | sed 's/Download Link: //g')
+        echo $links
+        echo "::set-output name=links::$links"
     strategy:
       fail-fast: false
 name: Python

@@ -64,7 +64,7 @@ class WorkFlow:
         return ans
 
     @classmethod
-    def _gen_var_step(cls, kv: object):
+    def _gen_vars(cls, kv: object):
         'generate variable'
         ans = []
         for k in kv:
@@ -97,6 +97,31 @@ class WorkFlow:
         ans.update(addon)
         return ans
 
+    @classmethod
+    def _gen_install_transfer_step(cls):
+        'gengerate step to install https://github.com/Mikubill/transfer'
+        return {
+            'run': r'''
+            curl -sL https://git.io/file-transfer | sh
+            sudo mv ./transfer /usr/bin
+            '''
+        }
+
+    @classmethod
+    def _gen_upload_file_step(cls, path: str, step_id: str = None):
+        'upload file to cow'
+        ans = {
+            'run': r'''
+            TRANS_RST=$(transfer cow %s)
+            %s
+            ''' % (path, cls._gen_vars(
+                {'links': "$(echo $TRANS_RST | grep -Pe 'Download Link: ' | sed 's/Download Link: //g')"}
+            ))
+        }
+        if step_id:
+            ans['id'] = step_id
+        return ans
+
     def apt_job(self):
         'cache apt'
         job_apt = self._gen_empty_job()
@@ -110,7 +135,7 @@ class WorkFlow:
             # {'run': '[[ "${{secrets.RELEASE_TOKEN}}" ]] || false'},
             {
                 'id': 'var',
-                'run': self._gen_var_step({
+                'run': self._gen_vars({
                     'dateDot': "$(date +'%y.%m')",
                     'dateDash': "$(date +'%y-%m')",
                     # TODO: test
@@ -130,6 +155,7 @@ class WorkFlow:
             ),
             {
                 'if': "%s || %s" % (self._hit_cached('cache-apt', False), self._hit_cached('cache-python', False)),
+                'name': 'opde init',
                 'run': r'''
                     # docker rmi $(docker images -q)
                     sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
@@ -265,7 +291,7 @@ class WorkFlow:
             {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',
-                'run': self._gen_var_step({
+                'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % self.builder,
                     'logs': '$(%s @output logdir)' % self.builder,
                     'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
@@ -289,7 +315,7 @@ class WorkFlow:
             ),
             {
                 'id': 'sdk-var2',
-                'run': self._gen_var_step({
+                'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % self.builder,
                     'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
                     'image-builder-path': '$(find ${openwrt}/bin -name "*imagebuilder*")',
@@ -328,6 +354,8 @@ class WorkFlow:
                 'run': self.builder + ' config -sdk -ib -ke -a\n' +
                 self.builder + ' download'
             },
+            self._gen_install_transfer_step(),
+            self._gen_upload_file_step(db_path, 'db'),
             # self._gen_debugger_step(),
         ])
         job_apt['steps'] = stps
