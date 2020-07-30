@@ -311,7 +311,7 @@ class WorkFlow:
                 'run': self.builder + ' extract %s %s ${{github.run_number}}' %
                 (self._in_var('sdk-var', 'logs'), db_path)
             },
-            {'run': self.builder + ' check %s ${{github.run_number}})' % db_path},
+            {'run': self.builder + ' check %s ${{github.run_number}}' % db_path},
             # TODO: workflow_dispatch
             {
                 'run': self.builder + ' assign %s %s' % (
