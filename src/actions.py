@@ -131,7 +131,7 @@ class WorkFlow:
             {
                 'if': "%s || %s" % (self._hit_cached('cache-apt', False), self._hit_cached('cache-python', False)),
                 'run': r'''
-                    docker rmi $(docker images -q)
+                    # docker rmi $(docker images -q)
                     sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
                     sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
                     sudo -E apt install -y apt-offline
