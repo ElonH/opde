@@ -11,7 +11,6 @@ class OpdeSetting:
 
     def __init__(self):
         self.opde_dir = Path(__file__).parent.parent.absolute()
-        self.opde_repo = Repo(self.opde_dir)
         # feeds path
         feeds_dir = [
             'feeds/ctcgfw/packages',
@@ -23,6 +22,8 @@ class OpdeSetting:
         self.feeds_dir = [self.opde_dir.joinpath(i) for i in feeds_dir]
         # OpenWRT Source Path
         self.openwrt_dir = self.opde_dir.joinpath('ctcgfw')
+        # OpenWRT Soure will move to here in SDK
+        self.openwrt_dir_in_sdk = self.opde_dir.joinpath('base')
         # (target, subtarget) same as tree structure of src.configer
         self.targets = ('x86', '64')
         # cache directory
@@ -45,16 +46,21 @@ class OpdeSetting:
         # worker config directory
         self.worker_conf_dir = self.openwrt_dir.joinpath('logs', 'task')
 
-    # def submodule(self, sub_path: str):
-    #     'get submodule class by path'
-    #     sms = self.opde_repo.submodules
-    #     exp_path = Path(sub_path)
-    #     for sm in sms:
-    #         if sm.abspath == exp_path.absolute():
-    #             return sm
-    #     return None
+    @property
+    def opde_repo(self):
+        'return openwrt source repo instance'
+        return Repo(self.opde_dir)
 
-    @ property
+    def submodule(self, sub_path: str):
+        'get submodule class by path'
+        sms = self.opde_repo.submodules
+        exp_path = Path(sub_path)
+        for sm in sms:
+            if exp_path.absolute().as_posix() == sm.abspath:
+                return sm
+        return None
+
+    @property
     def openwrt_repo(self):
         'return submodule of openwrt'
         sms = []
@@ -63,7 +69,7 @@ class OpdeSetting:
                 return sm
         return None
 
-    @ property
+    @property
     def feeds_repos(self):
         'return submodules of feeds'
         sms = []

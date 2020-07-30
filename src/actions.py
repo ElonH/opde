@@ -99,6 +99,19 @@ class WorkFlow:
         ans.update(addon)
         return ans
 
+    @classmthod
+    def _gen_download_artifact_step(cls, name: str, path: str, addon: object = {}):
+        'download artifact'
+        ans = {
+            "uses": "actions/download-artifact@v2",
+            "with": {
+                "name": name,
+                "path": path,
+            }
+        }
+        ans.update(addon)
+        return ans
+
     @classmethod
     def _gen_install_transfer_step(cls):
         'gengerate step to install https://github.com/Mikubill/transfer'
@@ -378,8 +391,14 @@ class WorkFlow:
         }
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
+        worker_builder = self.builder + ' -sdk'
         stps.extend([
             self._gen_fast_clone_submodules(),
+            # self._gen_download_artifact_step('SDK','~/artifacts')
+            # {'run': worker_builder + ' init --sdk-archive %s' % },
+            # {'run': worker_builder + ' '},
+            # {'run': worker_builder + ' '},
+            # {'run': worker_builder + ' '},
         ])
         job_worker['steps'] = stps
         return job_worker

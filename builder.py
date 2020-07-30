@@ -7,19 +7,21 @@ from multiprocessing.pool import ThreadPool as Pool
 from pathlib import Path
 
 import click
-
 from src import *
 
 
 @click.group()
 @click.option('-d', '--dry-run', 'dry',
               is_flag=True, default=False, help='Dry run mode( and show config on the screen, if possible)')
+@click.option('-sdk', '--using-sdk', 'sdk',
+              is_flag=True, default=False, help="Using OpenWrt's SDK to build packages")
 @click.pass_context
-def cli(ctx, dry):
+def cli(ctx, dry: bool, sdk: bool):
     'An opde builder'
     ctx.ensure_object(dict)
     ctx.obj['set'] = OpdeSetting()
     ctx.obj['dry'] = dry
+    ctx.obj['sdk'] = sdk
 
 
 @cli.command()
@@ -27,6 +29,8 @@ def cli(ctx, dry):
 def feeds(ctx):
     'Initilize feeds'
     setting: OpdeSetting = ctx.obj['set']
+    if ctx.obj['sdk']:
+        return
     if ctx.obj['dry']:
         print(setting.feeds_conf)
         return
@@ -38,14 +42,72 @@ def feeds(ctx):
 
 
 @cli.command()
+@click.option('--sdk-archive', type=click.Path(exists=True, file_okay=True, dir_okay=False),
+              help="(needed when -sdk or --using-sdk) Path to Openwrt's SDK archive. eg: openwrt-sdk-x86-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz")
 @click.pass_context
-def init(ctx):
+def init(ctx, sdk_archive: str):
     '''
     Initilize opde (run only once)
+     - move OpenWrt source repo to other path (only with --sdk)
+     - unpack sdk (only with --sdk)
      - patch to openwrt source to export some necessery infomation
     '''
     setting: OpdeSetting = ctx.obj['set']
-    patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'])
+    if not ctx.obj['sdk']:
+        patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'])
+        return
+    if not sdk_archive:
+        raise click.UsageError('Missing option --sdk-archive', ctx=ctx)
+    print(sdk_archive)
+    op_repo = setting.submodule(setting.openwrt_dir.as_posix())
+    if op_repo:
+        if not ctx.obj['dry']:
+            op_repo.move(setting.openwrt_dir_in_sdk.as_posix())
+    else:
+        print('It seem that OpenWrt Source repo has been moved. (%s)' %
+              setting.openwrt_dir)
+    if not ctx.obj['dry']:
+        tmpdir: Path = setting.opde_dir.joinpath('.tmp')
+        if tmpdir.exists():
+            shutil.rmtree(tmpdir, ignore_errors=True)
+        tmpdir.mkdir(parents=True, exist_ok=False)
+        run('tar -xvf %s -C %s' % (sdk_archive, tmpdir.absolute().as_posix()))
+        sdk_potential_dirs = [x for x in tmpdir.iterdir() if x.is_dir()]
+        if len(sdk_potential_dirs) != 1:
+            raise BaseException('Something Wrong in SDK')
+        sdk_unpack_dir: Path = sdk_potential_dirs[0]
+        if setting.openwrt_dir.exists():
+            shutil.rmtree(setting.openwrt_dir)
+        shutil.move(sdk_unpack_dir, setting.openwrt_dir)
+    patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'], not ctx.obj['sdk'])
+
+
+@cli.command()
+@click.pass_context
+def deinit(ctx):
+    '''
+    Deinitilize opde (run only once)
+     - revert patch to openwrt source
+     - removing sdk (only with --sdk)
+     - move OpenWrt source repo back to origin path (only with --sdk)
+    '''
+    setting: OpdeSetting = ctx.obj['set']
+    revertPatchOpenwrt(setting.openwrt_dir, ctx.obj['dry'], not ctx.obj['sdk'])
+    if not ctx.obj['sdk']:
+        return
+    if setting.openwrt_dir.exists():
+        print('Removing SDK...')
+        if not ctx.obj['dry']:
+            shutil.rmtree(setting.openwrt_dir)
+    if not ctx.obj['dry']:
+        print('Moving OpenWrt source repo back to origin path')
+        op_repo = setting.submodule(setting.openwrt_dir_in_sdk.as_posix())
+        if op_repo:
+            if not ctx.obj['dry']:
+                op_repo.move(setting.openwrt_dir.as_posix())
+        else:
+            BaseException('Unable to find OpenWrt Source repo. (%s)' %
+                          setting.openwrt_dir_in_sdk)
 
 
 @cli.command()
@@ -228,6 +290,7 @@ def _hack_sdk(ctx, directory: str):
             if gps[0] == 'PACKAGE_' and (gps[1] in linux_embedded_module):
                 new_conf.append(i)
     build_conf_path.write_text(KconfigDumper(new_conf))
+    revertPatchOpenwrt(directory, False, False)
 
 
 @cli.command('@output', hidden=True)
