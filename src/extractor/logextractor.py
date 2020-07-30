@@ -13,7 +13,8 @@ class LogsExtractor:
 
         self.logsAst = []
         for LogFile in LogDir.rglob('*.txt'):
-            if LogFile.name == 'download.txt':  # download time shouldn't be considered in cost
+            # download time shouldn't be considered in cost
+            if LogFile.name in ['clean.txt', 'download.txt']:
                 continue
             print(LogFile)
             ast = self._parser.gen_ast(LogFile.read_text())
