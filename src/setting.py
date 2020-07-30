@@ -37,6 +37,8 @@ class OpdeSetting:
         self._logs_ast_file = self.openwrt_dir.joinpath('logs', 'logs.ast.json')
         self._deps_dag_file_loaded = False
         self.deps_dag_file = self.openwrt_dir.joinpath('logs', 'deps.dag.json')
+        self._metadata_hash_file = self.openwrt_dir.joinpath(
+            'logs', 'metadata.hash.json')
         self._tasks_list = self.openwrt_dir.joinpath('logs', 'tasks.list.json')
         self._sdk_buildin_ast_file = self.openwrt_dir.joinpath(
             'logs', 'sdk.buildin.ast.json')
@@ -81,6 +83,22 @@ class OpdeSetting:
             feed_name = Path(sm.abspath).name
             feeds_conf.append('src-link %s %s' % (feed_name, sm.abspath))
         return '\n'.join(feeds_conf)
+
+    @property
+    def metadata_hash(self):
+        'return  object of hashes of openwrt source bundle and filepath'
+        metadata = {}
+        for makefile in self.packageinfo_ast:
+            for pack in makefile['packages']:
+                metadata[pack['Package']] = '/'.join(
+                    [pack[i] for i in ['Package-Source-Version',
+                                       'Package-Hash', 'Package-Mirror-Hash']]
+                )
+        self._metadata_hash_file.write_text(
+            json.dumps(metadata, indent=2, sort_keys=True,
+                       separators=(",", ":"))
+        )
+        return metadata
 
     @ property
     def packageinfo_ast(self):

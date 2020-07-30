@@ -66,7 +66,7 @@ class PackageInfoLexer(InfoLexer):
         t.lexer.skip(1)
 
     def t_DERIVATE(self, t: LexToken):
-        r'((Submenu|Menu)[-]Depends|Build[-](Types|Variant|Only)|Kernel[-]Config|Default[-]Variant|Prereq[-]Check|Require[-]User|Menu|Version|Conflicts|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
+        r'((Submenu|Menu)[-]Depends|Build[-](Types|Variant|Only)|Kernel[-]Config|Default[-]Variant|Prereq[-]Check|Require[-]User|Package[-](Source[-]Version|(Mirror[-])?Hash)|Menu|Version|Conflicts|Section|Category|Repository|Title|Maintainer|Source|License|LicenseFiles|Type|Submenu|Default|Hidden|ABIVersion):'
         t.lexer.line_start = t.lexer.lexpos
         t.lexer.push_state('end2line')
         t.value = t.value[:-1]

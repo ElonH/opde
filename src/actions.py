@@ -42,17 +42,19 @@ class WorkFlow:
         }
 
     @classmethod
-    def _gen_cache_step(cls, path: str, key: str, step_id: str = None):
+    def _gen_cache_step(cls, path: str, key: str, step_id: str = None, restore_keys: list = []):
         'cache step'
         stp = {}
         if step_id:
             stp['id'] = step_id
         # refs: https://help.github.com/en/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
-        stp['uses'] = 'actions/cache@v1'
+        stp['uses'] = 'actions/cache@v2'
         stp['with'] = {
             'path': path,
             'key': key
         }
+        if len(restore_keys) > 0:
+            stp['with']['restore-keys'] = '\n'.join(restore_keys)
         return stp
 
     @classmethod
@@ -278,11 +280,12 @@ class WorkFlow:
             {'run': self.builder + ' init'},
             {'run': self.builder + ' feeds'},
             {'run': self.builder + ' config -sdk -ib -ke'},
+            {'run': self.builder + ' metadata > %s' % self.hash_openwrt_path},
             self._gen_cache_step(
                 './cache/openwrt',
-                # TODO: extract a packs hash metadata from packageinfo
-                "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}",
-                'cache-openwrt'
+                "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-%s" % self.hash_openwrt,
+                'cache-openwrt',
+                ["openwrt-sdk-test-${{needs.APT.outputs.dateDash}}"]
             ),
             {
                 'if': self._hit_cached('cache-openwrt', False),
@@ -368,6 +371,8 @@ class WorkFlow:
         self.cache_python = '%s/cache/python' % self.opde_dir
         self.hash_apt = "${{ hashFiles('./cache/apt.list.txt') }}"
         self.hash_python = "${{ hashFiles('./poetry.lock') }}"
+        self.hash_openwrt_path = "./cache/openwrt.hash.json"
+        self.hash_openwrt = "${{ hashFiles('%s') }}" % self.hash_openwrt_path
         self.builder = 'poetry run python3 builder.py'
         self.worker_num = 20
         data = {}

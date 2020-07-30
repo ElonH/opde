@@ -19,13 +19,13 @@ jobs:
         echo $tag
         echo "::set-output name=tag::$tag"
     - id: cache-apt
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         key: apt-${{steps.var.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
         path: ${{github.workspace}}/cache/apt
     - id: cache-python
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         key: python-${{steps.var.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/cache@v1
+    - uses: actions/cache@v2
       with:
         key: apt-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
           }}
@@ -119,7 +119,7 @@ jobs:
         sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
         # https://github.com/project-openwrt/openwrt-isco/issues/181
         sudo -E ln -sf /usr/include/asm-generic /usr/include/asm
-    - uses: actions/cache@v1
+    - uses: actions/cache@v2
       with:
         key: python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
           }}
@@ -137,11 +137,14 @@ jobs:
     - run: poetry run python3 builder.py init
     - run: poetry run python3 builder.py feeds
     - run: poetry run python3 builder.py config -sdk -ib -ke
+    - run: poetry run python3 builder.py metadata > ./cache/openwrt.hash.json
     - id: cache-openwrt
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
-        key: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
+        key: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/openwrt.hash.json')
+          }}
         path: ./cache/openwrt
+        restore-keys: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
     - if: steps.cache-openwrt.outputs.cache-hit != 'true'
       run: poetry run python3 builder.py download
     - run: poetry run python3 builder.py build

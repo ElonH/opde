@@ -1,3 +1,4 @@
+import json
 import multiprocessing as mp
 import os
 import re
@@ -189,6 +190,17 @@ def assign(ctx, number: int, ke: bool, database: str):
     print('workers conf save in %s' % setting.worker_conf_dir)
 
 
+@cli.command()
+@click.pass_context
+def metadata(ctx):
+    """
+    generate metadata forOpenwrt's Source bundle
+    """
+    setting: OpdeSetting = ctx.obj['set']
+    metadata = setting.metadata_hash
+    print(json.dumps(metadata, indent=2, sort_keys=True, separators=(",", ":")))
+
+
 @cli.command('@hack-sdk', hidden=True)
 @click.argument('directory', type=click.Path(exists=True, dir_okay=True, file_okay=False))
 @click.pass_context
@@ -224,7 +236,7 @@ def _hack_sdk(ctx, directory: str):
 def output_openwrt(ctx, variable):
     '''
     output variable
-    opdir,arch,board,logdir
+    opdir,arch,board,logdir,metadata
     '''
     setting: OpdeSetting = ctx.obj['set']
     if variable == 'opdir':
@@ -235,6 +247,15 @@ def output_openwrt(ctx, variable):
         print(setting.targets[0])
     elif variable == 'board':
         print(setting.targets[1])
+    elif variable == 'metadata':
+        metadata = {}
+        for makefile in setting.packageinfo_ast:
+            for pack in makefile['packages']:
+                metadata[pack['Package']] = '/'.join(
+                    [pack[i] for i in ['Package-Source-Version',
+                                       'Package-Hash', 'Package-Mirror-Hash']]
+                )
+        print(json.dumps(metadata, indent=2, separators=(",", ":"), sort_keys=True))
 
 
 if __name__ == '__main__':
