@@ -314,14 +314,14 @@ class WorkFlow:
             {
                 'id': 'sdk-var2',
                 'run': self._gen_vars({
-                    'sdk-path': '$(find %s/bin -name "*sdk*")' % self._in_var('sdk-var', 'openwrt'),
-                    'image-builder-path': '$(find %s/bin -name "*imagebuilder*")' % self._in_var('sdk-var', 'openwrt'),
+                    'SDK_PATH': '$(find %s/bin -name "*sdk*")' % self._in_var('sdk-var', 'openwrt'),
+                    'IMAGE_BUILDER_PATH': '$(find %s/bin -name "*imagebuilder*")' % self._in_var('sdk-var', 'openwrt'),
                 })
             },
             self._gen_upload_artifact_step(
-                'SDK', self._in_var('sdk-var2', 'sdk-path')),
+                'SDK', self._in_var('sdk-var2', 'SDK_PATH')),
             self._gen_upload_artifact_step(
-                'ImageBuilder', self._in_var('sdk-var2', 'image-builder-path')),
+                'ImageBuilder', self._in_var('sdk-var2', 'IMAGE_BUILDER_PATH')),
             {
                 'working-directory': self._in_var('sdk-var', 'openwrt'),
                 'run': '''
@@ -333,8 +333,8 @@ class WorkFlow:
                     ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
                     ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
                     '''.format(
-                    sdk=self._in_var('sdk-var2', 'sdk-path'),
-                    ib=self._in_var('sdk-var2', 'image-builder-path')
+                    sdk=self._in_var('sdk-var2', 'SDK_PATH'),
+                    ib=self._in_var('sdk-var2', 'IMAGE_BUILDER_PATH')
                 )
             },
             self._gen_upload_artifact_step(

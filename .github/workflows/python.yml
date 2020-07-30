@@ -165,26 +165,26 @@ jobs:
         path: ${{steps.sdk-var.outputs.logs}}
     - id: sdk-var2
       run: |-
-        sdk-path=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*sdk*")
-        echo $sdk-path
-        echo "::set-output name=sdk-path::$sdk-path"
-        image-builder-path=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*imagebuilder*")
-        echo $image-builder-path
-        echo "::set-output name=image-builder-path::$image-builder-path"
+        SDK_PATH=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*sdk*")
+        echo $SDK_PATH
+        echo "::set-output name=SDK_PATH::$SDK_PATH"
+        IMAGE_BUILDER_PATH=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*imagebuilder*")
+        echo $IMAGE_BUILDER_PATH
+        echo "::set-output name=IMAGE_BUILDER_PATH::$IMAGE_BUILDER_PATH"
     - uses: actions/upload-artifact@v2
       with:
         name: SDK
-        path: ${{steps.sdk-var2.outputs.sdk-path}}
+        path: ${{steps.sdk-var2.outputs.SDK_PATH}}
     - uses: actions/upload-artifact@v2
       with:
         name: ImageBuilder
-        path: ${{steps.sdk-var2.outputs.image-builder-path}}
+        path: ${{steps.sdk-var2.outputs.IMAGE_BUILDER_PATH}}
     - run: |2
 
         tar -cf tmp.tar bin/targets/*/*/packages
         rm bin/targets/*/*/packages -rf
-        rm ${{steps.sdk-var2.outputs.sdk-path}} -rf
-        rm ${{steps.sdk-var2.outputs.image-builder-path}} -rf
+        rm ${{steps.sdk-var2.outputs.SDK_PATH}} -rf
+        rm ${{steps.sdk-var2.outputs.IMAGE_BUILDER_PATH}} -rf
         ls -lh bin/targets/*/*/ || true
         ( ls bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vdi || true
         ( ls bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n bin/targets/*/*/*.vmdk || true
