@@ -23,7 +23,7 @@ class KconfigLexer(InfoLexer):
         'VALUE'
     )
 
-    t_TYPE = r'(bool|string|int)'
+    t_TYPE = r'(bool|string|int|tristate)'
 
     # Define a rule so we can track line numbers
     def t_EOL(self, t):
