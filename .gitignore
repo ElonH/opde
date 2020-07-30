@@ -22,3 +22,4 @@ tests/
 graph.json
 workers.json
 !src/patcher/*.patch
+.tmp

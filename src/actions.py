@@ -355,7 +355,7 @@ class WorkFlow:
                 'run': '''rm bin/targets -rf\ntar -xf tmp.tar'''
             },
             self._gen_upload_artifact_step(
-                'Packages-base', self._in_var('sdk-var', 'openwrt') + '/bin'),
+                'Packages-00', self._in_var('sdk-var', 'openwrt') + '/bin'),
             # collect all openwrt's source bundles
             {
                 'if': self._hit_cached('cache-openwrt', False),
@@ -369,6 +369,20 @@ class WorkFlow:
         job_apt['steps'] = stps
         return job_apt
         pass
+
+    def worker_job(self):
+        'a worker job to massive packages'
+        job_worker = self._gen_empty_job()
+        job_worker['strategy']['matrix'] = {
+            'source': ['{:0>2}'.format(i + 1) for i in range(self.worker_num)]
+        }
+        stps: list = self._gen_empty_steps()
+        stps.extend(self._opde_init_steps())
+        stps.extend([
+            self._gen_fast_clone_submodules(),
+        ])
+        job_worker['steps'] = stps
+        return job_worker
 
     def __init__(self):
         self.branches = ['python']
@@ -394,8 +408,10 @@ class WorkFlow:
         data['jobs'] = {
             'APT': self.apt_job(),
             'SDK': self.sdk_job(),
+            'WORKER': self.worker_job(),
         }
         data['jobs']['SDK']['needs'] = 'APT'
+        data['jobs']['WORKER']['needs'] = 'SDK'
         self.data = data
         pass
 
