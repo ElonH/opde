@@ -18,7 +18,8 @@ class LogsExtractor:
                 continue
             print(LogFile)
             ast = self._parser.gen_ast(LogFile.read_text())
-            del ast['detail']  # for debug
+            if ast['exit-code'] == 0:  # if build success, clear build log to reduce database
+                ast['detail'] = ""
             self.logsAst.append(ast)
 
     def toJson(self):

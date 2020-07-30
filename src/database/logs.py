@@ -17,6 +17,7 @@ class LogsDb(tinydb.TinyDB):
         "target": "",
         "build-type": "",
         "build-variant": "compile",
+        "detail" : "",
         'arch': 'x86',
         'board': '64',
         'run-number': 123,
