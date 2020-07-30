@@ -37,7 +37,7 @@ class WorkFlow:
     def _gen_debugger_step(self):
         'gengerate remote ssh to debug'
         return {
-            "uses": "mxschmitt/action-tmate@v1",
+            "uses": "mxschmitt/action-tmate@master",
             "if": "always()"
         }
 
@@ -99,7 +99,7 @@ class WorkFlow:
         ans.update(addon)
         return ans
 
-    @classmthod
+    @classmethod
     def _gen_download_artifact_step(cls, name: str, path: str, addon: object = {}):
         'download artifact'
         ans = {
@@ -311,6 +311,7 @@ class WorkFlow:
                 'if': self._hit_cached('cache-openwrt', False),
                 'run': self.builder + ' download'
             },
+            self._gen_debugger_step(),
             {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',

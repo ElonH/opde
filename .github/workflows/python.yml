@@ -147,6 +147,8 @@ jobs:
         restore-keys: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
     - if: steps.cache-openwrt.outputs.cache-hit != 'true'
       run: poetry run python3 builder.py download
+    - if: always()
+      uses: mxschmitt/action-tmate@master
     - run: poetry run python3 builder.py build
     - id: sdk-var
       if: always()
