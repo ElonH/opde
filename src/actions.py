@@ -294,8 +294,6 @@ class WorkFlow:
                 'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % self.builder,
                     'logs': '$(%s @output logdir)' % self.builder,
-                    'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
-                    'image-builder-path': '$(find ${openwrt}/bin -name "*imagebuilder*")',
                 })
             },
             {
@@ -316,9 +314,8 @@ class WorkFlow:
             {
                 'id': 'sdk-var2',
                 'run': self._gen_vars({
-                    'openwrt': '$(%s @output opdir)' % self.builder,
-                    'sdk-path': '$(find ${openwrt}/bin -name "*sdk*")',
-                    'image-builder-path': '$(find ${openwrt}/bin -name "*imagebuilder*")',
+                    'sdk-path': '$(find %s/bin -name "*sdk*")' % self._in_var('sdk-var', 'openwrt'),
+                    'image-builder-path': '$(find %s/bin -name "*imagebuilder*")' % self._in_var('sdk-var', 'openwrt'),
                 })
             },
             self._gen_upload_artifact_step(

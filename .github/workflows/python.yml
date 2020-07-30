@@ -153,12 +153,6 @@ jobs:
         logs=$(poetry run python3 builder.py @output logdir)
         echo $logs
         echo "::set-output name=logs::$logs"
-        sdk-path=$(find ${openwrt}/bin -name "*sdk*")
-        echo $sdk-path
-        echo "::set-output name=sdk-path::$sdk-path"
-        image-builder-path=$(find ${openwrt}/bin -name "*imagebuilder*")
-        echo $image-builder-path
-        echo "::set-output name=image-builder-path::$image-builder-path"
     - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.sdk-var.outputs.logs}}/logs.db.json
         ${{github.run_number}}
     - run: poetry run python3 builder.py check ${{steps.sdk-var.outputs.logs}}/logs.db.json
@@ -171,13 +165,10 @@ jobs:
         path: ${{steps.sdk-var.outputs.logs}}
     - id: sdk-var2
       run: |-
-        openwrt=$(poetry run python3 builder.py @output opdir)
-        echo $openwrt
-        echo "::set-output name=openwrt::$openwrt"
-        sdk-path=$(find ${openwrt}/bin -name "*sdk*")
+        sdk-path=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*sdk*")
         echo $sdk-path
         echo "::set-output name=sdk-path::$sdk-path"
-        image-builder-path=$(find ${openwrt}/bin -name "*imagebuilder*")
+        image-builder-path=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*imagebuilder*")
         echo $image-builder-path
         echo "::set-output name=image-builder-path::$image-builder-path"
     - uses: actions/upload-artifact@v2
