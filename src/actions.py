@@ -124,6 +124,13 @@ class WorkFlow:
             ans['id'] = step_id
         return ans
 
+    @classmethod
+    def _gen_fast_clone_submodules(cls):
+        'fast clone submodules'
+        return {
+            'run': 'git submodule update --init --recursive --recommend-shallow'
+        }
+
     def apt_job(self):
         'cache apt'
         job_apt = self._gen_empty_job()
@@ -276,7 +283,7 @@ class WorkFlow:
         stps.extend(self._opde_init_steps())
         db_path = '%s/logs.db.json' % self._in_var('sdk-var', 'logs')
         stps.extend([
-            {'run': 'git submodule update --init --recursive'},
+            self._gen_fast_clone_submodules(),
             {'run': self.builder + ' init'},
             {'run': self.builder + ' feeds'},
             {'run': self.builder + ' config -sdk -ib -ke'},

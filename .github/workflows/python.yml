@@ -133,7 +133,7 @@ jobs:
         python3 -m venv .venv
         source .venv/bin/activate
         pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
-    - run: git submodule update --init --recursive
+    - run: git submodule update --init --recursive --recommend-shallow
     - run: poetry run python3 builder.py init
     - run: poetry run python3 builder.py feeds
     - run: poetry run python3 builder.py config -sdk -ib -ke
