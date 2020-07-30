@@ -80,10 +80,11 @@ class OpdeSetting:
                     break
         return sms
 
-    @ property
-    def feeds_conf(self):
+    def feeds_conf(self, include_base=False):
         'return text of feeds.conf or feeds.default.conf'
         sms = self.feeds_repos
+        if include_base:
+            sms = [self.submodule(self.openwrt_dir_in_sdk.as_posix())] + sms
         feeds_conf = []
         for sm in sms:
             feed_name = Path(sm.abspath).name

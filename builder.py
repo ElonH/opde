@@ -14,7 +14,7 @@ from src import *
 @click.option('-d', '--dry-run', 'dry',
               is_flag=True, default=False, help='Dry run mode( and show config on the screen, if possible)')
 @click.option('-sdk', '--using-sdk', 'sdk',
-              is_flag=True, default=False, help="Using OpenWrt's SDK to build packages")
+              is_flag=True, default=False, help="Using OpenWrt's SDK to build packages(SDK Mode)")
 @click.pass_context
 def cli(ctx, dry: bool, sdk: bool):
     'An opde builder'
@@ -29,13 +29,12 @@ def cli(ctx, dry: bool, sdk: bool):
 def feeds(ctx):
     'Initilize feeds'
     setting: OpdeSetting = ctx.obj['set']
-    if ctx.obj['sdk']:
-        return
+    feeds_conf = setting.feeds_conf(ctx.obj['sdk'])
     if ctx.obj['dry']:
-        print(setting.feeds_conf)
+        print(feeds_conf)
         return
     setting.openwrt_dir.joinpath(
-        'feeds.conf').write_text(setting.feeds_conf)
+        'feeds.conf').write_text(feeds_conf)
     shutil.rmtree(setting.openwrt_dir.joinpath('tmp'), ignore_errors=True)
     run('./scripts/feeds update -a && ./scripts/feeds install -a',
         cwd=setting.openwrt_dir.as_posix())
