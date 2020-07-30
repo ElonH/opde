@@ -236,21 +236,6 @@ def output_openwrt(ctx, variable):
     elif variable == 'board':
         print(setting.targets[1])
 
-
-@cli.command()
-@click.pass_context
-def gsiu(ctx):
-    '''
-    git submodule init and update in parallel
-    '''
-    setting: OpdeSetting = ctx.obj['set']
-    sms = setting.feeds_repos + [setting.openwrt_repo]
-    print(sms)
-    N = mp.cpu_count()
-    with Pool(processes=N) as p:
-        p.map(lambda sm: sm.update(recursive=True), sms)
-
-
 if __name__ == '__main__':
     os.environ['OPDE_BUILDER'] = Path(__file__).absolute().as_posix()
     cli(obj={})
