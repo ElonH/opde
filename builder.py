@@ -197,8 +197,8 @@ def metadata(ctx):
     generate metadata forOpenwrt's Source bundle
     """
     setting: OpdeSetting = ctx.obj['set']
-    metadata = setting.metadata_hash
-    print(json.dumps(metadata, indent=2, sort_keys=True, separators=(",", ":")))
+    print(json.dumps(setting.metadata_hash, indent=2,
+                     sort_keys=True, separators=(",", ":")))
 
 
 @cli.command('@hack-sdk', hidden=True)

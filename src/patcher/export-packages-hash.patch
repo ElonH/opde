@@ -1,0 +1,15 @@
+diff --git a/include/package-dumpinfo.mk b/include/package-dumpinfo.mk
+index ef98c482fb..d081054f02 100644
+--- a/include/package-dumpinfo.mk
++++ b/include/package-dumpinfo.mk
+@@ -36,6 +36,10 @@ Category: $(CATEGORY)
+ $(if $(filter nonshared,$(PKGFLAGS)),,Repository: $(if $(FEED),$(FEED),base)
+ )Title: $(TITLE)
+ Maintainer: $(MAINTAINER)
++Package-Source-Version: $(PKG_SOURCE_VERSION)
++Package-Hash: $(PKG_HASH)
++Package-Mirror-Hash: $(PKG_MIRROR_HASH)
++Maintainer: $(MAINTAINER)
+ $(if $(USERID),Require-User: $(USERID)
+ )Source: $(PKG_SOURCE)
+ $(if $(LICENSE),License: $(LICENSE)

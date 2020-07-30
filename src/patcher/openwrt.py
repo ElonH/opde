@@ -9,6 +9,7 @@ def patchOpenwrt(repo_path: str, dry=False):
     patches = [
         Path(__file__).parent.joinpath('export-some-info-to-logs.patch'),
         Path(__file__).parent.joinpath('hack-sdk.patch'),
+        Path(__file__).parent.joinpath('export-packages-hash.patch'),
     ]
     for i in patches:
         if dry:
