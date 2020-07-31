@@ -11,7 +11,7 @@ def __init__():
     SRC_dir = Path(__file__).parent
     BLD_dir = SRC_dir.joinpath('build')
     cmd = ' '.join([
-        "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE", "-DCMAKE_BUILD_TYPE:STRING=Release",
+        "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE", "-DCMAKE_BUILD_TYPE:STRING=DEBUG",
         "-H%s" % SRC_dir.as_posix(),
         "-B%s" % BLD_dir.as_posix()])
     print(cmd)
