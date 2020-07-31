@@ -430,6 +430,16 @@ class WorkFlow:
                 'run': worker_builder + ' download'
             },
             {'run': worker_builder + ' build'},
+            {
+                'id': 'worker-var',
+                'if': 'always()',
+                'run': self._gen_vars({
+                    'openwrt': '$(%s @output opdir)' % worker_builder,
+                    'logs': '$(%s @output logdir)' % worker_builder,
+                })
+            },
+            self._gen_upload_artifact_step(
+                'Packages-%s' % worker_id, self._in_var('worker-var', 'openwrt') + '/bin'),
         ])
         job_worker['steps'] = stps
         return job_worker

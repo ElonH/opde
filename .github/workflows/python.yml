@@ -297,6 +297,19 @@ jobs:
     - if: steps.cache-openwrt.outputs.cache-hit != 'true'
       run: poetry run python3 builder.py -sdk download
     - run: poetry run python3 builder.py -sdk build
+    - id: worker-var
+      if: always()
+      run: |-
+        openwrt=$(poetry run python3 builder.py -sdk @output opdir)
+        echo $openwrt
+        echo "::set-output name=openwrt::$openwrt"
+        logs=$(poetry run python3 builder.py -sdk @output logdir)
+        echo $logs
+        echo "::set-output name=logs::$logs"
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Packages-${{matrix.worker}}
+        path: ${{steps.worker-var.outputs.openwrt}}/bin
     strategy:
       fail-fast: false
       matrix:
