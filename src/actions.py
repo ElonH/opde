@@ -408,7 +408,7 @@ class WorkFlow:
         'a worker job to massive packages'
         job = self._gen_empty_job()
         job['strategy']['matrix'] = {
-            'worker': ['{:0>2}'.format(i + 1) for i in range(self.worker_num)]
+            'worker': ['{:0>2}'.format(i) for i in range(1, 1 + self.worker_num)]
         }
         worker_id = '${{matrix.worker}}'
         stps: list = self._gen_empty_steps()
@@ -452,6 +452,31 @@ class WorkFlow:
         job['steps'] = stps
         return job
 
+    def bundle_job(self):
+        'bundle all workers prodution'
+        job = self._gen_empty_job()
+        stps: list = self._gen_empty_steps()
+        stps.extend(self._opde_init_steps(True))
+        bundler_builder = self.builder
+        stps.append(
+            {
+                'id': 'bundle-var',
+                'if': 'always()',
+                'run': self._gen_vars({
+                    'openwrt': '$(%s @output opdir)' % bundler_builder,
+                    # 'logs': '$(%s @output logdir)' % worker_builder,
+                })
+            }
+        )
+        stps.extend([
+            self._gen_download_artifact_step(
+                'Packages-{:0>2}'.format(i),
+                '%s/bin' % self._in_var('bundle-var', 'openwrt'))
+            for i in range(self.worker_num, -1, -1)
+        ])
+        job['steps'] = stps
+        return job
+
     def __init__(self):
         self.branches = ['python']
         # self.own_token = '${{secrets.RELEASE_TOKEN}}'
@@ -477,9 +502,11 @@ class WorkFlow:
             'APT': self.apt_job(),
             'BASE': self.sdk_job(),
             'WORKER': self.worker_job(),
+            'BUNDLE': self.bundle_job(),
         }
         data['jobs']['BASE']['needs'] = 'APT'
         data['jobs']['WORKER']['needs'] = ['BASE', 'APT']
+        data['jobs']['BUNDLE']['needs'] = ['BASE', 'APT', 'WORKER']
         self.data = data
         pass
 
