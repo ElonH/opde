@@ -58,10 +58,7 @@ def init(ctx, sdk_archive: str):
         raise click.UsageError('Missing option --sdk-archive', ctx=ctx)
     print(sdk_archive)
     op_repo = setting.submodule(setting.openwrt_dir.as_posix())
-    if op_repo:
-        if not ctx.obj['dry']:
-            op_repo.move(setting.openwrt_dir_in_sdk.as_posix())
-    else:
+    if not op_repo:
         print('It seem that OpenWrt Source repo has been moved. (%s)' %
               setting.openwrt_dir)
     if not ctx.obj['dry']:
@@ -74,17 +71,16 @@ def init(ctx, sdk_archive: str):
         if len(sdk_potential_dirs) != 1:
             raise BaseException('Something Wrong in SDK')
         sdk_unpack_dir: Path = sdk_potential_dirs[0]
-        if setting.openwrt_dir.exists():
-            shutil.rmtree(setting.openwrt_dir)
+        op_repo.move(setting.openwrt_dir_in_sdk.as_posix())
         shutil.move(sdk_unpack_dir, setting.openwrt_dir)
+        build_conf_path:Path = setting.openwrt_dir.joinpath('Config-build.in')
+        build_conf_bak_path:Path = setting.openwrt_dir.joinpath('.Config-build.in')
+        print('Switching %s <-> %s' % (build_conf_path, build_conf_bak_path) )
+        a=build_conf_path.read_text()
+        b=build_conf_path.read_text()
+        build_conf_bak_path.write_text(a)
+        build_conf_path.write_text(b)
     patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'], not ctx.obj['sdk'])
-    build_conf_path:Path = setting.openwrt_dir.joinpath('Config-build.in')
-    build_conf_bak_path:Path = setting.openwrt_dir.joinpath('.Config-build.in')
-    print('Switching %s <-> %s' % (build_conf_path, build_conf_bak_path) )
-    a=build_conf_path.read_text()
-    b=build_conf_path.read_text()
-    build_conf_bak_path.write_text(a)
-    build_conf_path.write_text(b)
 
 
 @cli.command()
