@@ -218,28 +218,29 @@ class WorkFlow:
                     '''
             },
         ])
-        stps.extend([
-            {
-                'uses': 'meeDamian/github-release@2.0',
-                'with': {
-                    'token': "${{secrets.GITHUB_TOKEN}}",
-                    'tag': self._in_var('var', 'tag'),
-                    'name': 'Release ' + self._in_var('var', 'tag'),
-                    'allow_override': True,
-                    'draft': True,
-                    'body': r'''
-                    Activate `ootoc` in `latest`
-                    ``` bash
-                    bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} latest ${{steps.tag.outputs.tagName}}
-                    ```
-                    Activate `ootoc` in `ctcgfw`
-                    ``` bash
-                    bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} ctcgfw ${{steps.tag.outputs.tagName}}
-                    ```
-                    '''
-                }
-            }
-        ])
+        # TODO: debuging
+        # stps.extend([
+        #     {
+        #         'uses': 'meeDamian/github-release@2.0',
+        #         'with': {
+        #             'token': "${{secrets.GITHUB_TOKEN}}",
+        #             'tag': self._in_var('var', 'tag'),
+        #             'name': 'Release ' + self._in_var('var', 'tag'),
+        #             'allow_override': True,
+        #             'draft': True,
+        #             'body': r'''
+        #             Activate `ootoc` in `latest`
+        #             ``` bash
+        #             bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} latest ${{steps.tag.outputs.tagName}}
+        #             ```
+        #             Activate `ootoc` in `ctcgfw`
+        #             ``` bash
+        #             bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} ctcgfw ${{steps.tag.outputs.tagName}}
+        #             ```
+        #             '''
+        #         }
+        #     }
+        # ])
         job_apt['steps'] = stps
         return job_apt
 

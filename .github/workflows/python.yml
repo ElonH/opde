@@ -69,23 +69,6 @@ jobs:
         pip3 download -r requirements.txt -d wheelhouse
         # testing pip install
         pip3 install --no-index --find-links="./wheelhouse" -r requirements.txt
-    - uses: meeDamian/github-release@2.0
-      with:
-        allow_override: true
-        body: |2
-
-          Activate `ootoc` in `latest`
-          ``` bash
-          bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} latest ${{steps.tag.outputs.tagName}}
-          ```
-          Activate `ootoc` in `ctcgfw`
-          ``` bash
-          bash <(wget -qO- https://cdn.jsdelivr.net/gh/${{github.repository}}@${{steps.tag.outputs.tagName}}/feeds/scripts/activate-ootoc.sh) ${{github.repository}} ctcgfw ${{steps.tag.outputs.tagName}}
-          ```
-        draft: true
-        name: Release ${{steps.var.outputs.tag}}
-        tag: ${{steps.var.outputs.tag}}
-        token: ${{secrets.GITHUB_TOKEN}}
     strategy:
       fail-fast: false
   SDK:
