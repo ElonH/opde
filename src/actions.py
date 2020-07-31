@@ -407,7 +407,7 @@ class WorkFlow:
             self._gen_fast_clone_submodules(),
             self._gen_download_artifact_step('SDK','~/artifacts/SDK'),
             {'run': worker_builder + ' init --sdk-archive ~/artifacts/SDK/%s' % self._out_var('BASE', 'SDK_NAME')},
-            # {'run': worker_builder + ' '},
+            {'run': worker_builder + ' feeds'},
             # {'run': worker_builder + ' '},
             # {'run': worker_builder + ' '},
         ])

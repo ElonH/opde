@@ -271,6 +271,7 @@ jobs:
         name: SDK
         path: ~/artifacts/SDK
     - run: poetry run python3 builder.py -sdk init --sdk-archive ~/artifacts/SDK/${{needs.BASE.outputs.SDK_NAME}}
+    - run: poetry run python3 builder.py -sdk feeds
     strategy:
       fail-fast: false
       matrix:

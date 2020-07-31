@@ -27,7 +27,14 @@ def cli(ctx, dry: bool, sdk: bool):
 def feeds(ctx):
     'Initilize feeds'
     setting: OpdeSetting = ctx.obj['set']
-    feeds_conf = setting.feeds_conf(ctx.obj['sdk'])
+    sms = setting.feeds_repos
+    if ctx.obj['sdk']:
+        openwrt_repo = setting.submodule(setting.openwrt_dir_in_sdk.as_posix())
+        if not openwrt_repo:
+            raise BaseException('Unable to find OpenWrt Source repo. (%s)' %
+                          setting.openwrt_dir_in_sdk)
+        sms = [ openwrt_repo ] + sms
+    feeds_conf = setting.feeds_conf(sms)
     if ctx.obj['dry']:
         print(feeds_conf)
         return
