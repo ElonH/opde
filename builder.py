@@ -281,12 +281,17 @@ def _hack_sdk(ctx, directory: str):
 
     linux_embedded_module = set(setting.linux_embedded_module)
     packages = set(setting.packages)
+    # needs compile in sdk
+    packages.remove('base-files')
     new_conf = []
     worker_conf = []
     reg = re.compile('^(DEFAULT_|PACKAGE_|LUCI_LANG_|FEED_)(.*)')
     for i in setting.sdk_buildin_ast:
         match = reg.match(i['sym'])
         if not match:
+            # reset some option
+            if i['sym'] == 'DOWNLOAD_FOLDER':
+                i['default'] = '';
             new_conf.append(i)
             worker_conf.append(i)
         else:
