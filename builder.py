@@ -272,24 +272,47 @@ def _hack_sdk(ctx, directory: str):
     print(Path(directory).absolute())
     sdk_dir = Path(directory)
     build_conf_path = sdk_dir.joinpath('Config-build.in')
+    shutil.copy(build_conf_path, sdk_dir.joinpath('Config-build.in.bak'))
+    backup_build_conf_path = sdk_dir.joinpath('.Config-build.in')
     print('fixing %s' % build_conf_path.as_posix())
     parser = KconfigParser()
     ast = parser.gen_ast(build_conf_path.read_text())
     setting.sdk_buildin_ast = ast
 
     linux_embedded_module = set(setting.linux_embedded_module)
+    packages = set(setting.packages)
     new_conf = []
-    reg = re.compile('^(PACKAGE_|LUCI_LANG_|FEED_)(.*)')
+    backup_conf = []
+    reg = re.compile('^(DEFAULT_|PACKAGE_|LUCI_LANG_|FEED_)(.*)')
     for i in setting.sdk_buildin_ast:
         match = reg.match(i['sym'])
         if not match:
             new_conf.append(i)
+            backup_conf.append(i)
         else:
             gps = match.groups()
-            if gps[0] == 'PACKAGE_' and (gps[1] in linux_embedded_module):
+            if gps[0] in ['LUCI_LANG_', 'FEED_']:
+                pass
+            elif gps[1] in linux_embedded_module:
                 new_conf.append(i)
+                # backup_conf.append(i)
+            elif gps[1] in packages:
+                if gps[0] in ['DEFAULT_']:
+                    new_conf.append(i)
+            else:
+                backup_conf.append(i)
+                new_conf.append(i)
+
     build_conf_path.write_text(KconfigDumper(new_conf))
+    backup_build_conf_path.write_text(KconfigDumper(backup_conf))
     revertPatchOpenwrt(directory, False, False)
+
+
+@cli.command('install-sdk')
+@click.pass_context
+def install_sdk(ctx):
+    setting: OpdeSetting = ctx.obj['set']
+    run('make target/sdk/install V=s -j4', cwd=setting.openwrt_dir.as_posix())
 
 
 @cli.command('@output', hidden=True)

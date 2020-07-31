@@ -150,6 +150,14 @@ class OpdeSetting:
         return linux_modules
 
     @property
+    def packages(self):
+        'return packages name list (include kernel modules)'
+        lst = []
+        for source in [source['packages'] for source in self.packageinfo_ast]:
+            lst.extend([i['Package'] for i in source])
+        return lst
+
+    @property
     def deps_dag(self):
         'return text of deps.dag.json'
         if self._deps_dag_file_loaded:
