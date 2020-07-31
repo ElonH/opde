@@ -37,7 +37,7 @@ class WorkFlow:
     def _gen_debugger_step(self):
         'gengerate remote ssh to debug'
         return {
-            "uses": "mxschmitt/action-tmate@master",
+            "uses": "mxschmitt/action-tmate@v2",
             "if": "always()"
         }
 
