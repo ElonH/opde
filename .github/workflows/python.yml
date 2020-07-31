@@ -148,7 +148,7 @@ jobs:
     - if: steps.cache-openwrt.outputs.cache-hit != 'true'
       run: poetry run python3 builder.py download
     - if: always()
-      uses: mxschmitt/action-tmate@master
+      uses: mxschmitt/action-tmate@v2
     - run: poetry run python3 builder.py build
     - id: sdk-var
       if: always()
