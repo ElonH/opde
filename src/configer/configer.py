@@ -85,7 +85,12 @@ class Configer:
             'y' if val else 'n')
 
     def build_sdk(self, val=True):
+        'Build the OpenWrt SDK'
         self.addon['sdk'] = 'CONFIG_SDK=%s' % ('y' if val else 'n')
+
+    def sdk_mode(self):
+        'Common Configuration used in SDK'
+        self.addon['sdk-mode'] = 'CONFIG_ALL_NONSHARED=n\nCONFIG_ALL_KMODS=n\nCONFIG_ALL=n'
 
     def commit(self):
         'generate whole configuration'

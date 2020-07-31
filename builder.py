@@ -1,9 +1,7 @@
 import json
-import multiprocessing as mp
 import os
 import re
 import shutil
-from multiprocessing.pool import ThreadPool as Pool
 from pathlib import Path
 
 import click
@@ -125,6 +123,8 @@ def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool):
     setting.openwrt_dir.joinpath('logs').mkdir(parents=True, exist_ok=True)
     configer = Configer()
     configer.compose(*setting.targets)
+    if ctx.obj['sdk']:
+        configer.sdk_mode()
     configer.download_dir(setting.cache_dir.joinpath('openwrt'))
     if sdk:
         configer.build_sdk()
