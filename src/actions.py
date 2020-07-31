@@ -243,7 +243,7 @@ class WorkFlow:
         job_apt['steps'] = stps
         return job_apt
 
-    def _opde_init_steps(self):
+    def _opde_init_steps(self, fast=False):
         'initilize opde common environment'
         return [
             self._gen_cache_step(
@@ -253,24 +253,27 @@ class WorkFlow:
             {
                 'env': {'DEBIAN_FRONTEND': 'noninteractive'},
                 'run': r'''
-                    docker rmi $(docker images -q)
-                    sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
                     sudo -E apt-get -yq update || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
-                    sudo -E apt-get -yq autoremove --purge
-                    sudo -E apt-get -yq clean
-                    sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+                    %s
                     sudo -E apt-get -yq install apt-offline
                     APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
                     # https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
                     # --allow-unauthenticated
                     sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
-                    sudo -E apt-get -yq upgrade
+                    %s
                     sudo -E apt-get -yq install ${APT_PACKS[@]}
                     sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
                     sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
                     # https://github.com/project-openwrt/openwrt-isco/issues/181
                     sudo -E ln -sf /usr/include/asm-generic /usr/include/asm
-                    '''
+                    ''' % (r'''
+                    docker rmi $(docker images -q)
+                    sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+                    sudo -E apt-get -yq autoremove --purge
+                    sudo -E apt-get -yq clean
+                    sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
+                    ''' if not fast else '',
+                           'sudo -E apt-get -yq upgrade' if not fast else '')
             },
             self._gen_cache_step(
                 self.cache_python,
@@ -307,11 +310,11 @@ class WorkFlow:
                 'cache-openwrt',
                 ["openwrt-sdk-test-${{needs.APT.outputs.dateDash}}"]
             ),
+            # self._gen_debugger_step(),
             {
                 'if': self._hit_cached('cache-openwrt', False),
                 'run': self.builder + ' download'
             },
-            self._gen_debugger_step(),
             {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',
