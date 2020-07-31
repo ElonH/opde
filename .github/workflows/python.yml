@@ -71,7 +71,7 @@ jobs:
         pip3 install --no-index --find-links="./wheelhouse" -r requirements.txt
     strategy:
       fail-fast: false
-  SDK:
+  BASE:
     needs: APT
     runs-on: ubuntu-18.04
     steps:
@@ -209,7 +209,7 @@ jobs:
       fail-fast: false
   WORKER:
     needs:
-    - SDK
+    - BASE
     - APT
     runs-on: ubuntu-18.04
     steps:

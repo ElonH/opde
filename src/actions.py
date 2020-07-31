@@ -431,11 +431,11 @@ class WorkFlow:
         }
         data['jobs'] = {
             'APT': self.apt_job(),
-            'SDK': self.sdk_job(),
+            'BASE': self.sdk_job(),
             'WORKER': self.worker_job(),
         }
-        data['jobs']['SDK']['needs'] = 'APT'
-        data['jobs']['WORKER']['needs'] = ['SDK', 'APT']
+        data['jobs']['BASE']['needs'] = 'APT'
+        data['jobs']['WORKER']['needs'] = ['BASE', 'APT']
         self.data = data
         pass
 
