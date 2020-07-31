@@ -73,6 +73,9 @@ jobs:
       fail-fast: false
   BASE:
     needs: APT
+    outputs:
+      IMAGE_BUILDER_NAME: ${{steps.sdk-var2.outputs.IMAGE_BUILDE_NAME}}
+      SDK_NAME: ${{steps.sdk-var2.outputs.SDK_NAME}}
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
@@ -157,9 +160,15 @@ jobs:
         SDK_PATH=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*sdk*")
         echo $SDK_PATH
         echo "::set-output name=SDK_PATH::$SDK_PATH"
+        SDK_NAME=$(basename $SDK_PATH)
+        echo $SDK_NAME
+        echo "::set-output name=SDK_NAME::$SDK_NAME"
         IMAGE_BUILDER_PATH=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*imagebuilder*")
         echo $IMAGE_BUILDER_PATH
         echo "::set-output name=IMAGE_BUILDER_PATH::$IMAGE_BUILDER_PATH"
+        IMAGE_BUILDER_NAME=$(basename $IMAGE_BUILDER_PATH)
+        echo $IMAGE_BUILDER_NAME
+        echo "::set-output name=IMAGE_BUILDER_NAME::$IMAGE_BUILDER_NAME"
     - uses: actions/upload-artifact@v2
       with:
         name: SDK
@@ -257,6 +266,11 @@ jobs:
         source .venv/bin/activate
         pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
     - run: git submodule update --init --recursive --recommend-shallow
+    - uses: actions/download-artifact@v2
+      with:
+        name: SDK
+        path: ~/artifacts/SDK
+    - run: poetry run python3 builder.py -sdk init --sdk-archive ~/artifacts/SDK/${{needs.BASE.outputs.SDK_NAME}}
     strategy:
       fail-fast: false
       matrix:

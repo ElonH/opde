@@ -344,7 +344,9 @@ class WorkFlow:
                 'id': 'sdk-var2',
                 'run': self._gen_vars({
                     'SDK_PATH': '$(find %s/bin -name "*sdk*")' % self._in_var('sdk-var', 'openwrt'),
+                    'SDK_NAME': '$(basename $SDK_PATH)',
                     'IMAGE_BUILDER_PATH': '$(find %s/bin -name "*imagebuilder*")' % self._in_var('sdk-var', 'openwrt'),
+                    'IMAGE_BUILDER_NAME': '$(basename $IMAGE_BUILDER_PATH)',
                 })
             },
             self._gen_upload_artifact_step(
@@ -385,6 +387,10 @@ class WorkFlow:
             # self._gen_debugger_step(),
         ])
         job_apt['steps'] = stps
+        job_apt['outputs'] = {
+            "SDK_NAME": self._in_var('sdk-var2', 'SDK_NAME'),
+            "IMAGE_BUILDER_NAME": self._in_var('sdk-var2', 'IMAGE_BUILDE_NAME'),
+        }
         return job_apt
         pass
 
@@ -399,8 +405,8 @@ class WorkFlow:
         worker_builder = self.builder + ' -sdk'
         stps.extend([
             self._gen_fast_clone_submodules(),
-            # self._gen_download_artifact_step('SDK','~/artifacts')
-            # {'run': worker_builder + ' init --sdk-archive %s' % },
+            self._gen_download_artifact_step('SDK','~/artifacts/SDK'),
+            {'run': worker_builder + ' init --sdk-archive ~/artifacts/SDK/%s' % self._out_var('BASE', 'SDK_NAME')},
             # {'run': worker_builder + ' '},
             # {'run': worker_builder + ' '},
             # {'run': worker_builder + ' '},
