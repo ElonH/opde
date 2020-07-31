@@ -48,6 +48,7 @@ def init(ctx, sdk_archive: str):
      - move OpenWrt source repo to other path (only with --sdk)
      - unpack sdk (only with --sdk)
      - patch to openwrt source to export some necessery infomation
+     - switch context with Config-build.in and .Config-build.in
     '''
     setting: OpdeSetting = ctx.obj['set']
     if not ctx.obj['sdk']:
@@ -77,6 +78,13 @@ def init(ctx, sdk_archive: str):
             shutil.rmtree(setting.openwrt_dir)
         shutil.move(sdk_unpack_dir, setting.openwrt_dir)
     patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'], not ctx.obj['sdk'])
+    build_conf_path:Path = setting.openwrt_dir.joinpath('Config-build.in')
+    build_conf_bak_path:Path = setting.openwrt_dir.joinpath('.Config-build.in')
+    print('Switching %s <-> %s' % (build_conf_path, build_conf_bak_path) )
+    a=build_conf_path.read_text()
+    b=build_conf_path.read_text()
+    build_conf_bak_path.write_text(a)
+    build_conf_path.write_text(b)
 
 
 @cli.command()
