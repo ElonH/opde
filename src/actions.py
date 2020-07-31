@@ -440,6 +440,11 @@ class WorkFlow:
             },
             self._gen_upload_artifact_step(
                 'Packages-%s' % worker_id, self._in_var('worker-var', 'openwrt') + '/bin'),
+            self._gen_upload_artifact_step(
+                'Worker%s-Log' % worker_id,
+                self._in_var('worker-var', 'logs'),
+                {'if': 'always()'}
+            ),
         ])
         job_worker['steps'] = stps
         return job_worker

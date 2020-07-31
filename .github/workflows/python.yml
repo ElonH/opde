@@ -310,6 +310,11 @@ jobs:
       with:
         name: Packages-${{matrix.worker}}
         path: ${{steps.worker-var.outputs.openwrt}}/bin
+    - if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: Worker${{matrix.worker}}-Log
+        path: ${{steps.worker-var.outputs.logs}}
     strategy:
       fail-fast: false
       matrix:
