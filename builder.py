@@ -124,8 +124,10 @@ def deinit(ctx):
               is_flag=True, default=False, help='Select kernel modules removed in SDK')
 @click.option('-a', '--all-packages', 'all_packs',
               is_flag=True, default=False, help='Select all userspace packages by default')
+@click.option('-i', '--inject-conf', 'inject', help='Inject custom configuration from file',
+              default=None, type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.pass_context
-def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool):
+def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool, inject: str):
     'Configurate openwrt'
     setting: OpdeSetting = ctx.obj['set']
     setting.openwrt_dir.joinpath('logs').mkdir(parents=True, exist_ok=True)
@@ -145,6 +147,9 @@ def config(ctx, sdk: bool, ib: bool, all_packs: bool, ke: bool):
         modules.extend(['CONFIG_PACKAGE_%s=m' %
                         i for i in setting.linux_embedded_module])
         configer.inject('\n'.join(modules))
+    if inject:
+        inject_conf = Path(inject).read_text()
+        configer.inject(inject_conf)
     conf = configer.commit()
     if ctx.obj['dry']:
         print(conf)
@@ -255,7 +260,7 @@ def assign(ctx, number: int, ke: bool, database: str):
         conf = ['# worker %s' % (i + 1)]
         conf.extend(['CONFIG_PACKAGE_%s=m' % pack for pack in tasks_list[i]])
         setting.worker_conf_dir.joinpath(
-            '{:0>2}.worker.in'.format(i + 1)).write_text('\n'.join(conf))
+            '{:0>2}.worker.conf'.format(i + 1)).write_text('\n'.join(conf))
     print('workers conf save in %s' % setting.worker_conf_dir)
 
 
@@ -334,7 +339,7 @@ def install_sdk(ctx):
 def output_openwrt(ctx, variable):
     '''
     output variable
-    opdir,arch,board,logdir,metadata
+    opdir,arch,board,logdir,taskdir
     '''
     setting: OpdeSetting = ctx.obj['set']
     if variable == 'opdir':
@@ -345,15 +350,8 @@ def output_openwrt(ctx, variable):
         print(setting.targets[0])
     elif variable == 'board':
         print(setting.targets[1])
-    elif variable == 'metadata':
-        metadata = {}
-        for makefile in setting.packageinfo_ast:
-            for pack in makefile['packages']:
-                metadata[pack['Package']] = '/'.join(
-                    [pack[i] for i in ['Package-Source-Version',
-                                       'Package-Hash', 'Package-Mirror-Hash']]
-                )
-        print(json.dumps(metadata, indent=2, separators=(",", ":"), sort_keys=True))
+    elif variable == 'taskdir':
+        print(setting.worker_conf_dir.absolute())
 
 
 if __name__ == '__main__':

@@ -94,4 +94,4 @@ class Configer:
 
     def commit(self):
         'generate whole configuration'
-        return '\n'.join(self.pre + self.internal + self.post + ['# addon'] + list(self.addon.values()))
+        return '\n'.join(self.pre + ['# internal'] + self.internal + self.post + ['# addon'] + list(self.addon.values()))

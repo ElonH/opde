@@ -305,9 +305,15 @@ class WorkFlow:
             {'run': self.builder + ' feeds'},
             {'run': self.builder + ' config -sdk -ib -ke'},
             {'run': self.builder + ' metadata > %s' % self.hash_openwrt_path},
+            {
+                'id': 'cache-var',
+                'run': self._gen_vars({
+                    'OPENWRT_KEY': "'openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-%s'"% self.hash_openwrt,
+                })
+            },
             self._gen_cache_step(
                 './cache/openwrt',
-                "openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-%s" % self.hash_openwrt,
+                self._in_var('cache-var', 'OPENWRT_KEY'),
                 'cache-openwrt',
                 ["openwrt-sdk-test-${{needs.APT.outputs.dateDash}}"]
             ),
@@ -323,6 +329,7 @@ class WorkFlow:
                 'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % self.builder,
                     'logs': '$(%s @output logdir)' % self.builder,
+                    'tasks': '$(%s @output taskdir)' % self.builder,
                 })
             },
             {
@@ -340,6 +347,7 @@ class WorkFlow:
                     'sdk-var', 'logs'),
                 {'if': 'always()'}
             ),
+            self._gen_upload_artifact_step('Tasks', self._in_var('sdk-var', 'tasks')),
             {
                 'id': 'sdk-var2',
                 'run': self._gen_vars({
@@ -390,6 +398,7 @@ class WorkFlow:
         job_apt['outputs'] = {
             "SDK_NAME": self._in_var('sdk-var2', 'SDK_NAME'),
             "IMAGE_BUILDER_NAME": self._in_var('sdk-var2', 'IMAGE_BUILDE_NAME'),
+            "CACHE_OPENWRT_KEY": self._in_var('cache-var', 'OPENWRT_KEY'),
         }
         return job_apt
         pass
@@ -398,18 +407,29 @@ class WorkFlow:
         'a worker job to massive packages'
         job_worker = self._gen_empty_job()
         job_worker['strategy']['matrix'] = {
-            'source': ['{:0>2}'.format(i + 1) for i in range(self.worker_num)]
+            'worker': ['{:0>2}'.format(i + 1) for i in range(self.worker_num)]
         }
+        worker_id = '${{matrix.worker}}'
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
         worker_builder = self.builder + ' -sdk'
         stps.extend([
             self._gen_fast_clone_submodules(),
-            self._gen_download_artifact_step('SDK','~/artifacts/SDK'),
-            {'run': worker_builder + ' init --sdk-archive ~/artifacts/SDK/%s' % self._out_var('BASE', 'SDK_NAME')},
+            self._gen_download_artifact_step('SDK','~/artifacts'),
+            {'run': worker_builder + ' init --sdk-archive ~/artifacts/%s' % self._out_var('BASE', 'SDK_NAME')},
             {'run': worker_builder + ' feeds'},
-            # {'run': worker_builder + ' '},
-            # {'run': worker_builder + ' '},
+            self._gen_download_artifact_step('Tasks','~/artifacts/tasks'),
+            {'run': worker_builder + ' config -i ~/artifacts/tasks/%s.worker.conf' % worker_id},
+            self._gen_cache_step(
+                './cache/openwrt',
+                self._out_var('BASE', 'CACHE_OPENWRT_KEY'),
+                'cache-openwrt',
+            ),
+            {
+                'if': self._hit_cached('cache-openwrt', False),
+                'run': worker_builder + ' download'
+            },
+            {'run': worker_builder + ' build'},
         ])
         job_worker['steps'] = stps
         return job_worker

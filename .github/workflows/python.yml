@@ -74,6 +74,7 @@ jobs:
   BASE:
     needs: APT
     outputs:
+      CACHE_OPENWRT_KEY: ${{steps.cache-var.outputs.OPENWRT_KEY}}
       IMAGE_BUILDER_NAME: ${{steps.sdk-var2.outputs.IMAGE_BUILDE_NAME}}
       SDK_NAME: ${{steps.sdk-var2.outputs.SDK_NAME}}
     runs-on: ubuntu-18.04
@@ -126,11 +127,15 @@ jobs:
     - run: poetry run python3 builder.py feeds
     - run: poetry run python3 builder.py config -sdk -ib -ke
     - run: poetry run python3 builder.py metadata > ./cache/openwrt.hash.json
+    - id: cache-var
+      run: |-
+        OPENWRT_KEY='openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/openwrt.hash.json') }}'
+        echo $OPENWRT_KEY
+        echo "::set-output name=OPENWRT_KEY::$OPENWRT_KEY"
     - id: cache-openwrt
       uses: actions/cache@v2
       with:
-        key: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/openwrt.hash.json')
-          }}
+        key: ${{steps.cache-var.outputs.OPENWRT_KEY}}
         path: ./cache/openwrt
         restore-keys: openwrt-sdk-test-${{needs.APT.outputs.dateDash}}
     - if: steps.cache-openwrt.outputs.cache-hit != 'true'
@@ -145,6 +150,9 @@ jobs:
         logs=$(poetry run python3 builder.py @output logdir)
         echo $logs
         echo "::set-output name=logs::$logs"
+        tasks=$(poetry run python3 builder.py @output taskdir)
+        echo $tasks
+        echo "::set-output name=tasks::$tasks"
     - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.sdk-var.outputs.logs}}/logs.db.json
         ${{github.run_number}}
     - run: poetry run python3 builder.py check ${{steps.sdk-var.outputs.logs}}/logs.db.json
@@ -155,6 +163,10 @@ jobs:
       with:
         name: Kernel-Log
         path: ${{steps.sdk-var.outputs.logs}}
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Tasks
+        path: ${{steps.sdk-var.outputs.tasks}}
     - id: sdk-var2
       run: |-
         SDK_PATH=$(find ${{steps.sdk-var.outputs.openwrt}}/bin -name "*sdk*")
@@ -269,13 +281,26 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: SDK
-        path: ~/artifacts/SDK
-    - run: poetry run python3 builder.py -sdk init --sdk-archive ~/artifacts/SDK/${{needs.BASE.outputs.SDK_NAME}}
+        path: ~/artifacts
+    - run: poetry run python3 builder.py -sdk init --sdk-archive ~/artifacts/${{needs.BASE.outputs.SDK_NAME}}
     - run: poetry run python3 builder.py -sdk feeds
+    - uses: actions/download-artifact@v2
+      with:
+        name: Tasks
+        path: ~/artifacts/tasks
+    - run: poetry run python3 builder.py -sdk config -i ~/artifacts/tasks/${{matrix.worker}}.worker.conf
+    - id: cache-openwrt
+      uses: actions/cache@v2
+      with:
+        key: ${{needs.BASE.outputs.CACHE_OPENWRT_KEY}}
+        path: ./cache/openwrt
+    - if: steps.cache-openwrt.outputs.cache-hit != 'true'
+      run: poetry run python3 builder.py -sdk download
+    - run: poetry run python3 builder.py -sdk build
     strategy:
       fail-fast: false
       matrix:
-        source:
+        worker:
         - '01'
         - '02'
         - '03'
