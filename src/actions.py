@@ -514,6 +514,9 @@ class WorkFlow:
 work_flow = WorkFlow()
 # print(json.dumps(work_flow.data, indent=2))
 # pprint(work_flow.data)
-print(yaml.dump(work_flow.data))
+ctx = yaml.dump(work_flow.data)
+ctx = re.sub(r'[-] 08', "- '08'", ctx)
+ctx = re.sub(r'[-] 09', "- '09'", ctx)
+print(ctx)
 Path(__file__).parent.parent.joinpath(
-    '.github/workflows/python.yml').write_text(yaml.dump(work_flow.data))
+    '.github/workflows/python.yml').write_text(ctx)
