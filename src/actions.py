@@ -146,9 +146,9 @@ class WorkFlow:
 
     def apt_job(self):
         'cache apt'
-        job_apt = self._gen_empty_job()
+        job = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
-        job_apt['outputs'] = {
+        job['outputs'] = {
             "dateDot": self._in_var('var', 'dateDot'),
             "dateDash": self._in_var('var', 'dateDash'),
             "tag": self._in_var('var', 'tag'),
@@ -241,8 +241,8 @@ class WorkFlow:
         #         }
         #     }
         # ])
-        job_apt['steps'] = stps
-        return job_apt
+        job['steps'] = stps
+        return job
 
     def _opde_init_steps(self, fast=False):
         'initilize opde common environment'
@@ -295,7 +295,7 @@ class WorkFlow:
 
     def sdk_job(self):
         'building sdk, imagebuilder and firmware'
-        job_apt = self._gen_empty_job()
+        job = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
         db_path = '%s/logs.db.json' % self._in_var('sdk-var', 'logs')
@@ -308,7 +308,7 @@ class WorkFlow:
             {
                 'id': 'cache-var',
                 'run': self._gen_vars({
-                    'OPENWRT_KEY': "'openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-%s'"% self.hash_openwrt,
+                    'OPENWRT_KEY': "'openwrt-sdk-test-${{needs.APT.outputs.dateDash}}-%s'" % self.hash_openwrt,
                 })
             },
             self._gen_cache_step(
@@ -347,7 +347,8 @@ class WorkFlow:
                     'sdk-var', 'logs'),
                 {'if': 'always()'}
             ),
-            self._gen_upload_artifact_step('Tasks', self._in_var('sdk-var', 'tasks')),
+            self._gen_upload_artifact_step(
+                'Tasks', self._in_var('sdk-var', 'tasks')),
             {
                 'id': 'sdk-var2',
                 'run': self._gen_vars({
@@ -394,19 +395,19 @@ class WorkFlow:
             self._gen_upload_file_step(db_path, 'db'),
             # self._gen_debugger_step(),
         ])
-        job_apt['steps'] = stps
-        job_apt['outputs'] = {
+        job['steps'] = stps
+        job['outputs'] = {
             "SDK_NAME": self._in_var('sdk-var2', 'SDK_NAME'),
             "IMAGE_BUILDER_NAME": self._in_var('sdk-var2', 'IMAGE_BUILDE_NAME'),
             "CACHE_OPENWRT_KEY": self._in_var('cache-var', 'OPENWRT_KEY'),
         }
-        return job_apt
+        return job
         pass
 
     def worker_job(self):
         'a worker job to massive packages'
-        job_worker = self._gen_empty_job()
-        job_worker['strategy']['matrix'] = {
+        job = self._gen_empty_job()
+        job['strategy']['matrix'] = {
             'worker': ['{:0>2}'.format(i + 1) for i in range(self.worker_num)]
         }
         worker_id = '${{matrix.worker}}'
@@ -415,11 +416,13 @@ class WorkFlow:
         worker_builder = self.builder + ' -sdk'
         stps.extend([
             self._gen_fast_clone_submodules(),
-            self._gen_download_artifact_step('SDK','~/artifacts'),
-            {'run': worker_builder + ' init --sdk-archive ~/artifacts/%s' % self._out_var('BASE', 'SDK_NAME')},
+            self._gen_download_artifact_step('SDK', '~/artifacts'),
+            {'run': worker_builder +
+                ' init --sdk-archive ~/artifacts/%s' % self._out_var('BASE', 'SDK_NAME')},
             {'run': worker_builder + ' feeds'},
-            self._gen_download_artifact_step('Tasks','~/artifacts/tasks'),
-            {'run': worker_builder + ' config -i ~/artifacts/tasks/%s.worker.conf' % worker_id},
+            self._gen_download_artifact_step('Tasks', '~/artifacts/tasks'),
+            {'run': worker_builder +
+                ' config -i ~/artifacts/tasks/%s.worker.conf' % worker_id},
             self._gen_cache_step(
                 './cache/openwrt',
                 self._out_var('BASE', 'CACHE_OPENWRT_KEY'),
@@ -446,8 +449,8 @@ class WorkFlow:
                 {'if': 'always()'}
             ),
         ])
-        job_worker['steps'] = stps
-        return job_worker
+        job['steps'] = stps
+        return job
 
     def __init__(self):
         self.branches = ['python']
