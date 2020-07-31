@@ -81,12 +81,9 @@ def init(ctx, sdk_archive: str):
         op_repo.move(setting.openwrt_dir_in_sdk.as_posix())
         shutil.move(sdk_unpack_dir, setting.openwrt_dir)
         build_conf_path:Path = setting.openwrt_dir.joinpath('Config-build.in')
-        build_conf_bak_path:Path = setting.openwrt_dir.joinpath('.Config-build.in')
-        print('Switching %s <-> %s' % (build_conf_path, build_conf_bak_path) )
-        a=build_conf_path.read_text()
-        b=build_conf_path.read_text()
-        build_conf_bak_path.write_text(a)
-        build_conf_path.write_text(b)
+        worker_conf_path:Path = setting.openwrt_dir.joinpath('.Config-build.in.worker')
+        print('Replacing %s -> %s' % (worker_conf_path, build_conf_path) )
+        build_conf_path.write_text(worker_conf_path.read_text())
     patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'], not ctx.obj['sdk'])
 
 
