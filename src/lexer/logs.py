@@ -2,6 +2,9 @@ from ply.lex import LexToken, TOKEN
 from src.lexer.common import InfoLexer
 import re
 
+class LogTokenException(BaseException):
+    'illegal character exception'
+    pass
 
 class LogLexer(InfoLexer):
     '''
@@ -25,7 +28,7 @@ class LogLexer(InfoLexer):
     # Error handling rule
     def t_error(self, t):
         print("Illegal character \n%s" % t.value[0:100])
-        raise
+        raise LogTokenException()
         # t.lexer.skip(1)
 
     # Declare the state
