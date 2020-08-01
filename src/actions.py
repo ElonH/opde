@@ -144,6 +144,11 @@ class WorkFlow:
             'run': 'git submodule update --init --recursive --recommend-shallow'
         }
 
+    @property
+    def useless_packages(self):
+        'useless dpkg packages'
+        return 'azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*'
+
     def apt_job(self):
         'cache apt'
         job = self._gen_empty_job()
@@ -180,7 +185,7 @@ class WorkFlow:
                 'name': 'opde init',
                 'run': r'''
                     # docker rmi $(docker images -q)
-                    sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+                    sudo -E apt-get remove -y --purge %s
                     sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
                     sudo -E apt install -y apt-offline
                     APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
@@ -195,7 +200,7 @@ class WorkFlow:
                     sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
                     sudo -E apt-get upgrade
                     sudo -E apt-get install ${APT_PACKS[@]}
-                    '''
+                    ''' % self.useless_packages
             },
             {
                 'if': self._hit_cached('cache-python', False),
@@ -269,11 +274,11 @@ class WorkFlow:
                     sudo -E ln -sf /usr/include/asm-generic /usr/include/asm
                     ''' % (r'''
                     docker rmi $(docker images -q)
-                    sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+                    sudo -E apt-get -yq remove --purge {}
                     sudo -E apt-get -yq autoremove --purge
                     sudo -E apt-get -yq clean
                     sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
-                    ''' if not fast else '',
+                    '''.format(self.useless_packages) if not fast else '',
                            'sudo -E apt-get -yq upgrade' if not fast else '')
             },
             self._gen_cache_step(

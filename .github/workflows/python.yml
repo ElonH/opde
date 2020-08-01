@@ -36,7 +36,7 @@ jobs:
       run: |2
 
         # docker rmi $(docker images -q)
-        sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*
         sudo -E apt-get update -y || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
         sudo -E apt install -y apt-offline
         APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
@@ -92,7 +92,7 @@ jobs:
         sudo -E apt-get -yq update || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
 
         docker rmi $(docker images -q)
-        sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*
         sudo -E apt-get -yq autoremove --purge
         sudo -E apt-get -yq clean
         sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
@@ -499,7 +499,7 @@ jobs:
         sudo -E apt-get -yq update || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
 
         docker rmi $(docker images -q)
-        sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo -E apt-get -yq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*
         sudo -E apt-get -yq autoremove --purge
         sudo -E apt-get -yq clean
         sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php
