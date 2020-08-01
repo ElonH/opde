@@ -321,7 +321,7 @@ class WorkFlow:
         job = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
-        db_path = self._in_var('issues-vars', 'DB_PATH')
+        db_path = self._in_var('issues-var', 'DB_PATH')
         stps.extend([
             self._gen_fast_clone_submodules(),
             {'run': self.builder + ' init'},
@@ -357,7 +357,7 @@ class WorkFlow:
             },
         ])
         stps.extend( self._gen_download_db_steps())
-        db_path = self._in_var('issues-vars', 'DB_PATH')
+        db_path = self._in_var('issues-var', 'DB_PATH')
         stps.extend([
             {
                 'run': self.builder + ' extract %s %s ${{github.run_number}}' %
@@ -512,7 +512,7 @@ class WorkFlow:
         stps.append(
             self._gen_download_artifact_step( 'Kernel-Log', '~/artifacts/logs/Kernel-Log')
         )
-        db_path = self._in_var('issues-vars', 'DB_PATH')
+        db_path = self._in_var('issues-var', 'DB_PATH')
         stps.extend( self._gen_download_db_steps())
         stps.extend([
             {

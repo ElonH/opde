@@ -162,12 +162,12 @@ jobs:
         DB_PATH=${{github.workspace}}/opde-issues/logs.db.json
         echo $DB_PATH
         echo "::set-output name=DB_PATH::$DB_PATH"
-    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.issues-vars.outputs.DB_PATH}}
+    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.issues-var.outputs.DB_PATH}}
         ${{github.run_number}}
-    - run: cp -rf ${{steps.issues-vars.outputs.DB_PATH}} ${{steps.sdk-var.outputs.logs}}
-    - run: poetry run python3 builder.py check ${{steps.issues-vars.outputs.DB_PATH}}
+    - run: cp -rf ${{steps.issues-var.outputs.DB_PATH}} ${{steps.sdk-var.outputs.logs}}
+    - run: poetry run python3 builder.py check ${{steps.issues-var.outputs.DB_PATH}}
         ${{github.run_number}}
-    - run: poetry run python3 builder.py assign 20 ${{steps.issues-vars.outputs.DB_PATH}}
+    - run: poetry run python3 builder.py assign 20 ${{steps.issues-var.outputs.DB_PATH}}
     - if: always()
       uses: actions/upload-artifact@v2
       with:
@@ -232,7 +232,7 @@ jobs:
     - id: transfer
       run: |2
 
-        TRANS_RST=$(transfer cow ${{steps.issues-vars.outputs.DB_PATH}})
+        TRANS_RST=$(transfer cow ${{steps.issues-var.outputs.DB_PATH}})
         links=$(echo $TRANS_RST | grep -Pe 'Download Link: ' | sed 's/Download Link: //g')
         echo $links
         echo "::set-output name=links::$links"
@@ -465,7 +465,7 @@ jobs:
         DB_PATH=${{github.workspace}}/opde-issues/logs.db.json
         echo $DB_PATH
         echo "::set-output name=DB_PATH::$DB_PATH"
-    - run: poetry run python3 builder.py extract ~/artifacts/logs ${{steps.issues-vars.outputs.DB_PATH}}
+    - run: poetry run python3 builder.py extract ~/artifacts/logs ${{steps.issues-var.outputs.DB_PATH}}
         ${{github.run_number}}
     - run: |2
 
@@ -474,7 +474,7 @@ jobs:
     - id: db
       run: |2
 
-        TRANS_RST=$(transfer cow ${{steps.issues-vars.outputs.DB_PATH}})
+        TRANS_RST=$(transfer cow ${{steps.issues-var.outputs.DB_PATH}})
         links=$(echo $TRANS_RST | grep -Pe 'Download Link: ' | sed 's/Download Link: //g')
         echo $links
         echo "::set-output name=links::$links"
