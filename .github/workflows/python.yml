@@ -153,11 +153,21 @@ jobs:
         tasks=$(poetry run python3 builder.py @output taskdir)
         echo $tasks
         echo "::set-output name=tasks::$tasks"
-    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.sdk-var.outputs.logs}}/logs.db.json
+    - uses: actions/checkout@v2
+      with:
+        path: ${{github.workspace}}/opde-issues
+        ref: gh-pages
+    - id: issues-var
+      run: |-
+        DB_PATH=${{github.workspace}}/opde-issues/logs.db.json
+        echo $DB_PATH
+        echo "::set-output name=DB_PATH::$DB_PATH"
+    - run: poetry run python3 builder.py extract ${{steps.sdk-var.outputs.logs}} ${{steps.issues-vars.outputs.DB_PATH}}
         ${{github.run_number}}
-    - run: poetry run python3 builder.py check ${{steps.sdk-var.outputs.logs}}/logs.db.json
+    - run: cp -rf ${{steps.issues-vars.outputs.DB_PATH}} ${{steps.sdk-var.outputs.logs}}
+    - run: poetry run python3 builder.py check ${{steps.issues-vars.outputs.DB_PATH}}
         ${{github.run_number}}
-    - run: poetry run python3 builder.py assign 20 ${{steps.sdk-var.outputs.logs}}/logs.db.json
+    - run: poetry run python3 builder.py assign 20 ${{steps.issues-vars.outputs.DB_PATH}}
     - if: always()
       uses: actions/upload-artifact@v2
       with:
@@ -219,10 +229,10 @@ jobs:
 
         curl -sL https://git.io/file-transfer | sh
         sudo mv ./transfer /usr/bin
-    - id: db
+    - id: transfer
       run: |2
 
-        TRANS_RST=$(transfer cow ${{steps.sdk-var.outputs.logs}}/logs.db.json)
+        TRANS_RST=$(transfer cow ${{steps.issues-vars.outputs.DB_PATH}})
         links=$(echo $TRANS_RST | grep -Pe 'Download Link: ' | sed 's/Download Link: //g')
         echo $links
         echo "::set-output name=links::$links"
@@ -362,6 +372,112 @@ jobs:
       with:
         name: Packages-00
         path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker01-Log
+        path: ~/artifacts/logs/Worker01-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker02-Log
+        path: ~/artifacts/logs/Worker02-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker03-Log
+        path: ~/artifacts/logs/Worker03-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker04-Log
+        path: ~/artifacts/logs/Worker04-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker05-Log
+        path: ~/artifacts/logs/Worker05-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker06-Log
+        path: ~/artifacts/logs/Worker06-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker07-Log
+        path: ~/artifacts/logs/Worker07-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker08-Log
+        path: ~/artifacts/logs/Worker08-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker09-Log
+        path: ~/artifacts/logs/Worker09-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker10-Log
+        path: ~/artifacts/logs/Worker10-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker11-Log
+        path: ~/artifacts/logs/Worker11-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker12-Log
+        path: ~/artifacts/logs/Worker12-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker13-Log
+        path: ~/artifacts/logs/Worker13-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker14-Log
+        path: ~/artifacts/logs/Worker14-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker15-Log
+        path: ~/artifacts/logs/Worker15-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker16-Log
+        path: ~/artifacts/logs/Worker16-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker17-Log
+        path: ~/artifacts/logs/Worker17-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker18-Log
+        path: ~/artifacts/logs/Worker18-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker19-Log
+        path: ~/artifacts/logs/Worker19-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Worker20-Log
+        path: ~/artifacts/logs/Worker20-Log
+    - uses: actions/download-artifact@v2
+      with:
+        name: Kernel-Log
+        path: ~/artifacts/logs/Kernel-Log
+    - uses: actions/checkout@v2
+      with:
+        path: ${{github.workspace}}/opde-issues
+        ref: gh-pages
+    - id: issues-var
+      run: |-
+        DB_PATH=${{github.workspace}}/opde-issues/logs.db.json
+        echo $DB_PATH
+        echo "::set-output name=DB_PATH::$DB_PATH"
+    - run: poetry run python3 builder.py extract ~/artifacts/logs ${{steps.issues-vars.outputs.DB_PATH}}
+        ${{github.run_number}}
+    - run: |2
+
+        curl -sL https://git.io/file-transfer | sh
+        sudo mv ./transfer /usr/bin
+    - id: db
+      run: |2
+
+        TRANS_RST=$(transfer cow ${{steps.issues-vars.outputs.DB_PATH}})
+        links=$(echo $TRANS_RST | grep -Pe 'Download Link: ' | sed 's/Download Link: //g')
+        echo $links
+        echo "::set-output name=links::$links"
     strategy:
       fail-fast: false
   WORKER:

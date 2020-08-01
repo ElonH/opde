@@ -293,12 +293,30 @@ class WorkFlow:
             },
         ]
 
+    def _gen_download_db_steps(self):
+        'download issues database'
+        return [
+            {
+                'uses': 'actions/checkout@v2',
+                'with': {
+                    'ref': 'gh-pages',
+                    'path': '${{github.workspace}}/opde-issues',
+                }
+            },
+            {
+                'id': 'issues-var',
+                'run': self._gen_vars({
+                    'DB_PATH': '${{github.workspace}}/opde-issues/logs.db.json',
+                })
+            },
+        ]
+
     def sdk_job(self):
         'building sdk, imagebuilder and firmware'
         job = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps())
-        db_path = '%s/logs.db.json' % self._in_var('sdk-var', 'logs')
+        db_path = self._in_var('issues-vars', 'DB_PATH')
         stps.extend([
             self._gen_fast_clone_submodules(),
             {'run': self.builder + ' init'},
@@ -332,10 +350,15 @@ class WorkFlow:
                     'tasks': '$(%s @output taskdir)' % self.builder,
                 })
             },
+        ])
+        stps.extend( self._gen_download_db_steps())
+        db_path = self._in_var('issues-vars', 'DB_PATH')
+        stps.extend([
             {
                 'run': self.builder + ' extract %s %s ${{github.run_number}}' %
                 (self._in_var('sdk-var', 'logs'), db_path)
             },
+            {'run': 'cp -rf %s %s' % (db_path, self._in_var('sdk-var', 'logs'))},
             {'run': self.builder + ' check %s ${{github.run_number}}' % db_path},
             # TODO: workflow_dispatch
             {
@@ -392,7 +415,7 @@ class WorkFlow:
                 self.builder + ' download'
             },
             self._gen_install_transfer_step(),
-            self._gen_upload_file_step(db_path, 'db'),
+            self._gen_upload_file_step(db_path, 'transfer'),
             # self._gen_debugger_step(),
         ])
         job['steps'] = stps
@@ -464,7 +487,7 @@ class WorkFlow:
                 'if': 'always()',
                 'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % bundler_builder,
-                    # 'logs': '$(%s @output logdir)' % worker_builder,
+                    # 'logs': '$(%s @output logdir)' % bundler_builder,
                 })
             }
         )
@@ -473,6 +496,26 @@ class WorkFlow:
                 'Packages-{:0>2}'.format(i),
                 '%s/bin' % self._in_var('bundle-var', 'openwrt'))
             for i in range(self.worker_num, -1, -1)
+        ])
+        stps.extend([
+            self._gen_download_artifact_step(
+                'Worker{:0>2}-Log'.format(i+1),
+                '~/artifacts/logs/Worker{:0>2}-Log'.format(i+1)
+                )
+            for i in range(self.worker_num)
+        ])
+        stps.append(
+            self._gen_download_artifact_step( 'Kernel-Log', '~/artifacts/logs/Kernel-Log')
+        )
+        db_path = self._in_var('issues-vars', 'DB_PATH')
+        stps.extend( self._gen_download_db_steps())
+        stps.extend([
+            {
+                'run': bundler_builder + ' extract %s %s ${{github.run_number}}' %
+                ('~/artifacts/logs', db_path)
+            },
+            self._gen_install_transfer_step(),
+            self._gen_upload_file_step(db_path, 'db'),
         ])
         job['steps'] = stps
         return job
