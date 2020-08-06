@@ -87,6 +87,15 @@ class WorkFlow:
         return '${{steps.%s.outputs.%s}}' % (stepid, key)
 
     @classmethod
+    def _job_status_check(cls, jobid: str, expect: str)-> bool:
+        '''
+        check other job status, it will gengerate "success", "failure" or "cancelled"
+        and compare with expect
+        return boolean
+        '''
+        return "( ${{needs.%s.status}} == '%s')" % (jobid, expect)
+
+    @classmethod
     def _gen_upload_artifact_step(cls, name: str, path: str, addon: object = {}):
         'upload artifact'
         ans = {
@@ -480,8 +489,8 @@ class WorkFlow:
         job['steps'] = stps
         return job
 
-    def bundle_job(self):
-        'bundle all workers prodution'
+    def bundle_logs_job(self):
+        'bundle all worker logs and base logs'
         job = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps(True))
@@ -496,22 +505,25 @@ class WorkFlow:
                 })
             }
         )
-        stps.extend([
-            self._gen_download_artifact_step(
-                'Packages-{:0>2}'.format(i),
-                '%s/bin' % self._in_var('bundle-var', 'openwrt'))
-            for i in range(self.worker_num, -1, -1)
-        ])
+        # stps.extend([
+        #     self._gen_download_artifact_step(
+        #         'Packages-{:0>2}'.format(i),
+        #         '%s/bin' % self._in_var('bundle-var', 'openwrt'))
+        #     for i in range(self.worker_num, -1, -1)
+        # ])
+        stps.append(
+            self._gen_download_artifact_step( 'Kernel-Log', '~/artifacts/logs/Kernel-Log', {
+                'if': '! ' + self._job_status_check('BASE', 'success') # it is not nessary to analyize log to extract issues if build success
+            })
+        )
         stps.extend([
             self._gen_download_artifact_step(
                 'Worker{:0>2}-Log'.format(i+1),
-                '~/artifacts/logs/Worker{:0>2}-Log'.format(i+1)
+                '~/artifacts/logs/Worker{:0>2}-Log'.format(i+1),
+                { 'if': self._job_status_check('BASE', 'success')} # artifacts not exist if BASE was cancelled or failed
                 )
             for i in range(self.worker_num)
         ])
-        stps.append(
-            self._gen_download_artifact_step( 'Kernel-Log', '~/artifacts/logs/Kernel-Log')
-        )
         db_path = self._in_var('issues-var', 'DB_PATH')
         stps.extend( self._gen_download_db_steps())
         stps.extend([
@@ -550,11 +562,12 @@ class WorkFlow:
             'APT': self.apt_job(),
             'BASE': self.sdk_job(),
             'WORKER': self.worker_job(),
-            'BUNDLE': self.bundle_job(),
+            'BUNDLE_LOGS': self.bundle_logs_job(),
         }
         data['jobs']['BASE']['needs'] = 'APT'
         data['jobs']['WORKER']['needs'] = ['BASE', 'APT']
-        data['jobs']['BUNDLE']['needs'] = ['BASE', 'APT', 'WORKER']
+        data['jobs']['BUNDLE_LOGS']['needs'] = ['BASE', 'APT', 'WORKER']
+        data['jobs']['BUNDLE_LOGS']['if'] = 'always()' # alway handle logs
         self.data = data
         pass
 

@@ -238,7 +238,8 @@ jobs:
         echo "::set-output name=links::$links"
     strategy:
       fail-fast: false
-  BUNDLE:
+  BUNDLE_LOGS:
+    if: always()
     needs:
     - BASE
     - APT
@@ -288,174 +289,111 @@ jobs:
         openwrt=$(poetry run python3 builder.py @output opdir)
         echo $openwrt
         echo "::set-output name=openwrt::$openwrt"
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-20
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-19
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-18
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-17
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-16
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-15
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-14
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-13
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-12
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-11
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-10
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-09
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-08
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-07
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-06
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-05
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-04
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-03
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-02
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-01
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Packages-00
-        path: ${{steps.bundle-var.outputs.openwrt}}/bin
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker01-Log
-        path: ~/artifacts/logs/Worker01-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker02-Log
-        path: ~/artifacts/logs/Worker02-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker03-Log
-        path: ~/artifacts/logs/Worker03-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker04-Log
-        path: ~/artifacts/logs/Worker04-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker05-Log
-        path: ~/artifacts/logs/Worker05-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker06-Log
-        path: ~/artifacts/logs/Worker06-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker07-Log
-        path: ~/artifacts/logs/Worker07-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker08-Log
-        path: ~/artifacts/logs/Worker08-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker09-Log
-        path: ~/artifacts/logs/Worker09-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker10-Log
-        path: ~/artifacts/logs/Worker10-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker11-Log
-        path: ~/artifacts/logs/Worker11-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker12-Log
-        path: ~/artifacts/logs/Worker12-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker13-Log
-        path: ~/artifacts/logs/Worker13-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker14-Log
-        path: ~/artifacts/logs/Worker14-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker15-Log
-        path: ~/artifacts/logs/Worker15-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker16-Log
-        path: ~/artifacts/logs/Worker16-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker17-Log
-        path: ~/artifacts/logs/Worker17-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker18-Log
-        path: ~/artifacts/logs/Worker18-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker19-Log
-        path: ~/artifacts/logs/Worker19-Log
-    - uses: actions/download-artifact@v2
-      with:
-        name: Worker20-Log
-        path: ~/artifacts/logs/Worker20-Log
-    - uses: actions/download-artifact@v2
+    - if: '! ( ${{needs.BASE.status}} == ''success'')'
+      uses: actions/download-artifact@v2
       with:
         name: Kernel-Log
         path: ~/artifacts/logs/Kernel-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker01-Log
+        path: ~/artifacts/logs/Worker01-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker02-Log
+        path: ~/artifacts/logs/Worker02-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker03-Log
+        path: ~/artifacts/logs/Worker03-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker04-Log
+        path: ~/artifacts/logs/Worker04-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker05-Log
+        path: ~/artifacts/logs/Worker05-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker06-Log
+        path: ~/artifacts/logs/Worker06-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker07-Log
+        path: ~/artifacts/logs/Worker07-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker08-Log
+        path: ~/artifacts/logs/Worker08-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker09-Log
+        path: ~/artifacts/logs/Worker09-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker10-Log
+        path: ~/artifacts/logs/Worker10-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker11-Log
+        path: ~/artifacts/logs/Worker11-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker12-Log
+        path: ~/artifacts/logs/Worker12-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker13-Log
+        path: ~/artifacts/logs/Worker13-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker14-Log
+        path: ~/artifacts/logs/Worker14-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker15-Log
+        path: ~/artifacts/logs/Worker15-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker16-Log
+        path: ~/artifacts/logs/Worker16-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker17-Log
+        path: ~/artifacts/logs/Worker17-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker18-Log
+        path: ~/artifacts/logs/Worker18-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker19-Log
+        path: ~/artifacts/logs/Worker19-Log
+    - if: ( ${{needs.BASE.status}} == 'success')
+      uses: actions/download-artifact@v2
+      with:
+        name: Worker20-Log
+        path: ~/artifacts/logs/Worker20-Log
     - uses: actions/checkout@v2
       with:
         path: ${{github.workspace}}/opde-issues
