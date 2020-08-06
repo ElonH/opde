@@ -32,8 +32,8 @@ def feeds(ctx):
         openwrt_repo = setting.submodule(setting.openwrt_dir_in_sdk.as_posix())
         if not openwrt_repo:
             raise BaseException('Unable to find OpenWrt Source repo. (%s)' %
-                          setting.openwrt_dir_in_sdk)
-        sms = [ openwrt_repo ] + sms
+                                setting.openwrt_dir_in_sdk)
+        sms = [openwrt_repo] + sms
     feeds_conf = setting.feeds_conf(sms)
     if ctx.obj['dry']:
         print(feeds_conf)
@@ -80,9 +80,10 @@ def init(ctx, sdk_archive: str):
         sdk_unpack_dir: Path = sdk_potential_dirs[0]
         op_repo.move(setting.openwrt_dir_in_sdk.as_posix())
         shutil.move(sdk_unpack_dir, setting.openwrt_dir)
-        build_conf_path:Path = setting.openwrt_dir.joinpath('Config-build.in')
-        worker_conf_path:Path = setting.openwrt_dir.joinpath('.Config-build.in.worker')
-        print('Replacing %s -> %s' % (worker_conf_path, build_conf_path) )
+        build_conf_path: Path = setting.openwrt_dir.joinpath('Config-build.in')
+        worker_conf_path: Path = setting.openwrt_dir.joinpath(
+            '.Config-build.in.worker')
+        print('Replacing %s -> %s' % (worker_conf_path, build_conf_path))
         build_conf_path.write_text(worker_conf_path.read_text())
     patchOpenwrt(setting.openwrt_dir, ctx.obj['dry'], not ctx.obj['sdk'])
 
@@ -304,7 +305,7 @@ def _hack_sdk(ctx, directory: str):
         if not match:
             # reset some option
             if i['sym'] == 'DOWNLOAD_FOLDER':
-                i['default'] = '';
+                i['default'] = ''
             new_conf.append(i)
             worker_conf.append(i)
         else:
