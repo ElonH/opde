@@ -537,6 +537,33 @@ class WorkFlow:
         job['steps'] = stps
         return job
 
+    def bundle_packs_job(self):
+        'bundle all packages and push to release'
+        job = self._gen_empty_job()
+        stps: list = self._gen_empty_steps()
+        stps.extend(self._opde_init_steps(True))
+        bundler_builder = self.builder
+        stps.append(
+            {
+                'id': 'bundle-var',
+                'if': 'always()',
+                'run': self._gen_vars({
+                    'openwrt': '$(%s @output opdir)' % bundler_builder,
+                    # 'logs': '$(%s @output logdir)' % bundler_builder,
+                })
+            }
+        )
+        packs_path = '%s/bin' % self._in_var('bundle-var', 'openwrt')
+        stps.extend([
+            self._gen_download_artifact_step( 'Packages-{:0>2}'.format(i), packs_path)
+            for i in range(self.worker_num, -1, -1)
+        ])
+        stps.extend([
+            self._gen_upload_artifact_step('Packages', packs_path),
+        ])
+        job['steps'] = stps
+        return job
+
     def __init__(self):
         self.branches = ['python']
         # self.own_token = '${{secrets.RELEASE_TOKEN}}'
@@ -563,11 +590,13 @@ class WorkFlow:
             'BASE': self.sdk_job(),
             'WORKER': self.worker_job(),
             'BUNDLE_LOGS': self.bundle_logs_job(),
+            'BUNDLE_PACKS': self.bundle_packs_job(),
         }
         data['jobs']['BASE']['needs'] = 'APT'
         data['jobs']['WORKER']['needs'] = ['BASE', 'APT']
         data['jobs']['BUNDLE_LOGS']['needs'] = ['BASE', 'APT', 'WORKER']
         data['jobs']['BUNDLE_LOGS']['if'] = 'always()' # alway handle logs
+        data['jobs']['BUNDLE_PACKS']['needs'] = ['BASE', 'APT', 'WORKER']
         self.data = data
         pass
 

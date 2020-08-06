@@ -418,6 +418,146 @@ jobs:
         echo "::set-output name=links::$links"
     strategy:
       fail-fast: false
+  BUNDLE_PACKS:
+    needs:
+    - BASE
+    - APT
+    - WORKER
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        key: apt-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./cache/apt.list.txt')
+          }}
+        path: ${{github.workspace}}/cache/apt
+    - env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |2
+
+        sudo -E apt-get -yq update || ( sleep 1m && sudo -E apt-get update -y) || ( sleep 1m && sudo -E apt-get update -y)
+
+        sudo -E apt-get -yq install apt-offline
+        APT_PACKS=($(tr '\n' ' ' < ./cache/apt.list.txt))
+        # https://blog.sleeplessbeastie.eu/2014/01/30/how-to-manage-packages-on-an-off-line-debian-system/
+        # --allow-unauthenticated
+        sudo -E apt-offline install ./cache/apt/opde-bundle.zip --skip-bug-reports --skip-changelog
+
+        sudo -E apt-get -yq install ${APT_PACKS[@]}
+        sudo -E ln -sf /usr/bin/gcc-8 /usr/bin/gcc
+        sudo -E ln -sf /usr/bin/g++-8 /usr/bin/g++
+        # https://github.com/project-openwrt/openwrt-isco/issues/181
+        sudo -E ln -sf /usr/include/asm-generic /usr/include/asm
+    - uses: actions/cache@v2
+      with:
+        key: python-${{needs.APT.outputs.dateDash}}-${{ hashFiles('./poetry.lock')
+          }}
+        path: ${{github.workspace}}/cache/python
+    - run: |2
+
+        sed -i 's/allowed_executables = \["python", "python3"\]/allowed_executables = \["python3", "python"\]/' ./cache/python/get-poetry.py
+        python3 ./cache/python/get-poetry.py --file ./cache/python/poetry.tar.gz -y
+        source $HOME/.poetry/env
+        sudo -E ln -sf $HOME/.poetry/bin/poetry /usr/bin/poetry
+        python3 -m venv .venv
+        source .venv/bin/activate
+        pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
+    - id: bundle-var
+      if: always()
+      run: |-
+        openwrt=$(poetry run python3 builder.py @output opdir)
+        echo $openwrt
+        echo "::set-output name=openwrt::$openwrt"
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-20
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-19
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-18
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-17
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-16
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-15
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-14
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-13
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-12
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-11
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-10
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-09
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-08
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-07
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-06
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-05
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-04
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-03
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-02
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-01
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/download-artifact@v2
+      with:
+        name: Packages-00
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Packages
+        path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    strategy:
+      fail-fast: false
   WORKER:
     needs:
     - BASE
