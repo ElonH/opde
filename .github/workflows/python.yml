@@ -153,8 +153,8 @@ jobs:
         echo $tasks
         echo "::set-output name=tasks::$tasks"
     - env:
-        BUILD_KEY: ${{secret.BUILD_KEY_PRIVATE}}
-        BUILD_KEY_PUBLIC: ${{secret.BUILD_KEY_PUBLIC}}
+        BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
+        BUILD_KEY_PUBLIC: ${{secrets.BUILD_KEY_PUBLIC}}
       run: |2
 
         echo $BUILD_KEY > ${{steps.sdk-var.outputs.openwrt}}/build-key

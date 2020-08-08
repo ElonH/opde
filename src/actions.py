@@ -364,7 +364,7 @@ class WorkFlow:
                 })
             },
             {
-                'env': {'BUILD_KEY': "${{secret.BUILD_KEY_PRIVATE}}", 'BUILD_KEY_PUBLIC': "${{secret.BUILD_KEY_PUBLIC}}"},
+                'env': {'BUILD_KEY': "${{secrets.BUILD_KEY_PRIVATE}}", 'BUILD_KEY_PUBLIC': "${{secrets.BUILD_KEY_PUBLIC}}"},
                 'run': '''
                     echo $BUILD_KEY > {0}/build-key
                     echo $BUILD_KEY_PUBLIC > {0}/build-key.pub
