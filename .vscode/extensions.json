@@ -2,6 +2,9 @@
     "recommendations": [
         "ms-python.python",
         "tht13.python",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "kevinrose.vsc-python-indent",
         "twxs.cmake",
         "ms-vscode.cmake-tools",
         "ms-vscode.cpptools",
