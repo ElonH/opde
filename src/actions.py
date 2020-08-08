@@ -354,7 +354,6 @@ class WorkFlow:
                 'if': self._hit_cached('cache-openwrt', False),
                 'run': self.builder + ' download'
             },
-            {'run': self.builder + ' build'},
             {
                 'id': 'sdk-var',
                 'if': 'always()',
@@ -364,6 +363,15 @@ class WorkFlow:
                     'tasks': '$(%s @output taskdir)' % self.builder,
                 })
             },
+            {
+                'env': {'BUILD_KEY': "${{secret.BUILD_KEY_PRIVATE}}", 'BUILD_KEY_PUBLIC': "${{secret.BUILD_KEY_PUBLIC}}"},
+                'run': '''
+                    echo $BUILD_KEY > {0}/build-key
+                    echo $BUILD_KEY_PUBLIC > {0}/build-key.pub
+                    ls {0}
+                    '''.format(self._in_var('sdk-var', 'openwrt')),
+            },
+            {'run': self.builder + ' build'},
         ])
         stps.extend( self._gen_download_db_steps())
         db_path = self._in_var('issues-var', 'DB_PATH')
