@@ -368,7 +368,6 @@ class WorkFlow:
                 'run': '''
                     echo $BUILD_KEY > {0}/build-key
                     echo $BUILD_KEY_PUBLIC > {0}/build-key.pub
-                    ls {0}
                     '''.format(self._in_var('sdk-var', 'openwrt')),
             },
             {'run': self.builder + ' build'},

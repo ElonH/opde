@@ -327,13 +327,6 @@ def _hack_sdk(ctx, directory: str):
     revertPatchOpenwrt(directory, False, False)
 
 
-@cli.command('install-sdk')
-@click.pass_context
-def install_sdk(ctx):
-    setting: OpdeSetting = ctx.obj['set']
-    run('make target/sdk/install V=s -j4', cwd=setting.openwrt_dir.as_posix())
-
-
 @cli.command('@output', hidden=True)
 @click.argument('variable', type=str)
 @click.pass_context

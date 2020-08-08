@@ -159,7 +159,6 @@ jobs:
 
         echo $BUILD_KEY > ${{steps.sdk-var.outputs.openwrt}}/build-key
         echo $BUILD_KEY_PUBLIC > ${{steps.sdk-var.outputs.openwrt}}/build-key.pub
-        ls ${{steps.sdk-var.outputs.openwrt}}
     - run: poetry run python3 builder.py build
     - uses: actions/checkout@v2
       with:
