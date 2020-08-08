@@ -473,10 +473,25 @@ jobs:
         python3 -m venv .venv
         source .venv/bin/activate
         pip3 install --no-index --find-links="./cache/python/wheelhouse" -r ./cache/python/requirements.txt
+    - run: git submodule update --init --recursive --recommend-shallow
+    - uses: actions/download-artifact@v2
+      with:
+        name: SDK
+        path: ~/artifacts
+    - run: poetry run python3 builder.py -sdk init --sdk-archive ~/artifacts/${{needs.BASE.outputs.SDK_NAME}}
+    - run: poetry run python3 builder.py -sdk feeds
+    - run: poetry run python3 builder.py -sdk config
+    - id: cache-openwrt
+      uses: actions/cache@v2
+      with:
+        key: ${{needs.BASE.outputs.CACHE_OPENWRT_KEY}}
+        path: ./cache/openwrt
+    - if: steps.cache-openwrt.outputs.cache-hit != 'true'
+      run: poetry run python3 builder.py -sdk download
     - id: bundle-var
       if: always()
       run: |-
-        openwrt=$(poetry run python3 builder.py @output opdir)
+        openwrt=$(poetry run python3 builder.py -sdk @output opdir)
         echo $openwrt
         echo "::set-output name=openwrt::$openwrt"
     - uses: actions/download-artifact@v2
@@ -563,6 +578,14 @@ jobs:
       with:
         name: Packages-00
         path: ${{steps.bundle-var.outputs.openwrt}}/bin
+    - env:
+        BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
+        BUILD_KEY_PUBLIC: ${{secrets.BUILD_KEY_PUBLIC}}
+      run: |2
+
+        echo $BUILD_KEY > ${{steps.bundle-var.outputs.openwrt}}/build-key
+        echo $BUILD_KEY_PUBLIC > ${{steps.bundle-var.outputs.openwrt}}/build-key.pub
+    - run: poetry run python3 builder.py -sdk reinedx
     - uses: actions/upload-artifact@v2
       with:
         name: Packages

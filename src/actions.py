@@ -87,7 +87,7 @@ class WorkFlow:
         return '${{steps.%s.outputs.%s}}' % (stepid, key)
 
     @classmethod
-    def _job_status_check(cls, jobid: str, expect: str)-> bool:
+    def _job_status_check(cls, jobid: str, expect: str) -> bool:
         '''
         check other job status, it will gengerate "success", "failure" or "cancelled"
         and compare with expect
@@ -372,14 +372,15 @@ class WorkFlow:
             },
             {'run': self.builder + ' build'},
         ])
-        stps.extend( self._gen_download_db_steps())
+        stps.extend(self._gen_download_db_steps())
         db_path = self._in_var('issues-var', 'DB_PATH')
         stps.extend([
             {
                 'run': self.builder + ' extract %s %s ${{github.run_number}}' %
                 (self._in_var('sdk-var', 'logs'), db_path)
             },
-            {'run': 'cp -rf %s %s' % (db_path, self._in_var('sdk-var', 'logs'))},
+            {'run': 'cp -rf %s %s' % (db_path,
+                                      self._in_var('sdk-var', 'logs'))},
             {'run': self.builder + ' check %s ${{github.run_number}}' % db_path},
             # TODO: workflow_dispatch
             {
@@ -512,7 +513,7 @@ class WorkFlow:
                 })
             },
             # logs directory is not exist
-            { 'run': 'mkdir -p %s' % self._in_var('bundle-var', 'logs'), }
+            {'run': 'mkdir -p %s' % self._in_var('bundle-var', 'logs'), }
         ])
         # stps.extend([
         #     self._gen_download_artifact_step(
@@ -521,20 +522,22 @@ class WorkFlow:
         #     for i in range(self.worker_num, -1, -1)
         # ])
         stps.append(
-            self._gen_download_artifact_step( 'Kernel-Log', '~/artifacts/logs/Kernel-Log', {
-                'if': '! ' + self._job_status_check('BASE', 'success') # it is not nessary to analyize log to extract issues if build success
+            self._gen_download_artifact_step('Kernel-Log', '~/artifacts/logs/Kernel-Log', {
+                # it is not nessary to analyize log to extract issues if build success
+                'if': '! ' + self._job_status_check('BASE', 'success')
             })
         )
         stps.extend([
             self._gen_download_artifact_step(
-                'Worker{:0>2}-Log'.format(i+1),
-                '~/artifacts/logs/Worker{:0>2}-Log'.format(i+1),
-                { 'if': self._job_status_check('BASE', 'success')} # artifacts not exist if BASE was cancelled or failed
-                )
+                'Worker{:0>2}-Log'.format(i + 1),
+                '~/artifacts/logs/Worker{:0>2}-Log'.format(i + 1),
+                # artifacts not exist if BASE was cancelled or failed
+                {'if': self._job_status_check('BASE', 'success')}
+            )
             for i in range(self.worker_num)
         ])
         db_path = self._in_var('issues-var', 'DB_PATH')
-        stps.extend( self._gen_download_db_steps())
+        stps.extend(self._gen_download_db_steps())
         stps.extend([
             {
                 'run': bundler_builder + ' extract %s %s ${{github.run_number}}' %
@@ -551,8 +554,23 @@ class WorkFlow:
         job = self._gen_empty_job()
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps(True))
-        bundler_builder = self.builder
-        stps.append(
+        bundler_builder = self.builder + ' -sdk'
+        stps.extend([
+            self._gen_fast_clone_submodules(),
+            self._gen_download_artifact_step('SDK', '~/artifacts'),
+            {'run': bundler_builder +
+                ' init --sdk-archive ~/artifacts/%s' % self._out_var('BASE', 'SDK_NAME')},
+            {'run': bundler_builder + ' feeds'},
+            {'run': bundler_builder + ' config'},
+            self._gen_cache_step(
+                './cache/openwrt',
+                self._out_var('BASE', 'CACHE_OPENWRT_KEY'),
+                'cache-openwrt',
+            ),
+            {
+                'if': self._hit_cached('cache-openwrt', False),
+                'run': bundler_builder + ' download'
+            },
             {
                 'id': 'bundle-var',
                 'if': 'always()',
@@ -561,13 +579,23 @@ class WorkFlow:
                     # 'logs': '$(%s @output logdir)' % bundler_builder,
                 })
             }
-        )
+        ])
         packs_path = '%s/bin' % self._in_var('bundle-var', 'openwrt')
         stps.extend([
-            self._gen_download_artifact_step( 'Packages-{:0>2}'.format(i), packs_path)
+            self._gen_download_artifact_step(
+                'Packages-{:0>2}'.format(i), packs_path)
             for i in range(self.worker_num, -1, -1)
         ])
         stps.extend([
+            {
+                'env': {'BUILD_KEY': "${{secrets.BUILD_KEY_PRIVATE}}", 'BUILD_KEY_PUBLIC': "${{secrets.BUILD_KEY_PUBLIC}}"},
+                'run': '''
+                    echo $BUILD_KEY > {0}/build-key
+                    echo $BUILD_KEY_PUBLIC > {0}/build-key.pub
+                    '''.format(self._in_var('bundle-var', 'openwrt')),
+            },
+            # regenerate index and sign packages
+            {'run': bundler_builder + ' reinedx'},
             self._gen_upload_artifact_step('Packages', packs_path),
         ])
         job['steps'] = stps
@@ -604,7 +632,7 @@ class WorkFlow:
         data['jobs']['BASE']['needs'] = 'APT'
         data['jobs']['WORKER']['needs'] = ['BASE', 'APT']
         data['jobs']['BUNDLE_LOGS']['needs'] = ['BASE', 'APT', 'WORKER']
-        data['jobs']['BUNDLE_LOGS']['if'] = 'always()' # alway handle logs
+        data['jobs']['BUNDLE_LOGS']['if'] = 'always()'  # alway handle logs
         data['jobs']['BUNDLE_PACKS']['needs'] = ['BASE', 'APT', 'WORKER']
         self.data = data
         pass

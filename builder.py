@@ -327,6 +327,22 @@ def _hack_sdk(ctx, directory: str):
     revertPatchOpenwrt(directory, False, False)
 
 
+@cli.command()
+@click.pass_context
+def reindex(ctx):
+    '''
+    reindex and sign packages in bin
+    '''
+    setting: OpdeSetting = ctx.obj['set']
+    if ctx.obj['dry']:
+        print('Build Done')
+        return
+    run('make -j%s package/base-files/compile' % os.cpu_count(),
+        cwd=setting.openwrt_dir.as_posix())
+    run('make -j%s package/index V=s' % os.cpu_count(),
+        cwd=setting.openwrt_dir.as_posix())
+
+
 @cli.command('@output', hidden=True)
 @click.argument('variable', type=str)
 @click.pass_context
