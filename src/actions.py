@@ -495,16 +495,18 @@ class WorkFlow:
         stps: list = self._gen_empty_steps()
         stps.extend(self._opde_init_steps(True))
         bundler_builder = self.builder
-        stps.append(
+        stps.extend([
             {
                 'id': 'bundle-var',
                 'if': 'always()',
                 'run': self._gen_vars({
                     'openwrt': '$(%s @output opdir)' % bundler_builder,
-                    # 'logs': '$(%s @output logdir)' % bundler_builder,
+                    'logs': '$(%s @output logdir)' % bundler_builder,
                 })
-            }
-        )
+            },
+            # logs directory is not exist
+            { 'run': 'mkdir -p %s' % self._in_var('bundle-var', 'logs'), }
+        ])
         # stps.extend([
         #     self._gen_download_artifact_step(
         #         'Packages-{:0>2}'.format(i),

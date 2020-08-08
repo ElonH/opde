@@ -289,6 +289,10 @@ jobs:
         openwrt=$(poetry run python3 builder.py @output opdir)
         echo $openwrt
         echo "::set-output name=openwrt::$openwrt"
+        logs=$(poetry run python3 builder.py @output logdir)
+        echo $logs
+        echo "::set-output name=logs::$logs"
+    - run: mkdir -p ${{steps.bundle-var.outputs.logs}}
     - if: '! ( ${{needs.BASE.status}} == ''success'')'
       uses: actions/download-artifact@v2
       with:
