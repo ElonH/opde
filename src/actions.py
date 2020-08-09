@@ -595,7 +595,7 @@ class WorkFlow:
                     '''.format(self._in_var('bundle-var', 'openwrt')),
             },
             # regenerate index and sign packages
-            {'run': bundler_builder + ' reinedx'},
+            {'run': bundler_builder + ' reindex'},
             self._gen_upload_artifact_step('Packages', packs_path),
         ])
         job['steps'] = stps

@@ -585,7 +585,7 @@ jobs:
 
         echo $BUILD_KEY > ${{steps.bundle-var.outputs.openwrt}}/build-key
         echo $BUILD_KEY_PUBLIC > ${{steps.bundle-var.outputs.openwrt}}/build-key.pub
-    - run: poetry run python3 builder.py -sdk reinedx
+    - run: poetry run python3 builder.py -sdk reindex
     - uses: actions/upload-artifact@v2
       with:
         name: Packages
