@@ -139,7 +139,7 @@ class DependsTree():
                 for i in pack['Provides']:
                     if isinstance(i, str):
                         pyd = i
-                    elif isinstance(i, tuple):
+                    elif isinstance(i, tuple) or isinstance(i, list):
                         pyd = i[0]  # FIXME: ignore version compare
                     else:
                         raise BaseException(
@@ -181,6 +181,7 @@ class DependsTree():
             ['package/feeds/packages/pulseaudio/noavahi',
                 'pulseaudio-tools', 'pulseaudio'],
             ['kmod-openvswitch', 'package/feeds/packages/openvswitch'],
+            ['ninja/host', 'ninja/host']
         ]
         for cycle in cycles:
             name = str(cycle)

@@ -1,0 +1,4 @@
+FROM elonh/opde:sdk
+LABEL maintainer="Elon Huang <elonhhuang@gmail.com>"
+
+RUN mv Config-build.in .Config-build.in.fixed && mv .Config-build.in.worker Config-build.in

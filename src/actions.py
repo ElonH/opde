@@ -158,6 +158,28 @@ class WorkFlow:
         'useless dpkg packages'
         return 'azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*'
 
+    @property
+    def install_ootoc_step(self):
+        'compile and install ootoc'
+        return {
+            'run': '''
+                cd ${HOME}
+                git clone https://github.com/jbeder/yaml-cpp.git && cd yaml-cpp
+                cmake -DYAML_CPP_BUILD_TESTS:BOOL=OFF -DYAML_BUILD_SHARED_LIBS:BOOL=ON .
+                make && sudo make install
+                git clone https://github.com/gabime/spdlog.git && cd spdlog
+                cmake -DSPDLOG_BUILD_TESTS:BOOL=OFF -DSPDLOG_BUILD_SHARED:BOOL=ON -DSPDLOG_BUILD_EXAMPLE:BOOL=OFF .
+                make && sudo make install
+                git clone https://github.com/ElonH/libtar.git && cd libtar
+                autoreconf --force --install
+                ./configure && make && sudo make install
+                git clone --recursive https://github.com/ElonH/ootoc.git && cd ootoc
+                cmake -DOOTOC_TEST:BOOL=OFF .
+                make && sudo make install
+                sudo ldconfig
+            '''
+        }
+
     def apt_job(self):
         'cache apt'
         job = self._gen_empty_job()

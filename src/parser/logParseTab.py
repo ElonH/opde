@@ -27,7 +27,7 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> root","S'",1,None,None,None),
-  ('root -> DETAIL info','root',2,'p_all','logparser.py',28),
-  ('root -> info','root',1,'p_all','logparser.py',29),
-  ('info -> CMDARRAY CODEANDTIME','info',2,'p_info','logparser.py',40),
+  ('root -> DETAIL info','root',2,'p_all','logparser.py',25),
+  ('root -> info','root',1,'p_all','logparser.py',26),
+  ('info -> CMDARRAY CODEANDTIME','info',2,'p_info','logparser.py',38),
 ]

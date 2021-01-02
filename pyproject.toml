@@ -6,7 +6,6 @@ authors = ["ElonH <elonhhuang@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-bash = "^0.6"
 PyGithub = "^1.51"
 ply = "^3.11"
 networkx = "^2.4"

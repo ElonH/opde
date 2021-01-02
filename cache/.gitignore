@@ -1,6 +1,0 @@
-openwrt/*
-!openwrt/.gitkeep
-python.*
-!python/.gitkeep
-apt.*
-!apt/.gitkeep

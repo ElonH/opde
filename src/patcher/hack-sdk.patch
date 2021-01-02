@@ -13,7 +13,7 @@ index 3b860db93a..1a3752d96f 100644
 -	fi
 +	cat $(TOPDIR)/feeds.conf.default >> $(SDK_BUILD_DIR)/feeds.conf.default
 +	$(if $(OPDE_PYTHON), \
-+		LC_ALL=C.UTF-8 LANG=C.UTF-8 $(OPDE_PYTHON) $(OPDE_BUILDER) @hack-sdk $(SDK_BUILD_DIR), \
++		LC_ALL=C.UTF-8 LANG=C.UTF-8 $(OPDE_PYTHON) $(OPDE_BUILDER) -s $(TOPDIR) @hack-sdk $(SDK_BUILD_DIR), \
 +	        echo "env 'OPDE_PYTHON' missing... skip to hack sdk" \
 +	)
  	$(SED) 's,^# REVISION:=.*,REVISION:=$(REVISION),g' $(SDK_BUILD_DIR)/include/version.mk

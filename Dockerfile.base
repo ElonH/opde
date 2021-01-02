@@ -1,0 +1,6 @@
+FROM elonh/opde:dev
+LABEL maintainer="Elon Huang <elonhhuang@gmail.com>"
+
+ENV OPDE_MODE=BASE
+COPY opde /opde/opde
+COPY src /opde/src

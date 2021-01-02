@@ -23,7 +23,8 @@ class PackageInfoParser(PackageInfoLexer):
         '''
         root : source
              | root source
-        packs : pack
+        packs : 
+              | pack
               | packs pack
         depsext : depend
              | depsext depend
@@ -36,8 +37,10 @@ class PackageInfoParser(PackageInfoLexer):
         '''
         if len(p) == 3:
             p[0] = p[1] + [p[2]]
-        else:
+        elif len(p) == 2:
             p[0] = [p[1]]
+        else:
+            p[0] = []
 
     def p_list_end(self, p):
         '''
@@ -126,5 +129,5 @@ class PackageInfoParser(PackageInfoLexer):
                 break
         # print(self.parser.__dir__())
         print(self.parser.state)
-        raise
+        raise BaseException("parse error")
         # self.parser.errok()

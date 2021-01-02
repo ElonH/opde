@@ -1,0 +1,397 @@
+#!/bin/python3
+import os
+import re
+import shutil
+from pathlib import Path
+
+import click
+from src import OpdeSetting, bash, patcher, parser, configer, dumper, extractor, database, depstree, distributor, worker
+
+_opde_mode = os.environ['OPDE_MODE']
+_allowed_mode = ['BASE', 'SDK']
+
+
+def add_condictional_options(opt_dict: dict):
+    """ add diff options based on diff Mode
+
+    Args:
+        options (dict): {option: [list of allowed mode]}
+    """
+    def _add_options(func):
+        for option in opt_dict.keys():
+            if _opde_mode in opt_dict[option]:
+                func = option(func)
+        return func
+    return _add_options
+
+
+@click.group(help='''
+    OpenWRT Builder (Mode: %s)
+
+    Build order step:
+    1. feeds
+    2. patch
+    3. config
+    4. download
+    5. build
+
+    Advance:
+    6. extract
+    7. check
+    8. assign
+    ''' % _opde_mode)
+@click.option('-d', '--dry', is_flag=True, default=False, help='Dry run mode')
+@click.option('-c/-C', '--cache/--no-cache', 'cache', is_flag=True, default=True, show_default=True, envvar='OPDE_CACHE', help="Enable opde cache flag system")
+@click.option('-s', '--source', 'source_path', type=click.Path(exists=True, dir_okay=True, file_okay=False, resolve_path=True, writable=True),
+              show_default=True, envvar='OPENWRT_SOURCE', default='.',
+              help="Path to openWRT source code" if _opde_mode == 'BASE' else "Path to openWRT SDK")
+@click.pass_context
+def cli(ctx, dry: bool, cache: bool, source_path) -> None:
+    '''
+    opde entry point
+    '''
+    ctx.ensure_object(dict)
+    ctx.obj['set'] = OpdeSetting(source_path, cache)
+    ctx.obj['dry'] = dry
+    # ctx.obj['cache'] = cache
+    ctx.obj['mode'] = _opde_mode  # backward compatibility
+
+
+@cli.command()
+@click.pass_context
+def feeds(ctx):
+    "Initialize OpenWRT's feeds"
+    setting: OpdeSetting = ctx.obj['set']
+    # sms = setting.feeds_repos
+    # if ctx.obj['mode']:
+    #     openwrt_repo = setting.submodule(setting.openwrt_dir_in_sdk.as_posix())
+    #     if not openwrt_repo:
+    #         raise BaseException('Unable to find OpenWrt Source repo. (%s)' %
+    #                             setting.openwrt_dir_in_sdk)
+    #     sms = [openwrt_repo] + sms
+    # feeds_conf = setting.feeds_conf(sms)
+    # if ctx.obj['dry']:
+    #     print(feeds_conf)
+    #     return
+    # setting.openwrt_dir.joinpath('feeds.conf').write_text(feeds_conf)
+    cmd = './scripts/feeds update -a && ./scripts/feeds install -a'
+    if ctx.obj['dry']:
+        print(cmd)
+        return
+    shutil.rmtree(setting.openwrt_dir.joinpath('tmp'), ignore_errors=True)
+    bash.run(cmd, cwd=setting.openwrt_dir.as_posix())
+
+
+@cli.command(hidden=_opde_mode not in ['BASE'])
+@click.pass_context
+def patch(ctx, sdk_archive: str = None):
+    '''Patch source code '''
+    setting: OpdeSetting = ctx.obj['set']
+    patcher.patchOpenwrt(setting.openwrt_dir, ctx.obj['mode'], ctx.obj['dry'])
+
+
+@cli.command(hidden=_opde_mode not in ['BASE'])
+@click.pass_context
+def revPatch(ctx):
+    """revert patch step """
+    # '''
+    # Deinitilize opde (run only once)
+    #  - revert patch to openwrt source
+    #  - removing sdk (only with --sdk)
+    #  - move OpenWrt source repo back to origin path (only with --sdk)
+    # '''
+    setting: OpdeSetting = ctx.obj['set']
+    patcher.revertPatchOpenwrt(
+        setting.openwrt_dir, ctx.obj['mode'], ctx.obj['dry'])
+    # if not ctx.obj['mode']:
+    #      return
+    #  if setting.openwrt_dir.exists():
+    #      print('Removing SDK...')
+    #      if not ctx.obj['dry']:
+    #          shutil.rmtree(setting.openwrt_dir)
+    #  if not ctx.obj['dry']:
+    #      print('Moving OpenWrt source repo back to origin path')
+    #      op_repo = setting.submodule(setting.openwrt_dir_in_sdk.as_posix())
+    #      if op_repo:
+    #          if not ctx.obj['dry']:
+    #              op_repo.move(setting.openwrt_dir.as_posix())
+    #      else:
+    #          BaseException('Unable to find OpenWrt Source repo. (%s)' %
+    #                        setting.openwrt_dir_in_sdk)
+
+
+@cli.command()
+@add_condictional_options({
+    click.option('-sdk', '--build-sdk', 'sdk',
+                 is_flag=True, default=False, help='Build the OpenWrt SDK'): ['BASE'],
+    click.option('-ib', '--build-image-builder', 'ib',
+                 is_flag=True, default=False, help='Build the OpenWrt Image Builder'): ['BASE'],
+    click.option('-ke', '--linux-embedded-modules', 'ke',
+                 is_flag=True, default=False, help='Select kernel modules removed in SDK'): ['BASE'],
+})
+@click.option('-a', '--all-packages', 'all_packs',
+              is_flag=True, default=False, help='Select all userspace packages by default')
+@click.option('-i', '--inject-conf', 'inject', help='Inject custom configuration from file',
+              default=None, type=click.Path(exists=True, file_okay=True, dir_okay=False))
+@click.pass_context
+def config(ctx, all_packs: bool, inject: str, ke: bool = None, sdk: bool = None, ib: bool = None):
+    'Configurate openwrt'
+    setting: OpdeSetting = ctx.obj['set']
+    mode: str = ctx.obj['mode']
+    setting.logs_dir.mkdir(parents=True, exist_ok=True)
+    builder = configer.Configer()
+    builder.compose(*setting.targets)
+    if mode == 'SDK':
+        builder.sdk_mode()
+    # NOTE: absolute path
+    # builder.download_dir(setting.cache_dir.joinpath('dl'))
+    if sdk:
+        builder.build_sdk()
+    if ib:
+        builder.build_image_builder()
+    if all_packs:
+        builder.select_all()
+    if ke:
+        modules = ['# kernel modules removed in SDK']
+        modules.extend(['CONFIG_PACKAGE_%s=m' %
+                        i for i in setting.linux_embedded_module])
+        builder.inject('\n'.join(modules))
+    if inject:
+        inject_conf = Path(inject).read_text()
+        builder.inject(inject_conf)
+    config = builder.commit()
+    if ctx.obj['dry']:
+        print("mini config show below:\n")
+        print(config)
+        return
+    setting.openwrt_dir.joinpath('.config').write_text(config)
+    shutil.copyfile(setting.openwrt_dir.joinpath('.config'),
+                    setting.cache_dir.joinpath('min-config.in'))
+    bash.run('make defconfig', cwd=setting.openwrt_dir.as_posix())
+
+
+@cli.command()
+@click.argument('threads', type=click.INT, default=max(16, 4*os.cpu_count()), required=False)
+@click.pass_context
+def download(ctx, threads: int):
+    "Download Openwrt's downloaded source bundles"
+    setting: OpdeSetting = ctx.obj['set']
+    if ctx.obj['dry']:
+        print('Download Done')
+        return
+
+    bash.run('make -j{0} download && make -j{0} download && make -j{0} download'.format(threads),
+             cwd=setting.openwrt_dir.as_posix())
+
+
+@cli.command()
+@click.pass_context
+def build(ctx):
+    'Build OpenWrt'
+    setting: OpdeSetting = ctx.obj['set']
+    if ctx.obj['dry']:
+        print('Build Done')
+        return
+    bash.run('make -j%s IGNORE_ERRORS="y m n" |& tee %s/log.out' % (os.cpu_count(), setting.cache_dir.as_posix()),
+             cwd=setting.openwrt_dir.as_posix())
+
+
+@cli.command(hidden=True)
+@click.argument('db-dir', type=click.Path(file_okay=False, dir_okay=True))
+@click.argument('run-number', type=click.INT)
+@click.pass_context
+def extract(ctx, db_dir: str, run_number: int):
+    'Extract build information from logs'
+    setting: OpdeSetting = ctx.obj['set']
+    extor = extractor.LogsExtractor(setting.openwrt_dir.joinpath('logs'))
+    setting.logs_ast = extor.logsAst
+    if ctx.obj['dry']:
+        print('Extract Done')
+        return
+    db = database.LogsDb(Path(db_dir))
+    for logAst in setting.logs_ast:
+        item = database.LogsDb.merge(
+            logAst, *setting.targets, run_number=run_number)
+        db.insert(item)
+    db.transform_and_exit()
+
+
+@cli.command(hidden=True)
+@click.argument('db-path', type=click.Path(file_okay=False, dir_okay=True))
+@click.argument('run-number', type=click.INT)
+@click.pass_context
+def check(ctx, db_dir: str, run_number):
+    '''
+    Check if error exist
+    0: not error exist
+    1: exist error
+    '''
+    setting: OpdeSetting = ctx.obj['set']
+    db = database.LogsDb(Path(db_dir))
+    ans = 1 if db.exist_error(*setting.targets, run_number=run_number) else 0
+    db.transform_and_exit()
+    print(ans)
+    exit(ans)
+
+
+@cli.command(hidden=True)
+@click.argument('number', type=click.INT, default=20)
+@click.argument('db-dir', type=click.Path(file_okay=False, dir_okay=True))
+@click.option('-ke', '--linux-embedded-modules', 'ke',
+              is_flag=True, default=False, help='Include kernel modules removed in SDK')
+@click.pass_context
+def assign(ctx, number: int, ke: bool, db_dir: str):
+    'Assignments all packages to serval(default:20) workers'
+    setting: OpdeSetting = ctx.obj['set']
+    deps_tree = depstree.DependsTree()
+    deps_tree.inject_package_info(setting.packageinfo_ast)
+    db = database.LogsDb(Path(db_dir))
+    deps_tree.inject_costs(db, *setting.targets)
+    db.transform_and_exit()
+    setting.StoreDepsDAG(deps_tree.to_json())
+    assigner = distributor.WorksDistributor()
+    assigner.build(setting.deps_dag_file.as_posix())
+    tasks_list = assigner.deduce_depends_all(number)
+    if not ke:
+        linux_embedded_module = set(setting.linux_embedded_module)
+        new_tasks_list = []
+        for worker in tasks_list:
+            tasks = []
+            for pack in worker:
+                if pack in linux_embedded_module:
+                    continue
+                tasks.append(pack)
+            tasks = list(set(tasks))
+            tasks.sort()
+            new_tasks_list.append(tasks)
+        tasks_list = setting.tasks_list = new_tasks_list
+    else:
+        setting.tasks_list = tasks_list
+    # tasks_list = setting.tasks_list # debug
+    setting.worker_conf_dir.mkdir(parents=True, exist_ok=True)
+    for i in range(number):
+        conf = ['# worker %s' % (i + 1)]
+        conf.extend(['CONFIG_PACKAGE_%s=m' % pack for pack in tasks_list[i]])
+        setting.worker_conf_dir.joinpath(
+            '{:0>2}.worker.conf'.format(i + 1)).write_text('\n'.join(conf))
+    print('workers conf save in %s' % setting.worker_conf_dir)
+
+
+# @cli.command()
+# @click.pass_context
+# def metadata(ctx):
+#     """
+#     generate metadata forOpenwrt's Source bundle
+#     """
+#     setting: OpdeSetting = ctx.obj['set']
+#     print(json.dumps(setting.metadata_hash, indent=2,
+#                      sort_keys=True, separators=(",", ":")))
+
+
+@cli.command('@hack-sdk', hidden=True)
+@click.argument('directory', type=click.Path(exists=True, dir_okay=True, file_okay=False))
+@click.pass_context
+def _hack_sdk(ctx, directory: str):
+    'hack configuration in SDK, run by makefile'
+    setting: OpdeSetting = ctx.obj['set']
+    dry: bool = ctx.obj['dry']
+
+    print('SDK Building Path: %s' % Path(directory).absolute())
+    sdk_dir = Path(directory)
+    build_conf_path = sdk_dir.joinpath('Config-build.in')
+    if not dry:
+        shutil.copy(build_conf_path, sdk_dir.joinpath('.Config-build.in.ori'))
+    else:
+        print('Copy File %s to %s' % (build_conf_path.as_posix(),
+                                      sdk_dir.joinpath('.Config-build.in.ori').as_posix()))
+    worker_build_conf_path = sdk_dir.joinpath('.Config-build.in.worker')
+    print('fixing %s' % build_conf_path.as_posix())
+    kparser = parser.KconfigParser()
+    ast = kparser.gen_ast(build_conf_path.read_text())
+    setting.StoreSDKBuildInAst(ast)
+
+    linux_embedded_module = set(setting.linux_embedded_module)
+    packages = set(setting.packages)
+    # needs compile in sdk
+    packages.remove('base-files')
+    new_conf = []
+    worker_conf = []
+    reg = re.compile('^(DEFAULT_|PACKAGE_|LUCI_LANG_|FEED_)(.*)')
+    for i in ast:
+        match = reg.match(i['sym'])
+        if not match:
+            # reset some option
+            if i['sym'] == 'DOWNLOAD_FOLDER':
+                i['default'] = ''
+            new_conf.append(i)
+            worker_conf.append(i)
+        else:
+            gps = match.groups()
+            if gps[0] in ['LUCI_LANG_', 'FEED_']:
+                pass
+            elif gps[1] in linux_embedded_module:
+                new_conf.append(i)
+                # worker_conf.append(i)
+            elif gps[1] in packages:
+                if gps[0] in ['DEFAULT_']:
+                    new_conf.append(i)
+            else:
+                worker_conf.append(i)
+                new_conf.append(i)
+
+    if not dry:
+        build_conf_path.write_text(dumper.KconfigDumper(new_conf))
+        worker_build_conf_path.write_text(dumper.KconfigDumper(worker_conf))
+    else:
+        print('new_conf content show below:\n\n\n%s\n\n' %
+              dumper.KconfigDumper(new_conf))
+        print('worker_conf content show below:\n\n\n%s\n\n' %
+              dumper.KconfigDumper(worker_conf))
+    patcher.revertPatchOpenwrt(directory, 'SDK', dry)
+
+
+# @cli.command()
+# @click.pass_context
+# def reindex(ctx):
+#     '''
+#     reindex and sign packages in bin
+#     '''
+#     setting: OpdeSetting = ctx.obj['set']
+#     if ctx.obj['dry']:
+#         print('Build Done')
+#         return
+#     run('make -j%s package/base-files/compile' % os.cpu_count(),
+#         cwd=setting.openwrt_dir.as_posix())
+#     run('make -j%s package/index V=s' % os.cpu_count(),
+#         cwd=setting.openwrt_dir.as_posix())
+
+
+# @cli.command('@output', hidden=True)
+# @click.argument('variable', type=str)
+# @click.pass_context
+# def output_openwrt(ctx, variable):
+#     '''
+#     output variable
+#     opdir,arch,board,logdir,taskdir
+#     '''
+#     setting: OpdeSetting = ctx.obj['set']
+#     if variable == 'opdir':
+#         print(setting.openwrt_dir.absolute())
+#     elif variable == 'logdir':
+#         print(setting.openwrt_dir.joinpath('logs').absolute())
+#     elif variable == 'arch':
+#         print(setting.targets[0])
+#     elif variable == 'board':
+#         print(setting.targets[1])
+#     elif variable == 'taskdir':
+#         print(setting.worker_conf_dir.absolute())
+
+
+if __name__ == '__main__':
+    # @click.option('-m', '--mode', 'mode', envvar='MODE', default=None, help="OPDE Mode(BASE, SDK, IB)")
+    os.environ['OPDE_BUILDER'] = Path(__file__).absolute().as_posix()
+    os.environ['OPDE_PYTHON'] = shutil.which('python3')
+    if _opde_mode not in _allowed_mode:
+        raise click.ClickException(
+            "ENV 'OPDE_MODE' is one of %s only." % _allowed_mode)
+    cli(obj={}, auto_envvar_prefix='OPDE')
