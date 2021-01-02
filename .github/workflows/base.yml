@@ -20,8 +20,20 @@ jobs:
           submodules: true
       - name: Fix premission
         run: docker run -v $PWD:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
+      - name: Opde feeds
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde feeds
+      - name: Opde patch
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde patch
+      - name: Opde config
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde config -ke -ib -sdk
+      - name: Opde download
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde download
+      - name: Opde build
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde build
+      - name: Fix premission
+        run: sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
       - 
-        name: debug
+        name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
         uses: mxschmitt/action-tmate@v2
         if: always()
       # -
