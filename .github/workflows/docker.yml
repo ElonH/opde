@@ -6,13 +6,13 @@ on:
       chinese:
         description: 'using chinese apt and pip source mirrors'
         default: '0'
-  push:
-    paths-ignore:
-      - '**.md' # ignore *.md files
-    branches:
-      - docker
-    schedule:
-      - cron:  '0 0 1 * *' # every month
+  # push:
+  #   paths-ignore:
+  #     - '**.md' # ignore *.md files
+  #   branches:
+  #     - docker
+  #   schedule:
+  #     - cron:  '0 0 1 * *' # every month
 jobs:
   scratch-base-dev:
     runs-on: ubuntu-latest
