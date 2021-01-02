@@ -1,13 +1,18 @@
 name: Docker
 
 on:
-  push:
-    paths-ignore:
-      - '**.md' # ignore *.md files
-    branches:
-      - docker
-    schedule:
-      - cron:  '0 0 1 * *' # every month
+  # push:
+  #   paths-ignore:
+  #     - '**.md' # ignore *.md files
+  workflow_dispatch:
+    inputs:
+      chinese:
+        description: 'using chinese apt and pip source mirrors'
+        default: '0'
+    # branches:
+    #   - docker
+    # schedule:
+    #   - cron:  '0 0 1 * *' # every month
 jobs:
   scratch:
     runs-on: ubuntu-latest
@@ -43,7 +48,7 @@ jobs:
           file: ./Dockerfile.scratch
           platforms: linux/amd64
           build-args: |
-            CHINESE_APT_MIRRORS=0
+            CHINESE_APT_MIRRORS=${{ github.event.inputs.chinese }}
           push: true
           tags: |
             elonh/opde:scratch
@@ -67,7 +72,7 @@ jobs:
           file: ./Dockerfile.dev
           platforms: linux/amd64
           build-args: |
-            CHINESE_PIP_MIRRORS=0
+            CHINESE_PIP_MIRRORS=${{ github.event.inputs.chinese }}
           push: true
           tags: |
             elonh/opde:dev
