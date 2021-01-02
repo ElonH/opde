@@ -30,6 +30,8 @@ jobs:
         with:
           repository: project-openwrt/openwrt
           submodules: true
+      - name: pull docker image
+        run: docker pull elonh/opde:base
       - name: Fix premission
         run: docker run -v $PWD:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
       - name: Opde feeds
