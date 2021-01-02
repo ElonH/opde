@@ -13,17 +13,13 @@ jobs:
   base:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: true
       - name: Checkout OpenWRT repo
         uses: actions/checkout@v2
         with:
           repository: project-openwrt/openwrt
-          path: openwrt
           submodules: true
+      - name: Fix premission
+        run: docker run -v $PWD:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
       - 
         name: debug
         uses: mxschmitt/action-tmate@v2
