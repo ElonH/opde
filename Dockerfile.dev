@@ -5,7 +5,7 @@ LABEL maintainer="Elon Huang <elonhhuang@gmail.com>"
 ARG CHINESE_PIP_MIRRORS=0
 RUN [ $CHINESE_PIP_MIRRORS -eq 1 ] && \
 	sudo -E -H pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple && \
-	sudo -E -H pip3 config set install.trusted-host mirrors.aliyun.com
+	sudo -E -H pip3 config set install.trusted-host mirrors.aliyun.com || false
 
 # running `poetry export -f requirements.txt -o requirements.txt` to update python packages
 COPY ./requirements.txt /requirements.txt
