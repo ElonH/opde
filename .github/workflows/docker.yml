@@ -43,7 +43,7 @@ jobs:
           file: ./Dockerfile.scratch
           platforms: linux/amd64
           build-args: |
-            CHINESE_APT_MIRRORS=1
+            CHINESE_APT_MIRRORS=0
           push: true
           tags: |
             elonh/opde:scratch
@@ -67,7 +67,7 @@ jobs:
           file: ./Dockerfile.dev
           platforms: linux/amd64
           build-args: |
-            CHINESE_PIP_MIRRORS=1
+            CHINESE_PIP_MIRRORS=0
           push: true
           tags: |
             elonh/opde:dev
