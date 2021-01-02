@@ -3,7 +3,7 @@ LABEL maintainer="Elon Huang <elonhhuang@gmail.com>"
 
 # 使用国内APT镜像源
 ARG CHINESE_APT_MIRRORS=0
-RUN [ $CHINESE_APT_MIRRORS -eq 1 ] && sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+RUN [ $CHINESE_APT_MIRRORS -eq 1 ] && sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list || true
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y &&\
