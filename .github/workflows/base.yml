@@ -13,6 +13,8 @@ jobs:
   base:
     runs-on: ubuntu-latest
     steps:
+      - name: Clean APT
+        run: sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*
       - name: Checkout OpenWRT repo
         uses: actions/checkout@v2
         with:
