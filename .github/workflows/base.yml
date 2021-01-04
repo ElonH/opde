@@ -38,7 +38,7 @@ jobs:
       - name: Opde build
         run: docker run -v $PWD:/openwrt elonh/opde:base opde build
       - name: Fix premission
-        run: sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
+        run: df -h #sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
       - 
         name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
         uses: mxschmitt/action-tmate@v2
