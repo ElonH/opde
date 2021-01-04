@@ -14,7 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clean APT
-        run: sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*
+        run: |
+          sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* msodbc*
+          docker image prune -f
+          df -h
       - name: Checkout OpenWRT repo
         uses: actions/checkout@v2
         with:
@@ -30,6 +33,8 @@ jobs:
         run: docker run -v $PWD:/openwrt elonh/opde:base opde config -ke -ib -sdk
       - name: Opde download
         run: docker run -v $PWD:/openwrt elonh/opde:base opde download
+      - name: shiw disk space
+        run: docker run -v $PWD:/openwrt elonh/opde:base df -h
       - name: Opde build
         run: docker run -v $PWD:/openwrt elonh/opde:base opde build
       - name: Fix premission
