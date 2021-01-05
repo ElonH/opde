@@ -44,12 +44,20 @@ jobs:
         run: docker run -v $PWD:/openwrt elonh/opde:base df -h
       - name: Opde build
         run: docker run -v $PWD:/openwrt elonh/opde:base opde build
+      - name: Update database
+        run: |
+          docker run -v $PWD:/openwrt elonh/opde:base mkdir .opde/db # create database only
+          docker run -v $PWD:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
+      - name: Upload
+        run: |
+          docker run -v $PWD:/openwrt elonh/opde:base tar -czf opde.tar.gz logs bin .opde
+          docker run -v $PWD:/openwrt elonh/opde:base transfer cow opde.tar.gz
       - name: Fix premission
-        run: df -h #sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
-      - 
-        name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
-        uses: mxschmitt/action-tmate@v2
-        if: always()
+        run: sudo chown $(id -u -n):$(id -g -n) bin
+      #- 
+      #  name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
+      #  uses: mxschmitt/action-tmate@v2
+      #  if: failure()
       # -
       #   name: Set up QEMU
       #   uses: docker/setup-qemu-action@v1
