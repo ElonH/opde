@@ -208,6 +208,7 @@ def extract(ctx, db_dir: str, run_number: int):
     if ctx.obj['dry']:
         print('Extract Done')
         return
+    Path(db_dir).mkdir(parents=True, exist_ok=True)
     db = database.LogsDb(Path(db_dir))
     for logAst in setting.logs_ast:
         item = database.LogsDb.merge(
@@ -217,7 +218,7 @@ def extract(ctx, db_dir: str, run_number: int):
 
 
 @cli.command(hidden=True)
-@click.argument('db-path', type=click.Path(file_okay=False, dir_okay=True))
+@click.argument('db-dir', type=click.Path(file_okay=False, dir_okay=True))
 @click.argument('run-number', type=click.INT)
 @click.pass_context
 def check(ctx, db_dir: str, run_number):
