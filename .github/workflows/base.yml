@@ -37,7 +37,9 @@ jobs:
       - name: Opde patch
         run: docker run -v $PWD:/openwrt elonh/opde:base opde patch
       - name: Opde config
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde config -ke -ib -sdk
+        run: |
+          docker run -v $PWD:/openwrt elonh/opde:base opde config -ke -ib -sdk
+          docker run -v $PWD:/openwrt elonh/opde:base cat .config
       - name: Opde download
         run: docker run -v $PWD:/openwrt elonh/opde:base opde download
       - name: shiw disk space
@@ -46,11 +48,12 @@ jobs:
         run: docker run -v $PWD:/openwrt elonh/opde:base opde build
       - name: Update database
         run: |
-          docker run -v $PWD:/openwrt elonh/opde:base mkdir .opde/db # create database only
+          docker run -v $PWD:/openwrt elonh/opde:base mkdir .opde/db -p # create database only
           docker run -v $PWD:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
       - name: Upload
         run: |
-          docker run -v $PWD:/openwrt elonh/opde:base tar -czf opde.tar.gz logs bin .opde
+          docker run -v $PWD:/openwrt elonh/opde:base du -h -d 1
+          docker run -v $PWD:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs bin .opde
           docker run -v $PWD:/openwrt elonh/opde:base transfer cow opde.tar.gz
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) bin
