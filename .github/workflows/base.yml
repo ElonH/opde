@@ -57,6 +57,10 @@ jobs:
         with:
           name: Base
           path: ./opde.tar.gz
+      - name: Opde check
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde check .opde/db ${{github.run_number}}
+      - name: Opde Assign
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde assign .opde/db
       #- 
       #  name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
       #  uses: mxschmitt/action-tmate@v2
