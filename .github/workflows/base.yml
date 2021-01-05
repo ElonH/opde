@@ -52,9 +52,9 @@ jobs:
           docker run -v $PWD:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
       - name: Upload
         run: |
-          docker run -v $PWD:/openwrt elonh/opde:base du -h -d 1
           docker run -v $PWD:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs bin .opde
-          docker run -v $PWD:/openwrt elonh/opde:base transfer cow opde.tar.gz
+          docker run -v $PWD:/openwrt elonh/opde:base du -h -d 1
+          docker run -v $PWD:/openwrt elonh/opde:base transfer cow opde.tar.gz 2>/dev/null
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) bin
       #- 
