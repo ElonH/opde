@@ -41,7 +41,7 @@ jobs:
       - name: Opde config
         run: |
           docker run -v $PWD:/openwrt elonh/opde:base opde config -ke -ib -sdk
-          docker run -v $PWD:/openwrt elonh/opde:base cat .config
+          docker run -v $PWD:/openwrt elonh/opde:base cat .opde/min-config.in
       - name: Opde download
         run: docker run -v $PWD:/openwrt elonh/opde:base opde download
       - name: Opde build
