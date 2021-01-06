@@ -34,7 +34,7 @@ jobs:
         with:
           repository: project-openwrt/openwrt
           submodules: true
-          pahth: ./openwrt
+          path: ./openwrt
       - name: pull docker image
         run: docker pull elonh/opde:base
       - name: Fix premission
