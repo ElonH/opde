@@ -74,10 +74,10 @@ class LogsDb(tinydb.TinyDB):
             cost += docs[i]['time'] / (l - i)
         return cost
 
-    def exist_error(self, arch: str, board: str = None, run_number: int = 0):
-        'check if exist errors'
+    def count_errors(self, arch: str, board: str = None, run_number: int = 0):
+        'count errors'
         Item = tinydb.Query()
-        return 0 < len(self.search(
+        return len(self.search(
             (Item['run-number'] == run_number) &
             (Item.arch == arch) &
             (Item.board == board) &

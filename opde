@@ -225,11 +225,11 @@ def check(ctx, db_dir: str, run_number):
     '''
     Check if error exist
     0: not error exist
-    1: exist error
+    n: exist n errors
     '''
     setting: OpdeSetting = ctx.obj['set']
     db = database.LogsDb(Path(db_dir))
-    ans = 1 if db.exist_error(*setting.targets, run_number=run_number) else 0
+    ans = db.count_errors(*setting.targets, run_number=run_number)
     db.transform_and_exit()
     print(ans)
     exit(ans)
