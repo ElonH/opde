@@ -206,6 +206,7 @@ class OpdeSetting:
 
     def StoreDepsDAG(self, ctx: str):
         'Store content to .deps.dag.json'
+        self.deps_dag_file.touch(exist_ok=True)
         self.deps_dag_file.write_text(ctx)
 
     @property
