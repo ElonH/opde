@@ -49,7 +49,7 @@ jobs:
           docker run -v $PWD:/openwrt elonh/opde:base mkdir .opde/db -p # create database only
           docker run -v $PWD:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
       - name: Opde Assign
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde assign .opde/db  ${{github.run_number}}
+        run: docker run -v $PWD:/openwrt elonh/opde:base opde assign ${{github.run_number}} .opde/db
       - name: Bundle Artifacts
         run: docker run -v $PWD:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs bin .opde
       - name: Fix premission
