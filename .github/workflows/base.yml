@@ -25,35 +25,40 @@ jobs:
           sudo -E rm -rf /usr/share/dotnet /usr/local/lib/android/sdk /etc/mysql /etc/php /usr/local/share/boost
           [ -n "$AGENT_TOOLSDIRECTORY" ] && sudo rm -rf "$AGENT_TOOLSDIRECTORY"
           df -h
+      - name: Checkout opde repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: Checkout OpenWRT repo
         uses: actions/checkout@v2
         with:
           repository: project-openwrt/openwrt
           submodules: true
+          pahth: ./openwrt
       - name: pull docker image
         run: docker pull elonh/opde:base
       - name: Fix premission
-        run: docker run -v $PWD:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
       - name: Opde feeds
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde feeds
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde feeds
       - name: Opde patch
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde patch
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde patch
       - name: Opde config
         run: |
-          docker run -v $PWD:/openwrt elonh/opde:base opde config -ke -ib -sdk
-          docker run -v $PWD:/openwrt elonh/opde:base cat .opde/min-config.in
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde config -ke -ib -sdk
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base cat .opde/min-config.in
       - name: Opde download
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde download
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde download
       - name: Opde build
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde build
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde build
       - name: Update database
         run: |
-          docker run -v $PWD:/openwrt elonh/opde:base mkdir .opde/db -p # create database only
-          docker run -v $PWD:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base mkdir .opde/db -p # create database only
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
       - name: Opde Assign
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde assign .opde/db
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde assign .opde/db
       - name: Bundle Artifacts
-        run: docker run -v $PWD:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs bin .opde
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs bin .opde
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) opde.tar.gz logs bin .opde
       - name: Upload Artifacts
@@ -62,7 +67,83 @@ jobs:
           name: Base
           path: ./opde.tar.gz
       - name: Opde check
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde check .opde/db ${{github.run_number}}
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde check .opde/db ${{github.run_number}}
+      - id: sdk-var2
+        run: |
+          SDK_PATH=$(find ./openwrt/bin -name "*sdk*")
+          echo "::set-output name=SDK_PATH::$SDK_PATH"
+          SDK_NAME=$(basename $SDK_PATH)
+          echo "::set-output name=SDK_NAME::$SDK_NAME"
+          IMAGE_BUILDER_PATH=$(find ./openwrt/bin -name "*imagebuilder*")
+          echo "::set-output name=IMAGE_BUILDER_PATH::$IMAGE_BUILDER_PATH"
+          IMAGE_BUILDER_NAME=$(basename $IMAGE_BUILDER_PATH)
+          echo "::set-output name=IMAGE_BUILDER_NAME::$IMAGE_BUILDER_NAME"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: SDK
+          path: ${{steps.sdk-var2.outputs.SDK_PATH}}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ImageBuilder
+          path: ${{steps.sdk-var2.outputs.IMAGE_BUILDER_PATH}}
+      - run: |
+          tar -cf tmp.tar openwrt/bin/targets/*/*/packages
+          rm openwrt/bin/targets/*/*/packages -rf
+          mv ${{steps.sdk-var2.outputs.SDK_PATH}} .
+          rm ${{steps.sdk-var2.outputs.IMAGE_BUILDER_PATH}} -rf
+          ls -lh openwrt/bin/targets/*/*/ || true
+          ( ls openwrt/bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n openwrt/bin/targets/*/*/*.vdi || true
+          ( ls openwrt/bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n openwrt/bin/targets/*/*/*.vmdk || true
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Firmware
+          path: ./openwrt/bin/targets
+      - run: |-
+          rm openwrt/bin/targets -rf
+          tar -xf tmp.tar
+          rm tmp.tar
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Packages-00
+          path: ./openwrt/bin
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - run: |-
+          tar -xf ${{steps.sdk-var2.outputs.SDK_NAME}} -C openwrt
+      -
+        name: Build and push sdk
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile.sdk
+          platforms: linux/amd64
+          build-args: |
+            SDK_PATH="./openwrt/$(echo "${{steps.sdk-var2.outputs.SDK_NAME}}" | cut -d'.' -f1)"
+          push: true
+          tags: |
+            elonh/opde:sdk
+      -
+        name: Build and push worker
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile.worker
+          platforms: linux/amd64
+          build-args: |
+            WORKER_CONF_DIR=./openwrt/.opde/worker
+          push: true
+          tags: |
+            elonh/opde:worker
       #- 
       #  name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
       #  uses: mxschmitt/action-tmate@v2
