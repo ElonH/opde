@@ -14,7 +14,7 @@ def __init__():
         "-B%s" % _BLD_dir.as_posix()])
     print(cmd)
     run(cmd)
-    cmd = 'make -C %s' % BLD_dir.as_posix()
+    cmd = 'make -C %s' % _BLD_dir.as_posix()
     print(cmd)
     run(cmd)
     # _worked_inited = True
