@@ -60,7 +60,7 @@ jobs:
       - name: Bundle Artifacts
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs bin .opde
       - name: Fix premission
-        run: sudo chown $(id -u -n):$(id -g -n) opde.tar.gz logs bin .opde
+        run: sudo chown $(id -u -n):$(id -g -n) -R opde.tar.gz logs bin .opde
         working-directory: openwrt
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
