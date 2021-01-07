@@ -8,11 +8,10 @@ def __init__():
     if _worked_inited:
         return
     SRC_dir = Path(__file__).parent
-    BLD_dir = Path('/tmp/WorkerPyramid')
     cmd = ' '.join([
         "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE", "-DCMAKE_BUILD_TYPE:STRING=DEBUG",
         "-H%s" % SRC_dir.as_posix(),
-        "-B%s" % BLD_dir.as_posix()])
+        "-B%s" % _BLD_dir.as_posix()])
     print(cmd)
     run(cmd)
     cmd = 'make -C %s' % BLD_dir.as_posix()
