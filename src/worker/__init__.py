@@ -2,7 +2,7 @@ from pathlib import Path
 from ..bash import run
 
 _worked_inited = False
-
+_BLD_dir = Path('/tmp/WorkerPyramid')
 
 def __init__():
     if _worked_inited:
@@ -23,5 +23,5 @@ def __init__():
 
 def BuildWorkerPyramid(tree_json_path: str, output_path: str):
     __init__()
-    exec_bin = Path(__file__).parent.joinpath('build', 'BuildWorkerPyramid')
+    exec_bin = _BLD_dir.joinpath('BuildWorkerPyramid')
     run('%s "%s" "%s"' % (exec_bin.as_posix(), tree_json_path, output_path))
