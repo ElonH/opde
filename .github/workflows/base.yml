@@ -67,8 +67,8 @@ jobs:
         with:
           name: Base
           path: ./openwrt/opde.tar.gz
-      - name: Opde check
-        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde check .opde/db ${{github.run_number}}
+      #- name: Opde check
+      #  run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde check .opde/db ${{github.run_number}}
       - id: sdk-var2
         run: |
           SDK_PATH=$(find ./openwrt/bin -name "*sdk*")
