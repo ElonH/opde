@@ -23,7 +23,7 @@ jobs:
       - name: Fix premission
         run: docker run -v $PWD:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
       - name: Opde feeds
-        run: docker run -v $PWD:/openwrt elonh/opde:worker opde patch
+        run: docker run -v $PWD:/openwrt elonh/opde:worker opde feeds
       - name: Opde config
         run: docker run -v $PWD:/openwrt elonh/opde:base opde config -i /worker/01.worker.conf
       - name: Opde download
