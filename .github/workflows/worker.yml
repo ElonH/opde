@@ -21,15 +21,15 @@ jobs:
         run: docker pull elonh/opde:worker
       - run: mkdir openwrt openwrt/dl openwrt/logs openwrt/feeds openwrt/database -p
       - name: Fix premission
-        run: docker run -v $PWD:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
+        run: docker run elonh/opde:worker sudo chown opde:opde -R /openwrt
       - name: Opde feeds
-        run: docker run -v $PWD:/openwrt elonh/opde:worker opde feeds
+        run: docker run elonh/opde:worker opde feeds
       - name: Opde config
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde config -i /worker/01.worker.conf
+        run: docker run elonh/opde:base opde config -i /worker/01.worker.conf
       - name: Opde download
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde download
+        run: docker run elonh/opde:base opde download
       - name: Opde build
-        run: docker run -v $PWD:/openwrt elonh/opde:base opde build
+        run: docker run elonh/opde:base opde build
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
       - 
