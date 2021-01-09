@@ -19,74 +19,26 @@ jobs:
           submodules: true
       - name: pull docker image
         run: docker pull elonh/opde:worker
-      - run: mkdir openwrt openwrt/dl openwrt/logs openwrt/feeds openwrt/database -p
+      - run: mkdir openwrt openwrt/dl openwrt/logs openwrt/bin openwrt/database -p
       - name: Fix premission
-        run: docker run elonh/opde:worker sudo chown opde:opde -R /openwrt
-      - name: Opde feeds
-        run: docker run elonh/opde:worker opde feeds
-      - name: Opde config
-        run: docker run elonh/opde:base opde config -i /worker/01.worker.conf
-      - name: Opde download
-        run: docker run elonh/opde:base opde download
-      - name: Opde build
-        run: docker run elonh/opde:base opde build
+        run: docker run -v $PWD/openwrt/bin:/openwrt/bin -v $PWD/openwrt/logs:/openwrt/logs elonh/opde:worker sudo chown opde:opde -R /openwrt/bin /openwrt/logs
+      - name: Create command
+        run: |
+          cat>run.sh<<'EOF'
+          #!/bin/bash
+          set -e
+          opde feeds
+          opde config -i /worker/05.worker.conf
+          cat .opde/min-config.in
+          opde download
+          opde build
+          EOF
+      - name: Run in Docker
+        run: docker run -v $PWD/openwrt/bin:/openwrt/bin -v $PWD/openwrt/logs:/openwrt/logs -v $PWD/run.sh:/run.sh elonh/opde:worker bash /run.sh
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
+        working-directory: openwrt
       - 
         name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
         uses: mxschmitt/action-tmate@v2
         if: always()
-      # -
-      #   name: Set up QEMU
-      #   uses: docker/setup-qemu-action@v1
-      # -
-      #   name: Set up Docker Buildx
-      #   uses: docker/setup-buildx-action@v1
-      # -
-      #   name: Login to DockerHub
-      #   uses: docker/login-action@v1
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # - id: var
-      #   run: |-
-      #     dateDot=$(date +'%y.%m')
-      #     echo $dateDot
-      #     echo "::set-output name=dateDot::$dateDot"
-      # -
-      #   name: Build and push scratch
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile.scratch
-      #     platforms: linux/amd64
-      #     build-args: |
-      #       CHINESE_APT_MIRRORS=${{ github.event.inputs.chinese }}
-      #     push: true
-      #     tags: |
-      #       elonh/opde:scratch
-      #       elonh/opde:scratch-${{steps.var.outputs.dateDot}}
-      # -
-      #   name: Build and push base
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile.base
-      #     platforms: linux/amd64
-      #     push: true
-      #     tags: |
-      #       elonh/opde:base
-      #       elonh/opde:base-${{steps.var.outputs.dateDot}}
-      # -
-      #   name: Build and push dev
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile.dev
-      #     platforms: linux/amd64
-      #     build-args: |
-      #       CHINESE_PIP_MIRRORS=${{ github.event.inputs.chinese }}
-      #     push: true
-      #     tags: |
-      #       elonh/opde:dev
-      #       elonh/opde:dev-${{steps.var.outputs.dateDot}}
