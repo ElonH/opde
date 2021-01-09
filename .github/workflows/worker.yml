@@ -19,26 +19,43 @@ jobs:
           submodules: true
       - name: pull docker image
         run: docker pull elonh/opde:worker
-      - run: mkdir openwrt openwrt/dl openwrt/logs openwrt/bin openwrt/database -p
-      - name: Fix premission
-        run: docker run -v $PWD/openwrt/bin:/openwrt/bin -v $PWD/openwrt/logs:/openwrt/logs elonh/opde:worker sudo chown opde:opde -R /openwrt/bin /openwrt/logs
-      - name: Create command
+      - name: Copy SDK
         run: |
-          cat>run.sh<<'EOF'
-          #!/bin/bash
-          set -e
-          opde feeds
-          opde config -i /worker/05.worker.conf
+          docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker sudo chown opde:opde -R /openwrt_bak
+          docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker rsync -av /openwrt/ /openwrt_bak
+      # - name: Create command
+      #   run: |
+      #     cat>run.sh<<'EOF'
+      #     #!/bin/bash
+      #     set -e
+      #     opde feeds
+      #     opde config -i /worker/05.worker.conf
+      #     cat .opde/min-config.in
+      #     opde download
+      #     opde build
+      #     EOF
+      - name: Opde feeds
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde feeds
+      - name: Opde config
+        run: |
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde config /worker/01.worker.conf
           cat .opde/min-config.in
-          opde download
-          opde build
-          EOF
-      - name: Run in Docker
-        run: docker run -v $PWD/openwrt/bin:/openwrt/bin -v $PWD/openwrt/logs:/openwrt/logs -v $PWD/run.sh:/run.sh elonh/opde:worker bash /run.sh
+      - name: Opde download
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde download
+      - name: Opde build
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde build
       - name: Fix premission
-        run: sudo chown $(id -u -n):$(id -g -n) -R dl logs bin .opde
-        working-directory: openwrt
-      - 
-        name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
-        uses: mxschmitt/action-tmate@v2
-        if: always()
+        run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Packages-01
+          path: ./openwrt/bin
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Log-01
+          path: ./openwrt/.opde
+      # - 
+        # name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
+        # uses: mxschmitt/action-tmate@v2
+        # if: always()
