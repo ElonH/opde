@@ -75,7 +75,7 @@ jobs:
           echo "::set-output name=SDK_PATH::$SDK_PATH"
           SDK_NAME=$(basename $SDK_PATH)
           echo "::set-output name=SDK_NAME::$SDK_NAME"
-          SDK_NAME_NO_PREFIX=$(echo "$SDK_NAME" | cut -d'.' -f1)
+          SDK_NAME_NO_PREFIX=${SDK_NAME:0:-7}
           echo "::set-output name=SDK_NAME_NO_PREFIX::$SDK_NAME_NO_PREFIX"
           IMAGE_BUILDER_PATH=$(find ./openwrt/bin -name "*imagebuilder*")
           echo "::set-output name=IMAGE_BUILDER_PATH::$IMAGE_BUILDER_PATH"
