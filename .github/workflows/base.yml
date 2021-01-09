@@ -131,7 +131,7 @@ jobs:
           file: ./Dockerfile.sdk
           platforms: linux/amd64
           build-args: |
-            SDK_PATH="./${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}"
+            SDK_PATH=${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}
           push: true
           tags: |
             elonh/opde:sdk
