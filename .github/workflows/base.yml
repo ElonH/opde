@@ -123,6 +123,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: |-
           tar -xf ${{steps.sdk-var2.outputs.SDK_NAME}}
+          ls -l -h
       -
         name: Build and push sdk
         uses: docker/build-push-action@v2
