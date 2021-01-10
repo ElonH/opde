@@ -61,9 +61,9 @@ jobs:
       - name: Opde feeds
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde feeds
       - name: Opde config
-        run: |
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde config -i /worker/${{matrix.worker}}.worker.conf
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker cat .opde/min-config.in
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde config -i /worker/${{matrix.worker}}.worker.conf
+      - name: Show config
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker cat .opde/min-config.in
       - name: Opde download
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde download
       - name: Opde build
