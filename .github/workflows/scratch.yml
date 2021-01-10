@@ -14,7 +14,7 @@ on:
   schedule:
     - cron:  '0 0 1 * *' # every month
 jobs:
-  scratch-base-dev:
+  scratch-dev-base:
     runs-on: ubuntu-latest
     steps:
       -
