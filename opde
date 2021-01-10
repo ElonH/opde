@@ -183,7 +183,7 @@ def download(ctx, threads: int):
         print('Download Done')
         return
 
-    bash.run('make -j{0} download && make -j{0} download && make -j{0} download'.format(threads),
+    bash.run('make -j{0} download || make -j{0} download || make -j{0} download || true'.format(threads),
              cwd=setting.openwrt_dir.as_posix())
 
 
