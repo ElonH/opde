@@ -148,7 +148,7 @@ jobs:
           name: Packages-06
           path: openwrt/bin
       - uses: actions/download-artifact@v2
-        with:;
+        with:
           name: Packages-05
           path: openwrt/bin
       - uses: actions/download-artifact@v2
