@@ -148,7 +148,7 @@ jobs:
           name: Packages-06
           path: openwrt/bin
       - uses: actions/download-artifact@v2
-        with:
+        with:;
           name: Packages-05
           path: openwrt/bin
       - uses: actions/download-artifact@v2
@@ -175,7 +175,7 @@ jobs:
         env:
           BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
           BUILD_KEY_PUBLIC: ${{secrets.BUILD_KEY_PUBLIC}}
-        run: |2
+        run: |
           echo $BUILD_KEY > openwrt/build-key
           echo $BUILD_KEY_PUBLIC > openwrt/build-key.pub
       - name: Pull docker image
