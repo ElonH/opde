@@ -77,10 +77,12 @@ jobs:
           echo "::set-output name=SDK_NAME::$SDK_NAME"
           SDK_NAME_NO_PREFIX=${SDK_NAME:0:-7}
           echo "::set-output name=SDK_NAME_NO_PREFIX::$SDK_NAME_NO_PREFIX"
-          IMAGE_BUILDER_PATH=$(find ./openwrt/bin -name "*imagebuilder*")
-          echo "::set-output name=IMAGE_BUILDER_PATH::$IMAGE_BUILDER_PATH"
-          IMAGE_BUILDER_NAME=$(basename $IMAGE_BUILDER_PATH)
-          echo "::set-output name=IMAGE_BUILDER_NAME::$IMAGE_BUILDER_NAME"
+          IB_PATH=$(find ./openwrt/bin -name "*imagebuilder*")
+          echo "::set-output name=IB_PATH::$IB_PATH"
+          IB_NAME=$(basename $IB_PATH)
+          echo "::set-output name=IB_NAME::$IB_NAME"
+          IB_NAME_NO_PREFIX=${IB_NAME:0:-7}
+          echo "::set-output name=IB_NAME_NO_PREFIX::$IB_NAME_NO_PREFIX"
       - uses: actions/upload-artifact@v2
         with:
           name: SDK
@@ -88,12 +90,12 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ImageBuilder
-          path: ${{steps.sdk-var2.outputs.IMAGE_BUILDER_PATH}}
+          path: ${{steps.sdk-var2.outputs.IB_PATH}}
       - run: |
           tar -cf tmp.tar openwrt/bin/targets/*/*/packages
           rm openwrt/bin/targets/*/*/packages -rf
           mv ${{steps.sdk-var2.outputs.SDK_PATH}} .
-          rm ${{steps.sdk-var2.outputs.IMAGE_BUILDER_PATH}} -rf
+          mv ${{steps.sdk-var2.outputs.IB_PATH}} .
           ls -lh openwrt/bin/targets/*/*/ || true
           ( ls openwrt/bin/targets/*/*/*.vdi >/dev/null 2>&1 ) && gzip -9n openwrt/bin/targets/*/*/*.vdi || true
           ( ls openwrt/bin/targets/*/*/*.vmdk >/dev/null 2>&1 ) && gzip -9n openwrt/bin/targets/*/*/*.vmdk || true
@@ -123,6 +125,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: |-
           tar -xf ${{steps.sdk-var2.outputs.SDK_NAME}}
+          tar -xf ${{steps.sdk-var2.outputs.IB_NAME}}
           ls -l -h
       -
         name: Build and push sdk
@@ -148,6 +151,18 @@ jobs:
           push: true
           tags: |
             elonh/opde:worker
+      -
+        name: Build and push image builder
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile.ib
+          platforms: linux/amd64
+          build-args: |
+            SDK_PATH=./${{steps.sdk-var2.outputs.IB_NAME_NO_PREFIX}}
+          push: true
+          tags: |
+            elonh/opde:ib
       #- 
       #  name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
       #  uses: mxschmitt/action-tmate@v2
