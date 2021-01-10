@@ -24,6 +24,9 @@ def add_condictional_options(opt_dict: dict):
         return func
     return _add_options
 
+# TODO: condiction command
+# usage: @cond_cmd(cli.command(), bool)
+
 
 @click.group(help='''
     OpenWRT Builder (Mode: %s)
@@ -351,20 +354,20 @@ def _hack_sdk(ctx, directory: str):
     patcher.revertPatchOpenwrt(directory, 'SDK', dry)
 
 
-# @cli.command()
-# @click.pass_context
-# def reindex(ctx):
-#     '''
-#     reindex and sign packages in bin
-#     '''
-#     setting: OpdeSetting = ctx.obj['set']
-#     if ctx.obj['dry']:
-#         print('Build Done')
-#         return
-#     run('make -j%s package/base-files/compile' % os.cpu_count(),
-#         cwd=setting.openwrt_dir.as_posix())
-#     run('make -j%s package/index V=s' % os.cpu_count(),
-#         cwd=setting.openwrt_dir.as_posix())
+@cli.command(hidden=True)
+@click.pass_context
+def reindex(ctx):
+    '''
+    reindex and sign packages in bin
+    '''
+    setting: OpdeSetting = ctx.obj['set']
+    if ctx.obj['dry']:
+        print('Build Done')
+        return
+    bash.run('make -j%s package/base-files/compile' % os.cpu_count(),
+             cwd=setting.openwrt_dir.as_posix())
+    bash.run('make -j%s package/index V=s' % os.cpu_count(),
+             cwd=setting.openwrt_dir.as_posix())
 
 
 # @cli.command('@output', hidden=True)

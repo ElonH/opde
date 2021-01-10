@@ -74,3 +74,128 @@ jobs:
         # name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
         # uses: mxschmitt/action-tmate@v2
         # if: always()
+
+  BUNDLE_PACKS:
+    needs:
+    - worker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout OpenWRT repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Prepare dowload artifacts
+        run: |
+          mkdir openwrt/bin -p
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-20
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-19
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-18
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-17
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-16
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-15
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-14
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-13
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-12
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-11
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-10
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-09
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-08
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-07
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-06
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-05
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-04
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-03
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-02
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-01
+          path: openwrt/bin
+      - uses: actions/download-artifact@v2
+        with:
+          name: Packages-00
+          path: openwrt/bin
+      - name: Import key
+        env:
+          BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
+          BUILD_KEY_PUBLIC: ${{secrets.BUILD_KEY_PUBLIC}}
+        run: |2
+          echo $BUILD_KEY > openwrt/build-key
+          echo $BUILD_KEY_PUBLIC > openwrt/build-key.pub
+      - name: Pull docker image
+        run: docker pull elonh/opde:worker
+      - name: Copy SDK
+        run: |
+          docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker sudo chown opde:opde -R /openwrt_bak
+          docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker rsync -a /openwrt/ /openwrt_bak
+      - name: Opde feeds
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde feeds
+      - name: Opde config
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde config
+      - name: Opde download
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde download
+      - name: Opde build
+        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde reindex
+      - name: Fix premission
+        run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Packages
+        path: openwrt/bin
