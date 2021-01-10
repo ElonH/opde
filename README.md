@@ -29,3 +29,7 @@ There are many way to build openwrt, such as github actions.
 2. Install [poetry](https://python-poetry.org/docs/#installation)
 3. `git clone https://github.com/ElonH/opde.git && code opde`
 4. Setup python virtual env `python3 -m venv .venv && poetry install`
+
+## Build Log
+
+<https://elonh.github.io/opde>
