@@ -20,9 +20,8 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-      - 
-        name: Fetch submodule
-        run: git submodule update --init --recursive --recommend-shallow
+        with:
+          submodules: true
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1

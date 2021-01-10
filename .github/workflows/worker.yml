@@ -194,8 +194,7 @@ jobs:
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde reindex
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Packages
-        path: openwrt/bin
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Packages
+          path: openwrt/bin
