@@ -47,17 +47,6 @@ jobs:
         run: |
           docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker sudo chown opde:opde -R /openwrt_bak
           docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker rsync -av /openwrt/ /openwrt_bak
-      # - name: Create command
-      #   run: |
-      #     cat>run.sh<<'EOF'
-      #     #!/bin/bash
-      #     set -e
-      #     opde feeds
-      #     opde config -i /worker/05.worker.conf
-      #     cat .opde/min-config.in
-      #     opde download
-      #     opde build
-      #     EOF
       - name: Opde feeds
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde feeds
       - name: Opde config
@@ -71,6 +60,8 @@ jobs:
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
 
+      - name: Prepare upload
+        run: mkdir /tmp/opdelogs && cp ./openwrt/.opde ./openwrt/logs /tmp/opdelogs
       - uses: actions/upload-artifact@v2
         with:
           name: Packages-${{matrix.worker}}
@@ -78,7 +69,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Log-${{matrix.worker}}
-          path: ./openwrt/.opde
+          path: /tmp/opdelogs
       # - 
         # name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
         # uses: mxschmitt/action-tmate@v2
