@@ -10,3 +10,4 @@ src/worker/build/
 opde.egg-info/
 *sdk*/
 openwrt/
+themes
