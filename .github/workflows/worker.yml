@@ -10,8 +10,32 @@ on:
     branches:
       - docker
 jobs:
-  base:
+  worker:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        worker:
+        - '01'
+        - '02'
+        - '03'
+        - '04'
+        - '05'
+        - '06'
+        - '07'
+        - '08'
+        - '09'
+        - '10'
+        - '11'
+        - '12'
+        - '13'
+        - '14'
+        - '15'
+        - '16'
+        - '17'
+        - '18'
+        - '19'
+        - '20'
     steps:
       - name: Checkout OpenWRT repo
         uses: actions/checkout@v2
@@ -38,7 +62,7 @@ jobs:
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde feeds
       - name: Opde config
         run: |
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde config -i /worker/01.worker.conf
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde config -i /worker/${{matrix.worker}}.worker.conf
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker cat .opde/min-config.in
       - name: Opde download
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde download
@@ -49,11 +73,11 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Packages-01
+          name: Packages-${{matrix.worker}}
           path: ./openwrt/bin
       - uses: actions/upload-artifact@v2
         with:
-          name: Log-01
+          name: Log-${{matrix.worker}}
           path: ./openwrt/.opde
       # - 
         # name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
