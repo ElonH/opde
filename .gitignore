@@ -1,0 +1,12 @@
+build.sh
+dev.sh
+push.sh
+**/__pycache__
+.venv
+**/.ipynb_checkpoints
+src/parser/*.out
+src/parser/*Tab.py
+src/worker/build/
+opde.egg-info/
+*sdk*/
+openwrt/
