@@ -167,10 +167,10 @@ jobs:
         with:
           name: Packages-01
           path: openwrt/bin
-      - uses: actions/download-artifact@v2
-        with:
-          name: Packages-00
-          path: openwrt/bin
+      #- uses: actions/download-artifact@v2 # TODO: not base packages currently
+      #  with:
+      #    name: Packages-00
+      #    path: openwrt/bin
       - name: Import key
         env:
           BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
