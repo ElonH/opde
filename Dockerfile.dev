@@ -18,8 +18,8 @@ RUN curl -sL https://git.io/file-transfer | sh && \
 RUN sudo -E apt-get update -y &&\
 	sudo -E apt-get install -y --no-install-recommends \
 	zsh ack tree \
-	&& apt-get -y autoremove && apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* && rm -rf /root/.cache/*
+	&& sudo -E apt-get -y autoremove && sudo -E apt-get clean \
+	&& sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /root/.cache/*
 
 RUN CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" && \
 	sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/' ~/.zshrc && \
