@@ -1,11 +1,12 @@
 baseURL = "https://elonh.github.io/opde"
+publishDir = "docs"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
 title = "Opde Issues Tracker"
 theme = "hugo-theme-techdoc"
 
-hasCJKLanguage = false
+hasCJKLanguage = true
 metaDataFormat = "yaml"
 
 defaultContentLanguage = "en"

@@ -1,126 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>64 on Hugo Techdoc Theme</title>
-    <link>https://elonh.github.io/opde/x86/64/index.xml</link>
-    <description>Recent content in 64 on Hugo Techdoc Theme</description>
+    <title>64 on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/</link>
+    <description>Recent content in 64 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Jan 2021 00:12:33 +0000</lastBuildDate>
-    <atom:link href="https://elonh.github.io/opde/x86/64/index.xml" rel="self" type="application/rss+xml" />
     
-    <item>
-      <title>compile.34</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:33 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/</guid>
-      <description>&lt;p&gt;build number: &lt;code&gt;34&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;path: &lt;code&gt;package/feeds/base/fast-classifier/compile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;make[4]: Entering directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&#39;
-  CC [M]  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.o
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c: In function &#39;fast_classifier_init&#39;:
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c:1888:1: warning: label &#39;exit4&#39; defined but not used [-Wunused-label]
- exit4:
- ^~~~~
-  Building modules, stage 2.
-  MODPOST 1 modules
-WARNING: &amp;quot;sfe_ipv6_register_sync_rule_callback&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_register_sync_rule_callback&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;athrs_fast_nat_recv&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv6_update_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;nf_ct_tcp_no_window_check&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_create_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_update_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv6_create_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv6_mark_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv6_destroy_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_mark_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_destroy_rule&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_destroy_all_rules_for_dev&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv6_destroy_all_rules_for_dev&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv6_recv&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-WARNING: &amp;quot;sfe_ipv4_recv&amp;quot; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined!
-  CC      /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.mod.o
-  LD [M]  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko
-make[4]: Leaving directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&#39;
-Package kmod-fast-classifier is missing dependencies for the following libraries:
-nf_conntrack.ko
-make[3]: *** [Makefile:99: /openwrt/bin/targets/x86/64/packages/kmod-fast-classifier_4.19.166-1_x86_64.ipk] Error 1
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
+	<atom:link href="https://elonh.github.io/opde/x86/64/index.xml" rel="self" type="application/rss+xml" />
     
-    <item>
-      <title>compile.34</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:33 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</guid>
-      <description>&lt;p&gt;build number: &lt;code&gt;34&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;path: &lt;code&gt;package/feeds/base/openwrt-fullconenat/compile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Applying ./patches/000-printk.patch using plaintext: 
-patching file xt_FULLCONENAT.c
-Hunk #1 succeeded at 702 (offset 5 lines).
-make[4]: Entering directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&#39;
-  CC [M]  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.o
-  Building modules, stage 2.
-  MODPOST 1 modules
-  CC      /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.mod.o
-  LD [M]  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.ko
-make[4]: Leaving directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&#39;
-make[4]: Entering directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f&#39;
-ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f=fullconenat-2019-10-21-0cf3b48f -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include  -fPIC -D_INIT=libipt_FULLCONENAT_init -c -o libipt_FULLCONENAT.o libipt_FULLCONENAT.c;
-ccache_cc -shared -lxtables -o libipt_FULLCONENAT.so libipt_FULLCONENAT.o;
-make[4]: Leaving directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f&#39;
-Package kmod-ipt-fullconenat is missing dependencies for the following libraries:
-nf_conntrack.ko
-nf_nat.ko
-x_tables.ko
-make[3]: *** [Makefile:76: /openwrt/bin/targets/x86/64/packages/kmod-ipt-fullconenat_4.19.166+2019-10-21-0cf3b48f-1_x86_64.ipk] Error 1
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>compile.34</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:32 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/</guid>
-      <description>&lt;p&gt;build number: &lt;code&gt;34&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;path: &lt;code&gt;package/feeds/base/shortcut-fe/compile&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;make[4]: Entering directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&#39;
-  CC [M]  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.o
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &#39;sfe_ipv4_recv_udp&#39;:
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:1478:5: error: &#39;struct sk_buff&#39; has no member named &#39;fast_forwarded&#39;
-  skb-&amp;gt;fast_forwarded = 1;
-     ^~
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &#39;sfe_ipv4_recv_tcp&#39;:
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:2052:5: error: &#39;struct sk_buff&#39; has no member named &#39;fast_forwarded&#39;
-  skb-&amp;gt;fast_forwarded = 1;
-     ^~
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &#39;sfe_ipv4_periodic_sync&#39;:
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:2868:46: error: &#39;struct timer_list&#39; has no member named &#39;cust_data&#39;
-  struct sfe_ipv4 *si = (struct sfe_ipv4 *)arg-&amp;gt;cust_data;
-                                              ^~
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &#39;sfe_ipv4_init&#39;:
-/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:3552:11: error: &#39;struct timer_list&#39; has no member named &#39;cust_data&#39;
-  si-&amp;gt;timer.cust_data = (unsigned long)si;
-           ^
-make[5]: *** [scripts/Makefile.build:304: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.o] Error 1
-make[4]: *** [Makefile:1551: _module_/openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe] Error 2
-make[4]: Leaving directory &#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&#39;
-make[3]: *** [Makefile:84: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/.built] Error 2
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
     
   </channel>
 </rss>

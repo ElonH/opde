@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/</loc>
@@ -17,7 +18,12 @@
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/x86/</loc>
+    <loc>https://elonh.github.io/opde/x86/64/</loc>
+    <lastmod>2021-01-11T00:12:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/</loc>
     <lastmod>2021-01-11T00:12:33+00:00</lastmod>
   </url>
   
@@ -27,23 +33,26 @@
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/x86/</loc>
-    <lastmod>2021-01-11T00:12:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/</loc>
+    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/</loc>
     <lastmod>2021-01-11T00:12:32+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/x86/</loc>
+    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/</loc>
     <lastmod>2021-01-11T00:12:32+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/</loc>
     <lastmod>2021-01-10T15:26:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/tags/</loc>
   </url>
   
 </urlset>
