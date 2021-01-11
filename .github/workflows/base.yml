@@ -35,6 +35,12 @@ jobs:
           repository: project-openwrt/openwrt
           submodules: true
           path: ./openwrt
+      - name: Checkout Opde database
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          submodules: true
+          path: ./openwrt/.opde/db
       - name: pull docker image
         run: docker pull elonh/opde:base
       - name: Fix premission
