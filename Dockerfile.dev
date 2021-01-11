@@ -15,5 +15,19 @@ RUN sudo -E -H pip3 install --no-cache-dir -r /requirements.txt \
 RUN curl -sL https://git.io/file-transfer | sh && \
 	sudo mv ./transfer /usr/bin
 
+RUN sudo -E apt-get update -y &&\
+	sudo -E apt-get install -y --no-install-recommends \
+	zsh ack tree \
+	&& apt-get -y autoremove && apt-get clean \
+	&& rm -rf /var/lib/apt/lists/* && rm -rf /root/.cache/*
+
+RUN CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" && \
+	sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/' ~/.zshrc && \
+	git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions && \
+	git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search && \
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+	sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-completions history-substring-search zsh-autosuggestions)\nautoload -U compinit \&\& compinit/g' ~/.zshrc
+
 ENV PATH="/opde:${PATH}"
 # COPY . /opde
