@@ -159,7 +159,7 @@ jobs:
           file: ./Dockerfile.ib
           platforms: linux/amd64
           build-args: |
-            SDK_PATH=./${{steps.sdk-var2.outputs.IB_NAME_NO_PREFIX}}
+            IB_PATH=./${{steps.sdk-var2.outputs.IB_NAME_NO_PREFIX}}
           push: true
           tags: |
             elonh/opde:ib
