@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Hugo Techdoc Theme</title>
-    <link>https://elonh.github.io/opde/index.xml</link>
-    <description>Recent content in Home on Hugo Techdoc Theme</description>
+    <title>package_feeds_base_fast-classifier on Hugo Techdoc Theme</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/index.xml</link>
+    <description>Recent content in package_feeds_base_fast-classifier on Hugo Techdoc Theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jan 2021 15:26:15 +0000</lastBuildDate>
-    <atom:link href="https://elonh.github.io/opde/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jan 2021 00:12:32 +0000</lastBuildDate>
+    <atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>compile.34</title>

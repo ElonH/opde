@@ -1,0 +1,9 @@
+---
+title: "package_feeds_base_shortcut-fe"
+date: 2021-01-11 00:12:32.997844
+hidden: false
+draft: false
+---
+
+x86/64/package_feeds_base_shortcut-fe
+
