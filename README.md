@@ -8,7 +8,8 @@ There are many way to build openwrt, such as github actions.
 
 - no environment population, install apt packages.
 - intergated with github actions, more easy to reimplement compile error in local machine
-- compiled what you need with SDK
+- compiled packages what you need with SDK
+- burned firmware what you need with ImageBuilder (in agenda)
 
 ## User Manual
 
