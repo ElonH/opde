@@ -1,5 +1,7 @@
 # OPDE
-Yet another way to build OpenWrt firmware
+OpenWRT Development Environment
+
+A test suite for OpenWRT build
 
 ## Purpose
 There are many way to build openwrt, such as github actions.
