@@ -146,25 +146,35 @@ class OpdeSetting:
         ctx = self.cache.LoadCached(cache_name)
         if ctx:
             return json.loads(ctx)
-        ctx = self.openwrt_dir.joinpath('tmp', '.packageinfo').read_text()
-        # hack some code to pass through laxer
-        ctx = re.sub('\t\t\t/sys/module/iwlwifi/parameters/debug',
-                     '\t\t  /sys/module/iwlwifi/parameters/debug', ctx)
-        ctx = re.sub('\t\t\t  % echo 0x43fff > /sys/module/iwlwifi/parameters/debug',
-                     '\t\t    % echo 0x43fff > /sys/module/iwlwifi/parameters/debug', ctx)
-        ctx = re.sub('\t\t\t  drivers/net/wireless/intel/iwlwifi/iwl-debug.h',
-                     '\t\t    drivers/net/wireless/intel/iwlwifi/iwl-debug.h', ctx)
-        ctx = re.sub('          Select one TLS module below if you enable the SSL engine in',
-                     '\t        Select one TLS module below if you enable the SSL engine in', ctx)
-        ctx = re.sub('          [(]mod_gnutls, mod_mbedtls, mod_nss, mod_openssl, mod_wolfssl[)]',
-                     '\t        (mod_gnutls, mod_mbedtls, mod_nss, mod_openssl, mod_wolfssl)', ctx)
+        packages_raw_files = [self.openwrt_dir.joinpath('tmp', '.packageinfo')]
+        packages_raw_files.extend(
+            self.openwrt_dir.joinpath('feeds').glob('*.index'))
+        packageInfoAst = []
+        for i in packages_raw_files:
+            ctx = i.read_text()
+            # hack some code to pass through laxer
 
-        p = PackageInfoParser()
-        # # export lexer result
-        # l = PackageInfoLexer()
-        # l.test(ctx)
-        # exit(0)
-        packageInfoAst = p.gen_ast(ctx)
+            # for tmp/.packageinfo
+            ctx = re.sub('\t\t\t/sys/module/iwlwifi/parameters/debug',
+                         '\t\t  /sys/module/iwlwifi/parameters/debug', ctx)
+            ctx = re.sub('\t\t\t  % echo 0x43fff > /sys/module/iwlwifi/parameters/debug',
+                         '\t\t    % echo 0x43fff > /sys/module/iwlwifi/parameters/debug', ctx)
+            ctx = re.sub('\t\t\t  drivers/net/wireless/intel/iwlwifi/iwl-debug.h',
+                         '\t\t    drivers/net/wireless/intel/iwlwifi/iwl-debug.h', ctx)
+            ctx = re.sub('          Select one TLS module below if you enable the SSL engine in',
+                         '\t        Select one TLS module below if you enable the SSL engine in', ctx)
+            ctx = re.sub('          [(]mod_gnutls, mod_mbedtls, mod_nss, mod_openssl, mod_wolfssl[)]',
+                         '\t        (mod_gnutls, mod_mbedtls, mod_nss, mod_openssl, mod_wolfssl)', ctx)
+            # for feeds/[package].index
+            # Nothing here currently
+
+            p = PackageInfoParser()
+            # # export lexer result
+            # l = PackageInfoLexer()
+            # l.test(ctx)
+            # exit(0)
+            packageInfoAst.extend(p.gen_ast(ctx))
+
         self.cache.StoreCache(cache_name, json.dumps(packageInfoAst))
         # human-readable file, but yaml parser is too slow
         self.cache.StoreCache('package.ast.yaml', yaml.dump(
