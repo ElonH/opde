@@ -174,7 +174,7 @@ def config(ctx, all_packs: bool, inject: str, ke: bool = None, sdk: bool = None,
 
 
 @cli.command()
-@click.argument('threads', type=click.INT, default=max(16, 4*os.cpu_count()), required=False)
+@click.argument('threads', type=click.INT, default=min(16, 4*os.cpu_count()), required=False)
 @click.pass_context
 def download(ctx, threads: int):
     "Download Openwrt's downloaded source bundles"
