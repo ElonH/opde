@@ -6,20 +6,30 @@
     <description>Recent content in package_feeds_base_openwrt-fullconenat on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Jan 2021 00:12:33 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/openwrt-fullconenat/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/conf.o HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.o HOSTCC scripts/kconfig/lexer.lex.o HOSTCC scripts/kconfig/parser.tab.o HOSTCC scripts/kconfig/preprocess.o HOSTCC scripts/kconfig/symbol.o HOSTLD scripts/kconfig/conf scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.conf.cmd] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:68: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/.built] Error 2 </description>
+    </item>
+    
+    <item>
       <title>compile.34</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:33 +0000</pubDate>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</guid>
       <description>build number: 34
-path: package/feeds/base/openwrt-fullconenat/compile
-Applying ./patches/000-printk.patch using plaintext: patching file xt_FULLCONENAT.c Hunk #1 succeeded at 702 (offset 5 lines). make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.o Building modules, stage 2. MODPOST 1 modules CC /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.mod.o LD [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.ko make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&amp;#39; make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f=fullconenat-2019-10-21-0cf3b48f -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -fPIC -D_INIT=libipt_FULLCONENAT_init -c -o libipt_FULLCONENAT.o libipt_FULLCONENAT.</description>
+path: package/feeds/base/openwrt-fullconenat/compile</description>
     </item>
     
   </channel>

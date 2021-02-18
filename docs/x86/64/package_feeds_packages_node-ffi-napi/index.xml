@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_node-ffi-napi on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/</link>
+    <description>Recent content in package_feeds_packages_node-ffi-napi on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/node-ffi-napi/compile
+npm info it worked if it ends with ok npm info using npm@6.14.11 npm info using node@v12.20.2 npm timing stage:loadCurrentTree Completed in 38ms npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms npm timing stage:loadIdealTree:loadShrinkwrap Completed in 3ms npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 18ms npm timing stage:loadIdealTree Completed in 25ms npm timing stage:generateActionsToTake Completed in 3ms npm info lifecycle ffi-napi@3.1.0~preuninstall: ffi-napi@3.1.0 npm info lifecycle ffi-napi@3.1.0~uninstall: ffi-napi@3.1.0 npm info lifecycle ffi-napi@3.</description>
+    </item>
+    
+  </channel>
+</rss>

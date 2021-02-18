@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_alac on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/</link>
+    <description>Recent content in package_feeds_packages_alac on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/alac/compile
+alac-0.0.7-5d6d836ee5b025a5e538cfa62c88bc5bced506ed.tar.gz: Download from https://github.com/mikebrady/alac failed alac-0.0.7-5d6d836ee5b025a5e538cfa62c88bc5bced506ed.tar.gz: Requires sha256sum for verification Checking out files from the git repository... Cloning into &amp;#39;alac-0.0.7&amp;#39;... fatal: unable to access &amp;#39;https://github.com/mikebrady/alac/&amp;#39;: gnutls_handshake() failed: The TLS connection was non-properly terminated. make[3]: *** [Makefile:57: /openwrt/dl/alac-0.0.7-5d6d836ee5b025a5e538cfa62c88bc5bced506ed.tar.gz] Error 128 </description>
+    </item>
+    
+  </channel>
+</rss>

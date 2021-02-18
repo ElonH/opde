@@ -12,36 +12,506 @@
     
     
     <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/ath10k-ct/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/ath10k-ct-regular/ath10k-ct-2019-09-09-5e8cd86f/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/ath10k-ct/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/ath10k-ct-smallbuffers/ath10k-ct-2019-09-09-5e8cd86f/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/button-hotplug/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.conf.cmd] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:53: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/button-hotplug/.built] Error 2 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/fast-classifier/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; Building modules, stage 2. MODPOST 1 modules ERROR: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;athrs_fast_nat_recv&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_update_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;nf_ct_tcp_no_window_check&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_create_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_update_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_create_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_mark_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_destroy_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_mark_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_destroy_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_destroy_all_rules_for_dev&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_destroy_all_rules_for_dev&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/gowebdav/compile
+Finding targets go: finding module for package golang.org/x/net/context go: finding module for package golang.org/x/net/webdav Building targets go: finding module for package golang.org/x/net/context go: finding module for package golang.org/x/net/webdav ../../gowebdav.go:10:5: module golang.org/x/net/context: Get &amp;#34;https://proxy.golang.org/golang.org/x/net/context/@v/list&amp;#34;: net/http: TLS handshake timeout ../../gowebdav.go:11:5: module golang.org/x/net/webdav: Get &amp;#34;https://proxy.golang.org/golang.org/x/net/webdav/@v/list&amp;#34;: net/http: TLS handshake timeout make[3]: *** [Makefile:86: /openwrt/build_dir/target-x86_64_musl/gowebdav-0.0.1/.built] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/gpio-button-hotplug/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.o HOSTCC scripts/kconfig/lexer.lex.o HOSTCC scripts/kconfig/parser.tab.o HOSTCC scripts/kconfig/preprocess.o HOSTCC scripts/kconfig/symbol.o HOSTCC scripts/kconfig/conf.o HOSTLD scripts/kconfig/conf scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.conf.cmd] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:48: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/gpio-button-hotplug/.built] Error 2 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/gpio-nct5104d/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.o HOSTCC scripts/kconfig/lexer.lex.o HOSTCC scripts/kconfig/parser.tab.o HOSTCC scripts/kconfig/preprocess.o HOSTCC scripts/kconfig/symbol.o HOSTCC scripts/kconfig/conf.o HOSTLD scripts/kconfig/conf scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.conf.cmd] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:54: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/gpio-nct5104d/.built] Error 2 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/libdvbcsa/compile
+libdvbcsa-1.1.0-2a1e61e5.tar.xz: Download from https://github.com/glenvt18/libdvbcsa.git failed libdvbcsa-1.1.0-2a1e61e5.tar.xz: Requires sha256sum for verification Checking out files from the git repository... Cloning into &amp;#39;libdvbcsa-1.1.0-2a1e61e5&amp;#39;... fatal: unable to access &amp;#39;https://github.com/glenvt18/libdvbcsa.git/&amp;#39;: gnutls_handshake() failed: The TLS connection was non-properly terminated. make[3]: *** [Makefile:58: /openwrt/dl/libdvbcsa-1.1.0-2a1e61e5.tar.xz] Error 128 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/mac80211/compile
+broadcom.mk:398: warning: overriding recipe for target &amp;#39;/openwrt/dl/broadcom-wl-5.100.138.tar.bz2&amp;#39; broadcom.mk:98: warning: ignoring old recipe for target &amp;#39;/openwrt/dl/broadcom-wl-5.100.138.tar.bz2&amp;#39; /openwrt/build_dir/target-x86_64_musl/linux-x86_64/backports-4.19.161-1/include/linux/ath9k_platform.h /openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98/include/linux/ath9k_platform.h differ: char 1571, line 56 make[3]: *** [Makefile:563: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/backports-4.19.161-1/.configured_521d1320cb33e90c65f7cc7815cc8027] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/mt76/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/mt76-2020-03-10-08054d5a/.configured_90cfbe17226f457e38768d3d3063649a&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/nat46/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.o ../nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.c: In function &amp;#39;nat46_remove&amp;#39;: ../nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.c:257:2: warning: ISO C90 forbids variable length array &amp;#39;config_remove&amp;#39; [-Wvla] char config_remove[buflen]; ^~~~ ../nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.c:277:3: warning: ISO C90 forbids variable length array &amp;#39;config&amp;#39; [-Wvla] char config[buflen]; ^~~~ /bin/sh: 1: scripts/basic/fixdep: not found make[5]: *** [scripts/Makefile.build:262: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.o] Error 127 make[5]: *** Deleting file &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.o&amp;#39; make[4]: *** [Makefile:1726: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:38: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/ndpi-netfilter/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0&amp;#39; make -C ipt make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/ipt&amp;#39; if test -d ndpi_cpy; then \ 	cp /openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/nDPI/src/* ndpi_cpy -R; \ else \ 	mkdir ndpi_cpy; \ 	cp /openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/nDPI/src/* ndpi_cpy -R; \ fi make libxt_ndpi.so make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/ipt&amp;#39; make[6]: &amp;#39;libxt_ndpi.so&amp;#39; is up to date. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/ipt&amp;#39; rm -r ndpi_cpy make[5]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/ipt&amp;#39; make -C src make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/openwrt-fullconenat/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/conf.o HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.o HOSTCC scripts/kconfig/lexer.lex.o HOSTCC scripts/kconfig/parser.tab.o HOSTCC scripts/kconfig/preprocess.o HOSTCC scripts/kconfig/symbol.o HOSTLD scripts/kconfig/conf scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.conf.cmd] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:68: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/.built] Error 2 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/procd/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 3%] Built target setlbf make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 5%] Built target syscall-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 7%] Linking C shared library libpreload-seccomp.so make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 10%] Built target preload-seccomp make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 12%] Linking C executable ujail-console make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 14%] Built target ujail-console make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 18%] Built target udevtrigger make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 21%] Built target preload-trace make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 23%] Linking C executable procd make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 54%] Built target procd make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 56%] Built target capabilities-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 58%] Building C object CMakeFiles/ujail.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/procd/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 3%] Built target setlbf make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 5%] Built target syscall-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 7%] Linking C shared library libpreload-seccomp.so make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 10%] Built target preload-seccomp make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 12%] Linking C executable ujail-console make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 14%] Built target ujail-console make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 18%] Built target udevtrigger make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 21%] Built target preload-trace make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 23%] Linking C executable procd make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 54%] Built target procd make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 56%] Built target capabilities-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 58%] Building C object CMakeFiles/ujail.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/qBittorrent-Enhanced-Edition/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.3.2.10&amp;#39; /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/qmake -o Makefile qbittorrent.pro QMAKE_LRELEASE= cd src/ &amp;amp;&amp;amp; ( test -e Makefile || /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/qmake -o Makefile /openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.3.2.10/src/src.pro QMAKE_LRELEASE= ) &amp;amp;&amp;amp; make -f Makefile make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.3.2.10/src&amp;#39; /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/qmake -o Makefile src.pro QMAKE_LRELEASE= Project MESSAGE: Project is built in RELEASE mode. Project MESSAGE: Disabling debug output. ccache_cxx -c -pipe -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/qt-everywhere-src-5.13.2=qt-everywhere-src-5.13.2 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro --sysroot=/openwrt/staging_dir/target-x86_64_musl -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/rtl8192du/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8192du-2019-06-01-54c95aaa/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/rtl8812au-ac/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8812au-ac-2020-06-26-58f6be25/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/rtl8812au-ct/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8812au-ct-2020-01-13-e0d586aa/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/rtl8821cu/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8821cu-2020-07-27-93b04bfc/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/rtl88x2bu/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl88x2bu-2020-07-21-a2abcaf5/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/shortcut-fe/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_udp&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:1478:5: error: &amp;#39;struct sk_buff&amp;#39; has no member named &amp;#39;fast_forwarded&amp;#39; skb-&amp;gt;fast_forwarded = 1; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_tcp&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:2052:5: error: &amp;#39;struct sk_buff&amp;#39; has no member named &amp;#39;fast_forwarded&amp;#39; skb-&amp;gt;fast_forwarded = 1; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_periodic_sync&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:2868:46: error: &amp;#39;struct timer_list&amp;#39; has no member named &amp;#39;cust_data&amp;#39; struct sfe_ipv4 *si = (struct sfe_ipv4 *)arg-&amp;gt;cust_data; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_init&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/simple-torrent/compile
+Copying files from /openwrt/build_dir/target-x86_64_musl/simple-torrent-1.2.12 into /openwrt/build_dir/target-x86_64_musl/simple-torrent-1.2.12/.go_work/build/src/cloud-torrent engine/config.go engine/config_test.go engine/engine.go engine/torrent.go go.mod go.sum main.go server/httpmiddleware/liveness.go server/httpmiddleware/realip.go server/server.go server/server_api.go server/server_bg.go server/server_files.go server/server_http.go server/server_rss.go server/server_search.go server/server_stats.go static/files.go static/static.go Symlinking directories from /openwrt/staging_dir/target-x86_64_musl/usr/share/gocode/src into /openwrt/build_dir/target-x86_64_musl/simple-torrent-1.2.12/.go_work/build/src .../git.torproject.org .../CloudflareSpeedTest .../gitlab.com .../github.com .../ehang.io .../v2ray.com Finding targets go: finding module for package github.com/elithrar/simple-scrypt go: finding module for package github.com/jpillora/ansi go: finding module for package github.com/andrew-d/go-termutil go: finding module for package github.com/tomasen/realip go: finding module for package github.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/tinyfecvpn/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/tinyfecVPN-20210116.0&amp;#39; fatal: not a git repository (or any parent up to mount point /) Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). echo &amp;#34;const char * const gitversion = \&amp;#34;\&amp;#34;;&amp;#34; &amp;gt; git_version.h ccache_cxx -o tinyvpn_cross -I. `ls UDPspeeder/*.cpp UDPspeeder/lib/*.cpp|grep -v main.cpp|grep -v tunnel.cpp` main.cpp tun_dev.cpp tun_dev_client.cpp tun_dev_server.cpp -std=c++11 -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-missing-field-initializers -ggdb -I. -IUDPspeeder -isystem UDPspeeder/libev -lrt -O3 ls: cannot access &amp;#39;UDPspeeder/*.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/trelay/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; scripts/Makefile.build:42: arch/x86/entry/syscalls/Makefile: No such file or directory make[5]: *** No rule to make target &amp;#39;arch/x86/entry/syscalls/Makefile&amp;#39;. Stop. make[4]: *** [arch/x86/Makefile:241: archheaders] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:51: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/trelay/.built] Error 2 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/trojan-plus/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; [ 4%] Building CXX object CMakeFiles/trojan.dir/src/core/config.cpp.o /openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3/src/core/config.cpp:26:10: fatal error: gsl/gsl: No such file or directory #include &amp;lt;gsl/gsl&amp;gt; ^~~~~~~~~ compilation terminated. make[6]: *** [CMakeFiles/trojan.dir/build.make:95: CMakeFiles/trojan.dir/src/core/config.cpp.o] Error 1 make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; make[5]: *** [CMakeFiles/Makefile2:95: CMakeFiles/trojan.dir/all] Error 2 make[5]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.0.3&amp;#39; make[4]: *** [Makefile:160: all] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/trojan-plus-10.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/alac/compile
+alac-0.0.7-5d6d836ee5b025a5e538cfa62c88bc5bced506ed.tar.gz: Download from https://github.com/mikebrady/alac failed alac-0.0.7-5d6d836ee5b025a5e538cfa62c88bc5bced506ed.tar.gz: Requires sha256sum for verification Checking out files from the git repository... Cloning into &amp;#39;alac-0.0.7&amp;#39;... fatal: unable to access &amp;#39;https://github.com/mikebrady/alac/&amp;#39;: gnutls_handshake() failed: The TLS connection was non-properly terminated. make[3]: *** [Makefile:57: /openwrt/dl/alac-0.0.7-5d6d836ee5b025a5e538cfa62c88bc5bced506ed.tar.gz] Error 128 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/atheepmgr/compile
+Package atheepmgr is missing dependencies for the following libraries: libpciaccess.so.0 make[3]: *** [Makefile:80: /openwrt/bin/packages/x86_64/packages/atheepmgr_2.1.1-1_x86_64.ipk] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/autossh/compile
+configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking for C compiler default output file name... a.out checking whether the C compiler works... yes checking whether we are cross compiling... yes checking for suffix of executables... checking for suffix of object files... o checking whether we are using the GNU C compiler... yes checking whether ccache_cc accepts -g... yes checking for ccache_cc option to accept ANSI C.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/fail2ban/compile
+Makefile:54: WARNING: skipping fail2ban-src -- package has no install section cp: cannot overwrite non-directory &amp;#39;/openwrt/staging_dir/target-x86_64_musl/root-x86/./var&amp;#39; with directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/fail2ban-0.11.1/.pkgdir/fail2ban/./var&amp;#39; make[3]: *** [Makefile:55: /openwrt/staging_dir/target-x86_64_musl/root-x86/stamp/.fail2ban_installed] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/ffmpeg/compile
+cp: cannot stat &amp;#39;/openwrt/build_dir/target-x86_64_musl/ffmpeg-custom/ffmpeg-4.3.1/ipkg-install/usr/bin/ffmpeg&amp;#39;: No such file or directory make[3]: *** [Makefile:753: /openwrt/bin/packages/x86_64/packages/ffmpeg-custom_4.3.1-1_x86_64.ipk] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/gcc/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0&amp;#39; make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/libiberty&amp;#39; make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/libiberty/testsuite&amp;#39; make[7]: Nothing to be done for &amp;#39;all&amp;#39;. make[7]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/libiberty/testsuite&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/libiberty&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/fixincludes&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/fixincludes&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/gmp&amp;#39; make all-recursive make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/gmp&amp;#39; Making all in tests make[8]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gcc-7.4.0/host-x86_64-openwrt-linux-musl/gmp/tests&amp;#39; Making all in .</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/gnunet-fuse/compile
+autopoint: *** Missing version: please specify in configure.ac through a line &amp;#39;AM_GNU_GETTEXT_VERSION(x.yy.zz)&amp;#39; the gettext version the package is using autopoint: *** Stop. autoreconf: Entering directory `.&amp;#39; autoreconf: running: true --force autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force -I m4 autoreconf: configure.ac: tracing autoreconf: configure.ac: not using Libtool autoreconf: running: /openwrt/staging_dir/host/bin/autoconf --include=/openwrt/staging_dir/target-x86_64_musl/host/share/aclocal --include=/openwrt/staging_dir/hostpkg/share/aclocal --include=/openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal --include=m4 --include=. --prepend-include=/openwrt/staging_dir/host/share/aclocal --force autoreconf: running: /openwrt/staging_dir/host/bin/autoheader --include=/openwrt/staging_dir/target-x86_64_musl/host/share/aclocal --include=/openwrt/staging_dir/hostpkg/share/aclocal --include=/openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal --include=m4 --include=.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/gnunet/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3&amp;#39; make all-recursive make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3&amp;#39; Making all in m4 make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/m4&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/m4&amp;#39; Making all in bin make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/bin&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/bin&amp;#39; Making all in src make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/src&amp;#39; Making all in include make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/src/include&amp;#39; Making all in .</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/libxcrypt/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/libxcrypt-4.4.17&amp;#39; make[4]: *** No targets specified and no makefile found. Stop. make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/libxcrypt-4.4.17&amp;#39; make[3]: *** [Makefile:58: /openwrt/build_dir/target-x86_64_musl/libxcrypt-4.4.17/.built] Error 2 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/mc/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25&amp;#39; make all-recursive make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25&amp;#39; Making all in po make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25/po&amp;#39; *** error: gettext infrastructure mismatch: using a Makefile.in.in from gettext version 0.18 but the autoconf macros are from gettext version 0.20 make[6]: *** [Makefile:249: check-macro-version] Error 1 make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25/po&amp;#39; make[5]: *** [Makefile:578: all-recursive] Error 1 make[5]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25&amp;#39; make[4]: *** [Makefile:508: all] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/minisatip/compile
+configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking whether the C compiler works... yes checking for C compiler default output file name... a.out checking for suffix of executables... checking whether we are cross compiling... yes checking for suffix of object files... o checking whether we are using the GNU C compiler... yes checking whether ccache_cc accepts -g... yes checking for ccache_cc option to accept ISO C89.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/node-ffi-napi/compile
+npm info it worked if it ends with ok npm info using npm@6.14.11 npm info using node@v12.20.2 npm timing stage:loadCurrentTree Completed in 38ms npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms npm timing stage:loadIdealTree:loadShrinkwrap Completed in 3ms npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 18ms npm timing stage:loadIdealTree Completed in 25ms npm timing stage:generateActionsToTake Completed in 3ms npm info lifecycle ffi-napi@3.1.0~preuninstall: ffi-napi@3.1.0 npm info lifecycle ffi-napi@3.1.0~uninstall: ffi-napi@3.1.0 npm info lifecycle ffi-napi@3.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/snort/compile
+autoreconf: Entering directory `.&amp;#39; autoreconf: configure.in: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force aclocal.real: warning: autoconf input should be named &amp;#39;configure.ac&amp;#39;, not &amp;#39;configure.in&amp;#39; autoreconf: configure.in: tracing autoreconf: running: /openwrt/staging_dir/host/bin/libtoolize --install --force OpenWrt-libtoolize: putting auxiliary files in `.&amp;#39;. OpenWrt-libtoolize: linking file `./config.guess&amp;#39; OpenWrt-libtoolize: linking file `./config.sub&amp;#39; OpenWrt-libtoolize: linking file `./install-sh&amp;#39; OpenWrt-libtoolize: linking file `./ltmain.sh&amp;#39; OpenWrt-libtoolize: Consider adding `AC_CONFIG_MACRO_DIR([m4])&amp;#39; to configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/strongswan/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1&amp;#39; make all-recursive make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1&amp;#39; Making all in src make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1/src&amp;#39; Making all in . make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1/src&amp;#39; make[7]: Nothing to be done for &amp;#39;all-am&amp;#39;. make[7]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1/src&amp;#39; Making all in include make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1/src/include&amp;#39; make[7]: Nothing to be done for &amp;#39;all&amp;#39;. make[7]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1/src/include&amp;#39; Making all in libstrongswan make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.9.1/src/libstrongswan&amp;#39; make all-recursive make[8]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/strongswan-5.</description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/packages/ufw/compile
+Makefile:53: WARNING: skipping ufw-src -- package has no install section ERROR: could not find required binary &amp;#39;iptables&amp;#39; make[3]: *** [Makefile:57: /openwrt/build_dir/target-x86_64_musl/ufw-0.36/.built] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/routing/batman-adv/compile
+make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/batman-adv-2021.0/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/routing/minimalist-pcproxy/compile
+minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2: Download from https://github.com/fingon/minimalist-pcproxy.git failed minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2: Requires sha256sum for verification Checking out files from the git repository... Cloning into &amp;#39;minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb&amp;#39;... fatal: unable to access &amp;#39;https://github.com/fingon/minimalist-pcproxy.git/&amp;#39;: gnutls_handshake() failed: The TLS connection was non-properly terminated. make[3]: *** [Makefile:58: /openwrt/dl/minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2] Error 128 </description>
+    </item>
+    
+    <item>
       <title>compile.34</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:33 +0000</pubDate>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/</guid>
       <description>build number: 34
-path: package/feeds/base/fast-classifier/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c: In function &amp;#39;fast_classifier_init&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c:1888:1: warning: label &amp;#39;exit4&amp;#39; defined but not used [-Wunused-label] exit4: ^~~~~ Building modules, stage 2. MODPOST 1 modules WARNING: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv4_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;athrs_fast_nat_recv&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv6_update_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;nf_ct_tcp_no_window_check&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv4_create_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv4_update_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv6_create_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv6_mark_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! WARNING: &amp;#34;sfe_ipv6_destroy_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.</description>
+path: package/feeds/base/fast-classifier/compile</description>
     </item>
     
     <item>
       <title>compile.34</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:33 +0000</pubDate>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</guid>
       <description>build number: 34
-path: package/feeds/base/openwrt-fullconenat/compile
-Applying ./patches/000-printk.patch using plaintext: patching file xt_FULLCONENAT.c Hunk #1 succeeded at 702 (offset 5 lines). make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.o Building modules, stage 2. MODPOST 1 modules CC /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.mod.o LD [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.ko make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&amp;#39; make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f=fullconenat-2019-10-21-0cf3b48f -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -fPIC -D_INIT=libipt_FULLCONENAT_init -c -o libipt_FULLCONENAT.o libipt_FULLCONENAT.</description>
+path: package/feeds/base/openwrt-fullconenat/compile</description>
     </item>
     
     <item>
       <title>compile.34</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/</link>
-      <pubDate>Mon, 11 Jan 2021 00:12:32 +0000</pubDate>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/</guid>
       <description>build number: 34
-path: package/feeds/base/shortcut-fe/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-4.19.166&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_udp&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:1478:5: error: &amp;#39;struct sk_buff&amp;#39; has no member named &amp;#39;fast_forwarded&amp;#39; skb-&amp;gt;fast_forwarded = 1; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_tcp&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:2052:5: error: &amp;#39;struct sk_buff&amp;#39; has no member named &amp;#39;fast_forwarded&amp;#39; skb-&amp;gt;fast_forwarded = 1; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_periodic_sync&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:2868:46: error: &amp;#39;struct timer_list&amp;#39; has no member named &amp;#39;cust_data&amp;#39; struct sfe_ipv4 *si = (struct sfe_ipv4 *)arg-&amp;gt;cust_data; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_init&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.</description>
+path: package/feeds/base/shortcut-fe/compile</description>
     </item>
     
   </channel>

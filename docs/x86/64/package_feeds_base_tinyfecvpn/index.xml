@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_base_tinyfecvpn on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/</link>
+    <description>Recent content in package_feeds_base_tinyfecvpn on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/tinyfecvpn/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/tinyfecVPN-20210116.0&amp;#39; fatal: not a git repository (or any parent up to mount point /) Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set). echo &amp;#34;const char * const gitversion = \&amp;#34;\&amp;#34;;&amp;#34; &amp;gt; git_version.h ccache_cxx -o tinyvpn_cross -I. `ls UDPspeeder/*.cpp UDPspeeder/lib/*.cpp|grep -v main.cpp|grep -v tunnel.cpp` main.cpp tun_dev.cpp tun_dev_client.cpp tun_dev_server.cpp -std=c++11 -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-missing-field-initializers -ggdb -I. -IUDPspeeder -isystem UDPspeeder/libev -lrt -O3 ls: cannot access &amp;#39;UDPspeeder/*.</description>
+    </item>
+    
+  </channel>
+</rss>

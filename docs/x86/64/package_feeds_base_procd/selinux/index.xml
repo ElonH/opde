@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>selinux on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/</link>
+    <description>Recent content in selinux on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.60</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/</link>
+      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/</guid>
+      <description>build number: 60
+path: package/feeds/base/procd/compile
+make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 3%] Built target setlbf make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 5%] Built target syscall-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 7%] Linking C shared library libpreload-seccomp.so make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 10%] Built target preload-seccomp make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 12%] Linking C executable ujail-console make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 14%] Built target ujail-console make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 18%] Built target udevtrigger make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 21%] Built target preload-trace make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 23%] Linking C executable procd make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 54%] Built target procd make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 56%] Built target capabilities-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-selinux/procd-2020-11-06-b0de8948&amp;#39; [ 58%] Building C object CMakeFiles/ujail.</description>
+    </item>
+    
+  </channel>
+</rss>
