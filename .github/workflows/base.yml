@@ -32,9 +32,10 @@ jobs:
       - name: Checkout OpenWRT repo
         uses: actions/checkout@v2
         with:
-          repository: project-openwrt/openwrt
+          repository: immortalwrt/immortalwrt
           submodules: true
           path: ./openwrt
+          ref: master
       - name: Checkout Opde database
         uses: actions/checkout@v2
         with:
