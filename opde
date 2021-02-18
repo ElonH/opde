@@ -1,4 +1,4 @@
-#!/bin/python3
+#!python3
 import os
 import re
 import shutil
@@ -7,7 +7,7 @@ from pathlib import Path
 import click
 from src import OpdeSetting, bash, patcher, parser, configer, dumper, extractor, database, depstree, distributor, worker
 
-_opde_mode = os.environ['OPDE_MODE']
+_opde_mode = os.environ.get('OPDE_MODE')
 _allowed_mode = ['BASE', 'SDK']
 
 
