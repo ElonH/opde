@@ -198,3 +198,126 @@ jobs:
         with:
           name: Packages
           path: openwrt/bin
+
+
+  generate gh-pages:
+    needs:
+    - worker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          ref: 'gh-pages'
+      - name: Prepare dowload artifacts
+        run: |
+          mkdir openwrt -p
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-20
+          path: openwrt/Log-20
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-19
+          path: openwrt/Log-19
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-18
+          path: openwrt/Log-18
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-17
+          path: openwrt/Log-17
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-16
+          path: openwrt/Log-16
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-15
+          path: openwrt/Log-15
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-14
+          path: openwrt/Log-14
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-13
+          path: openwrt/Log-13
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-12
+          path: openwrt/Log-12
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-11
+          path: openwrt/Log-11
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-10
+          path: openwrt/Log-10
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-09
+          path: openwrt/Log-09
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-08
+          path: openwrt/Log-08
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-07
+          path: openwrt/Log-07
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-06
+          path: openwrt/Log-06
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-05
+          path: openwrt/Log-05
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-04
+          path: openwrt/Log-04
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-03
+          path: openwrt/Log-03
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-02
+          path: openwrt/Log-02
+      - uses: actions/download-artifact@v2
+        with:
+          name: Log-01
+          path: openwrt/Log-01
+      - name: Pull docker image
+        run: docker pull elonh/opde:worker
+      - name: update db
+        #run: docker run -v $PWD/openwrt/Log-20:/openwrt -v $PWD:/db elonh/opde:worker opde extract /db ${{github.run_number}}
+        run: |
+          docker run -v $PWD:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
+          for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
+      - name: Hugo fresh
+        run: docker run -v $PWD:/openwrt elonh/opde:worker hugo
+      - name: Fix premission
+        run: sudo chown $(id -u -n):$(id -g -n) -R $PWD
+      - name: Git commit
+        run: |
+          git config user.name Action
+          git config user.email action@opde.eu.org
+          git add .
+          git commit -m "Action ${{github.run_number}}"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Logs
+          path: openwrt
+      - name: Clean Logs
+        run: rm openwrt -rf
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Database
+          path: .
+
