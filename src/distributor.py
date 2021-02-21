@@ -58,6 +58,7 @@ class WorksDistributor:
             if data['type'] != 'worker':
                 vice_bosses.append(node)
                 continue
+            # this is binary tree, edge counts: 0, 1 or 2
             for edge in self.dg.out_edges(node):
                 workers.append(edge[1])
         return vice_bosses + workers
@@ -101,5 +102,4 @@ class WorksDistributor:
                     if self.dg.nodes[child]['type'] == 'ipkg':
                         replacer.append(child)
             post_bosses.append(list(set(replacer)))
-            post_bosses.append(replacer)
         return post_bosses

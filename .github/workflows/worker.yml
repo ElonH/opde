@@ -75,12 +75,12 @@ jobs:
         # uses: mxschmitt/action-tmate@v2
         # if: always()
 
-  BUNDLE_PACKS:
+  bundle packages:
     needs:
     - worker
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout OpenWRT repo
+      - name: Checkout repo
         uses: actions/checkout@v2
         with:
           submodules: true

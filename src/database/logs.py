@@ -128,7 +128,7 @@ draft: false
             hugo_dir.joinpath(md_name).write_text(
                 self._build_hugo_content(doc))
 
-        self.update({'detail': ''})
+        self.update({'detail': None})
         self.close()
 
     def _build_hugo_content(self, doc) -> str:
