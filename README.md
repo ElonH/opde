@@ -36,3 +36,8 @@ There are many way to build openwrt, such as github actions.
 ## Build Log
 
 <https://elonh.github.io/opde>
+
+## TODO: 
+
+b43legacy
+PACKAGE_fconfig

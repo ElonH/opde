@@ -75,7 +75,7 @@ jobs:
         # uses: mxschmitt/action-tmate@v2
         # if: always()
 
-  bundle packages:
+  bundle_packages:
     needs:
     - worker
     runs-on: ubuntu-latest
@@ -200,7 +200,7 @@ jobs:
           path: openwrt/bin
 
 
-  generate gh-pages:
+  generate_gh-pages:
     needs:
     - worker
     runs-on: ubuntu-latest
