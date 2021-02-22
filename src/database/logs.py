@@ -71,8 +71,8 @@ class LogsDb(tinydb.TinyDB):
             #
             # lim(i=1,+\infinty) 1/1 + 1/2 + ... + 1/i < 2
             #
-            #cost += docs[i]['time'] / (l - i)
-            cost += docs[i]['time'] # not enought data now
+            # cost += docs[i]['time'] / (l - i)
+            cost += docs[i]['time']  # not enought data now
         return cost
 
     def count_errors(self, arch: str, board: str = None, run_number: int = 0):
@@ -143,18 +143,27 @@ weight: -%s
             datetime.datetime.now(),
             doc['run-number']
        )
+        build_cmd = doc['subdir'] + '/' + ((doc['build-type'] + '-') if doc['build-type']
+                                           != '' else '') + doc['build-variant']
 
         ans += '''
 build number: `%s`
 
-path: `%s/%s`
+#### re-implement command 
 
+```bash
+docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh # or bash
+export http_proxy= # [your proxy], do not use localhost or 127.0.0.1
+export https_proxy=$http_proxy
+opde feeds && opde config -a
+make %s -j$(nproc) || make %s V=s
+```
+
+#### Compile.txt
 
 ``` bash
 %s
 ```
-''' % (doc['run-number'],
-            doc['subdir'], ((doc['build-type'] + '-') if doc['build-type']
-                            != '' else '') + doc['build-variant'],
-            doc['detail'])
+''' % (doc['run-number'], build_cmd, build_cmd, doc['detail'])
         return ans
