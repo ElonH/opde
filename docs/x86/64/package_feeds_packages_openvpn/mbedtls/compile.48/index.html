@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.48 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.48" />
+<meta property="og:description" content="build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/openvpn/compile -j$(nproc) || make package/feeds/packages/openvpn/compile V=s Compile.txt Applying ./patches/001-reproducible-remove_DATE.patch using plaintext: patching file src/openvpn/options.c Applying ./patches/100-mbedtls-disable-runtime-version-check.patch using plaintext: patching file src/openvpn/ssl_mbedtls.c Applying ./patches/210-build_always_use_internal_lz4.patch using plaintext: patching file configure.ac Applying ./patches/220-disable_des.patch using plaintext: patching file src/openvpn/syshead." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-02-22T14:41:15+00:00" />
+<meta property="article:modified_time" content="2021-02-22T14:41:15+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.48"/>
+<meta name="twitter:description" content="build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/openvpn/compile -j$(nproc) || make package/feeds/packages/openvpn/compile V=s Compile.txt Applying ./patches/001-reproducible-remove_DATE.patch using plaintext: patching file src/openvpn/options.c Applying ./patches/100-mbedtls-disable-runtime-version-check.patch using plaintext: patching file src/openvpn/ssl_mbedtls.c Applying ./patches/210-build_always_use_internal_lz4.patch using plaintext: patching file configure.ac Applying ./patches/220-disable_des.patch using plaintext: patching file src/openvpn/syshead."/>
+<meta itemprop="name" content="compile.48">
+<meta itemprop="description" content="build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/openvpn/compile -j$(nproc) || make package/feeds/packages/openvpn/compile V=s Compile.txt Applying ./patches/001-reproducible-remove_DATE.patch using plaintext: patching file src/openvpn/options.c Applying ./patches/100-mbedtls-disable-runtime-version-check.patch using plaintext: patching file src/openvpn/ssl_mbedtls.c Applying ./patches/210-build_always_use_internal_lz4.patch using plaintext: patching file configure.ac Applying ./patches/220-disable_des.patch using plaintext: patching file src/openvpn/syshead.">
+<meta itemprop="datePublished" content="2021-02-22T14:41:15&#43;00:00" />
+<meta itemprop="dateModified" content="2021-02-22T14:41:15&#43;00:00" />
+<meta itemprop="wordCount" content="2822">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.48</h1>
+<p>build number: <code>48</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/packages/openvpn/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/packages/openvpn/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/001-reproducible-remove_DATE.patch using plaintext: 
+patching file src/openvpn/options.c
+
+Applying ./patches/100-mbedtls-disable-runtime-version-check.patch using plaintext: 
+patching file src/openvpn/ssl_mbedtls.c
+
+Applying ./patches/210-build_always_use_internal_lz4.patch using plaintext: 
+patching file configure.ac
+
+Applying ./patches/220-disable_des.patch using plaintext: 
+patching file src/openvpn/syshead.h
+patching file src/openvpn/crypto_mbedtls.c
+autoreconf: Entering directory <span style="color:#e6db74">`</span>.<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">autoreconf: configure.ac: not using Gettext
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force -I m4
+</span><span style="color:#e6db74">autoreconf: configure.ac: tracing
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/libtoolize --install --force
+</span><span style="color:#e6db74">OpenWrt-libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `.&#39;</span>.
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>./config.guess<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `./config.sub&#39;</span>
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>./install-sh<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `./ltmain.sh&#39;</span>
+OpenWrt-libtoolize: putting macros in AC_CONFIG_MACRO_DIR, <span style="color:#e6db74">`</span>m4<span style="color:#e6db74">&#39;.
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `m4/libtool.m4&#39;</span>
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>m4/ltoptions.m4<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `m4/ltsugar.m4&#39;</span>
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>m4/ltversion.m4<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `m4/lt~obsolete.m4&#39;</span>
+autoreconf: running: /openwrt/staging_dir/host/bin/autoconf --include<span style="color:#f92672">=</span>/openwrt/staging_dir/target-x86_64_musl/host/share/aclocal --include<span style="color:#f92672">=</span>/openwrt/staging_dir/hostpkg/share/aclocal --include<span style="color:#f92672">=</span>/openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal --include<span style="color:#f92672">=</span>m4 --include<span style="color:#f92672">=</span>. --prepend-include<span style="color:#f92672">=</span>/openwrt/staging_dir/host/share/aclocal --force
+autoreconf: running: /openwrt/staging_dir/host/bin/autoheader --include<span style="color:#f92672">=</span>/openwrt/staging_dir/target-x86_64_musl/host/share/aclocal --include<span style="color:#f92672">=</span>/openwrt/staging_dir/hostpkg/share/aclocal --include<span style="color:#f92672">=</span>/openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal --include<span style="color:#f92672">=</span>m4 --include<span style="color:#f92672">=</span>. --prepend-include<span style="color:#f92672">=</span>/openwrt/staging_dir/host/share/aclocal --force
+autoreconf: running: /openwrt/staging_dir/host/bin/automake --add-missing --force-missing
+src/openvpnmsica/Makefile.am:48: warning: source file <span style="color:#e6db74">&#39;$(top_srcdir)/src/tapctl/error.c&#39;</span> is in a subdirectory,
+src/openvpnmsica/Makefile.am:48: but option <span style="color:#e6db74">&#39;subdir-objects&#39;</span> is disabled
+automake: warning: possible forward-incompatibility.
+automake: At least a source file is in a subdirectory, but the <span style="color:#e6db74">&#39;subdir-objects&#39;</span>
+automake: automake option hasn<span style="color:#e6db74">&#39;t been enabled.  For now, the corresponding output
+</span><span style="color:#e6db74">automake: object file(s) will be placed in the top-level directory.  However,
+</span><span style="color:#e6db74">automake: this behaviour will change in future Automake versions: they will
+</span><span style="color:#e6db74">automake: unconditionally cause object files to be placed in the same subdirectory
+</span><span style="color:#e6db74">automake: of the corresponding sources.
+</span><span style="color:#e6db74">automake: You are advised to start using &#39;</span>subdir-objects<span style="color:#e6db74">&#39; option throughout your
+</span><span style="color:#e6db74">automake: project, to avoid future incompatibilities.
+</span><span style="color:#e6db74">src/openvpnmsica/Makefile.am:48: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>top_srcdir<span style="color:#66d9ef">)</span>/src/tapctl/tap.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">src/openvpnmsica/Makefile.am:48: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">src/openvpnserv/Makefile.am:32: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>top_srcdir<span style="color:#66d9ef">)</span>/src/openvpn/block_dns.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">src/openvpnserv/Makefile.am:32: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:27: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:27: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:27: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:27: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:27: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/argv.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:27: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_mbedtls.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_openssl.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/otime.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/packet_id.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/base64.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:104: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:35: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:35: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_mbedtls.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_openssl.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/otime.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/packet_id.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:42: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_mbedtls.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_openssl.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/otime.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/packet_id.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:121: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/networking_sitnl.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_mbedtls.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_openssl.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/otime.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/packet_id.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:87: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/otime.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/packet_id.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:54: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/argv.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/base64.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/buffer.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_mbedtls.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/crypto_openssl.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/env_set.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/otime.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/packet_id.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/platform.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>openvpn_srcdir<span style="color:#66d9ef">)</span>/run_command.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/openvpn/Makefile.am:68: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">tests/unit_tests/plugins/auth-pam/Makefile.am:10: warning: source file &#39;</span><span style="color:#66d9ef">$(</span>sut_sourcedir<span style="color:#66d9ef">)</span>/utils.c<span style="color:#e6db74">&#39; is in a subdirectory,
+</span><span style="color:#e6db74">tests/unit_tests/plugins/auth-pam/Makefile.am:10: but option &#39;</span>subdir-objects<span style="color:#e6db74">&#39; is disabled
+</span><span style="color:#e6db74">autoreconf: Leaving directory `.&#39;</span>
+configure: WARNING: unrecognized options: --disable-nls
+configure: loading site script /openwrt/include/site/x86_64
+checking <span style="color:#66d9ef">for</span> a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-strip... x86_64-openwrt-linux-musl-strip
+checking <span style="color:#66d9ef">for</span> a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking <span style="color:#66d9ef">for</span> gawk... gawk
+checking whether make sets <span style="color:#66d9ef">$(</span>MAKE<span style="color:#66d9ef">)</span>... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-openwrt-linux-gnu
+checking <span style="color:#66d9ef">for</span> style of include used by make... GNU
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-gcc... ccache_cc
+checking whether the C compiler works... yes
+checking <span style="color:#66d9ef">for</span> C compiler default output file name... a.out
+checking <span style="color:#66d9ef">for</span> suffix of executables... 
+checking whether we are cross compiling... yes
+checking <span style="color:#66d9ef">for</span> suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether ccache_cc accepts -g... yes
+checking <span style="color:#66d9ef">for</span> ccache_cc option to accept ISO C89... none needed
+checking whether ccache_cc understands -c and -o together... yes
+checking dependency style of ccache_cc... gcc3
+checking how to run the C preprocessor... ccache_cc -E
+checking <span style="color:#66d9ef">for</span> grep that handles long lines and -e... /openwrt/staging_dir/host/bin/grep
+checking <span style="color:#66d9ef">for</span> egrep... /openwrt/staging_dir/host/bin/grep -E
+checking <span style="color:#66d9ef">for</span> ANSI C header files... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... yes
+checking <span style="color:#66d9ef">for</span> sys/stat.h... yes
+checking <span style="color:#66d9ef">for</span> stdlib.h... yes
+checking <span style="color:#66d9ef">for</span> string.h... yes
+checking <span style="color:#66d9ef">for</span> memory.h... yes
+checking <span style="color:#66d9ef">for</span> strings.h... yes
+checking <span style="color:#66d9ef">for</span> inttypes.h... yes
+checking <span style="color:#66d9ef">for</span> stdint.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking <span style="color:#66d9ef">for</span> minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking pkg-config is at least version 0.9.0... yes
+checking how to run the C preprocessor... ccache_cc -E
+checking whether ln -s works... yes
+checking <span style="color:#66d9ef">for</span> a sed that does not truncate output... /openwrt/staging_dir/host/bin/sed
+checking whether make sets <span style="color:#66d9ef">$(</span>MAKE<span style="color:#66d9ef">)</span>... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> ifconfig... no
+checking <span style="color:#66d9ef">for</span> route... no
+checking <span style="color:#66d9ef">for</span> ip... /sbin/ip
+checking <span style="color:#66d9ef">for</span> systemd-ask-password... no
+checking <span style="color:#66d9ef">for</span> netstat... /sbin/netstat
+checking <span style="color:#66d9ef">for</span> git... git
+checking <span style="color:#66d9ef">for</span> rst2man... no
+checking <span style="color:#66d9ef">for</span> rst2html... no
+checking how to print strings... printf
+checking <span style="color:#66d9ef">for</span> a sed that does not truncate output... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/sed
+checking <span style="color:#66d9ef">for</span> fgrep... /openwrt/staging_dir/host/bin/grep -F
+checking <span style="color:#66d9ef">for</span> ld used by ccache_cc... x86_64-openwrt-linux-musl-ld
+checking <span style="color:#66d9ef">if</span> the linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld<span style="color:#f92672">)</span> is GNU ld... yes
+checking <span style="color:#66d9ef">for</span> BSD- or MS-compatible name lister <span style="color:#f92672">(</span>nm<span style="color:#f92672">)</span>... x86_64-openwrt-linux-musl-gcc-nm
+checking the name lister <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-gcc-nm<span style="color:#f92672">)</span> interface... BSD nm
+checking the maximum length of command line arguments... <span style="color:#ae81ff">1572864</span>
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands <span style="color:#e6db74">&#34;+=&#34;</span>... yes
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-openwrt-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-musl-ld option to reload object files... -r
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-objdump... x86_64-openwrt-linux-musl-objdump
+checking how to recognize dependent libraries... pass_all
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-dlltool... no
+checking <span style="color:#66d9ef">for</span> dlltool... no
+checking how to associate runtime and link libraries... printf %s<span style="color:#ae81ff">\n</span>
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ar... x86_64-openwrt-linux-musl-gcc-ar
+checking <span style="color:#66d9ef">for</span> archiver @FILE support... @
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-strip... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> x86_64-openwrt-linux-musl-strip
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ranlib... x86_64-openwrt-linux-musl-gcc-ranlib
+checking command to parse x86_64-openwrt-linux-musl-gcc-nm output from ccache_cc object... ok
+checking <span style="color:#66d9ef">for</span> sysroot... no
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-mt... no
+checking <span style="color:#66d9ef">for</span> mt... no
+checking <span style="color:#66d9ef">if</span> : is a manifest tool... no
+checking <span style="color:#66d9ef">for</span> dlfcn.h... yes
+checking <span style="color:#66d9ef">for</span> objdir... .libs
+checking <span style="color:#66d9ef">if</span> ccache_cc supports -fno-rtti -fno-exceptions... no
+checking <span style="color:#66d9ef">for</span> ccache_cc option to produce PIC... -fPIC -DPIC
+checking <span style="color:#66d9ef">if</span> ccache_cc PIC flag -fPIC -DPIC works... yes
+checking <span style="color:#66d9ef">if</span> ccache_cc static flag -static works... yes
+checking <span style="color:#66d9ef">if</span> ccache_cc supports -c -o file.o... yes
+checking <span style="color:#66d9ef">if</span> ccache_cc supports -c -o file.o... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether the ccache_cc linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld -m elf_x86_64<span style="color:#f92672">)</span> supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking <span style="color:#66d9ef">if</span> libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-windres... no
+checking <span style="color:#66d9ef">for</span> windres... no
+checking <span style="color:#66d9ef">for</span> an ANSI C-conforming const... yes
+checking <span style="color:#66d9ef">for</span> inline... inline
+checking <span style="color:#66d9ef">for</span> working volatile... yes
+checking <span style="color:#66d9ef">for</span> off_t... yes
+checking <span style="color:#66d9ef">for</span> pid_t... yes
+checking <span style="color:#66d9ef">for</span> size_t... yes
+checking <span style="color:#66d9ef">for</span> uid_t in sys/types.h... yes
+checking <span style="color:#66d9ef">for</span> int8_t... yes
+checking <span style="color:#66d9ef">for</span> int16_t... yes
+checking <span style="color:#66d9ef">for</span> int32_t... yes
+checking <span style="color:#66d9ef">for</span> int64_t... yes
+checking <span style="color:#66d9ef">for</span> uint8_t... yes
+checking <span style="color:#66d9ef">for</span> uint16_t... yes
+checking <span style="color:#66d9ef">for</span> uint32_t... yes
+checking <span style="color:#66d9ef">for</span> uint64_t... yes
+checking <span style="color:#66d9ef">return</span> type of signal handlers... void
+checking <span style="color:#66d9ef">for</span> ISO C <span style="color:#ae81ff">1999</span> vararg macro support... yes
+checking <span style="color:#66d9ef">for</span> GNU GCC vararg macro support... yes
+checking <span style="color:#66d9ef">for</span> socklen_t... yes
+checking <span style="color:#66d9ef">for</span> C compiler empty array size... <span style="color:#ae81ff">0</span>
+checking size of unsigned int... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">4</span>
+checking size of unsigned long... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span>
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking <span style="color:#66d9ef">for</span> stdio.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking <span style="color:#66d9ef">for</span> stdarg.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking <span style="color:#66d9ef">for</span> limits.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking <span style="color:#66d9ef">for</span> time.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking <span style="color:#66d9ef">for</span> errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking <span style="color:#66d9ef">for</span> fcntl.h... yes
+checking io.h usability... no
+checking io.h presence... no
+checking <span style="color:#66d9ef">for</span> io.h... no
+checking direct.h usability... no
+checking direct.h presence... no
+checking <span style="color:#66d9ef">for</span> direct.h... no
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking <span style="color:#66d9ef">for</span> ctype.h... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/socket.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking <span style="color:#66d9ef">for</span> signal.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> dlfcn.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking <span style="color:#66d9ef">for</span> netinet/in.h... yes
+checking netinet/in_systm.h usability... yes
+checking netinet/in_systm.h presence... yes
+checking <span style="color:#66d9ef">for</span> netinet/in_systm.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking <span style="color:#66d9ef">for</span> netinet/tcp.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking <span style="color:#66d9ef">for</span> arpa/inet.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking <span style="color:#66d9ef">for</span> netdb.h... yes
+checking windows.h usability... no
+checking windows.h presence... no
+checking <span style="color:#66d9ef">for</span> windows.h... no
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking <span style="color:#66d9ef">for</span> winsock2.h... no
+checking ws2tcpip.h usability... no
+checking ws2tcpip.h presence... no
+checking <span style="color:#66d9ef">for</span> ws2tcpip.h... no
+checking versionhelpers.h usability... no
+checking versionhelpers.h presence... no
+checking <span style="color:#66d9ef">for</span> versionhelpers.h... no
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/time.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/ioctl.h... yes
+checking <span style="color:#66d9ef">for</span> sys/stat.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/mman.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/file.h... yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/wait.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> signal.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking libgen.h usability... yes
+checking libgen.h presence... yes
+checking <span style="color:#66d9ef">for</span> libgen.h... yes
+checking stropts.h usability... yes
+checking stropts.h presence... yes
+checking <span style="color:#66d9ef">for</span> stropts.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking <span style="color:#66d9ef">for</span> syslog.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking <span style="color:#66d9ef">for</span> pwd.h... yes
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking <span style="color:#66d9ef">for</span> grp.h... yes
+checking sys/sockio.h usability... no
+checking sys/sockio.h presence... no
+checking <span style="color:#66d9ef">for</span> sys/sockio.h... no
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/uio.h... yes
+checking linux/sockios.h usability... yes
+checking linux/sockios.h presence... yes
+checking <span style="color:#66d9ef">for</span> linux/sockios.h... yes
+checking linux/types.h usability... yes
+checking linux/types.h presence... yes
+checking <span style="color:#66d9ef">for</span> linux/types.h... yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking <span style="color:#66d9ef">for</span> poll.h... yes
+checking sys/epoll.h usability... yes
+checking sys/epoll.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/epoll.h... yes
+checking err.h usability... yes
+checking err.h presence... yes
+checking <span style="color:#66d9ef">for</span> err.h... yes
+checking <span style="color:#66d9ef">for</span> net/if.h... yes
+checking <span style="color:#66d9ef">for</span> netinet/ip.h... yes
+checking <span style="color:#66d9ef">for</span> resolv.h... yes
+checking <span style="color:#66d9ef">for</span> sys/un.h... yes
+checking <span style="color:#66d9ef">for</span> net/if_utun.h... no
+checking <span style="color:#66d9ef">for</span> sys/kern_control.h... no
+checking <span style="color:#66d9ef">for</span> in_addr_t... yes
+checking <span style="color:#66d9ef">for</span> in_port_t... yes
+checking <span style="color:#66d9ef">for</span> struct iphdr... yes
+checking <span style="color:#66d9ef">for</span> struct sock_extended_err... no
+checking <span style="color:#66d9ef">for</span> struct msghdr... yes
+checking <span style="color:#66d9ef">for</span> struct cmsghdr... yes
+checking <span style="color:#66d9ef">for</span> struct in_pktinfo... yes
+checking <span style="color:#66d9ef">for</span> sa_family_t... yes
+checking <span style="color:#66d9ef">for</span> struct in_pktinfo.ipi_spec_dst... yes
+checking <span style="color:#66d9ef">for</span> struct sockaddr_in6... yes
+checking whether SO_MARK is declared... yes
+configure: checking anonymous union support...
+yes
+checking linker supports --wrap... yes
+checking whether SIGHUP is declared... yes
+checking whether SIGINT is declared... yes
+checking whether SIGUSR1 is declared... yes
+checking whether SIGUSR2 is declared... yes
+checking whether SIGTERM is declared... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking <span style="color:#66d9ef">for</span> vfork.h... no
+checking <span style="color:#66d9ef">for</span> fork... yes
+checking <span style="color:#66d9ef">for</span> vfork... yes
+checking <span style="color:#66d9ef">for</span> working fork... cross
+configure: WARNING: result yes guessed because of cross compilation
+checking <span style="color:#66d9ef">for</span> working vfork... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> daemon... yes
+checking <span style="color:#66d9ef">for</span> chroot... yes
+checking <span style="color:#66d9ef">for</span> getpwnam... yes
+checking <span style="color:#66d9ef">for</span> setuid... yes
+checking <span style="color:#66d9ef">for</span> nice... yes
+checking <span style="color:#66d9ef">for</span> system... yes
+checking <span style="color:#66d9ef">for</span> getpid... yes
+checking <span style="color:#66d9ef">for</span> dup... yes
+checking <span style="color:#66d9ef">for</span> dup2... yes
+checking <span style="color:#66d9ef">for</span> getpass... yes
+checking <span style="color:#66d9ef">for</span> syslog... yes
+checking <span style="color:#66d9ef">for</span> openlog... yes
+checking <span style="color:#66d9ef">for</span> mlockall... yes
+checking <span style="color:#66d9ef">for</span> getgrnam... yes
+checking <span style="color:#66d9ef">for</span> setgid... yes
+checking <span style="color:#66d9ef">for</span> setgroups... yes
+checking <span style="color:#66d9ef">for</span> stat... yes
+checking <span style="color:#66d9ef">for</span> flock... yes
+checking <span style="color:#66d9ef">for</span> readv... yes
+checking <span style="color:#66d9ef">for</span> writev... yes
+checking <span style="color:#66d9ef">for</span> time... yes
+checking <span style="color:#66d9ef">for</span> gettimeofday... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> ctime... yes
+checking <span style="color:#66d9ef">for</span> memset... yes
+checking <span style="color:#66d9ef">for</span> vsnprintf... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> strdup... yes
+checking <span style="color:#66d9ef">for</span> setsid... yes
+checking <span style="color:#66d9ef">for</span> chdir... yes
+checking <span style="color:#66d9ef">for</span> putenv... yes
+checking <span style="color:#66d9ef">for</span> getpeername... yes
+checking <span style="color:#66d9ef">for</span> unlink... yes
+checking <span style="color:#66d9ef">for</span> chsize... no
+checking <span style="color:#66d9ef">for</span> ftruncate... yes
+checking <span style="color:#66d9ef">for</span> execve... yes
+checking <span style="color:#66d9ef">for</span> getpeereid... no
+checking <span style="color:#66d9ef">for</span> umask... yes
+checking <span style="color:#66d9ef">for</span> basename... yes
+checking <span style="color:#66d9ef">for</span> dirname... yes
+checking <span style="color:#66d9ef">for</span> access... yes
+checking <span style="color:#66d9ef">for</span> epoll_create... yes
+checking <span style="color:#66d9ef">for</span> strsep... yes
+checking <span style="color:#66d9ef">for</span> dlopen in -ldl... yes
+checking <span style="color:#66d9ef">for</span> inet_ntoa in -lnsl... no
+checking <span style="color:#66d9ef">for</span> socket in -lsocket... no
+checking <span style="color:#66d9ef">for</span> gethostbyname in -lresolv... yes
+checking <span style="color:#66d9ef">for</span> sendmsg... yes
+checking <span style="color:#66d9ef">for</span> recvmsg... yes
+checking <span style="color:#66d9ef">for</span> inet_ntop... yes
+checking <span style="color:#66d9ef">for</span> inet_pton... yes
+checking <span style="color:#66d9ef">for</span> socket... yes
+checking <span style="color:#66d9ef">for</span> recv... yes
+checking <span style="color:#66d9ef">for</span> recvfrom... yes
+checking <span style="color:#66d9ef">for</span> send... yes
+checking <span style="color:#66d9ef">for</span> sendto... yes
+checking <span style="color:#66d9ef">for</span> listen... yes
+checking <span style="color:#66d9ef">for</span> accept... yes
+checking <span style="color:#66d9ef">for</span> connect... yes
+checking <span style="color:#66d9ef">for</span> bind... yes
+checking <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">select</span>... yes
+checking <span style="color:#66d9ef">for</span> gethostbyname... yes
+checking <span style="color:#66d9ef">for</span> inet_ntoa... yes
+checking <span style="color:#66d9ef">for</span> setsockopt... yes
+checking <span style="color:#66d9ef">for</span> getsockopt... yes
+checking <span style="color:#66d9ef">for</span> getsockname... yes
+checking <span style="color:#66d9ef">for</span> poll... yes
+checking <span style="color:#66d9ef">for</span> library containing __res_init... no
+checking <span style="color:#66d9ef">for</span> library containing res_9_init... no
+checking <span style="color:#66d9ef">for</span> library containing res_init... none required
+checking net/if_tun.h usability... no
+checking net/if_tun.h presence... no
+checking <span style="color:#66d9ef">for</span> net/if_tun.h... no
+checking net/tun/if_tun.h usability... no
+checking net/tun/if_tun.h presence... no
+checking <span style="color:#66d9ef">for</span> net/tun/if_tun.h... no
+checking linux/if_tun.h usability... yes
+checking linux/if_tun.h presence... yes
+checking <span style="color:#66d9ef">for</span> linux/if_tun.h... yes
+checking tap-windows.h usability... no
+checking tap-windows.h presence... no
+checking <span style="color:#66d9ef">for</span> tap-windows.h... no
+checking whether TUNSETPERSIST is declared... yes
+checking <span style="color:#66d9ef">for</span> setcon in -lselinux... yes
+checking <span style="color:#66d9ef">for</span> pam_start in -lpam... yes
+checking <span style="color:#66d9ef">for</span> PKCS11_HELPER... no
+checking <span style="color:#66d9ef">for</span> mbedtls_ssl_init in -lmbedtls... no
+configure: error: Could not find mbed TLS.
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:147: /openwrt/build_dir/target-x86_64_musl/openvpn-mbedtls/openvpn-2.5.0/.configured_68b329da9893e34099c7d8ad5cb9c940<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 22 Feb 2021
+
+
+<br>
+Published on 22 Feb 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/" title="mbedtls"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - mbedtls</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/" title="package_feeds_packages_shairport-sync">Next - package_feeds_packages_shairport-sync <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/">package_feeds_packages_strongswan<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/">package_feeds_base_ndpi-netfilter<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/">package_feeds_packages_cshark<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/">package_feeds_packages_libwebsockets<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/">package_feeds_packages_umurmur<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/">package_feeds_packages_snort<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/">package_feeds_packages_gnunet<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/">package_feeds_packages_gnunet-fuse<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/">package_feeds_packages_mc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/">package_feeds_base_openwrt-dnsforwarder<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/">package_feeds_base_gowebdav<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/">package_feeds_base_libdvbcsa<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/">package_feeds_base_nat46<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/">package_feeds_base_simple-torrent<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/">package_feeds_base_tinyfecvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/">package_feeds_base_trojan-plus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/">package_feeds_packages_alac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/">package_feeds_packages_atheepmgr<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/">package_feeds_packages_fail2ban<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/">python3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/">package_feeds_packages_gcc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/">package_feeds_packages_libxcrypt<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/">package_feeds_packages_minisatip<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/">package_feeds_packages_ufw<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/">python3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/">package_feeds_routing_minimalist-pcproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

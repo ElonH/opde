@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_packages_node-ffi-napi on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Feb 2021 14:41:01 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,16 @@
       <description>build number: 60
 path: package/feeds/packages/node-ffi-napi/compile
 npm info it worked if it ends with ok npm info using npm@6.14.11 npm info using node@v12.20.2 npm timing stage:loadCurrentTree Completed in 38ms npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms npm timing stage:loadIdealTree:loadShrinkwrap Completed in 3ms npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 18ms npm timing stage:loadIdealTree Completed in 25ms npm timing stage:generateActionsToTake Completed in 3ms npm info lifecycle ffi-napi@3.1.0~preuninstall: ffi-napi@3.1.0 npm info lifecycle ffi-napi@3.1.0~uninstall: ffi-napi@3.1.0 npm info lifecycle ffi-napi@3.</description>
+    </item>
+    
+    <item>
+      <title>compile.48</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/</link>
+      <pubDate>Mon, 22 Feb 2021 14:41:01 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/</guid>
+      <description>build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc Applying ./patches/0003-for_libffi_abi_3_3.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6.</description>
     </item>
     
   </channel>

@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_packages_snort on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Feb 2021 14:41:09 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,16 @@
       <description>build number: 60
 path: package/feeds/packages/snort/compile
 autoreconf: Entering directory `.&amp;#39; autoreconf: configure.in: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force aclocal.real: warning: autoconf input should be named &amp;#39;configure.ac&amp;#39;, not &amp;#39;configure.in&amp;#39; autoreconf: configure.in: tracing autoreconf: running: /openwrt/staging_dir/host/bin/libtoolize --install --force OpenWrt-libtoolize: putting auxiliary files in `.&amp;#39;. OpenWrt-libtoolize: linking file `./config.guess&amp;#39; OpenWrt-libtoolize: linking file `./config.sub&amp;#39; OpenWrt-libtoolize: linking file `./install-sh&amp;#39; OpenWrt-libtoolize: linking file `./ltmain.sh&amp;#39; OpenWrt-libtoolize: Consider adding `AC_CONFIG_MACRO_DIR([m4])&amp;#39; to configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.48</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/</link>
+      <pubDate>Mon, 22 Feb 2021 14:41:09 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/</guid>
+      <description>build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/snort/compile -j$(nproc) || make package/feeds/packages/snort/compile V=s Compile.txt Applying ./patches/001-compile.patch using plaintext: File configure.in is read-only; trying to patch anyway patching file configure.in Applying ./patches/002-fix_include.patch using plaintext: File configure.in is read-only; trying to patch anyway patching file configure.</description>
     </item>
     
   </channel>

@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.48 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.48" />
+<meta property="og:description" content="build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/libwebsockets/compile -j$(nproc) || make package/feeds/packages/libwebsockets/compile V=s Compile.txt Applying ./patches/020-fix-travis.patch using plaintext: patching file CMakeLists.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &lt; 2.8.12 will be removed from a future version of CMake." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-02-22T14:41:15+00:00" />
+<meta property="article:modified_time" content="2021-02-22T14:41:15+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.48"/>
+<meta name="twitter:description" content="build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/libwebsockets/compile -j$(nproc) || make package/feeds/packages/libwebsockets/compile V=s Compile.txt Applying ./patches/020-fix-travis.patch using plaintext: patching file CMakeLists.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &lt; 2.8.12 will be removed from a future version of CMake."/>
+<meta itemprop="name" content="compile.48">
+<meta itemprop="description" content="build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/libwebsockets/compile -j$(nproc) || make package/feeds/packages/libwebsockets/compile V=s Compile.txt Applying ./patches/020-fix-travis.patch using plaintext: patching file CMakeLists.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &lt; 2.8.12 will be removed from a future version of CMake.">
+<meta itemprop="datePublished" content="2021-02-22T14:41:15&#43;00:00" />
+<meta itemprop="dateModified" content="2021-02-22T14:41:15&#43;00:00" />
+<meta itemprop="wordCount" content="2353">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.48</h1>
+<p>build number: <code>48</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/packages/libwebsockets/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/packages/libwebsockets/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/020-fix-travis.patch using plaintext: 
+patching file CMakeLists.txt
+CMake Deprecation Warning at CMakeLists.txt:1 <span style="color:#f92672">(</span>cmake_minimum_required<span style="color:#f92672">)</span>:
+  Compatibility with CMake &lt; 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument &lt;min&gt; value or use a ...&lt;max&gt; suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 8.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - <span style="color:#66d9ef">done</span>
+-- Check <span style="color:#66d9ef">for</span> working C compiler: /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/x86_64-openwrt-linux-musl-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - <span style="color:#66d9ef">done</span>
+-- CMAKE_TOOLCHAIN_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+-- Found Git: /openwrt/staging_dir/host/bin/git  
+fatal: not a git repository <span style="color:#f92672">(</span>or any parent up to mount point /<span style="color:#f92672">)</span>
+Stopping at filesystem boundary <span style="color:#f92672">(</span>GIT_DISCOVERY_ACROSS_FILESYSTEM not set<span style="color:#f92672">)</span>.
+Git commit hash: 
+-- Found MBEDTLS: /openwrt/staging_dir/target-x86_64_musl/usr/include  
+-- Performing Test LWS_HAVE_inline
+-- Performing Test LWS_HAVE_inline - Success
+-- Performing Test LWS_HAVE___inline__
+-- Performing Test LWS_HAVE___inline__ - Success
+-- Performing Test LWS_HAVE___inline
+-- Performing Test LWS_HAVE___inline - Success
+-- Performing Test LWS_HAVE_BZERO
+-- Performing Test LWS_HAVE_BZERO - Success
+-- Looking <span style="color:#66d9ef">for</span> fork
+-- Looking <span style="color:#66d9ef">for</span> fork - found
+-- Looking <span style="color:#66d9ef">for</span> getenv
+-- Looking <span style="color:#66d9ef">for</span> getenv - found
+-- Looking <span style="color:#66d9ef">for</span> malloc
+-- Looking <span style="color:#66d9ef">for</span> malloc - found
+-- Looking <span style="color:#66d9ef">for</span> memset
+-- Looking <span style="color:#66d9ef">for</span> memset - found
+-- Looking <span style="color:#66d9ef">for</span> realloc
+-- Looking <span style="color:#66d9ef">for</span> realloc - found
+-- Looking <span style="color:#66d9ef">for</span> socket
+-- Looking <span style="color:#66d9ef">for</span> socket - found
+-- Looking <span style="color:#66d9ef">for</span> strerror
+-- Looking <span style="color:#66d9ef">for</span> strerror - found
+-- Looking <span style="color:#66d9ef">for</span> vfork
+-- Looking <span style="color:#66d9ef">for</span> vfork - found
+-- Looking <span style="color:#66d9ef">for</span> execvpe
+-- Looking <span style="color:#66d9ef">for</span> execvpe - found
+-- Looking <span style="color:#66d9ef">for</span> getifaddrs
+-- Looking <span style="color:#66d9ef">for</span> getifaddrs - found
+-- Looking <span style="color:#66d9ef">for</span> snprintf
+-- Looking <span style="color:#66d9ef">for</span> snprintf - found
+-- Looking <span style="color:#66d9ef">for</span> _snprintf
+-- Looking <span style="color:#66d9ef">for</span> _snprintf - not found
+-- Looking <span style="color:#66d9ef">for</span> _vsnprintf
+-- Looking <span style="color:#66d9ef">for</span> _vsnprintf - not found
+-- Looking <span style="color:#66d9ef">for</span> getloadavg
+-- Looking <span style="color:#66d9ef">for</span> getloadavg - found
+-- Looking <span style="color:#66d9ef">for</span> atoll
+-- Looking <span style="color:#66d9ef">for</span> atoll - found
+-- Looking <span style="color:#66d9ef">for</span> _atoi64
+-- Looking <span style="color:#66d9ef">for</span> _atoi64 - not found
+-- Looking <span style="color:#66d9ef">for</span> _stat32i64
+-- Looking <span style="color:#66d9ef">for</span> _stat32i64 - not found
+-- Looking <span style="color:#66d9ef">for</span> dlfcn.h
+-- Looking <span style="color:#66d9ef">for</span> dlfcn.h - found
+-- Looking <span style="color:#66d9ef">for</span> fcntl.h
+-- Looking <span style="color:#66d9ef">for</span> fcntl.h - found
+-- Looking <span style="color:#66d9ef">for</span> in6addr.h
+-- Looking <span style="color:#66d9ef">for</span> in6addr.h - not found
+-- Looking <span style="color:#66d9ef">for</span> memory.h
+-- Looking <span style="color:#66d9ef">for</span> memory.h - found
+-- Looking <span style="color:#66d9ef">for</span> netinet/in.h
+-- Looking <span style="color:#66d9ef">for</span> netinet/in.h - found
+-- Looking <span style="color:#66d9ef">for</span> stdint.h
+-- Looking <span style="color:#66d9ef">for</span> stdint.h - found
+-- Looking <span style="color:#66d9ef">for</span> stdlib.h
+-- Looking <span style="color:#66d9ef">for</span> stdlib.h - found
+-- Looking <span style="color:#66d9ef">for</span> strings.h
+-- Looking <span style="color:#66d9ef">for</span> strings.h - found
+-- Looking <span style="color:#66d9ef">for</span> string.h
+-- Looking <span style="color:#66d9ef">for</span> string.h - found
+-- Looking <span style="color:#66d9ef">for</span> sys/prctl.h
+-- Looking <span style="color:#66d9ef">for</span> sys/prctl.h - found
+-- Looking <span style="color:#66d9ef">for</span> sys/socket.h
+-- Looking <span style="color:#66d9ef">for</span> sys/socket.h - found
+-- Looking <span style="color:#66d9ef">for</span> sys/sockio.h
+-- Looking <span style="color:#66d9ef">for</span> sys/sockio.h - not found
+-- Looking <span style="color:#66d9ef">for</span> sys/stat.h
+-- Looking <span style="color:#66d9ef">for</span> sys/stat.h - found
+-- Looking <span style="color:#66d9ef">for</span> sys/types.h
+-- Looking <span style="color:#66d9ef">for</span> sys/types.h - found
+-- Looking <span style="color:#66d9ef">for</span> unistd.h
+-- Looking <span style="color:#66d9ef">for</span> unistd.h - found
+-- Looking <span style="color:#66d9ef">for</span> vfork.h
+-- Looking <span style="color:#66d9ef">for</span> vfork.h - not found
+-- Looking <span style="color:#66d9ef">for</span> sys/capability.h
+-- Looking <span style="color:#66d9ef">for</span> sys/capability.h - found
+-- Looking <span style="color:#66d9ef">for</span> malloc.h
+-- Looking <span style="color:#66d9ef">for</span> malloc.h - found
+-- Looking <span style="color:#66d9ef">for</span> pthread.h
+-- Looking <span style="color:#66d9ef">for</span> pthread.h - found
+-- Looking <span style="color:#66d9ef">for</span> cap_set_flag in cap
+-- Looking <span style="color:#66d9ef">for</span> cap_set_flag in cap - found
+-- Looking <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">4</span> include files stdlib.h, ..., float.h
+-- Looking <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">4</span> include files stdlib.h, ..., float.h - found
+-- Performing Test LWS_HAS_INTPTR_T
+-- Performing Test LWS_HAS_INTPTR_T - Success
+-- Performing Test LWS_HAS_PTHREAD_SETNAME_NP
+-- Performing Test LWS_HAS_PTHREAD_SETNAME_NP - Success
+-- Performing Test LWS_HAVE_VISIBILITY
+-- Performing Test LWS_HAVE_VISIBILITY - Success
+Compiling with SSL support
+MBEDTLS include dir: /openwrt/staging_dir/target-x86_64_musl/usr/include
+MBEDTLS libraries: /openwrt/staging_dir/target-x86_64_musl/usr/lib/libmbedtls.so;/openwrt/staging_dir/target-x86_64_musl/usr/lib/libmbedx509.so;/openwrt/staging_dir/target-x86_64_musl/usr/lib/libmbedcrypto.so
+-- Looking <span style="color:#66d9ef">for</span> SSL_CTX_set1_param
+-- Looking <span style="color:#66d9ef">for</span> SSL_CTX_set1_param - not found
+-- Looking <span style="color:#66d9ef">for</span> SSL_set_info_callback
+-- Looking <span style="color:#66d9ef">for</span> SSL_set_info_callback - not found
+-- Looking <span style="color:#66d9ef">for</span> X509_VERIFY_PARAM_set1_host
+-- Looking <span style="color:#66d9ef">for</span> X509_VERIFY_PARAM_set1_host - not found
+-- Looking <span style="color:#66d9ef">for</span> RSA_set0_key
+-- Looking <span style="color:#66d9ef">for</span> RSA_set0_key - not found
+-- Looking <span style="color:#66d9ef">for</span> X509_get_key_usage
+-- Looking <span style="color:#66d9ef">for</span> X509_get_key_usage - not found
+-- Looking <span style="color:#66d9ef">for</span> SSL_CTX_get0_certificate
+-- Looking <span style="color:#66d9ef">for</span> SSL_CTX_get0_certificate - not found
+-- Looking <span style="color:#66d9ef">for</span> SSL_get0_alpn_selected
+-- Looking <span style="color:#66d9ef">for</span> SSL_get0_alpn_selected - not found
+-- Looking <span style="color:#66d9ef">for</span> SSL_set_alpn_protos
+-- Looking <span style="color:#66d9ef">for</span> SSL_set_alpn_protos - not found
+-- Looking <span style="color:#66d9ef">for</span> SSL_CTX_set_ciphersuites
+-- Looking <span style="color:#66d9ef">for</span> SSL_CTX_set_ciphersuites - not found
+-- Performing Test LWS_HAVE_PIPE2
+-- Performing Test LWS_HAVE_PIPE2 - Success
+-- Performing Test LWS_HAVE_TCP_USER_TIMEOUT
+-- Performing Test LWS_HAVE_TCP_USER_TIMEOUT - Success
+Searching <span style="color:#66d9ef">for</span> OpenSSL executable and dlls
+OpenSSL executable: 
+ GENCERTS <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+-- Looking <span style="color:#66d9ef">for</span> RPMTools... - rpmbuild NOT FOUND
+---------------------------------------------------------------------
+  Settings:  <span style="color:#f92672">(</span>For more help <span style="color:#66d9ef">do</span> cmake -LH &lt;srcpath&gt;<span style="color:#f92672">)</span>
+---------------------------------------------------------------------
+ LWS_WITH_STATIC <span style="color:#f92672">=</span> ON
+ LWS_WITH_SHARED <span style="color:#f92672">=</span> ON
+ LWS_WITH_SSL <span style="color:#f92672">=</span> ON <span style="color:#f92672">(</span>SSL Support<span style="color:#f92672">)</span>
+ LWS_SSL_CLIENT_USE_OS_CA_CERTS <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_WITH_WOLFSSL <span style="color:#f92672">=</span> OFF <span style="color:#f92672">(</span>wolfSSL/CyaSSL replacement <span style="color:#66d9ef">for</span> OpenSSL<span style="color:#f92672">)</span>
+ LWS_WITH_MBEDTLS <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>mbedTLS replacement <span style="color:#66d9ef">for</span> OpenSSL<span style="color:#f92672">)</span>
+ LWS_WITHOUT_BUILTIN_SHA1 <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_BUILTIN_GETIFADDRS <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_CLIENT <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_SERVER <span style="color:#f92672">=</span> OFF
+ LWS_LINK_TESTAPPS_DYNAMIC <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_TESTAPPS <span style="color:#f92672">=</span> ON
+ LWS_WITHOUT_TEST_SERVER <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_TEST_SERVER_EXTPOLL <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_TEST_PING <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_TEST_CLIENT <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_EXTENSIONS <span style="color:#f92672">=</span> ON
+ LWS_WITH_LATENCY <span style="color:#f92672">=</span> OFF
+ LWS_WITHOUT_DAEMONIZE <span style="color:#f92672">=</span> ON
+ LWS_WITH_LIBEV <span style="color:#f92672">=</span> OFF
+ LWS_WITH_LIBUV <span style="color:#f92672">=</span> OFF
+ LWS_WITH_LIBEVENT <span style="color:#f92672">=</span> OFF
+ LWS_IPV6 <span style="color:#f92672">=</span> ON
+ LWS_UNIX_SOCK <span style="color:#f92672">=</span> OFF
+ LWS_WITH_HTTP2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_SSL_SERVER_WITH_ECDH_CERT <span style="color:#f92672">=</span> OFF
+ LWS_MAX_SMP <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_HAVE_PTHREAD_H <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_WITH_CGI <span style="color:#f92672">=</span> OFF
+ LWS_HAVE_OPENSSL_ECDH_H <span style="color:#f92672">=</span> 
+ LWS_HAVE_SSL_CTX_set1_param <span style="color:#f92672">=</span> 
+ LWS_HAVE_RSA_SET0_KEY <span style="color:#f92672">=</span> 
+ LWS_WITH_HTTP_PROXY <span style="color:#f92672">=</span> OFF
+ LIBHUBBUB_LIBRARIES <span style="color:#f92672">=</span> 
+ PLUGINS <span style="color:#f92672">=</span> 
+ LWS_WITH_ACCESS_LOG <span style="color:#f92672">=</span> OFF
+ LWS_WITH_SERVER_STATUS <span style="color:#f92672">=</span> OFF
+ LWS_WITH_LEJP <span style="color:#f92672">=</span> ON
+ LWS_WITH_LEJP_CONF <span style="color:#f92672">=</span> ON
+ LWS_WITH_SMTP <span style="color:#f92672">=</span> OFF
+ LWS_WITH_GENERIC_SESSIONS <span style="color:#f92672">=</span> OFF
+ LWS_STATIC_PIC <span style="color:#f92672">=</span> OFF
+ LWS_WITH_RANGES <span style="color:#f92672">=</span> OFF
+ LWS_PLAT_OPTEE <span style="color:#f92672">=</span> OFF
+ LWS_WITH_ESP32 <span style="color:#f92672">=</span> OFF
+ LWS_WITH_ZIP_FOPS <span style="color:#f92672">=</span> OFF
+ LWS_AVOID_SIGPIPE_IGN <span style="color:#f92672">=</span> OFF
+ LWS_WITH_STATS <span style="color:#f92672">=</span> OFF
+ LWS_WITH_SOCKS5 <span style="color:#f92672">=</span> OFF
+ LWS_HAVE_SYS_CAPABILITY_H <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_HAVE_LIBCAP <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_WITH_PEER_LIMITS <span style="color:#f92672">=</span> OFF
+ LWS_HAVE_ATOLL <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_HAVE__ATOI64 <span style="color:#f92672">=</span> 
+ LWS_HAVE_STAT32I64 <span style="color:#f92672">=</span> 
+ LWS_HAS_INTPTR_T <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+ LWS_WITH_EXPORT_LWSTARGETS <span style="color:#f92672">=</span> ON
+---------------------------------------------------------------------
+-- Configuring <span style="color:#66d9ef">done</span>
+-- Generating <span style="color:#66d9ef">done</span>
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_ASM_COMPILER
+    CMAKE_ASM_COMPILER_LAUNCHER
+    CMAKE_CXX_COMPILER
+    CMAKE_CXX_FLAGS_RELEASE
+    CMAKE_EXE_LINKER_FLAGS
+    CMAKE_EXPORT_PACKAGE_REGISTRY
+    CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY
+    CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY
+    CMAKE_MODULE_LINKER_FLAGS
+    DL_LIBRARY
+
+
+-- Build files have been written to: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+Scanning dependencies of target websockets_shared
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span>  0%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/alloc.c.o
+<span style="color:#f92672">[</span>  1%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/context.c.o
+<span style="color:#f92672">[</span>  2%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/dummy-callback.c.o
+<span style="color:#f92672">[</span>  3%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/libwebsockets.c.o
+<span style="color:#f92672">[</span>  4%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/output.c.o
+<span style="color:#f92672">[</span>  5%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/pollfd.c.o
+<span style="color:#f92672">[</span>  6%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/service.c.o
+<span style="color:#f92672">[</span>  6%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/misc/base64-decode.c.o
+<span style="color:#f92672">[</span>  7%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/misc/lws-ring.c.o
+<span style="color:#f92672">[</span>  8%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/pipe/ops-pipe.c.o
+<span style="color:#f92672">[</span>  9%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/header.c.o
+<span style="color:#f92672">[</span> 10%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/server/parsers.c.o
+<span style="color:#f92672">[</span> 11%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/h1/ops-h1.c.o
+<span style="color:#f92672">[</span> 12%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/ws/ops-ws.c.o
+<span style="color:#f92672">[</span> 12%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/ws/client-ws.c.o
+<span style="color:#f92672">[</span> 13%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/ws/client-parser-ws.c.o
+<span style="color:#f92672">[</span> 14%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/ws/server-ws.c.o
+<span style="color:#f92672">[</span> 15%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/raw-skt/ops-raw-skt.c.o
+<span style="color:#f92672">[</span> 16%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/raw-file/ops-raw-file.c.o
+<span style="color:#f92672">[</span> 17%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/misc/lwsac/lwsac.c.o
+<span style="color:#f92672">[</span> 18%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/misc/lwsac/cached-file.c.o
+<span style="color:#f92672">[</span> 18%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/connect.c.o
+<span style="color:#f92672">[</span> 19%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/client/client.c.o
+<span style="color:#f92672">[</span> 20%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/client/client-handshake.c.o
+<span style="color:#f92672">[</span> 21%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/core/adopt.c.o
+<span style="color:#f92672">[</span> 22%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/listen/ops-listen.c.o
+<span style="color:#f92672">[</span> 23%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/library/ssl_cert.c.o
+<span style="color:#f92672">[</span> 24%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/library/ssl_lib.c.o
+<span style="color:#f92672">[</span> 25%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/library/ssl_methods.c.o
+<span style="color:#f92672">[</span> 25%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/library/ssl_pkey.c.o
+<span style="color:#f92672">[</span> 26%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/library/ssl_stack.c.o
+<span style="color:#f92672">[</span> 27%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/library/ssl_x509.c.o
+<span style="color:#f92672">[</span> 28%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/platform/ssl_pm.c.o
+<span style="color:#f92672">[</span> 29%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/wrapper/platform/ssl_port.c.o
+<span style="color:#f92672">[</span> 30%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/tls.c.o
+<span style="color:#f92672">[</span> 31%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/ssl.c.o
+<span style="color:#f92672">[</span> 31%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/tls-server.c.o
+<span style="color:#f92672">[</span> 32%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/mbedtls-server.c.o
+<span style="color:#f92672">[</span> 33%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/tls-client.c.o
+<span style="color:#f92672">[</span> 34%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/tls/mbedtls/mbedtls-client.c.o
+<span style="color:#f92672">[</span> 35%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/misc/sha-1.c.o
+<span style="color:#f92672">[</span> 36%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/h2/http2.c.o
+<span style="color:#f92672">[</span> 37%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/h2/hpack.c.o
+<span style="color:#f92672">[</span> 37%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/h2/ops-h2.c.o
+<span style="color:#f92672">[</span> 38%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-caps.c.o
+<span style="color:#f92672">[</span> 39%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-fds.c.o
+<span style="color:#f92672">[</span> 40%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-file.c.o
+<span style="color:#f92672">[</span> 41%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-misc.c.o
+<span style="color:#f92672">[</span> 42%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-init.c.o
+<span style="color:#f92672">[</span> 43%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-pipe.c.o
+<span style="color:#f92672">[</span> 43%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-service.c.o
+<span style="color:#f92672">[</span> 44%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/plat/unix/unix-sockets.c.o
+<span style="color:#f92672">[</span> 45%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/server/server.c.o
+<span style="color:#f92672">[</span> 46%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/server/lws-spa.c.o
+<span style="color:#f92672">[</span> 47%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/event-libs/poll/poll.c.o
+<span style="color:#f92672">[</span> 48%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/misc/lejp.c.o
+<span style="color:#f92672">[</span> 49%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets_shared.dir/lib/roles/http/server/lejp-conf.c.o
+<span style="color:#f92672">[</span> 50%<span style="color:#f92672">]</span> Linking C shared library lib/libwebsockets.so
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span> 50%<span style="color:#f92672">]</span> Built target websockets_shared
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+Scanning dependencies of target websockets
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span> 50%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/alloc.c.o
+<span style="color:#f92672">[</span> 51%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/context.c.o
+<span style="color:#f92672">[</span> 52%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/dummy-callback.c.o
+<span style="color:#f92672">[</span> 53%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/libwebsockets.c.o
+<span style="color:#f92672">[</span> 54%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/output.c.o
+<span style="color:#f92672">[</span> 55%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/pollfd.c.o
+<span style="color:#f92672">[</span> 56%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/service.c.o
+<span style="color:#f92672">[</span> 56%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/base64-decode.c.o
+<span style="color:#f92672">[</span> 57%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lws-ring.c.o
+<span style="color:#f92672">[</span> 58%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/pipe/ops-pipe.c.o
+<span style="color:#f92672">[</span> 59%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/header.c.o
+<span style="color:#f92672">[</span> 60%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/parsers.c.o
+<span style="color:#f92672">[</span> 61%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h1/ops-h1.c.o
+<span style="color:#f92672">[</span> 62%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/ops-ws.c.o
+<span style="color:#f92672">[</span> 62%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/client-ws.c.o
+<span style="color:#f92672">[</span> 63%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/client-parser-ws.c.o
+<span style="color:#f92672">[</span> 64%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/server-ws.c.o
+<span style="color:#f92672">[</span> 65%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/raw-skt/ops-raw-skt.c.o
+<span style="color:#f92672">[</span> 66%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/raw-file/ops-raw-file.c.o
+<span style="color:#f92672">[</span> 67%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lwsac/lwsac.c.o
+<span style="color:#f92672">[</span> 68%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lwsac/cached-file.c.o
+<span style="color:#f92672">[</span> 68%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/connect.c.o
+<span style="color:#f92672">[</span> 69%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/client/client.c.o
+<span style="color:#f92672">[</span> 70%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/client/client-handshake.c.o
+<span style="color:#f92672">[</span> 71%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/adopt.c.o
+<span style="color:#f92672">[</span> 72%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/listen/ops-listen.c.o
+<span style="color:#f92672">[</span> 73%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_cert.c.o
+<span style="color:#f92672">[</span> 74%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_lib.c.o
+<span style="color:#f92672">[</span> 75%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_methods.c.o
+<span style="color:#f92672">[</span> 75%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_pkey.c.o
+<span style="color:#f92672">[</span> 76%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_stack.c.o
+<span style="color:#f92672">[</span> 77%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_x509.c.o
+<span style="color:#f92672">[</span> 78%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/platform/ssl_pm.c.o
+<span style="color:#f92672">[</span> 79%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/platform/ssl_port.c.o
+<span style="color:#f92672">[</span> 80%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/tls.c.o
+<span style="color:#f92672">[</span> 81%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/ssl.c.o
+<span style="color:#f92672">[</span> 81%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/tls-server.c.o
+<span style="color:#f92672">[</span> 82%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/mbedtls-server.c.o
+<span style="color:#f92672">[</span> 83%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/tls-client.c.o
+<span style="color:#f92672">[</span> 84%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/mbedtls-client.c.o
+<span style="color:#f92672">[</span> 85%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/sha-1.c.o
+<span style="color:#f92672">[</span> 86%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h2/http2.c.o
+<span style="color:#f92672">[</span> 87%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h2/hpack.c.o
+<span style="color:#f92672">[</span> 87%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h2/ops-h2.c.o
+<span style="color:#f92672">[</span> 88%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-caps.c.o
+<span style="color:#f92672">[</span> 89%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-fds.c.o
+<span style="color:#f92672">[</span> 90%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-file.c.o
+<span style="color:#f92672">[</span> 91%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-misc.c.o
+<span style="color:#f92672">[</span> 92%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-init.c.o
+<span style="color:#f92672">[</span> 93%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-pipe.c.o
+<span style="color:#f92672">[</span> 93%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-service.c.o
+<span style="color:#f92672">[</span> 94%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-sockets.c.o
+<span style="color:#f92672">[</span> 95%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/server.c.o
+<span style="color:#f92672">[</span> 96%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/lws-spa.c.o
+<span style="color:#f92672">[</span> 97%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/event-libs/poll/poll.c.o
+<span style="color:#f92672">[</span> 98%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lejp.c.o
+<span style="color:#f92672">[</span> 99%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/lejp-conf.c.o
+<span style="color:#f92672">[</span>100%<span style="color:#f92672">]</span> Linking C static library lib/libwebsockets.a
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span>100%<span style="color:#f92672">]</span> Built target websockets
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span> 50%<span style="color:#f92672">]</span> Built target websockets_shared
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+Scanning dependencies of target websockets
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span> 50%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/alloc.c.o
+<span style="color:#f92672">[</span> 51%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/context.c.o
+<span style="color:#f92672">[</span> 52%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/dummy-callback.c.o
+<span style="color:#f92672">[</span> 53%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/libwebsockets.c.o
+<span style="color:#f92672">[</span> 54%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/output.c.o
+<span style="color:#f92672">[</span> 55%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/pollfd.c.o
+<span style="color:#f92672">[</span> 56%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/service.c.o
+<span style="color:#f92672">[</span> 56%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/base64-decode.c.o
+<span style="color:#f92672">[</span> 57%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lws-ring.c.o
+<span style="color:#f92672">[</span> 58%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/pipe/ops-pipe.c.o
+<span style="color:#f92672">[</span> 59%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/header.c.o
+<span style="color:#f92672">[</span> 60%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/parsers.c.o
+<span style="color:#f92672">[</span> 61%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h1/ops-h1.c.o
+<span style="color:#f92672">[</span> 62%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/ops-ws.c.o
+<span style="color:#f92672">[</span> 62%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/client-ws.c.o
+<span style="color:#f92672">[</span> 63%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/client-parser-ws.c.o
+<span style="color:#f92672">[</span> 64%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/ws/server-ws.c.o
+<span style="color:#f92672">[</span> 65%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/raw-skt/ops-raw-skt.c.o
+<span style="color:#f92672">[</span> 66%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/raw-file/ops-raw-file.c.o
+<span style="color:#f92672">[</span> 67%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lwsac/lwsac.c.o
+<span style="color:#f92672">[</span> 68%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lwsac/cached-file.c.o
+<span style="color:#f92672">[</span> 68%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/connect.c.o
+<span style="color:#f92672">[</span> 69%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/client/client.c.o
+<span style="color:#f92672">[</span> 70%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/client/client-handshake.c.o
+<span style="color:#f92672">[</span> 71%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/core/adopt.c.o
+<span style="color:#f92672">[</span> 72%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/listen/ops-listen.c.o
+<span style="color:#f92672">[</span> 73%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_cert.c.o
+<span style="color:#f92672">[</span> 74%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_lib.c.o
+<span style="color:#f92672">[</span> 75%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_methods.c.o
+<span style="color:#f92672">[</span> 75%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_pkey.c.o
+<span style="color:#f92672">[</span> 76%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_stack.c.o
+<span style="color:#f92672">[</span> 77%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/library/ssl_x509.c.o
+<span style="color:#f92672">[</span> 78%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/wrapper/platform/ssl_pm.c.o
+<span style="color:#f92672">[</span> 79%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/tls.c.o
+<span style="color:#f92672">[</span> 80%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/ssl.c.o
+<span style="color:#f92672">[</span> 80%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/tls-server.c.o
+<span style="color:#f92672">[</span> 81%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/mbedtls-server.c.o
+<span style="color:#f92672">[</span> 82%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/tls-client.c.o
+<span style="color:#f92672">[</span> 83%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/tls/mbedtls/mbedtls-client.c.o
+<span style="color:#f92672">[</span> 84%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/sha-1.c.o
+<span style="color:#f92672">[</span> 85%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h2/http2.c.o
+<span style="color:#f92672">[</span> 86%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h2/hpack.c.o
+<span style="color:#f92672">[</span> 86%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/h2/ops-h2.c.o
+<span style="color:#f92672">[</span> 87%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-caps.c.o
+<span style="color:#f92672">[</span> 88%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-fds.c.o
+<span style="color:#f92672">[</span> 89%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-file.c.o
+<span style="color:#f92672">[</span> 90%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-misc.c.o
+<span style="color:#f92672">[</span> 91%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-init.c.o
+<span style="color:#f92672">[</span> 92%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-pipe.c.o
+<span style="color:#f92672">[</span> 92%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-service.c.o
+<span style="color:#f92672">[</span> 93%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/plat/unix/unix-sockets.c.o
+<span style="color:#f92672">[</span> 94%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/server.c.o
+<span style="color:#f92672">[</span> 95%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/lws-spa.c.o
+<span style="color:#f92672">[</span> 96%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/event-libs/poll/poll.c.o
+<span style="color:#f92672">[</span> 97%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/misc/lejp.c.o
+<span style="color:#f92672">[</span> 98%<span style="color:#f92672">]</span> Building C object CMakeFiles/websockets.dir/lib/roles/http/server/lejp-conf.c.o
+<span style="color:#f92672">[</span> 99%<span style="color:#f92672">]</span> Linking C static library lib/libwebsockets.a
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+<span style="color:#f92672">[</span>100%<span style="color:#f92672">]</span> Built target websockets
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+Install the project...
+-- Install configuration: <span style="color:#e6db74">&#34;Release&#34;</span>
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/pkgconfig/libwebsockets.pc
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/pkgconfig/libwebsockets_static.pc
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-ring.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-diskcache.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-x509.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-client.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-service.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-fts.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-http.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-cgi.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-ws-state.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-plugin-generic-sessions.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-write.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-logs.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-context-vhost.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-writeable.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-ws-ext.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-threadpool.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-network-helper.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-jws.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-timeout-timer.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-dbus.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-adopt.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-ws-close.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-esp32.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-lejp.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-callbacks.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-genrsa.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-tokenize.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-sha1-base64.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-spa.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-lwsac.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-stats.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-jwk.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-vfs.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-protocols-plugins.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-genhash.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-misc.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets/lws-purify.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/libwebsockets.a
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/lws_config.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/lws-plugin-ssh.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/libwebsockets.so.14
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/libwebsockets.so
+-- Up-to-date: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/libwebsockets.h
+-- Up-to-date: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/lws_config.h
+-- Up-to-date: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/include/lws-plugin-ssh.h
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/cmake/libwebsockets/LibwebsocketsConfig.cmake
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/cmake/libwebsockets/LibwebsocketsConfigVersion.cmake
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/cmake/libwebsockets/LibwebsocketsTargets.cmake
+-- Installing: /openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0/ipkg-install/usr/lib/cmake/libwebsockets/LibwebsocketsTargets-release.cmake
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/libwebsockets-mbedtls/libwebsockets-3.1.0&#39;</span>
+Package libwebsockets-mbedtls is missing dependencies <span style="color:#66d9ef">for</span> the following libraries:
+libmbedtls.so.9
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:111: /openwrt/bin/packages/x86_64/packages/libwebsockets-mbedtls_3.1.0-2_x86_64.ipk<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 22 Feb 2021
+
+
+<br>
+Published on 22 Feb 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/" title="mbedtls"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - mbedtls</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/" title="package_feeds_packages_openvpn">Next - package_feeds_packages_openvpn <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/">package_feeds_packages_strongswan<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/">package_feeds_base_ndpi-netfilter<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/">package_feeds_packages_cshark<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/">package_feeds_packages_libwebsockets<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/">mbedtls<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/">package_feeds_packages_umurmur<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/">package_feeds_packages_snort<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/">package_feeds_packages_gnunet<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/">package_feeds_packages_gnunet-fuse<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/">package_feeds_packages_mc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/">package_feeds_base_openwrt-dnsforwarder<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/">package_feeds_base_gowebdav<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/">package_feeds_base_libdvbcsa<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/">package_feeds_base_nat46<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/">package_feeds_base_simple-torrent<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/">package_feeds_base_tinyfecvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/">package_feeds_base_trojan-plus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/">package_feeds_packages_alac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/">package_feeds_packages_atheepmgr<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/">package_feeds_packages_fail2ban<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/">python3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/">package_feeds_packages_gcc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/">package_feeds_packages_libxcrypt<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/">package_feeds_packages_minisatip<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/">package_feeds_packages_ufw<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/">python3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/">package_feeds_routing_minimalist-pcproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

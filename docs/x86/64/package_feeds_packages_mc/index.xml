@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_packages_mc on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Feb 2021 14:41:01 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,16 @@
       <description>build number: 60
 path: package/feeds/packages/mc/compile
 make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25&amp;#39; make all-recursive make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25&amp;#39; Making all in po make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25/po&amp;#39; *** error: gettext infrastructure mismatch: using a Makefile.in.in from gettext version 0.18 but the autoconf macros are from gettext version 0.20 make[6]: *** [Makefile:249: check-macro-version] Error 1 make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25/po&amp;#39; make[5]: *** [Makefile:578: all-recursive] Error 1 make[5]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.8.25&amp;#39; make[4]: *** [Makefile:508: all] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/mc-4.</description>
+    </item>
+    
+    <item>
+      <title>compile.48</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/</link>
+      <pubDate>Mon, 22 Feb 2021 14:41:01 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/</guid>
+      <description>build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/mc/compile -j$(nproc) || make package/feeds/packages/mc/compile V=s Compile.txt Applying ./patches/010-subshell.patch using plaintext: patching file src/subshell/common.c Applying ./patches/020-fix-mouse-handling-newer-terminfo.patch using plaintext: patching file lib/tty/tty.c autopoint: *** Missing version: please specify in configure.ac through a line &amp;#39;AM_GNU_GETTEXT_VERSION(x.yy.zz)&amp;#39; the gettext version the package is using autopoint: *** Stop.</description>
     </item>
     
   </channel>

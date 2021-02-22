@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_packages_gnunet on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Feb 2021 15:10:27 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Feb 2021 14:41:05 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,16 @@
       <description>build number: 60
 path: package/feeds/packages/gnunet/compile
 make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3&amp;#39; make all-recursive make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3&amp;#39; Making all in m4 make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/m4&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/m4&amp;#39; Making all in bin make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/bin&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/bin&amp;#39; Making all in src make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/src&amp;#39; Making all in include make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/src/include&amp;#39; Making all in .</description>
+    </item>
+    
+    <item>
+      <title>compile.48</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/</link>
+      <pubDate>Mon, 22 Feb 2021 14:41:05 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/</guid>
+      <description>build number: 48
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/gnunet/compile -j$(nproc) || make package/feeds/packages/gnunet/compile V=s Compile.txt Applying ./patches/100-fix-opus-and-pulse-library-detection.patch using plaintext: patching file configure.ac autopoint: *** Missing version: please specify in configure.ac through a line &amp;#39;AM_GNU_GETTEXT_VERSION(x.yy.zz)&amp;#39; the gettext version the package is using autopoint: *** Stop.</description>
     </item>
     
   </channel>
