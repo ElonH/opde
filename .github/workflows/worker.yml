@@ -61,11 +61,14 @@ jobs:
         run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
 
       - name: Prepare upload
-        run: mkdir /tmp/opdelogs && cp -rf ./openwrt/.opde ./openwrt/logs /tmp/opdelogs
+        run: |
+          mkdir /tmp/opdelogs && cp -rf ./openwrt/.opde ./openwrt/logs /tmp/opdelogs
+          mv ./openwrt/bin /tmp/opdebin
+          rm openwrt -rf
       - uses: actions/upload-artifact@v2
         with:
           name: Packages-${{matrix.worker}}
-          path: ./openwrt/bin
+          path: /tmp/opdebin
       - uses: actions/upload-artifact@v2
         with:
           name: Log-${{matrix.worker}}
