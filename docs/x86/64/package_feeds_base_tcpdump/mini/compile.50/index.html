@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.50 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.50" />
+<meta property="og:description" content="build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/base/tcpdump/compile -j$(nproc) || make package/feeds/base/tcpdump/compile V=s Compile.txt Applying ./patches/001-remove_pcap_debug.patch using plaintext: patching file configure Applying ./patches/100-tcpdump_mini.patch using plaintext: patching file Makefile.in patching file addrtoname.c patching file print.c patching file print-ether.c patching file print-gre.c patching file print-igmp." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-02-25T14:20:49+00:00" />
+<meta property="article:modified_time" content="2021-02-25T14:20:49+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.50"/>
+<meta name="twitter:description" content="build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/base/tcpdump/compile -j$(nproc) || make package/feeds/base/tcpdump/compile V=s Compile.txt Applying ./patches/001-remove_pcap_debug.patch using plaintext: patching file configure Applying ./patches/100-tcpdump_mini.patch using plaintext: patching file Makefile.in patching file addrtoname.c patching file print.c patching file print-ether.c patching file print-gre.c patching file print-igmp."/>
+<meta itemprop="name" content="compile.50">
+<meta itemprop="description" content="build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/base/tcpdump/compile -j$(nproc) || make package/feeds/base/tcpdump/compile V=s Compile.txt Applying ./patches/001-remove_pcap_debug.patch using plaintext: patching file configure Applying ./patches/100-tcpdump_mini.patch using plaintext: patching file Makefile.in patching file addrtoname.c patching file print.c patching file print-ether.c patching file print-gre.c patching file print-igmp.">
+<meta itemprop="datePublished" content="2021-02-25T14:20:49&#43;00:00" />
+<meta itemprop="dateModified" content="2021-02-25T14:20:49&#43;00:00" />
+<meta itemprop="wordCount" content="5160">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.50</h1>
+<p>build number: <code>50</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/base/tcpdump/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/base/tcpdump/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/001-remove_pcap_debug.patch using plaintext: 
+patching file configure
+
+Applying ./patches/100-tcpdump_mini.patch using plaintext: 
+patching file Makefile.in
+patching file addrtoname.c
+patching file print.c
+patching file print-ether.c
+patching file print-gre.c
+patching file print-igmp.c
+patching file print-ip6.c
+patching file print-ip.c
+patching file print-llc.c
+patching file print-null.c
+patching file print-ppp.c
+patching file print-sll.c
+patching file print-tcp.c
+patching file print-udp.c
+
+Applying ./patches/101-CVE-2020-8037.patch using plaintext: 
+patching file print-ppp.c
+configure: WARNING: unrecognized options: --disable-nls, --enable-ipv6
+configure: loading site script /openwrt/include/site/x86_64
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-openwrt-linux-gnu
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-gcc... ccache_cc
+checking whether the C compiler works... yes
+checking <span style="color:#66d9ef">for</span> C compiler default output file name... a.out
+checking <span style="color:#66d9ef">for</span> suffix of executables... 
+checking whether we are cross compiling... yes
+checking <span style="color:#66d9ef">for</span> suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether ccache_cc accepts -g... yes
+checking <span style="color:#66d9ef">for</span> ccache_cc option to accept ISO C89... none needed
+checking whether the compiler supports the -ffloat-store option... yes
+checking <span style="color:#66d9ef">for</span> inline... inline
+checking <span style="color:#66d9ef">for</span> __attribute__... yes
+checking whether __attribute__<span style="color:#f92672">((</span>unused<span style="color:#f92672">))</span> can be used without warnings... yes
+checking whether __attribute__<span style="color:#f92672">((</span>noreturn<span style="color:#f92672">))</span> can be applied to <span style="color:#66d9ef">function</span> pointers without warnings... yes
+checking whether __attribute__<span style="color:#f92672">((</span>format<span style="color:#f92672">))</span> can be used without warnings... yes
+checking whether __attribute__<span style="color:#f92672">((</span>format<span style="color:#f92672">))</span> can be applied to <span style="color:#66d9ef">function</span> pointers... yes
+checking how to run the C preprocessor... ccache_cc -E
+checking <span style="color:#66d9ef">for</span> grep that handles long lines and -e... /openwrt/staging_dir/host/bin/grep
+checking <span style="color:#66d9ef">for</span> egrep... /openwrt/staging_dir/host/bin/grep -E
+checking <span style="color:#66d9ef">for</span> ANSI C header files... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... yes
+checking <span style="color:#66d9ef">for</span> sys/stat.h... yes
+checking <span style="color:#66d9ef">for</span> stdlib.h... yes
+checking <span style="color:#66d9ef">for</span> string.h... yes
+checking <span style="color:#66d9ef">for</span> memory.h... yes
+checking <span style="color:#66d9ef">for</span> strings.h... yes
+checking <span style="color:#66d9ef">for</span> inttypes.h... yes
+checking <span style="color:#66d9ef">for</span> stdint.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking <span style="color:#66d9ef">for</span> fcntl.h... yes
+checking rpc/rpc.h usability... yes
+checking rpc/rpc.h presence... yes
+checking <span style="color:#66d9ef">for</span> rpc/rpc.h... yes
+checking rpc/rpcent.h usability... no
+checking rpc/rpcent.h presence... no
+checking <span style="color:#66d9ef">for</span> rpc/rpcent.h... no
+checking <span style="color:#66d9ef">for</span> net/pfvar.h... no
+checking <span style="color:#66d9ef">for</span> netinet/if_ether.h... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking smi.h usability... no
+checking smi.h presence... no
+checking <span style="color:#66d9ef">for</span> smi.h... no
+checking whether to enable the possibly-buggy SMB printer... no
+checking whether to drop root privileges by default... no
+checking whether to chroot... no
+checking <span style="color:#66d9ef">for</span> cap_enter... no
+checking <span style="color:#66d9ef">for</span> cap_rights_limit... no
+checking <span style="color:#66d9ef">for</span> cap_ioctls_limit... no
+checking <span style="color:#66d9ef">for</span> openat... yes
+checking whether to sandbox using capsicum... no
+checking <span style="color:#66d9ef">for</span> library containing gethostbyname... none required
+checking <span style="color:#66d9ef">for</span> library containing socket... none required
+checking <span style="color:#66d9ef">for</span> library containing putmsg... no
+checking whether the operating system supports IPv6... yes
+checking ipv6 stack type... linux-libinet6
+You <span style="color:#66d9ef">do</span> not have inet6 library, using libc
+checking <span style="color:#66d9ef">for</span> vfprintf... yes
+checking <span style="color:#66d9ef">for</span> strlcat... yes
+checking <span style="color:#66d9ef">for</span> strlcpy... yes
+checking <span style="color:#66d9ef">for</span> strdup... yes
+checking <span style="color:#66d9ef">for</span> strsep... yes
+checking <span style="color:#66d9ef">for</span> getopt_long... yes
+checking <span style="color:#66d9ef">for</span> fork... yes
+checking <span style="color:#66d9ef">for</span> vfork... yes
+checking <span style="color:#66d9ef">for</span> strftime... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> setlinebuf... yes
+checking <span style="color:#66d9ef">for</span> alarm... yes
+checking <span style="color:#66d9ef">for</span> vsnprintf... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> snprintf... yes
+checking <span style="color:#66d9ef">return</span> type of signal handlers... void
+checking <span style="color:#66d9ef">for</span> sigaction... yes
+checking <span style="color:#66d9ef">for</span> main in -lrpc... yes
+checking <span style="color:#66d9ef">for</span> library containing getrpcbynumber... none required
+checking <span style="color:#66d9ef">for</span> local pcap library... not found
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-pcap-config... no
+checking <span style="color:#66d9ef">for</span> pcap-config... /openwrt/staging_dir/target-x86_64_musl/host/bin/pcap-config
+configure: WARNING: using cross tools not prefixed with host triplet
+checking <span style="color:#66d9ef">for</span> pcap_loop... yes
+checking <span style="color:#66d9ef">for</span> ether_ntohost... yes
+checking <span style="color:#66d9ef">for</span> buggy ether_ntohost... not <span style="color:#66d9ef">while</span> cross-compiling
+checking <span style="color:#66d9ef">for</span> dlpi_walk in -ldlpi... no
+checking <span style="color:#66d9ef">for</span> pcap_list_datalinks... yes
+checking <span style="color:#66d9ef">for</span> pcap_free_datalinks... yes
+checking <span style="color:#66d9ef">for</span> pcap_set_datalink... yes
+checking <span style="color:#66d9ef">for</span> pcap_datalink_name_to_val... yes
+checking <span style="color:#66d9ef">for</span> pcap_datalink_val_to_description... yes
+checking <span style="color:#66d9ef">for</span> pcap_breakloop... yes
+checking <span style="color:#66d9ef">for</span> pcap_dump_ftell... yes
+checking <span style="color:#66d9ef">for</span> pcap_create... yes
+checking <span style="color:#66d9ef">for</span> pcap_set_tstamp_type... yes
+checking <span style="color:#66d9ef">for</span> pcap_set_tstamp_precision... yes
+checking <span style="color:#66d9ef">for</span> pcap_findalldevs... yes
+checking <span style="color:#66d9ef">for</span> pcap_dump_flush... yes
+checking <span style="color:#66d9ef">for</span> pcap_lib_version... yes
+checking <span style="color:#66d9ef">for</span> pcap_setdirection... yes
+checking <span style="color:#66d9ef">for</span> pcap_set_immediate_mode... yes
+checking <span style="color:#66d9ef">for</span> pcap_if_t... yes
+checking <span style="color:#66d9ef">for</span> pcap_set_optimizer_debug... no
+checking <span style="color:#66d9ef">for</span> bpf_dump... yes
+checking <span style="color:#66d9ef">for</span> int8_t... yes
+checking <span style="color:#66d9ef">for</span> int16_t... yes
+checking <span style="color:#66d9ef">for</span> int32_t... yes
+checking <span style="color:#66d9ef">for</span> int64_t... yes
+checking <span style="color:#66d9ef">for</span> uint8_t... yes
+checking <span style="color:#66d9ef">for</span> uint16_t... yes
+checking <span style="color:#66d9ef">for</span> uint32_t... yes
+checking <span style="color:#66d9ef">for</span> uint64_t... yes
+checking <span style="color:#66d9ef">for</span> uintptr_t... yes
+checking <span style="color:#66d9ef">for</span> u_int8_t... yes
+checking <span style="color:#66d9ef">for</span> u_int16_t... yes
+checking <span style="color:#66d9ef">for</span> u_int32_t... yes
+checking <span style="color:#66d9ef">for</span> u_int64_t... yes
+checking <span style="color:#66d9ef">for</span> inttypes.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether inttypes.h defines the PRI<span style="color:#f92672">[</span>doxu<span style="color:#f92672">]</span><span style="color:#ae81ff">64</span> macros... yes
+checking <span style="color:#66d9ef">for</span> pcap/bluetooth.h... yes
+checking <span style="color:#66d9ef">for</span> pcap/nflog.h... yes
+checking <span style="color:#66d9ef">for</span> pcap/usb.h... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ranlib... x86_64-openwrt-linux-musl-gcc-ranlib
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ar... x86_64-openwrt-linux-musl-gcc-ar
+checking <span style="color:#66d9ef">if</span> sockaddr struct has the sa_len member... no
+checking <span style="color:#66d9ef">if</span> unaligned accesses fail... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking whether to use OpenSSL/libressl libcrypto... no
+checking whether to use libcap-ng... no
+checking <span style="color:#66d9ef">for</span> a BSD-compatible install... /usr/bin/install -c
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating tcpdump.1
+config.status: creating config.h
+config.status: executing default-1 commands
+configure: WARNING: unrecognized options: --disable-nls, --enable-ipv6
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3&#39;</span>
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./setsignal.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./tcpdump.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+<span style="color:#66d9ef">if</span> grep GIT ./VERSION &gt;/dev/null; <span style="color:#66d9ef">then</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	read ver &lt;./VERSION; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	echo $ver | tr -d <span style="color:#e6db74">&#39;\012&#39;</span>; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	date +_%Y_%m_%d; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#66d9ef">else</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	cat ./VERSION; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#66d9ef">fi</span> | sed -e <span style="color:#e6db74">&#39;s/.*/const char version[] = &#34;&amp;&#34;;/&#39;</span> &gt; version.c
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c version.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./netdissect.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./addrtoname.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./addrtostr.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./af.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./ascii_strcasecmp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./checksum.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./cpack.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./gmpls.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./gmt2local.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./in_cksum.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./ipproto.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./l2vpn.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./machdep.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./nlpid.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./oui.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./parsenfsfh.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-802_11.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-aodv.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-arp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ascii.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-bootp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-dhcp6.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-domain.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-eap.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ether.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ftp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-gre.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-http.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-icmp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-icmp6.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-igmp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ip.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ip6.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ip6opts.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ipnet.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-l2tp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-llc.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-lldp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-loopback.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-nfs.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ntp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-null.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-olsr.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ospf.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ospf6.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-ppp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-pppoe.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-pptp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-radius.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-raw.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-rsvp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-rt6.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-rtsp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-sip.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-sll.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-smtp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-snmp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-stp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-sunrpc.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-syslog.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-tcp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-telnet.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-tftp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./print-udp.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./signature.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./strtoaddr.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -c ./util-print.c
+cc1: note: someone does not honour COPTS correctly, passed <span style="color:#ae81ff">2</span> times
+ccache_cc -ffloat-store -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -DHAVE_CONFIG_H -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include   -D_U_<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;__attribute__((unused))&#34;</span> -I. -I/openwrt/staging_dir/target-x86_64_musl/usr/include  -I/usr/inet6/include -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -fmacro-prefix-map<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3<span style="color:#f92672">=</span>tcpdump-4.9.3 -Wformat -Werror<span style="color:#f92672">=</span>format-security -fstack-protector -D_FORTIFY_SOURCE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -DTCPDUMP_MINI  -L/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/lib -L/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib -znow -zrelro -Wl,--gc-sections  -o tcpdump setsignal.o tcpdump.o version.o netdissect.o addrtoname.o addrtostr.o af.o ascii_strcasecmp.o checksum.o cpack.o gmpls.o gmt2local.o in_cksum.o ipproto.o l2vpn.o machdep.o nlpid.o oui.o parsenfsfh.o print.o print-802_11.o print-aodv.o print-arp.o print-ascii.o print-bootp.o print-dhcp6.o print-domain.o print-eap.o print-ether.o print-ftp.o print-gre.o print-http.o print-icmp.o print-icmp6.o print-igmp.o print-ip.o print-ip6.o print-ip6opts.o print-ipnet.o print-l2tp.o print-llc.o print-lldp.o print-loopback.o print-nfs.o print-ntp.o print-null.o print-olsr.o print-ospf.o print-ospf6.o print-ppp.o print-pppoe.o print-pptp.o print-radius.o print-raw.o print-rsvp.o print-rt6.o print-rtsp.o print-sip.o print-sll.o print-smtp.o print-snmp.o print-stp.o print-sunrpc.o print-syslog.o print-tcp.o print-telnet.o print-tftp.o print-udp.o signature.o strtoaddr.o util-print.o   -L/openwrt/staging_dir/target-x86_64_musl/usr/lib -Wl,-rpath,/openwrt/staging_dir/target-x86_64_musl/usr/lib -lpcap -lrpc 
+x86_64-openwrt-linux-musl-gcc-ar cr libnetdissect.a netdissect.o addrtoname.o addrtostr.o af.o ascii_strcasecmp.o checksum.o cpack.o gmpls.o gmt2local.o in_cksum.o ipproto.o l2vpn.o machdep.o nlpid.o oui.o parsenfsfh.o print.o print-802_11.o print-aodv.o print-arp.o print-ascii.o print-bootp.o print-dhcp6.o print-domain.o print-eap.o print-ether.o print-ftp.o print-gre.o print-http.o print-icmp.o print-icmp6.o print-igmp.o print-ip.o print-ip6.o print-ip6opts.o print-ipnet.o print-l2tp.o print-llc.o print-lldp.o print-loopback.o print-nfs.o print-ntp.o print-null.o print-olsr.o print-ospf.o print-ospf6.o print-ppp.o print-pppoe.o print-pptp.o print-radius.o print-raw.o print-rsvp.o print-rt6.o print-rtsp.o print-sip.o print-sll.o print-smtp.o print-snmp.o print-stp.o print-sunrpc.o print-syslog.o print-tcp.o print-telnet.o print-tftp.o print-udp.o signature.o strtoaddr.o util-print.o  
+x86_64-openwrt-linux-musl-gcc-ranlib libnetdissect.a
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3&#39;</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3&#39;</span>
+<span style="color:#f92672">[</span> -d /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/sbin <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">(</span>mkdir -p /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/sbin; chmod <span style="color:#ae81ff">755</span> /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/sbin<span style="color:#f92672">)</span>
+/usr/bin/install -c tcpdump /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/sbin/tcpdump
+/usr/bin/install -c tcpdump /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/sbin/tcpdump.<span style="color:#e6db74">`</span>cat ./VERSION<span style="color:#e6db74">`</span>
+<span style="color:#f92672">[</span> -d /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/man/man1 <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">(</span>mkdir -p /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/man/man1; chmod <span style="color:#ae81ff">755</span> /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/man/man1<span style="color:#f92672">)</span>
+/usr/bin/install -c -m <span style="color:#ae81ff">644</span> tcpdump.1 /openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3/ipkg-install/usr/man/man1/tcpdump.1
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/tcpdump-mini/tcpdump-4.9.3&#39;</span>
+Package tcpdump-mini is missing dependencies <span style="color:#66d9ef">for</span> the following libraries:
+librpc.so
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:78: /openwrt/bin/packages/x86_64/base/tcpdump-mini_4.9.3-3_x86_64.ipk<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 25 Feb 2021
+
+
+<br>
+Published on 25 Feb 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/" title="mini"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - mini</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/" title="package_feeds_base_wireguard">Next - package_feeds_base_wireguard <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/">package_feeds_base_ndpi-netfilter<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/">package_feeds_base_tcpdump<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/">full<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/">mini<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/">package_feeds_packages_gnunet<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/">package_feeds_packages_gnunet-fuse<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/">package_feeds_packages_kadnode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/">package_feeds_packages_libuhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/">package_feeds_packages_libuwsc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/">package_feeds_packages_mc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/">package_feeds_packages_minisatip<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/">package_feeds_packages_pianod<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/">package_feeds_packages_rtty<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/">package_feeds_packages_snort<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/">package_feeds_packages_strongswan<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/">package_feeds_packages_umurmur<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/">compile.60</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/">package_feeds_packages_cshark<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/">package_feeds_packages_libwebsockets<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/">package_feeds_base_openwrt-dnsforwarder<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/">package_feeds_base_gowebdav<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/">package_feeds_base_libdvbcsa<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/">package_feeds_base_nat46<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/">package_feeds_base_simple-torrent<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/">package_feeds_base_tinyfecvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/">package_feeds_base_trojan-plus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/">package_feeds_packages_alac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/">package_feeds_packages_atheepmgr<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/">package_feeds_packages_fail2ban<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/">python3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/">package_feeds_packages_gcc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/">package_feeds_packages_libxcrypt<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/">package_feeds_packages_ufw<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/">python3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/">package_feeds_routing_minimalist-pcproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/">compile.60</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

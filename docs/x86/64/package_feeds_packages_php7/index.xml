@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_php7 on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/</link>
+    <description>Recent content in package_feeds_packages_php7 on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Feb 2021 14:20:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/php7/compile -j$(nproc) || make package/feeds/packages/php7/compile V=s Compile.txt Applying ./patches/0013-Add-support-for-use-of-the-system-timezone-database.patch using plaintext: patching file ext/date/config0.m4 patching file ext/date/lib/parse_tz.c Applying ./patches/0032-Use-system-timezone.patch using plaintext: patching file ext/date/php_date.c Applying ./patches/0041-Add-patch-to-remove-build-timestamps-from-generated-.patch using plaintext: patching file ext/standard/info.c patching file sapi/apache2handler/config.</description>
+    </item>
+    
+  </channel>
+</rss>

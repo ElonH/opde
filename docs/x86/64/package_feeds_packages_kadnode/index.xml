@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_kadnode on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/</link>
+    <description>Recent content in package_feeds_packages_kadnode on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Feb 2021 14:20:49 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/kadnode/compile -j$(nproc) || make package/feeds/packages/kadnode/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/KadNode-2.3.0&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/KadNode-2.3.0=KadNode-2.3.0 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std=gnu99 -I/usr/local/include -DLPD -DBOB -DCMD -DDNS -DTLS -c -o build/main.</description>
+    </item>
+    
+  </channel>
+</rss>

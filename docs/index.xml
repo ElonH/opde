@@ -485,6 +485,666 @@ minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2: 
     </item>
     
     <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/dahdi-linux/compile -j$(nproc) || make package/feeds/telephony/dahdi-linux/compile V=s Compile.txt Applying ./patches/003-fix-oslec-build.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/050-re-enable-ztdummy.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/070-no-firmware-blob-download.patch using plaintext: patching file Makefile Applying ./patches/100-add-support-for-hfc-s-pci.patch using plaintext: patching file drivers/dahdi/Kbuild patching file drivers/dahdi/Kconfig patching file drivers/dahdi/hfcs/base.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/yate/compile -j$(nproc) || make package/feeds/telephony/yate/compile V=s Compile.txt Makefile:208: WARNING: skipping yate-collection-basic -- package has no install section Applying ./patches/100-non-gnu-mutex-type.patch using plaintext: patching file engine/Mutex.cpp patching file configure.ac Applying ./patches/110-no-libnsl.patch using plaintext: patching file configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:15 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ath10k-ct/compile -j$(nproc) || make package/feeds/base/ath10k-ct/compile V=s Compile.txt Applying ./patches/161-ath10k-add-support-for-configuring-management-packet.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/162-ath10k-fix-possible-out-of-bound-access-of-ath10k_ra.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/163-ath10k-fix-incorrect-multicast-broadcast-rate-settin.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/164-ath10k-commit-rates-from-mac80211.patch using plaintext: patching file ath10k-4.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:15 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mac80211/compile -j$(nproc) || make package/feeds/base/mac80211/compile V=s Compile.txt Applying ./patches/build/000-fix_kconfig.patch using plaintext: patching file kconf/Makefile Applying ./patches/build/001-fix_build.patch using plaintext: patching file Makefile patching file Makefile.real Applying ./patches/build/002-change_allconfig.patch using plaintext: patching file kconf/conf.c patching file kconf/confdata.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/gpio-button-hotplug/compile -j$(nproc) || make package/feeds/base/gpio-button-hotplug/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/conf.o HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.o HOSTCC scripts/kconfig/lexer.lex.o HOSTCC scripts/kconfig/parser.tab.o HOSTCC scripts/kconfig/preprocess.o HOSTCC scripts/kconfig/symbol.o HOSTLD scripts/kconfig/conf scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/gpio-nct5104d/compile -j$(nproc) || make package/feeds/base/gpio-nct5104d/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/trelay/compile -j$(nproc) || make package/feeds/base/trelay/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; scripts/Makefile.build:42: arch/x86/entry/syscalls/Makefile: No such file or directory make[5]: *** No rule to make target &amp;#39;arch/x86/entry/syscalls/Makefile&amp;#39;. Stop. make[4]: *** [arch/x86/Makefile:241: archheaders] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/jool/compile -j$(nproc) || make package/feeds/packages/jool/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for a BSD-compatible install... /usr/bin/install -c checking whether build environment is sane... yes checking for x86_64-openwrt-linux-strip.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc Applying ./patches/0003-for_libffi_abi_3_3.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/openvpn/compile -j$(nproc) || make package/feeds/packages/openvpn/compile V=s Compile.txt Applying ./patches/001-reproducible-remove_DATE.patch using plaintext: patching file src/openvpn/options.c Applying ./patches/100-mbedtls-disable-runtime-version-check.patch using plaintext: patching file src/openvpn/ssl_mbedtls.c Applying ./patches/210-build_always_use_internal_lz4.patch using plaintext: patching file configure.ac Applying ./patches/220-disable_des.patch using plaintext: patching file src/openvpn/syshead.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:08 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fast-classifier/compile -j$(nproc) || make package/feeds/base/fast-classifier/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c: In function &amp;#39;fast_classifier_init&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c:1888:1: warning: label &amp;#39;exit4&amp;#39; defined but not used [-Wunused-label] exit4: ^~~~~ Building modules, stage 2. MODPOST 1 modules ERROR: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:08 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/shortcut-fe/compile -j$(nproc) || make package/feeds/base/shortcut-fe/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_udp&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c:1478:5: error: &amp;#39;struct sk_buff&amp;#39; has no member named &amp;#39;fast_forwarded&amp;#39; skb-&amp;gt;fast_forwarded = 1; ^~ /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_tcp&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/shortcut-fe/sfe_ipv4.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:08 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/dahdi-tools/compile -j$(nproc) || make package/feeds/telephony/dahdi-tools/compile V=s Compile.txt Applying ./patches/020-fix-undefined-reference-to-get_ver.patch using plaintext: patching file xpp/echo_loader.c autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:21:08 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/libpri/compile -j$(nproc) || make package/feeds/telephony/libpri/compile V=s Compile.txt Applying ./patches/001-fix-include-signal-h-warning.patch using plaintext: patching file pritest.c patching file testprilib.c Applying ./patches/010-no-werror.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/libpri-1.6.0&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/libpri-1.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/button-hotplug/compile -j$(nproc) || make package/feeds/base/button-hotplug/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/conf.o HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.o HOSTCC scripts/kconfig/lexer.lex.o HOSTCC scripts/kconfig/parser.tab.o HOSTCC scripts/kconfig/preprocess.o HOSTCC scripts/kconfig/symbol.o HOSTLD scripts/kconfig/conf scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/php7/compile -j$(nproc) || make package/feeds/packages/php7/compile V=s Compile.txt Applying ./patches/0013-Add-support-for-use-of-the-system-timezone-database.patch using plaintext: patching file ext/date/config0.m4 patching file ext/date/lib/parse_tz.c Applying ./patches/0032-Use-system-timezone.patch using plaintext: patching file ext/date/php_date.c Applying ./patches/0041-Add-patch-to-remove-build-timestamps-from-generated-.patch using plaintext: patching file ext/standard/info.c patching file sapi/apache2handler/config.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/routing/batman-adv/compile -j$(nproc) || make package/feeds/routing/batman-adv/compile V=s Compile.txt Applying ./patches/0001-Revert-batman-adv-genetlink-move-to-smaller-ops-wher.patch using plaintext: patching file compat-include/net/genetlink.h patching file net/batman-adv/netlink.c Applying ./patches/0002-Revert-batman-adv-Add-new-include-for-min-max-helper.patch using plaintext: patching file compat-include/linux/minmax.h patching file net/batman-adv/bat_v.c patching file net/batman-adv/bat_v_elp.c patching file net/batman-adv/bat_v_ogm.c patching file net/batman-adv/fragmentation.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/001-disable-semaphores-on-uclibc-otherwise-allow.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 1037 (offset 2 lines). Applying ./patches/002-configure-fix-detection-of-re-entrant-resolver-funct.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 1431 (offset 2 lines).</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ath10k-ct/compile -j$(nproc) || make package/feeds/base/ath10k-ct/compile V=s Compile.txt Applying ./patches/161-ath10k-add-support-for-configuring-management-packet.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/162-ath10k-fix-possible-out-of-bound-access-of-ath10k_ra.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/163-ath10k-fix-incorrect-multicast-broadcast-rate-settin.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/164-ath10k-commit-rates-from-mac80211.patch using plaintext: patching file ath10k-4.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/i2c-gpio-custom/compile -j$(nproc) || make package/feeds/base/i2c-gpio-custom/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mt76/compile -j$(nproc) || make package/feeds/base/mt76/compile V=s Compile.txt Applying ./patches/001-allow-vht-on-2g.patch using plaintext: patching file mac80211.c make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/mt76-2020-03-10-08054d5a/.configured_90cfbe17226f457e38768d3d3063649a&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ndpi-netfilter/compile -j$(nproc) || make package/feeds/base/ndpi-netfilter/compile V=s Compile.txt Applying ./patches/001-main.patch using plaintext: patching file nDPI-patch/src/lib/protocols/netflow.c patching file src/main.c make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0&amp;#39; make -C ipt make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.0/ipt&amp;#39; if test -d ndpi_cpy; then \ 	cp /openwrt/build_dir/target-x86_64_musl/ndpi-netfilter-3.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/openwrt-fullconenat/compile -j$(nproc) || make package/feeds/base/openwrt-fullconenat/compile V=s Compile.txt Applying ./patches/000-printk.patch using plaintext: patching file xt_FULLCONENAT.c Hunk #1 succeeded at 702 (offset 5 lines). make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/kconfig/conf.o HOSTCC scripts/kconfig/confdata.o HOSTCC scripts/kconfig/expr.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/procd/compile -j$(nproc) || make package/feeds/base/procd/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/procd/compile -j$(nproc) || make package/feeds/base/procd/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/px5g-mbedtls/compile -j$(nproc) || make package/feeds/base/px5g-mbedtls/compile V=s Compile.txt Package px5g-mbedtls is missing dependencies for the following libraries: libmbedtls.so.9 make[3]: *** [Makefile:77: /openwrt/bin/packages/x86_64/base/px5g-mbedtls_9_x86_64.ipk] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/qBittorrent-Enhanced-Edition/compile -j$(nproc) || make package/feeds/base/qBittorrent-Enhanced-Edition/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking whether the C compiler works... yes checking for C compiler default output file name.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8188eu/compile -j$(nproc) || make package/feeds/base/rtl8188eu/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-disable-default-build-x86.patch using plaintext: patching file Makefile Applying ./patches/020-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8189es/compile -j$(nproc) || make package/feeds/base/rtl8189es/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.h) patching file include/rtl_autoconf.h (renamed from include/autoconf.h) make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8192du/compile -j$(nproc) || make package/feeds/base/rtl8192du/compile V=s Compile.txt Applying ./patches/010-missing-header-in-ipv6.patch using plaintext: patching file core/rtw_br_ext.c make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8192du-2019-06-01-54c95aaa/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8812au-ac/compile -j$(nproc) || make package/feeds/base/rtl8812au-ac/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-disable-default-build-x86.patch using plaintext: patching file Makefile Applying ./patches/020-change-value-of-vht-enable-and-usb-mode.patch using plaintext: patching file os_dep/linux/os_intfs.c Applying ./patches/030-add-missing-code-for-concurrent-mode.patch using plaintext: patching file os_dep/linux/os_intfs.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8812au-ct/compile -j$(nproc) || make package/feeds/base/rtl8812au-ct/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8812au-ct-2020-01-13-e0d586aa/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8821cu/compile -j$(nproc) || make package/feeds/base/rtl8821cu/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-remove-extra-cflags.patch using plaintext: patching file Makefile Applying ./patches/020-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl88x2bu/compile -j$(nproc) || make package/feeds/base/rtl88x2bu/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.h) patching file include/rtl_autoconf.h (renamed from include/autoconf.h) make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/spi-gpio-custom/compile -j$(nproc) || make package/feeds/base/spi-gpio-custom/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; scripts/kconfig/conf --syncconfig Kconfig can&amp;#39;t find file Kconfig make[6]: *** [scripts/kconfig/Makefile:73: syncconfig] Error 1 make[5]: *** [Makefile:590: syncconfig] Error 2 make[4]: *** [Makefile:696: include/config/auto.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/tcpdump/compile -j$(nproc) || make package/feeds/base/tcpdump/compile V=s Compile.txt Applying ./patches/001-remove_pcap_debug.patch using plaintext: patching file configure Applying ./patches/100-tcpdump_mini.patch using plaintext: patching file Makefile.in patching file addrtoname.c patching file print.c patching file print-ether.c patching file print-gre.c patching file print-igmp.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/tcpdump/compile -j$(nproc) || make package/feeds/base/tcpdump/compile V=s Compile.txt Applying ./patches/001-remove_pcap_debug.patch using plaintext: patching file configure Applying ./patches/100-tcpdump_mini.patch using plaintext: patching file Makefile.in patching file addrtoname.c patching file print.c patching file print-ether.c patching file print-gre.c patching file print-igmp.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/wireguard/compile -j$(nproc) || make package/feeds/base/wireguard/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/main.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/noise.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/device.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/peer.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/timers.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/queueing.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210124/src/send.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/autossh/compile -j$(nproc) || make package/feeds/packages/autossh/compile V=s Compile.txt configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking for C compiler default output file name... a.out checking whether the C compiler works... yes checking whether we are cross compiling.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/coova-chilli/compile -j$(nproc) || make package/feeds/packages/coova-chilli/compile V=s Compile.txt Applying ./patches/100-fix_compile_kmod.patch using plaintext: patching file src/linux/Makefile Applying ./patches/200-wolfssl.patch using plaintext: patching file configure.ac patching file src/ippool.c patching file src/md5.h patching file src/ssl.c patching file src/ssl.h Applying .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/elektra/compile -j$(nproc) || make package/feeds/packages/elektra/compile V=s Compile.txt -- The C compiler identification is GNU 8.4.0 -- The CXX compiler identification is GNU 8.4.0 -- Detecting C compiler ABI info -- Detecting C compiler ABI info - done -- Check for working C compiler: /openwrt/staging_dir/toolchain-x86_64_gcc-8.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/gnunet-fuse/compile -j$(nproc) || make package/feeds/packages/gnunet-fuse/compile V=s Compile.txt Applying ./patches/001-musl-compat.patch using plaintext: patching file src/fuse/mutex.c autopoint: *** Missing version: please specify in configure.ac through a line &amp;#39;AM_GNU_GETTEXT_VERSION(x.yy.zz)&amp;#39; the gettext version the package is using autopoint: *** Stop.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/gnunet/compile -j$(nproc) || make package/feeds/packages/gnunet/compile V=s Compile.txt Applying ./patches/100-fix-opus-and-pulse-library-detection.patch using plaintext: patching file configure.ac autopoint: *** Missing version: please specify in configure.ac through a line &amp;#39;AM_GNU_GETTEXT_VERSION(x.yy.zz)&amp;#39; the gettext version the package is using autopoint: *** Stop.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/kadnode/compile -j$(nproc) || make package/feeds/packages/kadnode/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/KadNode-2.3.0&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/KadNode-2.3.0=KadNode-2.3.0 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -ffunction-sections -fdata-sections -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std=gnu99 -I/usr/local/include -DLPD -DBOB -DCMD -DDNS -DTLS -c -o build/main.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ksmbd/compile -j$(nproc) || make package/feeds/packages/ksmbd/compile V=s Compile.txt Applying ./patches/01-keep_kmod_metadata.patch using plaintext: patching file glob.h make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.99&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/ksmbd-3.3.4/unicode.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/ksmbd-3.3.4/auth.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/ksmbd-3.3.4/vfs.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/ksmbd-3.3.4/vfs_cache.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/ksmbd-3.3.4/misc.o CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/ksmbd-3.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/libuhttpd/compile -j$(nproc) || make package/feeds/packages/libuhttpd/compile V=s Compile.txt -- The C compiler identification is GNU 8.4.0 -- Detecting C compiler ABI info -- Detecting C compiler ABI info - done -- Check for working C compiler: /openwrt/staging_dir/toolchain-x86_64_gcc-8.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/libuwsc/compile -j$(nproc) || make package/feeds/packages/libuwsc/compile V=s Compile.txt Applying ./patches/001-fix_find_lua.patch using plaintext: patching file cmake/Modules/FindLua.cmake CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/mc/compile -j$(nproc) || make package/feeds/packages/mc/compile V=s Compile.txt Applying ./patches/010-subshell.patch using plaintext: patching file src/subshell/common.c Applying ./patches/020-fix-mouse-handling-newer-terminfo.patch using plaintext: patching file lib/tty/tty.c autopoint: *** Missing version: please specify in configure.ac through a line &amp;#39;AM_GNU_GETTEXT_VERSION(x.yy.zz)&amp;#39; the gettext version the package is using autopoint: *** Stop.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/minisatip/compile -j$(nproc) || make package/feeds/packages/minisatip/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking whether the C compiler works... yes checking for C compiler default output file name.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/openvswitch/compile -j$(nproc) || make package/feeds/packages/openvswitch/compile V=s Compile.txt WARNING: kmod-openvswitch is not available in the kernel config - generating empty package Applying ./patches/0001-netdev-linux-Let-interface-flag-survive-internal-por.patch using plaintext: patching file lib/netdev-linux.c Applying ./patches/0002-python-separate-host-target-python-for-cross-compile.patch using plaintext: patching file Makefile.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ovn/compile -j$(nproc) || make package/feeds/packages/ovn/compile V=s Compile.txt Applying ./patches/0001-build-skip-check-and-use-of-libunbound.patch using plaintext: patching file configure.ac Applying ./patches/0002-build-skip-tests-and-docs.patch using plaintext: patching file Makefile.am Applying ./patches/0003-ovn-lib-fix-install_dir.patch using plaintext: patching file utilities/ovn-lib.in autoreconf: Entering directory `.&amp;#39; autoreconf: configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/pianod/compile -j$(nproc) || make package/feeds/packages/pianod/compile V=s Compile.txt autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force autoreconf: configure.ac: tracing autoreconf: configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/rtty/compile -j$(nproc) || make package/feeds/packages/rtty/compile V=s Compile.txt -- The C compiler identification is GNU 8.4.0 -- Detecting C compiler ABI info -- Detecting C compiler ABI info - done -- Check for working C compiler: /openwrt/staging_dir/toolchain-x86_64_gcc-8.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/snort/compile -j$(nproc) || make package/feeds/packages/snort/compile V=s Compile.txt Applying ./patches/001-compile.patch using plaintext: File configure.in is read-only; trying to patch anyway patching file configure.in Applying ./patches/002-fix_include.patch using plaintext: File configure.in is read-only; trying to patch anyway patching file configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/strongswan/compile -j$(nproc) || make package/feeds/packages/strongswan/compile V=s Compile.txt Applying ./patches/101-musl-fixes.patch using plaintext: patching file src/libstrongswan/library.h patching file src/libstrongswan/musl.h patching file src/libcharon/plugins/kernel_netlink/kernel_netlink_ipsec.c patching file src/libcharon/plugins/kernel_netlink/kernel_netlink_net.c patching file src/libcharon/plugins/kernel_netlink/kernel_netlink_shared.c Applying ./patches/203-uci.patch using plaintext: patching file src/libcharon/plugins/uci/uci_parser.c Applying .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/umurmur/compile -j$(nproc) || make package/feeds/packages/umurmur/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/xtables-addons/compile -j$(nproc) || make package/feeds/packages/xtables-addons/compile V=s Compile.txt Applying ./patches/001-fix-kernel-version-detection.patch using plaintext: patching file configure.ac Applying ./patches/100-add-rtsp-conntrack.patch using plaintext: patching file extensions/rtsp/Kbuild patching file extensions/rtsp/netfilter_helpers.h patching file extensions/rtsp/netfilter_mime.h patching file extensions/rtsp/nf_conntrack_rtsp.c patching file extensions/rtsp/nf_conntrack_rtsp.h patching file extensions/rtsp/nf_nat_rtsp.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-dongle/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-dongle/compile V=s Compile.txt Applying ./patches/200-fix-iconv-detection.patch using plaintext: patching file configure.ac Applying ./patches/300-use-openwrt-flags.patch using plaintext: patching file configure.ac autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-g72x/compile -j$(nproc) || make package/feeds/telephony/asterisk-g72x/compile V=s Compile.txt autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force -I m4 autoreconf: configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-opus/compile -j$(nproc) || make package/feeds/telephony/asterisk-opus/compile V=s Compile.txt Applying ./patches/01-Makefile.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/asterisk-opus-2017-10-09-83e1b458&amp;#39; ccache_cc -o codecs/codec_opus_open_source.so -DAST_MODULE=\&amp;#34;codec_opus_open_source\&amp;#34; -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/asterisk-opus-2017-10-09-83e1b458=asterisk-opus-2017-10-09-83e1b458 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -DAST_MODULE_SELF_SYM=__internal_codec_opus_open_source_self -fpic -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/freeswitch-mod-bcg729/compile -j$(nproc) || make package/feeds/telephony/freeswitch-mod-bcg729/compile V=s Compile.txt mod_bcg729.c:30:10: fatal error: switch.h: No such file or directory #include &amp;#34;switch.h&amp;#34; ^~~~~~~~~~ compilation terminated. make[3]: *** [Makefile:84: /openwrt/build_dir/target-x86_64_musl/freeswitch-mod-bcg729-20170629/.built] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/freeswitch/compile -j$(nproc) || make package/feeds/telephony/freeswitch/compile V=s Compile.txt Applying ./patches/003-modmake-fix.patch using plaintext: patching file build/modmake.rulesam Applying ./patches/010-fix-zrtp-cflags.patch using plaintext: patching file libs/libzrtp/configure.ac Applying ./patches/030-fix-configure-ac.patch using plaintext: patching file configure.ac Applying ./patches/040-gentls_cert_update_message_digest.patch using plaintext: patching file scripts/gentls_cert.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/rtpengine/compile -j$(nproc) || make package/feeds/telephony/rtpengine/compile V=s Compile.txt Applying ./patches/01-cflags.patch using plaintext: patching file lib/lib.Makefile patching file daemon/Makefile patching file recording-daemon/Makefile patching file iptables-extension/Makefile Applying ./patches/04-prevent-systemd-detection.patch using plaintext: patching file lib/lib.Makefile Applying ./patches/200-openssl-deprecated.patch using plaintext: patching file daemon/dtls.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/rtpengine/compile -j$(nproc) || make package/feeds/telephony/rtpengine/compile V=s Compile.txt Applying ./patches/01-cflags.patch using plaintext: patching file lib/lib.Makefile patching file daemon/Makefile patching file recording-daemon/Makefile patching file iptables-extension/Makefile Applying ./patches/04-prevent-systemd-detection.patch using plaintext: patching file lib/lib.Makefile Applying ./patches/200-openssl-deprecated.patch using plaintext: patching file daemon/dtls.</description>
+    </item>
+    
+    <item>
+      <title>compile.50</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.50/</link>
+      <pubDate>Thu, 25 Feb 2021 14:20:35 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.50/</guid>
+      <description>build number: 50
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-ejdb2_node/compile -j$(nproc) || make package/feeds/packages/node-ejdb2_node/compile V=s Compile.txt Applying ./patches/999-fix_install_js.patch using plaintext: patching file install.js Applying ./patches/999-mips_support.patch using plaintext: patching file package.json npm info it worked if it ends with ok npm info using npm@6.</description>
+    </item>
+    
+    <item>
       <title>compile.48</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.48/</link>
       <pubDate>Mon, 22 Feb 2021 23:42:08 +0000</pubDate>
