@@ -233,3 +233,33 @@ class OpdeSetting:
             ctx, indent=2, sort_keys=True))
         self.cache.StoreCache('tasks.list.yaml', yaml.dump(
             ctx, Dumper=yaml.CDumper, indent=2, sort_keys=True))
+
+    @property
+    def vices_list(self):
+        'return text of vices.list.json'
+        cache_name = '.vices.list.json'
+        ctx = self.cache.LoadCached(cache_name)
+        return json.loads(ctx) if ctx is not None else None
+
+    @vices_list.setter
+    def vices_list(self, ctx: object):
+        cache_name = '.vices.list.json'
+        self.cache.StoreCache(cache_name, json.dumps(
+            ctx, indent=2, sort_keys=True))
+        self.cache.StoreCache('vices.list.yaml', yaml.dump(
+            ctx, Dumper=yaml.CDumper, indent=2, sort_keys=True))
+
+    @property
+    def nodes_list(self):
+        'return text of nodes.list.json'
+        cache_name = '.nodes.list.json'
+        ctx = self.cache.LoadCached(cache_name)
+        return json.loads(ctx) if ctx is not None else None
+
+    @nodes_list.setter
+    def nodes_list(self, ctx: object):
+        cache_name = '.nodes.list.json'
+        self.cache.StoreCache(cache_name, json.dumps(
+            ctx, indent=2, sort_keys=True))
+        self.cache.StoreCache('nodes.list.yaml', yaml.dump(
+            ctx, Dumper=yaml.CDumper, indent=2, sort_keys=True))
