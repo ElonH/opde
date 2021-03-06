@@ -123,7 +123,7 @@ class PackageInfoLexer(InfoLexer):
         return t
 
     def t_config_item(self, t):
-        r'(depends[ ]on|source|config|bool|default|menu|tristate|endmenu|comment|prompt|select|choice|endchoice|if|endif|string|int)'
+        r'(depends[ ]on|source|config|bool|default|menu|tristate|endmenu|comment|prompt|select|imply|choice|endchoice|if|endif|string|int)'
         t.lexer.line_start = t.lexer.lexpos
         t.lexer.push_state('end2line')
         t.type = "CONFIG_ITEM"
