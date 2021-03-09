@@ -11,16 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/base/nat46/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.o ../nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.c: In function &amp;#39;nat46_remove&amp;#39;: ../nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.c:257:2: warning: ISO C90 forbids variable length array &amp;#39;config_remove&amp;#39; [-Wvla] char config_remove[buflen]; ^~~~ ../nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.c:277:3: warning: ISO C90 forbids variable length array &amp;#39;config&amp;#39; [-Wvla] char config[buflen]; ^~~~ /bin/sh: 1: scripts/basic/fixdep: not found make[5]: *** [scripts/Makefile.build:262: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.o] Error 127 make[5]: *** Deleting file &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules/nat46-netdev.o&amp;#39; make[4]: *** [Makefile:1726: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/nat46/modules] Error 2 make[4]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; make[3]: *** [Makefile:38: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/nat46-2020-08-17-362640b4/.</description>
-    </item>
-    
   </channel>
 </rss>

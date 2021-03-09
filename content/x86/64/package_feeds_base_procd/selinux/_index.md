@@ -1,6 +1,6 @@
 ---
 title: "selinux"
-date: 2021-02-25 14:20:49.071435
+date: 2021-03-09 13:47:05.829352
 hidden: false
 draft: false
 ---

@@ -6,20 +6,19 @@
     <description>Recent content in default on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:20:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Mar 2021 13:47:05 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      <title>compile.52</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.52/</link>
+      <pubDate>Tue, 09 Mar 2021 13:47:05 +0000</pubDate>
       
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/base/procd/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 3%] Built target setlbf make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 5%] Built target syscall-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 7%] Linking C shared library libpreload-seccomp.so make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 10%] Built target preload-seccomp make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 12%] Linking C executable ujail-console make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 14%] Built target ujail-console make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 18%] Built target udevtrigger make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 21%] Built target preload-trace make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 23%] Linking C executable procd make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 54%] Built target procd make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 56%] Built target capabilities-names-h make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/procd-default/procd-2020-11-06-b0de8948&amp;#39; [ 58%] Building C object CMakeFiles/ujail.</description>
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.52/</guid>
+      <description>build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/procd/compile -j$(nproc) || make package/feeds/base/procd/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
     </item>
     
     <item>

@@ -12,17 +12,6 @@
     
     
     <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/packages/gnunet/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3&amp;#39; make all-recursive make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3&amp;#39; Making all in m4 make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/m4&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/m4&amp;#39; Making all in bin make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/bin&amp;#39; make[6]: Nothing to be done for &amp;#39;all&amp;#39;. make[6]: Leaving directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/bin&amp;#39; Making all in src make[6]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/src&amp;#39; Making all in include make[7]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/gnunet-0.13.3/src/include&amp;#39; Making all in .</description>
-    </item>
-    
-    <item>
       <title>compile.50</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.50/</link>
       <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>

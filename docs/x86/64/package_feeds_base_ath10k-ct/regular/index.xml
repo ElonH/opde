@@ -6,20 +6,19 @@
     <description>Recent content in regular on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:21:15 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Mar 2021 13:47:09 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      <title>compile.52</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.52/</link>
+      <pubDate>Tue, 09 Mar 2021 13:47:09 +0000</pubDate>
       
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/base/ath10k-ct/compile
-make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/ath10k-ct-regular/ath10k-ct-2019-09-09-5e8cd86f/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.52/</guid>
+      <description>build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ath10k-ct/compile -j$(nproc) || make package/feeds/base/ath10k-ct/compile V=s Compile.txt Applying ./patches/161-ath10k-add-support-for-configuring-management-packet.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/162-ath10k-fix-possible-out-of-bound-access-of-ath10k_ra.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/163-ath10k-fix-incorrect-multicast-broadcast-rate-settin.patch using plaintext: patching file ath10k-4.19/mac.c Applying ./patches/164-ath10k-commit-rates-from-mac80211.patch using plaintext: patching file ath10k-4.</description>
     </item>
     
     <item>

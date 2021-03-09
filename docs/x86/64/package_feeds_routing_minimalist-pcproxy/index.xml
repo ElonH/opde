@@ -11,16 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/routing/minimalist-pcproxy/compile
-minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2: Download from https://github.com/fingon/minimalist-pcproxy.git failed minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2: Requires sha256sum for verification Checking out files from the git repository... Cloning into &amp;#39;minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb&amp;#39;... fatal: unable to access &amp;#39;https://github.com/fingon/minimalist-pcproxy.git/&amp;#39;: gnutls_handshake() failed: The TLS connection was non-properly terminated. make[3]: *** [Makefile:58: /openwrt/dl/minimalist-pcproxy-2015-01-12-2d6d1b0b0a3b79a9b4a9b0a7606a84600a967bcb.tar.bz2] Error 128 </description>
-    </item>
-    
   </channel>
 </rss>

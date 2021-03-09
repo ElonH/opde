@@ -6,20 +6,19 @@
     <description>Recent content in package_feeds_base_fast-classifier on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:21:08 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Mar 2021 13:47:09 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      <title>compile.52</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.52/</link>
+      <pubDate>Tue, 09 Mar 2021 13:47:09 +0000</pubDate>
       
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/base/fast-classifier/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.98&amp;#39; Building modules, stage 2. MODPOST 1 modules ERROR: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;athrs_fast_nat_recv&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_update_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;nf_ct_tcp_no_window_check&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_create_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_update_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_create_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_mark_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_destroy_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_mark_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_destroy_rule&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv4_destroy_all_rules_for_dev&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.ko] undefined! ERROR: &amp;#34;sfe_ipv6_destroy_all_rules_for_dev&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.</description>
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.52/</guid>
+      <description>build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fast-classifier/compile -j$(nproc) || make package/feeds/base/fast-classifier/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.102&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c: In function &amp;#39;fast_classifier_init&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c:1888:1: warning: label &amp;#39;exit4&amp;#39; defined but not used [-Wunused-label] exit4: ^~~~~ Building modules, stage 2. MODPOST 1 modules ERROR: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.</description>
     </item>
     
     <item>

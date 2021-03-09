@@ -11,16 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/base/simple-torrent/compile
-Copying files from /openwrt/build_dir/target-x86_64_musl/simple-torrent-1.2.12 into /openwrt/build_dir/target-x86_64_musl/simple-torrent-1.2.12/.go_work/build/src/cloud-torrent engine/config.go engine/config_test.go engine/engine.go engine/torrent.go go.mod go.sum main.go server/httpmiddleware/liveness.go server/httpmiddleware/realip.go server/server.go server/server_api.go server/server_bg.go server/server_files.go server/server_http.go server/server_rss.go server/server_search.go server/server_stats.go static/files.go static/static.go Symlinking directories from /openwrt/staging_dir/target-x86_64_musl/usr/share/gocode/src into /openwrt/build_dir/target-x86_64_musl/simple-torrent-1.2.12/.go_work/build/src .../git.torproject.org .../CloudflareSpeedTest .../gitlab.com .../github.com .../ehang.io .../v2ray.com Finding targets go: finding module for package github.com/elithrar/simple-scrypt go: finding module for package github.com/jpillora/ansi go: finding module for package github.com/andrew-d/go-termutil go: finding module for package github.com/tomasen/realip go: finding module for package github.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -6,20 +6,19 @@
     <description>Recent content in custom on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Feb 2021 23:42:08 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Mar 2021 13:47:09 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      <title>compile.52</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.52/</link>
+      <pubDate>Tue, 09 Mar 2021 13:47:09 +0000</pubDate>
       
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/packages/ffmpeg/compile
-cp: cannot stat &amp;#39;/openwrt/build_dir/target-x86_64_musl/ffmpeg-custom/ffmpeg-4.3.1/ipkg-install/usr/bin/ffmpeg&amp;#39;: No such file or directory make[3]: *** [Makefile:753: /openwrt/bin/packages/x86_64/packages/ffmpeg-custom_4.3.1-1_x86_64.ipk] Error 1 </description>
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.52/</guid>
+      <description>build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ffmpeg/compile -j$(nproc) || make package/feeds/packages/ffmpeg/compile V=s Compile.txt cp: cannot stat &amp;#39;/openwrt/build_dir/target-x86_64_musl/ffmpeg-custom/ffmpeg-4.3.2/ipkg-install/usr/bin/ffmpeg&amp;#39;: No such file or directory make[3]: *** [Makefile:753: /openwrt/bin/packages/x86_64/packages/ffmpeg-custom_4.3.2-1_x86_64.ipk] Error 1 </description>
     </item>
     
     <item>

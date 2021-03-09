@@ -6,20 +6,19 @@
     <description>Recent content in package_feeds_base_qBittorrent-Enhanced-Edition on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:20:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Mar 2021 13:47:01 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.60</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/</link>
-      <pubDate>Thu, 18 Feb 2021 15:10:27 +0000</pubDate>
+      <title>compile.52</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.52/</link>
+      <pubDate>Tue, 09 Mar 2021 13:47:01 +0000</pubDate>
       
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.60/</guid>
-      <description>build number: 60
-path: package/feeds/base/qBittorrent-Enhanced-Edition/compile
-make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.3.2.10&amp;#39; /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/qmake -o Makefile qbittorrent.pro QMAKE_LRELEASE= cd src/ &amp;amp;&amp;amp; ( test -e Makefile || /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/qmake -o Makefile /openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.3.2.10/src/src.pro QMAKE_LRELEASE= ) &amp;amp;&amp;amp; make -f Makefile make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.3.2.10/src&amp;#39; /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/qmake -o Makefile src.pro QMAKE_LRELEASE= Project MESSAGE: Project is built in RELEASE mode. Project MESSAGE: Disabling debug output. ccache_cxx -c -pipe -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/qt-everywhere-src-5.13.2=qt-everywhere-src-5.13.2 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro --sysroot=/openwrt/staging_dir/target-x86_64_musl -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/qBittorrent-Enhanced-Edition-release-4.</description>
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.52/</guid>
+      <description>build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/qBittorrent-Enhanced-Edition/compile -j$(nproc) || make package/feeds/base/qBittorrent-Enhanced-Edition/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking whether the C compiler works... yes checking for C compiler default output file name.</description>
     </item>
     
     <item>

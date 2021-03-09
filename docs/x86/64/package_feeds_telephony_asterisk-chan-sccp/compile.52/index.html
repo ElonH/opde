@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.52 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.52/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.52" />
+<meta property="og:description" content="build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.52/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-03-09T13:46:57+00:00" />
+<meta property="article:modified_time" content="2021-03-09T13:46:57+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.52"/>
+<meta name="twitter:description" content="build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines)."/>
+<meta itemprop="name" content="compile.52">
+<meta itemprop="description" content="build number: 52
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).">
+<meta itemprop="datePublished" content="2021-03-09T13:46:57&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-09T13:46:57&#43;00:00" />
+<meta itemprop="wordCount" content="1952">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.52</h1>
+<p>build number: <code>52</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/telephony/asterisk-chan-sccp/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/telephony/asterisk-chan-sccp/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/01-prevent-extra-optimization.patch using plaintext: 
+patching file autoconf/extra.m4
+Hunk <span style="color:#75715e">#1 succeeded at 516 with fuzz 2 (offset 25 lines).</span>
+
+Applying ./patches/100-reproducible-builds.patch using plaintext: 
+patching file src/chan_sccp.c
+Hunk <span style="color:#75715e">#1 succeeded at 198 (offset 12 lines).</span>
+autoreconf: Entering directory <span style="color:#e6db74">`</span>.<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">autoreconf: configure.ac: not using Gettext
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-x86_64_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal -I m4 -I . --force -I autoconf
+</span><span style="color:#e6db74">autoreconf: configure.ac: tracing
+</span><span style="color:#e6db74">autoreconf: configure.ac: subdirectory libltdl not present
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/libtoolize --install --force
+</span><span style="color:#e6db74">OpenWrt-libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `autoconf&#39;</span>.
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>autoconf/config.guess<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `autoconf/config.sub&#39;</span>
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>autoconf/install-sh<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `autoconf/ltmain.sh&#39;</span>
+OpenWrt-libtoolize: putting macros in AC_CONFIG_MACRO_DIR, <span style="color:#e6db74">`</span>autoconf<span style="color:#e6db74">&#39;.
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `autoconf/libtool.m4&#39;</span>
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>autoconf/ltoptions.m4<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `autoconf/ltsugar.m4&#39;</span>
+OpenWrt-libtoolize: linking file <span style="color:#e6db74">`</span>autoconf/ltversion.m4<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">OpenWrt-libtoolize: linking file `autoconf/lt~obsolete.m4&#39;</span>
+OpenWrt-libtoolize: Remember to add <span style="color:#e6db74">`</span>LT_INIT<span style="color:#e6db74">&#39; to configure.ac.
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/autoconf --include=/openwrt/staging_dir/target-x86_64_musl/host/share/aclocal --include=/openwrt/staging_dir/hostpkg/share/aclocal --include=/openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal --include=m4 --include=. --prepend-include=/openwrt/staging_dir/host/share/aclocal --force
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/autoheader --include=/openwrt/staging_dir/target-x86_64_musl/host/share/aclocal --include=/openwrt/staging_dir/hostpkg/share/aclocal --include=/openwrt/staging_dir/target-x86_64_musl/usr/share/aclocal --include=m4 --include=. --prepend-include=/openwrt/staging_dir/host/share/aclocal --force
+</span><span style="color:#e6db74">autoreconf: running: /openwrt/staging_dir/host/bin/automake --add-missing --force-missing
+</span><span style="color:#e6db74">autoreconf: Leaving directory `.&#39;</span>
+configure: loading site script /openwrt/include/site/x86_64
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-gcc... ccache_cc
+checking whether the C compiler works... yes
+checking <span style="color:#66d9ef">for</span> C compiler default output file name... a.out
+checking <span style="color:#66d9ef">for</span> suffix of executables... 
+checking whether we are cross compiling... yes
+checking <span style="color:#66d9ef">for</span> suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether ccache_cc accepts -g... yes
+checking <span style="color:#66d9ef">for</span> ccache_cc option to accept ISO C89... none needed
+checking whether ccache_cc understands -c and -o together... yes
+checking how to run the C preprocessor... ccache_cc -E
+checking <span style="color:#66d9ef">for</span> grep that handles long lines and -e... /openwrt/staging_dir/host/bin/grep
+checking <span style="color:#66d9ef">for</span> egrep... /openwrt/staging_dir/host/bin/grep -E
+checking <span style="color:#66d9ef">for</span> ANSI C header files... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... yes
+checking <span style="color:#66d9ef">for</span> sys/stat.h... yes
+checking <span style="color:#66d9ef">for</span> stdlib.h... yes
+checking <span style="color:#66d9ef">for</span> string.h... yes
+checking <span style="color:#66d9ef">for</span> memory.h... yes
+checking <span style="color:#66d9ef">for</span> strings.h... yes
+checking <span style="color:#66d9ef">for</span> inttypes.h... yes
+checking <span style="color:#66d9ef">for</span> stdint.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking <span style="color:#66d9ef">for</span> minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-openwrt-linux-gnu
+checking target system type... x86_64-openwrt-linux-gnu
+
+Checking AutoMake:
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking <span style="color:#66d9ef">for</span> a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-strip... x86_64-openwrt-linux-musl-strip
+checking <span style="color:#66d9ef">for</span> a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking <span style="color:#66d9ef">for</span> gawk... gawk
+checking whether make sets <span style="color:#66d9ef">$(</span>MAKE<span style="color:#66d9ef">)</span>... yes
+checking <span style="color:#66d9ef">for</span> style of include used by make... GNU
+checking whether make supports nested variables... yes
+checking dependency style of ccache_cc... gcc3
+checking whether make supports nested variables... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+
+Checking build environment:
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-uname... no
+checking <span style="color:#66d9ef">for</span> uname... /usr/bin/uname
+configure: WARNING: using cross tools not prefixed with host triplet
+checking <span style="color:#66d9ef">for</span> date... /usr/bin/date
+checking <span style="color:#66d9ef">for</span> uname... /usr/bin/uname
+checking <span style="color:#66d9ef">for</span> gsed... no
+checking <span style="color:#66d9ef">for</span> sed... /openwrt/staging_dir/host/bin/sed
+checking <span style="color:#66d9ef">for</span> id... /usr/bin/id
+checking <span style="color:#66d9ef">for</span> RAII support... checking gcc version &gt; 4.3... yes
+checking <span style="color:#66d9ef">for</span> gcc -fnested-functions... no
+checking whether C compiler accepts -fstack-protector... yes
+checking whether C compiler accepts -Wno-long-long... yes
+checking whether C compiler accepts -Wno-ignored-qualifiers... yes
+checking whether C compiler accepts -Wno-missing-field-initializers... yes
+checking <span style="color:#66d9ef">if</span> pointers to integers require aligned access... no
+checking whether uint64_t misalignment causes a buserror on this system... no
+checking whether we are using the GNU C++ compiler... yes
+checking whether ccache_cxx accepts -g... yes
+checking dependency style of ccache_cxx... gcc3
+
+Checking host platform:
+Running on: x86_64-openwrt-linux-gnu
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-gcc... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> ccache_cc
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ld... x86_64-openwrt-linux-musl-ld
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ranlib... x86_64-openwrt-linux-musl-gcc-ranlib
+
+Checking Atomic Functions:
+checking ia64intrin.h usability... no
+checking ia64intrin.h presence... no
+checking <span style="color:#66d9ef">for</span> ia64intrin.h... no
+checking ia32intrin.h usability... no
+checking ia32intrin.h presence... no
+checking <span style="color:#66d9ef">for</span> ia32intrin.h... no
+checking whether compiler supports builtin atomic CAS-32... yes
+checking whether compiler supports builtin atomic CAS-64... yes
+checking whether compiler supports builtin atomic CAS-ptr... yes
+checking whether compiler supports builtin atomic incr... yes
+checking whether ia64intrin.h is required... no
+checking whether the compiler supports CMPXCHG16B... yes
+checking whether the CPU supports CMPXCHG16B... assuming no
+
+Checking <span style="color:#66d9ef">for</span> standard programs:
+checking how to print strings... printf
+checking <span style="color:#66d9ef">for</span> a sed that does not truncate output... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/sed
+checking <span style="color:#66d9ef">for</span> fgrep... /openwrt/staging_dir/host/bin/grep -F
+checking <span style="color:#66d9ef">for</span> ld used by ccache_cc... x86_64-openwrt-linux-musl-ld
+checking <span style="color:#66d9ef">if</span> the linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld<span style="color:#f92672">)</span> is GNU ld... yes
+checking <span style="color:#66d9ef">for</span> BSD- or MS-compatible name lister <span style="color:#f92672">(</span>nm<span style="color:#f92672">)</span>... x86_64-openwrt-linux-musl-gcc-nm
+checking the name lister <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-gcc-nm<span style="color:#f92672">)</span> interface... BSD nm
+checking the maximum length of command line arguments... <span style="color:#ae81ff">1572864</span>
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands <span style="color:#e6db74">&#34;+=&#34;</span>... yes
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-openwrt-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-musl-ld option to reload object files... -r
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-objdump... x86_64-openwrt-linux-musl-objdump
+checking how to recognize dependent libraries... pass_all
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-dlltool... no
+checking <span style="color:#66d9ef">for</span> dlltool... no
+checking how to associate runtime and link libraries... printf %s<span style="color:#ae81ff">\n</span>
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ar... x86_64-openwrt-linux-musl-gcc-ar
+checking <span style="color:#66d9ef">for</span> archiver @FILE support... @
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-strip... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> x86_64-openwrt-linux-musl-strip
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ranlib... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> x86_64-openwrt-linux-musl-gcc-ranlib
+checking command to parse x86_64-openwrt-linux-musl-gcc-nm output from ccache_cc object... ok
+checking <span style="color:#66d9ef">for</span> sysroot... no
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-mt... no
+checking <span style="color:#66d9ef">for</span> mt... no
+checking <span style="color:#66d9ef">if</span> : is a manifest tool... no
+checking <span style="color:#66d9ef">for</span> dlfcn.h... yes
+checking <span style="color:#66d9ef">for</span> git... /openwrt/staging_dir/host/bin/git
+checking <span style="color:#66d9ef">for</span> bash... /bin/bash
+checking <span style="color:#66d9ef">for</span> bash... /openwrt/staging_dir/host/bin/bash
+checking <span style="color:#66d9ef">for</span> gm4... /openwrt/staging_dir/host/bin/m4
+checking <span style="color:#66d9ef">for</span> ggrep... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/grep
+checking <span style="color:#66d9ef">for</span> cat... /usr/bin/cat
+checking <span style="color:#66d9ef">for</span> uname... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /usr/bin/uname
+checking <span style="color:#66d9ef">for</span> rpmbuild... no
+checking <span style="color:#66d9ef">for</span> objcopy... /usr/bin/objcopy
+checking <span style="color:#66d9ef">for</span> gdb... no
+checking <span style="color:#66d9ef">for</span> head... /usr/bin/head
+checking <span style="color:#66d9ef">for</span> cut... /usr/bin/cut
+checking <span style="color:#66d9ef">for</span> tr... /usr/bin/tr
+checking <span style="color:#66d9ef">for</span> gawk... /usr/bin/gawk
+checking <span style="color:#66d9ef">for</span> pkg-config... /openwrt/staging_dir/host/bin/pkg-config
+checking <span style="color:#66d9ef">for</span> openssl... /openwrt/staging_dir/host/bin/openssl
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-clang... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> ccache_cc
+checking whether we are using the GNU C compiler... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether ccache_cc accepts -g... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> ccache_cc option to accept ISO C89... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> none needed
+checking whether ccache_cc understands -c and -o together... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether ccache_cc and cc understand -c and -o together... yes
+checking whether ccache_cc needs -traditional... no
+checking how to run the C preprocessor... ccache_cc -E
+checking <span style="color:#66d9ef">for</span> gawk... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> gawk
+checking whether ln -s works... yes
+checking whether make sets <span style="color:#66d9ef">$(</span>MAKE<span style="color:#66d9ef">)</span>... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> an ANSI C-conforming const... yes
+checking <span style="color:#66d9ef">for</span> inline... inline
+checking <span style="color:#66d9ef">for</span> objdir... .libs
+checking <span style="color:#66d9ef">if</span> ccache_cc supports -fno-rtti -fno-exceptions... no
+checking <span style="color:#66d9ef">for</span> ccache_cc option to produce PIC... -fPIC -DPIC
+checking <span style="color:#66d9ef">if</span> ccache_cc PIC flag -fPIC -DPIC works... yes
+checking <span style="color:#66d9ef">if</span> ccache_cc static flag -static works... yes
+checking <span style="color:#66d9ef">if</span> ccache_cc supports -c -o file.o... yes
+checking <span style="color:#66d9ef">if</span> ccache_cc supports -c -o file.o... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether the ccache_cc linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld -m elf_x86_64<span style="color:#f92672">)</span> supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking <span style="color:#66d9ef">if</span> libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking how to run the C++ preprocessor... ccache_cxx -E
+checking <span style="color:#66d9ef">for</span> ld used by ccache_cxx... x86_64-openwrt-linux-musl-ld -m elf_x86_64
+checking <span style="color:#66d9ef">if</span> the linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld -m elf_x86_64<span style="color:#f92672">)</span> is GNU ld... yes
+checking whether the ccache_cxx linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld -m elf_x86_64<span style="color:#f92672">)</span> supports shared libraries... yes
+checking <span style="color:#66d9ef">for</span> ccache_cxx option to produce PIC... -fPIC -DPIC
+checking <span style="color:#66d9ef">if</span> ccache_cxx PIC flag -fPIC -DPIC works... yes
+checking <span style="color:#66d9ef">if</span> ccache_cxx static flag -static works... yes
+checking <span style="color:#66d9ef">if</span> ccache_cxx supports -c -o file.o... yes
+checking <span style="color:#66d9ef">if</span> ccache_cxx supports -c -o file.o... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether the ccache_cxx linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld -m elf_x86_64<span style="color:#f92672">)</span> supports shared libraries... yes
+checking dynamic linker characteristics... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether ccache_cc is Clang... no
+checking whether pthreads work with -pthread... yes
+checking <span style="color:#66d9ef">for</span> joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required <span style="color:#66d9ef">for</span> pthreads... no
+checking <span style="color:#66d9ef">for</span> PTHREAD_PRIO_INHERIT... yes
+checking <span style="color:#66d9ef">for</span> ccache... /openwrt/staging_dir/host/bin/ccache
+checking which extension is used <span style="color:#66d9ef">for</span> runtime loadable modules... .so
+checking which variable specifies run-time module search path... LD_LIBRARY_PATH
+checking <span style="color:#66d9ef">for</span> the default library search path... /lib /usr/lib /usr/local/lib /usr/local/lib/x86_64-linux-gnu /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /lib32 /usr/lib32 /libx32 /usr/libx32 
+checking <span style="color:#66d9ef">for</span> library containing dlopen... none required
+checking <span style="color:#66d9ef">for</span> dlerror... yes
+checking <span style="color:#66d9ef">for</span> shl_load... no
+checking <span style="color:#66d9ef">for</span> shl_load in -ldld... no
+checking <span style="color:#66d9ef">for</span> dld_link in -ldld... no
+checking <span style="color:#66d9ef">for</span> _ prefix in compiled symbols... no
+checking whether deplibs are loaded by dlopen... yes
+checking <span style="color:#66d9ef">for</span> argz.h... no
+checking <span style="color:#66d9ef">for</span> error_t... no
+checking <span style="color:#66d9ef">for</span> argz_add... no
+checking <span style="color:#66d9ef">for</span> argz_append... no
+checking <span style="color:#66d9ef">for</span> argz_count... no
+checking <span style="color:#66d9ef">for</span> argz_create_sep... no
+checking <span style="color:#66d9ef">for</span> argz_insert... no
+checking <span style="color:#66d9ef">for</span> argz_next... no
+checking <span style="color:#66d9ef">for</span> argz_stringify... no
+checking whether libtool supports -dlopen/-dlpreopen... yes
+
+Checking Libtool:
+checking <span style="color:#66d9ef">for</span> ltdl.h... yes
+checking whether lt_dlinterface_register is declared... yes
+checking <span style="color:#66d9ef">for</span> lt_dladvise_preload in -lltdl... yes
+checking where to find libltdl headers... 
+checking where to find libltdl library... -lltdl
+checking <span style="color:#66d9ef">for</span> unistd.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> dl.h... no
+checking <span style="color:#66d9ef">for</span> sys/dl.h... no
+checking <span style="color:#66d9ef">for</span> dld.h... no
+checking <span style="color:#66d9ef">for</span> mach-o/dyld.h... no
+checking <span style="color:#66d9ef">for</span> dirent.h... yes
+checking <span style="color:#66d9ef">for</span> closedir... yes
+checking <span style="color:#66d9ef">for</span> opendir... yes
+checking <span style="color:#66d9ef">for</span> readdir... yes
+checking <span style="color:#66d9ef">for</span> strlcat... yes
+checking <span style="color:#66d9ef">for</span> strlcpy... yes
+checking <span style="color:#66d9ef">for</span> lt_dladvise_init in -lltdl... yes
+libtool: setup <span style="color:#66d9ef">done</span>
+
+Checking <span style="color:#66d9ef">for</span> Required Libraries:
+checking <span style="color:#66d9ef">for</span> ld... x86_64-openwrt-linux-musl-ld -m elf_x86_64
+checking <span style="color:#66d9ef">if</span> the linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld -m elf_x86_64<span style="color:#f92672">)</span> is GNU ld... yes
+checking <span style="color:#66d9ef">for</span> shared library run path origin... <span style="color:#66d9ef">done</span>
+checking 32-bit host C ABI... no
+checking <span style="color:#66d9ef">for</span> ELF binary format... yes
+checking <span style="color:#66d9ef">for</span> the common suffixes of directories in the library search path... lib,lib,lib64
+checking <span style="color:#66d9ef">for</span> iconv... yes
+checking <span style="color:#66d9ef">for</span> working iconv... guessing yes
+checking how to link with libiconv... -liconv
+checking <span style="color:#66d9ef">for</span> iconv declaration... 
+         extern size_t iconv <span style="color:#f92672">(</span>iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft<span style="color:#f92672">)</span>;
+checking <span style="color:#66d9ef">for</span> main in -lc... yes
+checking <span style="color:#66d9ef">for</span> main in -lpthread... yes
+checking <span style="color:#66d9ef">for</span> main in -lsocket... no
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/ioctl.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/socket.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking <span style="color:#66d9ef">for</span> netinet/in.h... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking <span style="color:#66d9ef">for</span> pthread.h... yes
+checking xlocale.h usability... no
+checking xlocale.h presence... no
+checking <span style="color:#66d9ef">for</span> xlocale.h... no
+checking <span style="color:#66d9ef">for</span> main in -liconv... yes
+checking <span style="color:#66d9ef">for</span> gethostbyname... yes
+checking <span style="color:#66d9ef">for</span> inet_ntoa... yes
+checking <span style="color:#66d9ef">for</span> mkdir... yes
+checking <span style="color:#66d9ef">for</span> ANSI C header files... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> stdbool.h that conforms to C99... yes
+checking <span style="color:#66d9ef">for</span> _Bool... yes
+checking <span style="color:#66d9ef">for</span> netinet/in.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking <span style="color:#66d9ef">for</span> fcntl.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking <span style="color:#66d9ef">for</span> signal.h... yes
+checking sys/signal.h usability... yes
+checking sys/signal.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/signal.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking <span style="color:#66d9ef">for</span> stdio.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking <span style="color:#66d9ef">for</span> errno.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking <span style="color:#66d9ef">for</span> ctype.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking <span style="color:#66d9ef">for</span> assert.h... yes
+checking sys/sysinfo.h usability... yes
+checking sys/sysinfo.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/sysinfo.h... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking <span style="color:#66d9ef">for</span> struct tm.tm_zone... yes
+checking <span style="color:#66d9ef">for</span> EVP_EncryptInit in -lcrypto... yes
+checking <span style="color:#66d9ef">for</span> SSL_CTX_new in -lssl... yes
+checking sizeof<span style="color:#f92672">(</span>long long<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> sizeof<span style="color:#f92672">(</span>long<span style="color:#f92672">)</span>... no
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking <span style="color:#66d9ef">for</span> endian.h... yes
+checking whether byte ordering is bigendian... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+
+Checking Configure Options:
+checking Search Path: /openwrt/staging_dir/target-x86_64_musl/usr... not-found
+configure: Either install asterisk and asterisk-devel packages using your package manager.
+configure: If you compiled asterisk manually, make sure you also run <span style="color:#e6db74">`</span>make install-headers<span style="color:#e6db74">`</span> so chan-sccp can find them.
+configure: Or run ./configure --with-asterisk<span style="color:#f92672">=</span>PATH with PATH pointing to the directory where you installed asterisk
+configure: error: Could not find pbx headers or libraries - these are required.
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:76: /openwrt/build_dir/target-x86_64_musl/asterisk-chan-sccp-2020-12-19-968caa45/.configured_a17fb5ef857664f03cd0ce37cc5ea591<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 9 Mar 2021
+
+
+<br>
+Published on 9 Mar 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/" title="package_feeds_telephony_asterisk-chan-sccp"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - package_feeds_telephony_asterisk-chan-sccp</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.50/" title="compile.50">Next - compile.50 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/">package_feeds_packages_minisatip<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-homebridge-cmd4/">package_feeds_packages_node-homebridge-cmd4<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-homebridge-cmd4/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-level/">package_feeds_packages_node-level<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-level/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-leveldown/">package_feeds_packages_node-leveldown<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-leveldown/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-onoff/">package_feeds_packages_node-onoff<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-onoff/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-openzwave-shared/">package_feeds_packages_node-openzwave-shared<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-openzwave-shared/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red/">package_feeds_packages_node-red<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/">package_feeds_packages_node-red-contrib-homekit-bridged<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-sqlite3/">package_feeds_packages_node-sqlite3<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-sqlite3/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/">package_feeds_base_ndpi-netfilter<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nps/">package_feeds_base_nps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nps/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.48/">compile.48</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/">compile.34</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_domoticz/">package_feeds_packages_domoticz<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_domoticz/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/">package_feeds_packages_strongswan<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.52/">compile.52</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/">package_feeds_packages_keepalived<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/compile.52/">compile.52</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/">package_feeds_base_tcpdump<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/">full<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/">package_feeds_packages_gnunet<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/">package_feeds_packages_gnunet-fuse<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/">package_feeds_packages_kadnode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/">package_feeds_packages_libuhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/">package_feeds_packages_libuwsc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/">package_feeds_packages_mc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/">package_feeds_packages_pianod<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/">package_feeds_packages_rtty<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.50/">compile.50</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/">package_feeds_packages_snort<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/">package_feeds_packages_umurmur<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.50/">compile.50</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/">package_feeds_packages_cshark<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/">package_feeds_packages_libwebsockets<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/">package_feeds_base_openwrt-dnsforwarder<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/compile.48/">compile.48</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/">package_feeds_base_gowebdav</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/">package_feeds_base_libdvbcsa</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/">package_feeds_base_nat46</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/">package_feeds_base_simple-torrent</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/">package_feeds_base_tinyfecvpn</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/">package_feeds_base_trojan-plus</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/">package_feeds_packages_alac</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/">package_feeds_packages_atheepmgr</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/">package_feeds_packages_fail2ban<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/">python3</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/">package_feeds_packages_gcc</a>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/">package_feeds_packages_libxcrypt</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/">package_feeds_packages_ufw<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/">python3</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/">package_feeds_routing_minimalist-pcproxy</a>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
