@@ -17,7 +17,7 @@ RUN curl -sL https://git.io/file-transfer | sh && \
 
 RUN sudo -E apt-get update -y &&\
 	sudo -E apt-get install -y --no-install-recommends \
-	zsh ack tree \
+	zsh ack tree htop \
 	&& sudo -E apt-get -y autoremove && sudo -E apt-get clean \
 	&& sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /root/.cache/*
 
@@ -27,7 +27,7 @@ RUN CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmy
 	git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search && \
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
-	sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-completions history-substring-search zsh-autosuggestions)\nautoload -U compinit \&\& compinit/g' ~/.zshrc
+	sed -i 's/plugins=(git)/plugins=(git extract zsh-syntax-highlighting zsh-completions history-substring-search zsh-autosuggestions)\nautoload -U compinit \&\& compinit/g' ~/.zshrc
 
 ENV PATH="/opde:${PATH}"
 # COPY . /opde
