@@ -1,8 +1,6 @@
 from pathlib import Path
 from .worker import BuildWorkerPyramid
 import networkx as nx
-from yaml.loader import Loader
-import yaml
 import json
 from .depstree import DependsTree
 
@@ -18,58 +16,17 @@ class WorksDistributor:
     def build(self, tree_file: str, skip: bool = False):
         'build worker pyramid'
         tree_file = Path(tree_file)
-        worker_json_file = tree_file.parent.joinpath('.workers.pyramid.json')
-        worker_yaml_file = tree_file.parent.joinpath('workers.pyramid.yaml')
+        worker_file = tree_file.parent.joinpath('workers.pyramid.json')
         tree_dg = nx.readwrite.json_graph.jit_graph(
             tree_file.read_text(), create_using=nx.DiGraph())
 
         if not skip or (not tree_file.exists() and not tree_file.is_file()):
-            BuildWorkerPyramid(tree_file.as_posix(),
-                               worker_json_file.as_posix())
+            BuildWorkerPyramid(tree_file.as_posix(), worker_file.as_posix())
         else:
-            print('%s file exist, skip generation' %
-                  worker_json_file.as_posix())
+            print('%s file exist, skip generation' % worker_file.as_posix())
         worker_dg = nx.readwrite.json_graph.jit_graph(
-            worker_json_file.read_text(), create_using=nx.DiGraph())
-        # print tree into yaml
-        tree_view = {}
-        for root in worker_dg.nodes:
-            if worker_dg.in_degree(root) != 0:
-                continue
-            rst = {}
-            views = [rst]
-            nodes = [root]
-            while len(nodes):
-                next_views = []
-                next_nodes = []
-                for i in range(len(views)):
-                    view = views[i]
-                    node = nodes[i]
-                    for edge in worker_dg.out_edges(node):
-                        item = edge[1]
-                        next_nodes.append(item)
-                        view[item] = {}
-                        next_views.append(view[item])
-                views = next_views
-                nodes = next_nodes
-            tree_view[root] = rst
-        # worker_yaml_file.write_text(json.dumps(tree_view, indent=2))
-        worker_yaml_file.write_text(yaml.dump(
-            tree_view, Dumper=yaml.CDumper, indent=2, sort_keys=True))
+            worker_file.read_text(), create_using=nx.DiGraph())
         self.dg = nx.compose(tree_dg, worker_dg)
-
-    def _tree2obj(self, dg, node):
-        ''' convert tree to object '''
-        data = dg.nodes[node]
-        if data == {}:
-            return None
-        rst = {}
-        # this is binary tree, edge counts: 0, 1 or 2
-        for edge in dg.out_edges(node):
-            item = edge[1]
-            item_rst = self._tree2obj(dg, item)
-            rst[str(item)] = item_rst
-        return rst
 
     def to_json(self):
         'output graph with jit json format data'
