@@ -43,7 +43,9 @@ jobs:
           submodules: true
           path: ./openwrt/.opde/db
       - name: pull docker image
-        run: docker pull elonh/opde:base
+        run: |
+          docker pull elonh/opde:base
+          docker pull elonh/opde:sdk
       - name: Fix premission
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
       - name: Opde feeds
@@ -60,10 +62,11 @@ jobs:
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde build
       - name: Update database
         run: |
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base mkdir .opde/db -p # create database only
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base mkdir .opde/db -p || true # create database only
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base touch .opde/db/logs.db.json
+        # docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
       - name: Opde Assign
-        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde assign .opde/db
+        run: docker run -v $PWD/openwrt/.opde:/openwrt/.opde elonh/opde:sdk opde assign .opde/db
       - name: Bundle Artifacts
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs .opde
       - name: Fix premission
