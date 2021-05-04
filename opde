@@ -142,7 +142,6 @@ def config(ctx, all_packs: bool, inject: str, ke: bool = None, sdk: bool = None,
     setting: OpdeSetting = ctx.obj['set']
     mode: str = ctx.obj['mode']
     setting.logs_dir.mkdir(parents=True, exist_ok=True)
-    ast = setting.packageinfo_ast # refresh ast tree into file for debug
     builder = configer.Configer()
     builder.compose(*setting.targets)
     if mode == 'SDK':
@@ -172,6 +171,7 @@ def config(ctx, all_packs: bool, inject: str, ke: bool = None, sdk: bool = None,
     shutil.copyfile(setting.openwrt_dir.joinpath('.config'),
                     setting.cache_dir.joinpath('min-config.in'))
     bash.run('make defconfig', cwd=setting.openwrt_dir.as_posix())
+    ast = setting.packageinfo_ast  # refresh ast tree into file for debug
 
 
 @cli.command()
