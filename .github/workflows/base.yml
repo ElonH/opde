@@ -41,13 +41,14 @@ jobs:
         with:
           ref: gh-pages
           submodules: true
-          path: ./openwrt/.opde/db
+          path: ./db
       - name: pull docker image
-        run: |
-          docker pull elonh/opde:base
-          docker pull elonh/opde:sdk
+        run: docker pull elonh/opde:base
       - name: Fix premission
-        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
+        run: |
+          touch /db/logs.db.json # create if not-exist
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
+          docker run -v $PWD/db:/db elonh/opde:base sudo chown opde:opde -R /db
       - name: Opde feeds
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde feeds
       - name: Opde patch
@@ -60,13 +61,6 @@ jobs:
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde download
       - name: Opde build
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde build
-      - name: Update database
-        run: |
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base mkdir .opde/db -p || true # create database only
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base touch .opde/db/logs.db.json
-        # docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde extract .opde/db ${{github.run_number}}
-      - name: Opde Assign
-        run: docker run -v $PWD/openwrt/.opde:/openwrt/.opde elonh/opde:sdk opde assign .opde/db
       - name: Bundle Artifacts
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs .opde
       - name: Fix premission
@@ -149,6 +143,12 @@ jobs:
           push: true
           tags: |
             elonh/opde:sdk
+      - name: Opde Assign in SDK container
+        run: |
+          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde feeds
+          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde patch
+          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde config -a
+          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde assign /db
       -
         name: Build and push worker
         uses: docker/build-push-action@v2
@@ -157,7 +157,7 @@ jobs:
           file: ./Dockerfile.worker
           platforms: linux/amd64
           build-args: |
-            WORKER_CONF_DIR=./openwrt/.opde/worker
+            WORKER_CONF_DIR=./${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}/.opde/worker
           push: true
           tags: |
             elonh/opde:worker
