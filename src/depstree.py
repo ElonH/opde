@@ -181,7 +181,11 @@ class DependsTree():
             ['package/feeds/packages/pulseaudio/noavahi',
                 'pulseaudio-tools', 'pulseaudio'],
             ['kmod-openvswitch', 'package/feeds/packages/openvswitch'],
-            ['ninja/host', 'ninja/host']
+            ['ninja/host', 'ninja/host'],
+            ['kmod-can-mcp251x', 'feeds/base/package/kernel/linux',
+                'kmod-switch-mvsw61xx', 'package/kernel/linux'],
+            ['package/kernel/linux', 'package/feeds/base/wireguard',
+                'wireguard', 'wireguard-tools'],
         ]
         for cycle in cycles:
             name = str(cycle)
