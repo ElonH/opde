@@ -28,6 +28,12 @@ class WorksDistributor:
             worker_file.read_text(), create_using=nx.DiGraph())
         self.dg = nx.compose(tree_dg, worker_dg)
 
+    def cost(self, node: str):
+        # print(node)
+        # print(self.dg.nodes[node])
+        # print(self.dg.nodes[node]['cost'])
+        return self.dg.nodes[node]['cost']
+
     def to_json(self):
         'output graph with jit json format data'
         return nx.readwrite.json_graph.jit_data(self.dg, indent=2)
@@ -85,7 +91,26 @@ class WorksDistributor:
             post_bosses.append(replacer)
         return post_bosses
 
-    def deduce_depends_all(self, n: int):
+    def deduce_depends_to_source(self, n: int):
+        '''
+        simailar with deduce_depends
+        btw vice-boss will contain all depends source in its jurisdiction
+        vice-boss type is list
+        '''
+        pre_bosses = self.deduce_depends(n)
+        post_bosses = []
+        for workers in pre_bosses:
+            replacer = []
+            for node in workers:
+                if self.dg.nodes[node]['type'] == 'source':
+                    replacer.append(node)
+                for child in nx.dfs_preorder_nodes(self.dg, node):
+                    if self.dg.nodes[child]['type'] == 'source':
+                        replacer.append(child)
+            post_bosses.append(list(set(replacer)))
+        return post_bosses
+
+    def deduce_depends_to_ipkg(self, n: int):
         '''
         simailar with deduce_depends
         btw vice-boss will contain all depends node in its jurisdiction

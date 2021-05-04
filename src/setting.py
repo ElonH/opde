@@ -235,6 +235,21 @@ class OpdeSetting:
             ctx, Dumper=yaml.CDumper, indent=2, sort_keys=True))
 
     @property
+    def sources_list(self):
+        'return text of sources.list.json'
+        cache_name = '.sources.list.json'
+        ctx = self.cache.LoadCached(cache_name)
+        return json.loads(ctx) if ctx is not None else None
+
+    @sources_list.setter
+    def sources_list(self, ctx: object):
+        cache_name = '.sources.list.json'
+        self.cache.StoreCache(cache_name, json.dumps(
+            ctx, indent=2, sort_keys=True))
+        self.cache.StoreCache('sources.list.yaml', yaml.dump(
+            ctx, Dumper=yaml.CDumper, indent=2, sort_keys=True))
+
+    @property
     def vices_list(self):
         'return text of vices.list.json'
         cache_name = '.vices.list.json'

@@ -260,7 +260,9 @@ def assign(ctx, number: int, ke: bool, db_dir: str):
     setting.vices_list = vices_list
     nodes_list = assigner.deduce_depends(number)
     setting.nodes_list = nodes_list
-    tasks_list = assigner.deduce_depends_all(number)
+    sources_list = assigner.deduce_depends_to_source(number)
+    setting.sources_list = sources_list
+    tasks_list = assigner.deduce_depends_to_ipkg(number)
     if not ke:
         linux_embedded_module = set(setting.linux_embedded_module)
         new_tasks_list = []
@@ -279,7 +281,12 @@ def assign(ctx, number: int, ke: bool, db_dir: str):
     # tasks_list = setting.tasks_list # debug
     setting.worker_conf_dir.mkdir(parents=True, exist_ok=True)
     for i in range(number):
-        conf = ['# worker %s' % (i + 1)]
+        cost = 0.0
+        for pack in sources_list[i]:
+            cost += assigner.cost(pack)
+        conf = ['# worker %s' % (i + 1),
+                '# worker packages cost: %s' % (cost/100.0)
+                ]
         conf.extend(['CONFIG_PACKAGE_%s=m' % pack for pack in tasks_list[i]])
         setting.worker_conf_dir.joinpath(
             '{:0>2}.worker.conf'.format(i + 1)).write_text('\n'.join(conf))
