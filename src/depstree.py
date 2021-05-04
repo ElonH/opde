@@ -242,8 +242,10 @@ class DependsTree():
             #
             # lim(i=1,+\infinty) 1/1 + 1/2 + ... + 1/i < 2
             #
-            cost += docs[i]['time'] / (l - i)
-        return cost
+            # cost += docs[i]['time'] / (l - i)
+            cost += docs[i]['time']
+        # print(cost*1.0/len(docs))
+        return cost*1.0/len(docs)
 
     def to_json(self):
         '''
