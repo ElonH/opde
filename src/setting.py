@@ -175,6 +175,12 @@ class OpdeSetting:
             # exit(0)
             packageInfoAst.extend(p.gen_ast(ctx))
 
+        newAST = []
+        for makefile in packageInfoAst:
+            if 'Source-Makefile' in makefile and str(makefile['Source-Makefile']).startswith('feeds/'):
+                continue
+            newAST.append(makefile)
+        packageInfoAst = newAST
         self.cache.StoreCache(cache_name, json.dumps(packageInfoAst))
         # human-readable file, but yaml parser is too slow
         self.cache.StoreCache('package.ast.yaml', yaml.dump(
