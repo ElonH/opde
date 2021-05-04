@@ -1,5 +1,7 @@
 build.sh
 dev.sh
+sdk.sh
+base.sh
 push.sh
 **/__pycache__
 .venv
@@ -9,5 +11,7 @@ src/parser/*Tab.py
 src/worker/build/
 opde.egg-info/
 *sdk*/
+*.tar.xz
 openwrt/
 themes
+db
