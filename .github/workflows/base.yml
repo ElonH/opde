@@ -46,7 +46,7 @@ jobs:
         run: docker pull elonh/opde:base
       - name: Fix premission
         run: |
-          touch /db/logs.db.json # create if not-exist
+          touch ./db/logs.db.json # create if not-exist
           docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown opde:opde -R /openwrt
           docker run -v $PWD/db:/db elonh/opde:base sudo chown opde:opde -R /db
       - name: Opde feeds
