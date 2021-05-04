@@ -26,7 +26,7 @@ There are many way to build openwrt, such as github actions.
 3. update and install feeds: `opde feeds`
 4. `make menuconfig`
 
-## Devlop Environment for opde
+## Debug opde
 
 1. Install apt packages `sudo apt install python3-pip python3-venv cmake build-essential`
 2. Install [poetry](https://python-poetry.org/docs/#installation)

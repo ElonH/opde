@@ -4,5 +4,6 @@
 		"**/.git/subtree-cache/**": true,
 		"**/.venv": true,
 		"*sdk*/**": true
-	}
+	},
+	"python.pythonPath": ".venv/bin/python"
 }

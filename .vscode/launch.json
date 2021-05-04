@@ -5,6 +5,20 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "Feeds",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/opde",
+			"cwd": "${workspaceFolder}/openwrt",
+			"console": "integratedTerminal",
+			"env": {
+				"OPDE_MODE": "BASE"
+			},
+			"args": [
+				"feeds"
+			]
+		},
+		{
 			"name": "Config",
 			"type": "python",
 			"request": "launch",
@@ -16,7 +30,9 @@
 			},
 			"args": [
 				"config",
-				"-ke"
+				"-ke",
+				"-ib",
+				"-sdk",
 			]
 		},
 		{
@@ -31,7 +47,7 @@
 			},
 			"args": [
 				"assign",
-				".opde/db",
+				"./db",
 				"2"
 			]
 		}
