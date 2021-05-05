@@ -143,12 +143,15 @@ jobs:
           push: true
           tags: |
             elonh/opde:sdk
+      - name: Prepare assignment
+        run: |
+          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt elonh/opde:sdk sudo chown opde:opde -R /openwrt
+          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt elonh/opde:sdk opde feeds
+          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt elonh/opde:sdk opde patch
+          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt elonh/opde:sdk opde config -a
       - name: Opde Assign in SDK container
         run: |
-          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde feeds
-          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde patch
-          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde config -a
-          docker run -e OPDE_MODE=SDK -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde assign /db
+          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde assign /db
       -
         name: Build and push worker
         uses: docker/build-push-action@v2
