@@ -1,11 +1,7 @@
 name: Worker
 
 on:
-  #workflow_dispatch:
-  #  inputs:
-  #    chinese:
-  #      description: 'using chinese apt and pip source mirrors'
-  #      default: '0'
+  workflow_dispatch:
   push:
     branches:
       - docker
