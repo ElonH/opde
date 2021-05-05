@@ -2,10 +2,9 @@ name: Base
 
 on:
   workflow_dispatch:
-
-  push:
-    branches:
-      - docker
+      subsequent:
+        description: 'trigger subsequent workflow after build success'
+        default: false
 jobs:
   base:
     runs-on: ubuntu-latest
@@ -173,6 +172,13 @@ jobs:
           push: true
           tags: |
             elonh/opde:ib
+      -
+        name: Invoke Worker workflow
+        if: ${{ github.event.inputs.subsequent }}
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Worker
+          token: ${{ secrets.PERSONAL_TOKEN }}
       #- 
       #  name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
       #  uses: mxschmitt/action-tmate@v2

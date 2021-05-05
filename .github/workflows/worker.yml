@@ -2,9 +2,6 @@ name: Worker
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - docker
 jobs:
   worker:
     runs-on: ubuntu-latest

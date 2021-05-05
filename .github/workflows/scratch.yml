@@ -4,13 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       chinese:
-        description: 'using chinese apt and pip source mirrors'
+        description: 'using chinese apt and pip source mirrors(Value: 0, 1)'
         default: '0'
-  push:
-    paths-ignore:
-      - '**.md' # ignore *.md files
-    branches:
-      - docker
+      subsequent:
+        description: 'trigger subsequent workflow after build success'
+        default: false
   schedule:
     - cron:  '0 0 1 * *' # every month
 jobs:
@@ -76,3 +74,11 @@ jobs:
           tags: |
             elonh/opde:base
           # elonh/opde:base-${{steps.var.outputs.dateDot}}
+      -
+        name: Invoke Base workflow
+        if: ${{ github.event.inputs.subsequent }}
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Base
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          inputs: '{ "subsequent": true }'
