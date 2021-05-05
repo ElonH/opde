@@ -12,6 +12,7 @@ src/worker/build/
 opde.egg-info/
 *sdk*/
 *.tar.xz
+*.zip
 openwrt/
 themes
 db

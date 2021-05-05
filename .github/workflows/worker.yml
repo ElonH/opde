@@ -220,6 +220,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
+          path: ./db
           ref: 'gh-pages'
       - name: Prepare dowload artifacts
         run: |
@@ -309,22 +310,26 @@ jobs:
       - name: update db
         #run: docker run -v $PWD/openwrt/Log-20:/openwrt -v $PWD:/db elonh/opde:worker opde extract /db ${{github.run_number}}
         run: |
-          docker run -v $PWD:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
-          for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
+          docker run -v $PWD/db:/db elonh/opde:worker sudo chown opde:opde -R /db
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
+          for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
       - name: Hugo fresh
-        run: docker run -v $PWD:/openwrt elonh/opde:worker hugo
+        run: docker run -v $PWD/db:/openwrt elonh/opde:worker hugo
       - name: Fix premission
-        run: sudo chown $(id -u -n):$(id -g -n) -R $PWD
+        run: |
+          sudo chown $(id -u -n):$(id -g -n) -R $PWD/db
+          sudo chown $(id -u -n):$(id -g -n) -R $PWD/openwrt
       - name: Git commit
         run: |
           git config user.name Action
           git config user.email action@opde.eu.org
+          cd ./db
           git add .
+          git status
           git commit -m "Action ${{github.run_number}}"
       - name: Compress Logs
         run: |
           tar -czvf logs.tar.gz openwrt
-          rm openwrt -rf
       - uses: actions/upload-artifact@v2
         with:
           name: Logs
@@ -332,5 +337,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Database
-          path: .
+          path: ./db
 
