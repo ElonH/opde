@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_telephony_asterisk on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 May 2021 13:47:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 May 2021 14:26:45 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,41 +14,11 @@
     <item>
       <title>compile.62</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.62/</link>
-      <pubDate>Wed, 05 May 2021 13:47:30 +0000</pubDate>
+      <pubDate>Wed, 05 May 2021 14:26:45 +0000</pubDate>
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.62/</guid>
       <description>build number: 62
 re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: patching file res/ael/ael.flex patching file res/ael/ael_lex.c Applying ./patches/053-musl-mutex-init.patch using plaintext: patching file include/asterisk/lock.h Applying ./patches/100-build-reproducibly.patch using plaintext: patching file build_tools/make_build_h patching file Makefile Applying .</description>
-    </item>
-    
-    <item>
-      <title>compile.52</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.52/</link>
-      <pubDate>Tue, 09 Mar 2021 13:46:57 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.52/</guid>
-      <description>build number: 52
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/001-disable-semaphores-on-uclibc-otherwise-allow.patch using plaintext: patching file configure.ac Applying ./patches/002-configure-fix-detection-of-re-entrant-resolver-funct.patch using plaintext: patching file configure.ac Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: patching file res/ael/ael.flex patching file res/ael/ael_lex.c Applying ./patches/053-musl-mutex-init.patch using plaintext: patching file include/asterisk/lock.</description>
-    </item>
-    
-    <item>
-      <title>compile.50</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/</link>
-      <pubDate>Thu, 25 Feb 2021 14:20:53 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/</guid>
-      <description>build number: 50
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/001-disable-semaphores-on-uclibc-otherwise-allow.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 1037 (offset 2 lines). Applying ./patches/002-configure-fix-detection-of-re-entrant-resolver-funct.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 1431 (offset 2 lines).</description>
-    </item>
-    
-    <item>
-      <title>compile.48</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/</link>
-      <pubDate>Mon, 22 Feb 2021 23:42:08 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/</guid>
-      <description>build number: 48
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/001-disable-semaphores-on-uclibc-otherwise-allow.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 1037 (offset 2 lines). Applying ./patches/002-configure-fix-detection-of-re-entrant-resolver-funct.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 1431 (offset 2 lines).</description>
     </item>
     
   </channel>

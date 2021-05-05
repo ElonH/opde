@@ -11,15 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.50</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/</link>
-      <pubDate>Thu, 25 Feb 2021 14:20:49 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/</guid>
-      <description>build number: 50
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/tcpdump/compile -j$(nproc) || make package/feeds/base/tcpdump/compile V=s Compile.txt Applying ./patches/001-remove_pcap_debug.patch using plaintext: patching file configure Applying ./patches/100-tcpdump_mini.patch using plaintext: patching file Makefile.in patching file addrtoname.c patching file print.c patching file print-ether.c patching file print-gre.c patching file print-igmp.</description>
-    </item>
-    
   </channel>
 </rss>

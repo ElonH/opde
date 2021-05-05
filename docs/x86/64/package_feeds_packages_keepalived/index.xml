@@ -11,15 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.52</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/compile.52/</link>
-      <pubDate>Tue, 09 Mar 2021 13:46:54 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/compile.52/</guid>
-      <description>build number: 52
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/keepalived/compile -j$(nproc) || make package/feeds/packages/keepalived/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for a BSD-compatible install... /usr/bin/install -c checking whether build environment is sane... yes checking for x86_64-openwrt-linux-strip.</description>
-    </item>
-    
   </channel>
 </rss>

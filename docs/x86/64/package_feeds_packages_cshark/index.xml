@@ -11,15 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.48</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/</link>
-      <pubDate>Mon, 22 Feb 2021 14:41:15 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/</guid>
-      <description>build number: 48
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/cshark/compile -j$(nproc) || make package/feeds/packages/cshark/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
-    </item>
-    
   </channel>
 </rss>

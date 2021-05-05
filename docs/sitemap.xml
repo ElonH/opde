@@ -4,1832 +4,677 @@
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:32+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:48+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:30+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:30+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:30+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:27+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:40+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qt5/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:27+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:40+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:24+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:24+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:24+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:17+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:26+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.62/</loc>
-    <lastmod>2021-05-05T13:47:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-homebridge-cmd4/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-level/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-leveldown/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-onoff/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-openzwave-shared/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-sqlite3/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.52/</loc>
-    <lastmod>2021-03-09T13:47:01+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_nps/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_domoticz/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/compile.52/</loc>
-    <lastmod>2021-03-09T13:46:54+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.50/</loc>
-    <lastmod>2021-02-25T14:21:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.50/</loc>
-    <lastmod>2021-02-25T14:20:35+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.48/</loc>
-    <lastmod>2021-02-22T23:42:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:12+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:12+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:12+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:01+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:01+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:01+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.48/</loc>
-    <lastmod>2021-02-22T14:41:01+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/compile.48/</loc>
-    <lastmod>2021-02-22T14:40:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.48/</loc>
-    <lastmod>2021-02-22T14:40:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.48/</loc>
-    <lastmod>2021-02-22T14:40:50+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.48/</loc>
-    <lastmod>2021-02-22T14:40:50+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.48/</loc>
-    <lastmod>2021-02-22T14:40:48+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.48/</loc>
-    <lastmod>2021-02-22T14:40:48+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.34/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.34/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.34/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:21+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/</loc>
-    <lastmod>2021-05-05T13:47:48+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:08+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/</loc>
-    <lastmod>2021-05-05T13:47:46+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:06+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/</loc>
-    <lastmod>2021-05-05T13:47:45+00:00</lastmod>
+    <lastmod>2021-05-05T14:27:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/</loc>
-    <lastmod>2021-05-05T13:47:41+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/</loc>
-    <lastmod>2021-05-05T13:47:32+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:48+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/</loc>
-    <lastmod>2021-05-05T13:47:30+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/</loc>
-    <lastmod>2021-05-05T13:47:30+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/</loc>
-    <lastmod>2021-05-05T13:47:30+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:45+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/</loc>
-    <lastmod>2021-05-05T13:47:27+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:40+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_qt5/</loc>
-    <lastmod>2021-05-05T13:47:27+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:40+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/</loc>
-    <lastmod>2021-05-05T13:47:24+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/</loc>
-    <lastmod>2021-05-05T13:47:24+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/</loc>
-    <lastmod>2021-05-05T13:47:24+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/</loc>
-    <lastmod>2021-05-05T13:47:21+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/</loc>
-    <lastmod>2021-05-05T13:47:17+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:26+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/</loc>
-    <lastmod>2021-05-05T13:47:15+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/</loc>
-    <lastmod>2021-05-05T13:47:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_minisatip/</loc>
-    <lastmod>2021-03-09T13:47:13+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-homebridge-cmd4/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-level/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-leveldown/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-onoff/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-openzwave-shared/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-sqlite3/</loc>
-    <lastmod>2021-03-09T13:47:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ndpi-netfilter/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_nps/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_domoticz/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/</loc>
-    <lastmod>2021-03-09T13:46:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/</loc>
-    <lastmod>2021-03-09T13:46:54+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/full/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/mbedtls/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/mini/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_tcpdump/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet-fuse/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_mc/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_snort/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_umurmur/</loc>
-    <lastmod>2021-02-25T14:20:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/mbedtls/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_cshark/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libwebsockets/</loc>
-    <lastmod>2021-02-22T14:41:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-dnsforwarder/</loc>
-    <lastmod>2021-02-22T14:40:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_gowebdav/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_libdvbcsa/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_nat46/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_simple-torrent/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_tinyfecvpn/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_trojan-plus/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_alac/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_atheepmgr/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_gcc/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_libxcrypt/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_routing_minimalist-pcproxy/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_fail2ban/python3/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_ufw/python3/</loc>
-    <lastmod>2021-02-18T15:10:27+00:00</lastmod>
+    <lastmod>2021-05-05T14:26:21+00:00</lastmod>
   </url>
   
   <url>

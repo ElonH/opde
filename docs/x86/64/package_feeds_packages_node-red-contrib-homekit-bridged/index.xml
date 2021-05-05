@@ -11,15 +11,5 @@
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>compile.52</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/compile.52/</link>
-      <pubDate>Tue, 09 Mar 2021 13:47:09 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-red-contrib-homekit-bridged/compile.52/</guid>
-      <description>build number: 52
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-red-contrib-homekit-bridged/compile -j$(nproc) || make package/feeds/packages/node-red-contrib-homekit-bridged/compile V=s Compile.txt Applying ./patches/000-remove_depends.patch using plaintext: patching file package.json npm info it worked if it ends with ok npm info using npm@6.14.11 npm info using node@v12.21.0 npm timing stage:loadCurrentTree Completed in 11ms npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms npm timing stage:loadIdealTree:loadShrinkwrap Completed in 1ms npm timing stage:rollbackFailedOptional Completed in 0ms npm timing stage:runTopLevelLifecycles Completed in 316124ms npm ERR!</description>
-    </item>
-    
   </channel>
 </rss>
