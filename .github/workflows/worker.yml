@@ -321,12 +321,14 @@ jobs:
           git config user.email action@opde.eu.org
           git add .
           git commit -m "Action ${{github.run_number}}"
+      - name: Compress Logs
+        run: |
+          tar -czvf logs.tar.gz openwrt
+          rm openwrt -rf
       - uses: actions/upload-artifact@v2
         with:
           name: Logs
-          path: openwrt
-      - name: Clean Logs
-        run: rm openwrt -rf
+          path: logs.tar.gz
       - uses: actions/upload-artifact@v2
         with:
           name: Database
