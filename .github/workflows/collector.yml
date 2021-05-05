@@ -1,0 +1,57 @@
+name: Collector
+
+on:
+  workflow_dispatch:
+    inputs:
+      subsequent:
+        description: 'trigger subsequent workflow after build success(Value: 0, 1)'
+        required: false
+        default: '0'
+      dataURL:
+        description: 'the url for build logs archive'
+        required: true
+jobs:
+  collector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          path: ./db
+          ref: 'gh-pages'
+      - name: Pull docker image
+        run: docker pull elonh/opde:worker
+      - name: Download all logs
+        run: |
+          docker run elonh/opde:worker $PWD:/openwrt elonh/opde:worker transfer ${{github.event.inputs.dataURL}} -o Logs.tar.gz
+          docker run elonh/opde:worker $PWD:/openwrt elonh/opde:worker tar -xzf Logs.tar.gz # extract openwrt dir
+      - name: update db
+        run: |
+          declare -a list
+          list=($(find ./openwrt -mindepth 1 -maxdepth 1))
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
+          docker run -v $PWD/db:/db elonh/opde:worker sudo chown opde:opde -R /db
+          # for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
+          for i in ${list[@]};do cmd="docker run -v $PWD/$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}}"; echo $cmd; $cmd;done
+      - name: Hugo fresh
+        run: docker run -v $PWD/db:/openwrt elonh/opde:worker hugo
+      - name: Fix premission
+        run: |
+          sudo chown $(id -u -n):$(id -g -n) -R $PWD/db
+          sudo chown $(id -u -n):$(id -g -n) -R $PWD/openwrt
+      - name: Git commit
+        run: |
+          git config user.name action-bot
+          git config user.email action-bot@opde.eu.org
+          cd ./db
+          git add .
+          git status
+          git commit -m "Action ${{github.run_number}}"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          directory: ./db
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+

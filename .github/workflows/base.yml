@@ -181,6 +181,7 @@ jobs:
         with:
           workflow: Worker
           token: ${{ secrets.PERSONAL_TOKEN }}
+          inputs: '{ "subsequent": "1" }'
       #- 
       #  name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
       #  uses: mxschmitt/action-tmate@v2

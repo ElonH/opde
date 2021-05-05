@@ -2,6 +2,11 @@ name: Worker
 
 on:
   workflow_dispatch:
+    inputs:
+      subsequent:
+        description: 'trigger subsequent workflow after build success(Value: 0, 1)'
+        required: false
+        default: '0'
 jobs:
   worker:
     runs-on: ubuntu-latest
@@ -213,12 +218,6 @@ jobs:
     - worker
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-          path: ./db
-          ref: 'gh-pages'
       - name: Prepare dowload artifacts
         run: |
           mkdir openwrt -p
@@ -302,37 +301,60 @@ jobs:
         with:
           name: Log-01
           path: openwrt/Log-01
-      - name: Pull docker image
+      -
+        name: Compress Logs
+        run: tar -czvf Logs.tar.gz openwrt
+      -
+        name: Pull docker image
         run: docker pull elonh/opde:worker
-      - name: update db
-        #run: docker run -v $PWD/openwrt/Log-20:/openwrt -v $PWD:/db elonh/opde:worker opde extract /db ${{github.run_number}}
-        run: |
-          docker run -v $PWD/db:/db elonh/opde:worker sudo chown opde:opde -R /db
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
-          for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
-      - name: Hugo fresh
-        run: docker run -v $PWD/db:/openwrt elonh/opde:worker hugo
-      - name: Fix premission
-        run: |
-          sudo chown $(id -u -n):$(id -g -n) -R $PWD/db
-          sudo chown $(id -u -n):$(id -g -n) -R $PWD/openwrt
-      - name: Git commit
-        run: |
-          git config user.name Action
-          git config user.email action@opde.eu.org
-          cd ./db
-          git add .
-          git status
-          git commit -m "Action ${{github.run_number}}"
-      - name: Compress Logs
-        run: |
-          tar -czvf logs.tar.gz openwrt
-      - uses: actions/upload-artifact@v2
+      -
+        name: Upload Logs to artifact
+        uses: actions/upload-artifact@v2
         with:
           name: Logs
-          path: logs.tar.gz
-      - uses: actions/upload-artifact@v2
+          path: Logs.tar.gz
+      -
+        name: Upload Logs to web
+        run: |
+          docker run -v $PWD/Logs.tar.gz:/openwrt/Logs.tar.gz elonh/opde:worker sudo chown opde:opde Logs.tar.gz
+          docker run -v $PWD/Logs.tar.gz:/openwrt/Logs.tar.gz elonh/opde:worker transfer wet Logs.tar.gz > downloadLink
+      -
+        name: Extract link
+        id: logs-web
+        run: |
+          link=$(cat downloadLink | grep 'Download Link:' | grep -o 'https://.*')
+          echo $link
+          echo "::set-output name=LINK::$link"
+      -
+        name: Invoke Collector workflow
+        if: ${{ github.event.inputs.subsequent == '1'}}
+        uses: benc-uk/workflow-dispatch@master
         with:
-          name: Database
-          path: ./db
+          workflow: Collector
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          inputs: '{ "subsequent": "1", "dataURL": "${{steps.logs-web.outputs.LINK}}"}'
+      # - name: update db
+      #   #run: docker run -v $PWD/openwrt/Log-20:/openwrt -v $PWD:/db elonh/opde:worker opde extract /db ${{github.run_number}}
+      #   run: |
+      #     docker run -v $PWD/db:/db elonh/opde:worker sudo chown opde:opde -R /db
+      #     docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
+      #     for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
+      # - name: Hugo fresh
+      #   run: docker run -v $PWD/db:/openwrt elonh/opde:worker hugo
+      # - name: Fix premission
+      #   run: |
+      #     sudo chown $(id -u -n):$(id -g -n) -R $PWD/db
+      #     sudo chown $(id -u -n):$(id -g -n) -R $PWD/openwrt
+      # - name: Git commit
+      #   run: |
+      #     git config user.name Action
+      #     git config user.email action@opde.eu.org
+      #     cd ./db
+      #     git add .
+      #     git status
+      #     git commit -m "Action ${{github.run_number}}"
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Database
+      #     path: ./db
 
