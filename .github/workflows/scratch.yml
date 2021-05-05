@@ -5,10 +5,12 @@ on:
     inputs:
       chinese:
         description: 'using chinese apt and pip source mirrors(Value: 0, 1)'
+        required: false
         default: '0'
       subsequent:
-        description: 'trigger subsequent workflow after build success'
-        default: false
+        description: 'trigger subsequent workflow after build success(Value: 0, 1)'
+        required: false
+        default: '0'
   schedule:
     - cron:  '0 0 1 * *' # every month
 jobs:
@@ -76,9 +78,9 @@ jobs:
           # elonh/opde:base-${{steps.var.outputs.dateDot}}
       -
         name: Invoke Base workflow
-        if: ${{ github.event.inputs.subsequent }}
-        uses: benc-uk/workflow-dispatch@v1
+        if: ${{ github.event.inputs.subsequent == '1' || github.event_name == 'schedule'}}
+        uses: benc-uk/workflow-dispatch@master
         with:
           workflow: Base
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": true }'
+          inputs: '{ "subsequent": "1" }'

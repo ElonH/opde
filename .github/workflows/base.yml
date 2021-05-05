@@ -2,9 +2,11 @@ name: Base
 
 on:
   workflow_dispatch:
+    inputs:
       subsequent:
-        description: 'trigger subsequent workflow after build success'
-        default: false
+        description: 'trigger subsequent workflow after build success(Value: 0, 1)'
+        required: false
+        default: '0'
 jobs:
   base:
     runs-on: ubuntu-latest
@@ -174,7 +176,7 @@ jobs:
             elonh/opde:ib
       -
         name: Invoke Worker workflow
-        if: ${{ github.event.inputs.subsequent }}
+        if: ${{ github.event.inputs.subsequent == '1' }}
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: Worker
