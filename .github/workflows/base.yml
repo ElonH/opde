@@ -109,10 +109,22 @@ jobs:
           rm openwrt/bin/targets -rf
           tar -xf tmp.tar
           rm tmp.tar
+          cd openwrt/bin
+          tar -czf ../../Packages-00.tar.gz .
       - uses: actions/upload-artifact@v2
         with:
           name: Packages-00
           path: ./openwrt/bin
+      - name: Upload Packages-00 to web
+        run: |
+          docker run -v $PWD/Packages-00.tar.gz:/openwrt/Packages-00.tar.gz elonh/opde:base sudo chown opde:opde Packages-00.tar.gz
+          docker run -v $PWD/Packages-00.tar.gz:/openwrt/Packages-00.tar.gz elonh/opde:base transfer trs Packages-00.tar.gz > downloadLink
+      - name: Extract link
+        id: Packages-00-web
+        run: |
+          link=$(cat downloadLink | grep 'Download Link:' | grep -o 'https://.*')
+          echo $link
+          echo "::set-output name=LINK::$link"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -174,4 +186,4 @@ jobs:
         with:
           workflow: Worker
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1" }'
+          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}" }'

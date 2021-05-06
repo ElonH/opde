@@ -3,6 +3,9 @@ name: Worker
 on:
   workflow_dispatch:
     inputs:
+      packages00URL:
+        description: "the download link for Packages-00.tar.gz"
+        required: false
       subsequent:
         description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
@@ -180,10 +183,15 @@ jobs:
         with:
           name: Packages-01
           path: openwrt/bin
-      #- uses: actions/download-artifact@v2 # TODO: not base packages currently
-      #  with:
-      #    name: Packages-00
-      #    path: openwrt/bin
+      - name: Pull docker image
+        run: docker pull elonh/opde:worker
+      - name: Download Packages-00
+        if: ${{ github.event.inputs.packages00URL }}
+        run: |-
+          docker run -v $PWD:/openwrt elonh/opde:worker sudo transfer ${{github.event.inputs.packages00URL}} -o Packages-00.tar.gz
+          sudo chown $(id -u -n):$(id -g -n) Packages-00.tar.gz
+          cd openwrt/bin
+          tar -xzf ../../Packages-00.tar.gz
       - name: Import key
         env:
           BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
@@ -191,8 +199,6 @@ jobs:
         run: |
           echo $BUILD_KEY > openwrt/build-key
           echo $BUILD_KEY_PUBLIC > openwrt/build-key.pub
-      - name: Pull docker image
-        run: docker pull elonh/opde:worker
       - name: Copy SDK
         run: |
           docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker sudo chown opde:opde -R /openwrt_bak
