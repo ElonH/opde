@@ -3,10 +3,6 @@ name: Collector
 on:
   workflow_dispatch:
     inputs:
-      subsequent:
-        description: 'trigger subsequent workflow after build success(Value: 0, 1)'
-        required: false
-        default: '0'
       dataURL:
         description: 'the url for build logs archive'
         required: true
@@ -34,7 +30,6 @@ jobs:
           list=($(find ./openwrt -mindepth 1 -maxdepth 1))
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R /openwrt
           docker run -v $PWD/db:/db elonh/opde:worker sudo chown opde:opde -R /db
-          # for i in {01..20};do echo docker run -v $PWD/openwrt/Log-$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}};done
           for i in ${list[@]};do cmd="docker run -v $PWD/$i:/openwrt -v $PWD/db:/db elonh/opde:worker opde extract /db ${{github.run_number}}"; echo $cmd; $cmd;done
       - name: Hugo fresh
         run: docker run -v $PWD/db:/openwrt elonh/opde:worker hugo

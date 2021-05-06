@@ -4,32 +4,28 @@ on:
   workflow_dispatch:
     inputs:
       chinese:
-        description: 'using chinese apt and pip source mirrors(Value: 0, 1)'
+        description: "using chinese apt and pip source mirrors(Value: 0, 1)"
         required: false
-        default: '0'
+        default: "0"
       subsequent:
-        description: 'trigger subsequent workflow after build success(Value: 0, 1)'
+        description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
-        default: '0'
+        default: "0"
   schedule:
-    - cron:  '0 0 1 * *' # every month
+    - cron: "0 0 1 * *" # every month
 jobs:
   scratch-dev-base:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           submodules: true
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
+      - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -39,8 +35,7 @@ jobs:
           dateDot=$(date +'%y.%m')
           echo $dateDot
           echo "::set-output name=dateDot::$dateDot"
-      -
-        name: Build and push scratch
+      - name: Build and push scratch
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -52,8 +47,7 @@ jobs:
           tags: |
             elonh/opde:scratch
           # elonh/opde:scratch-${{steps.var.outputs.dateDot}}
-      -
-        name: Build and push dev
+      - name: Build and push dev
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -65,8 +59,7 @@ jobs:
           tags: |
             elonh/opde:dev
           # elonh/opde:dev-${{steps.var.outputs.dateDot}}
-      -
-        name: Build and push base
+      - name: Build and push base
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -76,8 +69,7 @@ jobs:
           tags: |
             elonh/opde:base
           # elonh/opde:base-${{steps.var.outputs.dateDot}}
-      -
-        name: Invoke Base workflow
+      - name: Invoke Base workflow
         if: ${{ github.event.inputs.subsequent == '1' || github.event_name == 'schedule'}}
         uses: benc-uk/workflow-dispatch@master
         with:
