@@ -20,6 +20,7 @@ jobs:
           submodules: true
           path: ./db
           ref: 'gh-pages'
+          fetch-depth: '0'
       - name: Pull docker image
         run: docker pull elonh/opde:worker
       - name: Download all logs
@@ -41,21 +42,12 @@ jobs:
         run: |
           sudo chown $(id -u -n):$(id -g -n) -R $PWD/db
           sudo chown $(id -u -n):$(id -g -n) -R $PWD/openwrt
-      - name: Git commit
-        run: |
-          cd ./db
-          git config user.name action-bot
-          git config user.email action-bot@opde.eu.org
-
-          echo $PWD
-          ls -a
-          git add .
-          git status
-          git commit -m "Action ${{github.run_number}}"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
         with:
-          directory: ./db
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
+          default_author: github_actions
+          message: "Action ${{github.run_number}}"
+          push: true
+          branch: gh-pages
+          add: '.'
+          cwd: ./db
