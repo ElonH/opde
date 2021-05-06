@@ -331,4 +331,4 @@ jobs:
         with:
           workflow: Collector
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1", "dataURL": "${{steps.logs-web.outputs.LINK}}"}'
+          inputs: '{ "dataURL": "${{steps.logs-web.outputs.LINK}}"}'
