@@ -43,9 +43,10 @@ jobs:
           sudo chown $(id -u -n):$(id -g -n) -R $PWD/openwrt
       - name: Git commit
         run: |
+          cd ./db
           git config user.name action-bot
           git config user.email action-bot@opde.eu.org
-          cd ./db
+
           echo $PWD
           ls -a
           git add .
