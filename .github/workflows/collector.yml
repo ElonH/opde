@@ -46,6 +46,8 @@ jobs:
           git config user.name action-bot
           git config user.email action-bot@opde.eu.org
           cd ./db
+          echo $PWD
+          ls -a
           git add .
           git status
           git commit -m "Action ${{github.run_number}}"
