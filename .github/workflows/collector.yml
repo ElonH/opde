@@ -24,7 +24,8 @@ jobs:
         run: docker pull elonh/opde:worker
       - name: Download all logs
         run: |
-          docker run elonh/opde:worker $PWD:/openwrt elonh/opde:worker transfer ${{github.event.inputs.dataURL}} -o Logs.tar.gz
+          docker run -v $PWD/db:/db elonh/opde:worker sudo chown opde:opde -R /db
+          docker run elonh/opde:worker $PWD:/openwrt elonh/opde:worker sudo transfer ${{github.event.inputs.dataURL}} -o Logs.tar.gz
           docker run elonh/opde:worker $PWD:/openwrt elonh/opde:worker tar -xzf Logs.tar.gz # extract openwrt dir
       - name: update db
         run: |
