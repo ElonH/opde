@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.8 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.8/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.8" />
+<meta property="og:description" content="build number: 8
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/libuwsc/compile -j$(nproc) || make package/feeds/packages/libuwsc/compile V=s Compile.txt Applying ./patches/001-fix_find_lua.patch using plaintext: patching file cmake/Modules/FindLua.cmake CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &lt; 2.8.12 will be removed from a future version of CMake." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.8/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-05-06T05:08:41+00:00" />
+<meta property="article:modified_time" content="2021-05-06T05:08:41+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.8"/>
+<meta name="twitter:description" content="build number: 8
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/libuwsc/compile -j$(nproc) || make package/feeds/packages/libuwsc/compile V=s Compile.txt Applying ./patches/001-fix_find_lua.patch using plaintext: patching file cmake/Modules/FindLua.cmake CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &lt; 2.8.12 will be removed from a future version of CMake."/>
+<meta itemprop="name" content="compile.8">
+<meta itemprop="description" content="build number: 8
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/libuwsc/compile -j$(nproc) || make package/feeds/packages/libuwsc/compile V=s Compile.txt Applying ./patches/001-fix_find_lua.patch using plaintext: patching file cmake/Modules/FindLua.cmake CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &lt; 2.8.12 will be removed from a future version of CMake.">
+<meta itemprop="datePublished" content="2021-05-06T05:08:41&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-06T05:08:41&#43;00:00" />
+<meta itemprop="wordCount" content="531">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.8</h1>
+<p>build number: <code>8</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/packages/libuwsc/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/packages/libuwsc/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/001-fix_find_lua.patch using plaintext: 
+patching file cmake/Modules/FindLua.cmake
+CMake Deprecation Warning at CMakeLists.txt:1 <span style="color:#f92672">(</span>cmake_minimum_required<span style="color:#f92672">)</span>:
+  Compatibility with CMake &lt; 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument &lt;min&gt; value or use a ...&lt;max&gt; suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is GNU 8.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - <span style="color:#66d9ef">done</span>
+-- Check <span style="color:#66d9ef">for</span> working C compiler: /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/x86_64-openwrt-linux-musl-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - <span style="color:#66d9ef">done</span>
+-- Found Libev: /openwrt/staging_dir/target-x86_64_musl/usr/lib/libev.so <span style="color:#f92672">(</span>found version <span style="color:#e6db74">&#34;4.31&#34;</span><span style="color:#f92672">)</span> 
+CMake Warning <span style="color:#f92672">(</span>dev<span style="color:#f92672">)</span> at /openwrt/staging_dir/host/share/cmake-3.19/Modules/FindPackageHandleStandardArgs.cmake:424 <span style="color:#f92672">(</span>message<span style="color:#f92672">)</span>:
+  The package name passed to <span style="color:#e6db74">`</span>find_package_handle_standard_args<span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>WOLFSSL<span style="color:#f92672">)</span>
+  does not match the name of the calling package <span style="color:#f92672">(</span>WolfSSL<span style="color:#f92672">)</span>.  This can lead to
+  problems in calling code that expects <span style="color:#e6db74">`</span>find_package<span style="color:#e6db74">`</span> result variables
+  <span style="color:#f92672">(</span>e.g., <span style="color:#e6db74">`</span>_FOUND<span style="color:#e6db74">`</span><span style="color:#f92672">)</span> to follow a certain pattern.
+Call Stack <span style="color:#f92672">(</span>most recent call first<span style="color:#f92672">)</span>:
+  cmake/Modules/FindWolfSSL.cmake:49 <span style="color:#f92672">(</span>find_package_handle_standard_args<span style="color:#f92672">)</span>
+  src/CMakeLists.txt:44 <span style="color:#f92672">(</span>find_package<span style="color:#f92672">)</span>
+This warning is <span style="color:#66d9ef">for</span> project developers.  Use -Wno-dev to suppress it.
+
+-- Found WOLFSSL: /openwrt/staging_dir/target-x86_64_musl/usr/lib/libwolfssl.so <span style="color:#f92672">(</span>found version <span style="color:#e6db74">&#34;4.7.0&#34;</span><span style="color:#f92672">)</span> 
+-- Found MbedTLS: /openwrt/staging_dir/target-x86_64_musl/usr/lib/libmbedtls.so <span style="color:#f92672">(</span>found version <span style="color:#e6db74">&#34;2.16.10&#34;</span><span style="color:#f92672">)</span> 
+-- Select MbedTLS<span style="color:#f92672">(</span>PolarSSL<span style="color:#f92672">)</span> as the SSL backend
+-- Found Lua: /openwrt/staging_dir/target-x86_64_musl/usr/lib/liblua.so  
+-- UWSC_VERSION: 3.3.5
+-- UWSC_SSL_SUPPORT: MbedTLS<span style="color:#f92672">(</span>PolarSSL<span style="color:#f92672">)</span>
+-- Configuring <span style="color:#66d9ef">done</span>
+-- Generating <span style="color:#66d9ef">done</span>
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_ASM_COMPILER
+    CMAKE_ASM_COMPILER_LAUNCHER
+    CMAKE_CXX_COMPILER
+    CMAKE_CXX_FLAGS_RELEASE
+    CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+    CMAKE_EXPORT_PACKAGE_REGISTRY
+    CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY
+    CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY
+    DL_LIBRARY
+
+
+-- Build files have been written to: /openwrt/build_dir/target-x86_64_musl/libuwsc-mbedtls/libuwsc-3.3.5
+ninja: Entering directory <span style="color:#e6db74">`</span>/openwrt/build_dir/target-x86_64_musl/libuwsc-mbedtls/libuwsc-3.3.5/<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">[1/19] Building C object src/CMakeFiles/uwsc_s.dir/log.c.o
+</span><span style="color:#e6db74">[2/19] Building C object src/CMakeFiles/uwsc_s.dir/utils.c.o
+</span><span style="color:#e6db74">[3/19] Building C object src/CMakeFiles/uwsc_s.dir/uwsc.c.o
+</span><span style="color:#e6db74">[4/19] Building C object src/CMakeFiles/uwsc_s.dir/buffer/buffer.c.o
+</span><span style="color:#e6db74">[5/19] Building C object src/CMakeFiles/uwsc.dir/uwsc.c.o
+</span><span style="color:#e6db74">[6/19] Building C object src/CMakeFiles/uwsc_s.dir/sha1.c.o
+</span><span style="color:#e6db74">[7/19] Building C object src/CMakeFiles/uwsc.dir/log.c.o
+</span><span style="color:#e6db74">[8/19] Building C object src/CMakeFiles/uwsc.dir/buffer/buffer.c.o
+</span><span style="color:#e6db74">[9/19] Building C object src/CMakeFiles/uwsc.dir/utils.c.o
+</span><span style="color:#e6db74">[10/19] Building C object src/CMakeFiles/uwsc_s.dir/ssl.c.o
+</span><span style="color:#e6db74">[11/19] Building C object src/CMakeFiles/uwsc.dir/sha1.c.o
+</span><span style="color:#e6db74">[12/19] Linking C static library src/libuwsc.a
+</span><span style="color:#e6db74">[13/19] Building C object src/lua/CMakeFiles/uwsc-lua.dir/uwsc_lua.c.o
+</span><span style="color:#e6db74">[14/19] Building C object src/CMakeFiles/uwsc.dir/ssl.c.o
+</span><span style="color:#e6db74">[15/19] Building C object example/CMakeFiles/example.dir/example.c.o
+</span><span style="color:#e6db74">[16/19] Linking C shared library src/libuwsc.so.3.3.5
+</span><span style="color:#e6db74">[17/19] Creating library symlink src/libuwsc.so
+</span><span style="color:#e6db74">[18/19] Linking C shared module src/lua/uwsc.so
+</span><span style="color:#e6db74">[19/19] Linking C executable example/example
+</span><span style="color:#e6db74">FAILED: example/example 
+</span><span style="color:#e6db74">: &amp;&amp; /openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/bin/x86_64-openwrt-linux-musl-gcc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/libuwsc-mbedtls/libuwsc-3.3.5=libuwsc-3.3.5 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -DNDEBUG -L/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/lib -L/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib -znow -zrelro    -rdynamic example/CMakeFiles/example.dir/example.c.o -o example/example  src/libuwsc.so.3.3.5  -lev  -ldl  -lmbedtls  -lmbedx509  -lmbedcrypto &amp;&amp; :
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_init&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_config_defaults<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_config_init&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_free<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_config_free&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_setup<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_handshake&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_conf_authmode<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_set_bio&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_read<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_conf_rng&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_net_init<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_ssl_set_hostname&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_write<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_net_recv&#39;</span>
+/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to <span style="color:#e6db74">`</span>mbedtls_ssl_conf_ca_chain<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib/gcc/x86_64-openwrt-linux-musl/8.4.0/../../../../x86_64-openwrt-linux-musl/bin/ld: src/libuwsc.so.3.3.5: undefined reference to `mbedtls_net_send&#39;</span>
+collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+ninja: build stopped: subcommand failed.
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:91: /openwrt/build_dir/target-x86_64_musl/libuwsc-mbedtls/libuwsc-3.3.5/.built<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 6 May 2021
+
+
+<br>
+Published on 6 May 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.62/" title="compile.62"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - compile.62</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.7/" title="compile.7">Next - compile.7 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/">package_feeds_packages_perl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/">package_feeds_packages_perl-device-usb<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/">package_feeds_packages_kadnode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/">package_feeds_packages_libuhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/">package_feeds_packages_libuwsc<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/">mbedtls<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.62/">compile.62</a></li>
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/">package_feeds_packages_rtty<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/">package_feeds_packages_tang<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/">package_feeds_packages_php8<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qt5/">package_feeds_base_qt5<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qt5/compile.62/">compile.62</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

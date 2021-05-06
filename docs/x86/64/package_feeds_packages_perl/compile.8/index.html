@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.8 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.8/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.8" />
+<meta property="og:description" content="build number: 8
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/perl/compile -j$(nproc) || make package/feeds/packages/perl/compile V=s Compile.txt Applying ./patches/001-macos_11_support.patch using plaintext: File hints/darwin.sh is read-only; trying to patch anyway patching file hints/darwin.sh Applying ./patches/002-add-Internals-getcwd.patch using plaintext: File MANIFEST is read-only; trying to patch anyway patching file MANIFEST patching file t/io/getcwd." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.8/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-05-06T05:08:54+00:00" />
+<meta property="article:modified_time" content="2021-05-06T05:08:54+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.8"/>
+<meta name="twitter:description" content="build number: 8
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/perl/compile -j$(nproc) || make package/feeds/packages/perl/compile V=s Compile.txt Applying ./patches/001-macos_11_support.patch using plaintext: File hints/darwin.sh is read-only; trying to patch anyway patching file hints/darwin.sh Applying ./patches/002-add-Internals-getcwd.patch using plaintext: File MANIFEST is read-only; trying to patch anyway patching file MANIFEST patching file t/io/getcwd."/>
+<meta itemprop="name" content="compile.8">
+<meta itemprop="description" content="build number: 8
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/perl/compile -j$(nproc) || make package/feeds/packages/perl/compile V=s Compile.txt Applying ./patches/001-macos_11_support.patch using plaintext: File hints/darwin.sh is read-only; trying to patch anyway patching file hints/darwin.sh Applying ./patches/002-add-Internals-getcwd.patch using plaintext: File MANIFEST is read-only; trying to patch anyway patching file MANIFEST patching file t/io/getcwd.">
+<meta itemprop="datePublished" content="2021-05-06T05:08:54&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-06T05:08:54&#43;00:00" />
+<meta itemprop="wordCount" content="5237">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.8</h1>
+<p>build number: <code>8</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/packages/perl/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/packages/perl/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/001-macos_11_support.patch using plaintext: 
+File hints/darwin.sh is read-only; trying to patch anyway
+patching file hints/darwin.sh
+
+Applying ./patches/002-add-Internals-getcwd.patch using plaintext: 
+File MANIFEST is read-only; trying to patch anyway
+patching file MANIFEST
+patching file t/io/getcwd.t
+File universal.c is read-only; trying to patch anyway
+patching file universal.c
+
+Applying ./patches/003-fallback-to-the-built-in-getcwd-if-we-ca.patch using plaintext: 
+File dist/PathTools/Cwd.pm is read-only; trying to patch anyway
+patching file dist/PathTools/Cwd.pm
+File dist/PathTools/t/cwd.t is read-only; trying to patch anyway
+patching file dist/PathTools/t/cwd.t
+
+Applying ./patches/010-musl-compat.patch using plaintext: 
+File perl.c is read-only; trying to patch anyway
+patching file perl.c
+
+Applying ./patches/020-storables-stacksize.patch using plaintext: 
+File dist/Storable/Makefile.PL is read-only; trying to patch anyway
+patching file dist/Storable/Makefile.PL
+File dist/Storable/stacksize is read-only; trying to patch anyway
+patching file dist/Storable/stacksize
+
+Applying ./patches/100-fix-cross-compile-endianness-detection.patch using plaintext: 
+File config_h.SH is read-only; trying to patch anyway
+patching file config_h.SH
+
+Applying ./patches/110-always_use_miniperl.patch using plaintext: 
+File Makefile.SH is read-only; trying to patch anyway
+patching file Makefile.SH
+
+Applying ./patches/120-remove-build-timestamp.patch using plaintext: 
+File perl.c is read-only; trying to patch anyway
+patching file perl.c
+
+Applying ./patches/300-add-relink-hack.patch using plaintext: 
+patching file relink/Makefile.PL
+
+Applying ./patches/301-fix_macos_static_linking.patch using plaintext: 
+File cpan/ExtUtils-MakeMaker/lib/ExtUtils/MM_Unix.pm is read-only; trying to patch anyway
+patching file cpan/ExtUtils-MakeMaker/lib/ExtUtils/MM_Unix.pm
+
+Applying ./patches/320-copy-pod-hack.patch using plaintext: 
+File cpan/podlators/Makefile.PL is read-only; trying to patch anyway
+patching file cpan/podlators/Makefile.PL
+
+Applying ./patches/710-threads_join-skip_ps_on_busybox.patch using plaintext: 
+File dist/threads/t/join.t is read-only; trying to patch anyway
+patching file dist/threads/t/join.t
+
+Applying ./patches/900-use-rm-force.patch using plaintext: 
+File Makefile.SH is read-only; trying to patch anyway
+patching file Makefile.SH
+
+Applying ./patches/910-miniperl-needs-inc-dot.patch using plaintext: 
+File Makefile.SH is read-only; trying to patch anyway
+patching file Makefile.SH
+
+Applying ./patches/920-fix-no-locale.patch using plaintext: 
+File embed.fnc is read-only; trying to patch anyway
+patching file embed.fnc
+patching file embed.h
+File locale.c is read-only; trying to patch anyway
+patching file locale.c
+File makedef.pl is read-only; trying to patch anyway
+patching file makedef.pl
+File perl.h is read-only; trying to patch anyway
+patching file perl.h
+patching file proto.h
+File sv.c is read-only; trying to patch anyway
+patching file sv.c
+File t/lib/warnings/regexec is read-only; trying to patch anyway
+patching file t/lib/warnings/regexec
+
+Applying ./patches/998-Errno_errno.h_path.patch using plaintext: 
+File ext/Errno/Errno_pm.PL is read-only; trying to patch anyway
+patching file ext/Errno/Errno_pm.PL
+
+Applying ./patches/999-fix-build-failure-against-gcc-10.patch using plaintext: 
+File Configure is read-only; trying to patch anyway
+patching file Configure
+File cflags.SH is read-only; trying to patch anyway
+patching file cflags.SH
+ 
+Fetching answers from config.sh...
+ 
+Doing variable substitutions on .SH files...
+Extracting config.h <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+cflags.SH: Adding -std<span style="color:#f92672">=</span>c89.
+cflags.SH: Adding -Werror<span style="color:#f92672">=</span>declaration-after-statement.
+cflags.SH: Adding -Werror<span style="color:#f92672">=</span>pointer-arith.
+cflags.SH: Adding -Wextra.
+cflags.SH: Adding -Wc++-compat.
+cflags.SH: Adding -Wwrite-strings.
+cflags.SH: cc       <span style="color:#f92672">=</span> ccache_cc
+cflags.SH: ccflags  <span style="color:#f92672">=</span> -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include
+cflags.SH: stdflags <span style="color:#f92672">=</span>  -std<span style="color:#f92672">=</span>c89
+cflags.SH: optimize <span style="color:#f92672">=</span> -O2
+cflags.SH: warn     <span style="color:#f92672">=</span>  -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings
+Extracting cflags <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Not re-extracting config.h
+Extracting makedepend <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Extracting Makefile <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Extracting myconfig <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Extracting pod/Makefile <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Extracting Policy.sh <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Extracting runtests <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+Extraction <span style="color:#66d9ef">done</span>.
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1&#39;</span>
+make depend MAKEDEPEND<span style="color:#f92672">=</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1&#39;</span>
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC generate_uudmap.c
+/bin/ln -s /openwrt/staging_dir/hostpkg/usr/bin/generate_uudmap generate_uudmap
+./generate_uudmap uudmap.h bitcount.h mg_data.h
+sh ./makedepend MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> cflags
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1&#39;</span>
+rm -f opmini.c
+/bin/ln -s op.c opmini.c
+rm -f perlmini.c
+/bin/ln -s perl.c perlmini.c
+echo av.c scope.c op.c doop.c doio.c dump.c gv.c hv.c mg.c reentr.c mro_core.c perl.c perly.c pp.c pp_hot.c pp_ctl.c pp_sys.c regcomp.c regexec.c utf8.c sv.c taint.c toke.c util.c deb.c run.c universal.c pad.c globals.c keywords.c perlio.c perlapi.c numeric.c mathoms.c locale.c pp_pack.c pp_sort.c caretx.c dquote.c time64.c  miniperlmain.c opmini.c perlmini.c | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span> &gt;.clist
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1&#39;</span>
+Finding dependencies <span style="color:#66d9ef">for</span> av.o
+Finding dependencies <span style="color:#66d9ef">for</span> scope.o
+Finding dependencies <span style="color:#66d9ef">for</span> op.o
+Finding dependencies <span style="color:#66d9ef">for</span> doop.o
+Finding dependencies <span style="color:#66d9ef">for</span> doio.o
+Finding dependencies <span style="color:#66d9ef">for</span> dump.o
+Finding dependencies <span style="color:#66d9ef">for</span> gv.o
+Finding dependencies <span style="color:#66d9ef">for</span> hv.o
+Finding dependencies <span style="color:#66d9ef">for</span> mg.o
+Finding dependencies <span style="color:#66d9ef">for</span> reentr.o
+Finding dependencies <span style="color:#66d9ef">for</span> mro_core.o
+Finding dependencies <span style="color:#66d9ef">for</span> perl.o
+Finding dependencies <span style="color:#66d9ef">for</span> perly.o
+Finding dependencies <span style="color:#66d9ef">for</span> pp.o
+Finding dependencies <span style="color:#66d9ef">for</span> pp_hot.o
+Finding dependencies <span style="color:#66d9ef">for</span> pp_ctl.o
+Finding dependencies <span style="color:#66d9ef">for</span> pp_sys.o
+Finding dependencies <span style="color:#66d9ef">for</span> regcomp.o
+Finding dependencies <span style="color:#66d9ef">for</span> regexec.o
+Finding dependencies <span style="color:#66d9ef">for</span> utf8.o
+Finding dependencies <span style="color:#66d9ef">for</span> sv.o
+Finding dependencies <span style="color:#66d9ef">for</span> taint.o
+Finding dependencies <span style="color:#66d9ef">for</span> toke.o
+Finding dependencies <span style="color:#66d9ef">for</span> util.o
+Finding dependencies <span style="color:#66d9ef">for</span> deb.o
+Finding dependencies <span style="color:#66d9ef">for</span> run.o
+Finding dependencies <span style="color:#66d9ef">for</span> universal.o
+Finding dependencies <span style="color:#66d9ef">for</span> pad.o
+Finding dependencies <span style="color:#66d9ef">for</span> globals.o
+Finding dependencies <span style="color:#66d9ef">for</span> keywords.o
+Finding dependencies <span style="color:#66d9ef">for</span> perlio.o
+Finding dependencies <span style="color:#66d9ef">for</span> perlapi.o
+Finding dependencies <span style="color:#66d9ef">for</span> numeric.o
+Finding dependencies <span style="color:#66d9ef">for</span> mathoms.o
+Finding dependencies <span style="color:#66d9ef">for</span> locale.o
+Finding dependencies <span style="color:#66d9ef">for</span> pp_pack.o
+Finding dependencies <span style="color:#66d9ef">for</span> pp_sort.o
+Finding dependencies <span style="color:#66d9ef">for</span> caretx.o
+Finding dependencies <span style="color:#66d9ef">for</span> dquote.o
+Finding dependencies <span style="color:#66d9ef">for</span> time64.o
+Finding dependencies <span style="color:#66d9ef">for</span> miniperlmain.o
+Finding dependencies <span style="color:#66d9ef">for</span> opmini.o
+Finding dependencies <span style="color:#66d9ef">for</span> perlmini.o
+Updating makefile...
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1&#39;</span>
+rm -f opmini.c
+/bin/ln -s op.c opmini.c
+echo @<span style="color:#e6db74">`</span>sh  cflags <span style="color:#e6db74">&#34;optimize=&#39;-O2&#39;&#34;</span> perlmini.o<span style="color:#e6db74">`</span> -fPIC -DPERL_IS_MINIPERL -DPERL_EXTERNAL_GLOB perlmini.c
+@ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC -DPERL_IS_MINIPERL -DPERL_EXTERNAL_GLOB perlmini.c
+In file included from perl.c:37:
+perl.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_sys_init&#39;</span>:
+perl.h:2645:51: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+ <span style="color:#75715e">#    define PERL_FPU_INIT       PL_sigfpe_saved = (Sighandler_t) signal(SIGFPE, SIG_IGN)</span>
+                                                   ^
+unixish.h:150:29: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_FPU_INIT&#39;</span>
+  MALLOC_CHECK_TAINT2<span style="color:#f92672">(</span>*c,*v<span style="color:#f92672">)</span> PERL_FPU_INIT; PERLIO_INIT; MALLOC_INIT
+                             ^~~~~~~~~~~~~
+perl.c:124:5: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_SYS_INIT_BODY&#39;</span>
+     PERL_SYS_INIT_BODY<span style="color:#f92672">(</span>argc, argv<span style="color:#f92672">)</span>;
+     ^~~~~~~~~~~~~~~~~~
+perl.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_sys_init3&#39;</span>:
+perl.h:2645:51: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+ <span style="color:#75715e">#    define PERL_FPU_INIT       PL_sigfpe_saved = (Sighandler_t) signal(SIGFPE, SIG_IGN)</span>
+                                                   ^
+unixish.h:150:29: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_FPU_INIT&#39;</span>
+  MALLOC_CHECK_TAINT2<span style="color:#f92672">(</span>*c,*v<span style="color:#f92672">)</span> PERL_FPU_INIT; PERLIO_INIT; MALLOC_INIT
+                             ^~~~~~~~~~~~~
+perl.h:2695:49: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_SYS_INIT_BODY&#39;</span>
+ <span style="color:#75715e">#  define PERL_SYS_INIT3_BODY(argvp,argcp,envp) PERL_SYS_INIT_BODY(argvp,argcp)</span>
+                                                 ^~~~~~~~~~~~~~~~~~
+perl.c:137:5: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_SYS_INIT3_BODY&#39;</span>
+     PERL_SYS_INIT3_BODY<span style="color:#f92672">(</span>argc, argv, env<span style="color:#f92672">)</span>;
+     ^~~~~~~~~~~~~~~~~~~
+perl.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;S_parse_body&#39;</span>:
+perl.c:2367:22: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>sigstate <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                      ^
+In file included from perl.h:5310,
+                 from perl.c:37:
+perl.c:2370:26: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+   <span style="color:#f92672">(</span>void<span style="color:#f92672">)</span>rsignal<span style="color:#f92672">(</span>SIGCHLD, <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span>SIG_DFL<span style="color:#f92672">)</span>;
+                          ^
+embed.h:638:44: note: in definition of macro <span style="color:#e6db74">&#39;rsignal&#39;</span>
+ <span style="color:#75715e">#define rsignal(a,b)  Perl_rsignal(aTHX_ a,b)</span>
+                                            ^
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC gv.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC toke.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC perly.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pad.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC regcomp.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC dump.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC util.c
+util.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_rsignal&#39;</span>:
+util.c:2667:9: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_ERR;
+         ^
+util.c:2670:22: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;Sighandler_t&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> to <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+     act.sa_handler <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>void<span style="color:#f92672">(</span>*<span style="color:#f92672">)(</span>int<span style="color:#f92672">))</span>handler;
+                      ^
+util.c:2678:40: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+     <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>signo <span style="color:#f92672">==</span> SIGCHLD <span style="color:#f92672">&amp;&amp;</span> handler <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN<span style="color:#f92672">)</span>
+                                        ^
+util.c:2682:13: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_ERR;
+             ^
+util.c:2684:13: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> oact.sa_handler;
+             ^
+util.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_rsignal_state&#39;</span>:
+util.c:2694:9: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_ERR;
+         ^
+util.c:2696:9: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> oact.sa_handler;
+         ^
+util.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_rsignal_save&#39;</span>:
+util.c:2715:22: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;Sighandler_t&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> to <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+     act.sa_handler <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>void<span style="color:#f92672">(</span>*<span style="color:#f92672">)(</span>int<span style="color:#f92672">))</span>handler;
+                      ^
+util.c:2723:40: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+     <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>signo <span style="color:#f92672">==</span> SIGCHLD <span style="color:#f92672">&amp;&amp;</span> handler <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN<span style="color:#f92672">)</span>
+                                        ^
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC mg.c
+mg.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_magic_getsig&#39;</span>:
+mg.c:1459:25: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+          <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>sigstate <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN<span style="color:#f92672">)</span>
+                         ^
+In file included from perl.h:5310,
+                 from mg.c:43:
+mg.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_magic_setsig&#39;</span>:
+mg.c:1736:20: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+   <span style="color:#f92672">(</span>void<span style="color:#f92672">)</span>rsignal<span style="color:#f92672">(</span>i, <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN<span style="color:#f92672">)</span>;
+                    ^
+embed.h:638:44: note: in definition of macro <span style="color:#e6db74">&#39;rsignal&#39;</span>
+ <span style="color:#75715e">#define rsignal(a,b)  Perl_rsignal(aTHX_ a,b)</span>
+                                            ^
+mg.c:1746:20: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+   <span style="color:#f92672">(</span>void<span style="color:#f92672">)</span>rsignal<span style="color:#f92672">(</span>i, <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_DFL<span style="color:#f92672">)</span>;
+                    ^
+embed.h:638:44: note: in definition of macro <span style="color:#e6db74">&#39;rsignal&#39;</span>
+ <span style="color:#75715e">#define rsignal(a,b)  Perl_rsignal(aTHX_ a,b)</span>
+                                            ^
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC reentr.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC mro_core.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC keywords.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC hv.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC av.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC run.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pp_hot.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC sv.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pp.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC scope.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pp_ctl.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pp_sys.c
+In file included from perl.h:5310,
+                 from pp_sys.c:31:
+pp_sys.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_pp_system&#39;</span>:
+pp_sys.c:4474:28: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      rsignal_save<span style="color:#f92672">(</span>SIGINT,  <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN, &amp;ihand<span style="color:#f92672">)</span>;
+                            ^
+embed.h:1556:55: note: in definition of macro <span style="color:#e6db74">&#39;rsignal_save&#39;</span>
+ <span style="color:#75715e">#define rsignal_save(a,b,c) Perl_rsignal_save(aTHX_ a,b,c)</span>
+                                                       ^
+pp_sys.c:4475:28: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      rsignal_save<span style="color:#f92672">(</span>SIGQUIT, <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN, &amp;qhand<span style="color:#f92672">)</span>;
+                            ^
+embed.h:1556:55: note: in definition of macro <span style="color:#e6db74">&#39;rsignal_save&#39;</span>
+ <span style="color:#75715e">#define rsignal_save(a,b,c) Perl_rsignal_save(aTHX_ a,b,c)</span>
+                                                       ^
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC doop.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC doio.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC regexec.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC utf8.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC taint.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC deb.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC universal.c
+/bin/ln -s /openwrt/staging_dir/hostpkg/usr/bin/generate_uudmap generate_uudmap
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC perlio.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC perlapi.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC numeric.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC mathoms.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC locale.c
+locale.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_setlocale&#39;</span>:
+locale.c:2158:18: warning: unused variable <span style="color:#e6db74">&#39;newlocale&#39;</span> <span style="color:#f92672">[</span>-Wunused-variable<span style="color:#f92672">]</span>
+     const char * newlocale;
+                  ^~~~~~~~~
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pp_pack.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC pp_sort.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC caretx.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC dquote.c
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC time64.c
+time64.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;S_copy_little_tm_to_big_TM&#39;</span>:
+time64.c:283:25: warning: assignment discards <span style="color:#e6db74">&#39;const&#39;</span> qualifier from pointer target type <span style="color:#f92672">[</span>-Wdiscarded-qualifiers<span style="color:#f92672">]</span>
+     dest-&gt;tm_zone       <span style="color:#f92672">=</span> src-&gt;tm_zone;
+                         ^
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC miniperlmain.c
+In file included from perl.h:5310,
+                 from miniperlmain.c:52:
+miniperlmain.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;main&#39;</span>:
+miniperlmain.c:134:29: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      rsignal<span style="color:#f92672">(</span>PL_sig_num<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>, <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_DFL<span style="color:#f92672">)</span>;
+                             ^
+embed.h:638:44: note: in definition of macro <span style="color:#e6db74">&#39;rsignal&#39;</span>
+ <span style="color:#75715e">#define rsignal(a,b)  Perl_rsignal(aTHX_ a,b)</span>
+                                            ^
+rm -f pod/perl5281delta.pod
+/bin/ln -s perldelta.pod pod/perl5281delta.pod
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC op.c
+op.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;S_fold_constants&#39;</span>:
+op.c:5469:34: warning: argument <span style="color:#e6db74">&#39;o&#39;</span> might be clobbered by <span style="color:#e6db74">&#39;longjmp&#39;</span> or <span style="color:#e6db74">&#39;vfork&#39;</span> <span style="color:#f92672">[</span>-Wclobbered<span style="color:#f92672">]</span>
+ S_fold_constants<span style="color:#f92672">(</span>pTHX_ OP *const o<span style="color:#f92672">)</span>
+                        ~~~~~~~~~~^
+echo @<span style="color:#e6db74">`</span>sh  cflags <span style="color:#e6db74">&#34;optimize=&#39;-O2&#39;&#34;</span> opmini.o<span style="color:#e6db74">`</span> -fPIC -DPERL_IS_MINIPERL -DPERL_EXTERNAL_GLOB opmini.c
+@ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC -DPERL_IS_MINIPERL -DPERL_EXTERNAL_GLOB opmini.c
+op.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;S_fold_constants&#39;</span>:
+op.c:5469:34: warning: argument <span style="color:#e6db74">&#39;o&#39;</span> might be clobbered by <span style="color:#e6db74">&#39;longjmp&#39;</span> or <span style="color:#e6db74">&#39;vfork&#39;</span> <span style="color:#f92672">[</span>-Wclobbered<span style="color:#f92672">]</span>
+ S_fold_constants<span style="color:#f92672">(</span>pTHX_ OP *const o<span style="color:#f92672">)</span>
+                        ~~~~~~~~~~^
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC globals.c
+/bin/ln -s /openwrt/staging_dir/hostpkg/usr/bin/perl miniperl
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -w -Ilib -I. -Idist/Exporter/lib -MExporter -e <span style="color:#e6db74">&#39;&lt;?&gt;&#39;</span> <span style="color:#f92672">||</span> sh -c <span style="color:#e6db74">&#39;echo &gt;&amp;2 Failed to build miniperl.  Please run make minitest; exit 1&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. -f write_buildcustomize.pl <span style="color:#e6db74">&#39;osname&#39;</span> <span style="color:#e6db74">&#34;linux&#34;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. autodoc.pl
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. pod/perlmodlib.PL -q
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_patchnum.pl
+Updating <span style="color:#e6db74">&#39;git_version.h&#39;</span> and <span style="color:#e6db74">&#39;lib/Config_git.pl&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. configpm
+written lib/Config.pod
+updated lib/Config.pm
+updated lib/Config_heavy.pl
+ccache_cc -c -DPERL_CORE -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -std<span style="color:#f92672">=</span>c89 -O2 -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -fPIC perl.c
+In file included from perl.c:37:
+perl.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_sys_init&#39;</span>:
+perl.h:2645:51: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+ <span style="color:#75715e">#    define PERL_FPU_INIT       PL_sigfpe_saved = (Sighandler_t) signal(SIGFPE, SIG_IGN)</span>
+                                                   ^
+unixish.h:150:29: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_FPU_INIT&#39;</span>
+  MALLOC_CHECK_TAINT2<span style="color:#f92672">(</span>*c,*v<span style="color:#f92672">)</span> PERL_FPU_INIT; PERLIO_INIT; MALLOC_INIT
+                             ^~~~~~~~~~~~~
+perl.c:124:5: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_SYS_INIT_BODY&#39;</span>
+     PERL_SYS_INIT_BODY<span style="color:#f92672">(</span>argc, argv<span style="color:#f92672">)</span>;
+     ^~~~~~~~~~~~~~~~~~
+perl.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;Perl_sys_init3&#39;</span>:
+perl.h:2645:51: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+ <span style="color:#75715e">#    define PERL_FPU_INIT       PL_sigfpe_saved = (Sighandler_t) signal(SIGFPE, SIG_IGN)</span>
+                                                   ^
+unixish.h:150:29: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_FPU_INIT&#39;</span>
+  MALLOC_CHECK_TAINT2<span style="color:#f92672">(</span>*c,*v<span style="color:#f92672">)</span> PERL_FPU_INIT; PERLIO_INIT; MALLOC_INIT
+                             ^~~~~~~~~~~~~
+perl.h:2695:49: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_SYS_INIT_BODY&#39;</span>
+ <span style="color:#75715e">#  define PERL_SYS_INIT3_BODY(argvp,argcp,envp) PERL_SYS_INIT_BODY(argvp,argcp)</span>
+                                                 ^~~~~~~~~~~~~~~~~~
+perl.c:137:5: note: in expansion of macro <span style="color:#e6db74">&#39;PERL_SYS_INIT3_BODY&#39;</span>
+     PERL_SYS_INIT3_BODY<span style="color:#f92672">(</span>argc, argv, env<span style="color:#f92672">)</span>;
+     ^~~~~~~~~~~~~~~~~~~
+perl.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;S_parse_body&#39;</span>:
+perl.c:2367:22: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>sigstate <span style="color:#f92672">==</span> <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span> SIG_IGN<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                      ^
+In file included from perl.h:5310,
+                 from perl.c:37:
+perl.c:2370:26: warning: cast between incompatible <span style="color:#66d9ef">function</span> types from <span style="color:#e6db74">&#39;void (*)(int)&#39;</span> to <span style="color:#e6db74">&#39;void (*)(int,  siginfo_t *, void *)&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;void (*)(int,  struct &lt;anonymous&gt; *, void *)&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wcast-function-type<span style="color:#f92672">]</span>
+   <span style="color:#f92672">(</span>void<span style="color:#f92672">)</span>rsignal<span style="color:#f92672">(</span>SIGCHLD, <span style="color:#f92672">(</span>Sighandler_t<span style="color:#f92672">)</span>SIG_DFL<span style="color:#f92672">)</span>;
+                          ^
+embed.h:638:44: note: in definition of macro <span style="color:#e6db74">&#39;rsignal&#39;</span>
+ <span style="color:#75715e">#define rsignal(a,b)  Perl_rsignal(aTHX_ a,b)</span>
+                                            ^
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Archive-Tar/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Archive::Tar
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Archive-Tar&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Archive-Tar&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Attribute-Handlers/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Attribute-Handlers directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/AutoLoader/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/AutoLoader directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/B-Debug/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/B-Debug directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/CPAN/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> CPAN
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/CPAN&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/CPAN&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/CPAN-Meta/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> CPAN::Meta
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/CPAN-Meta&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/CPAN-Meta&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/CPAN-Meta-Requirements/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/CPAN-Meta-Requirements directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/CPAN-Meta-YAML/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/CPAN-Meta-YAML directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Carp/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Carp directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Config-Perl-V/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Config-Perl-V directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Devel-SelfStubber/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Devel-SelfStubber directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Digest/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Digest directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Dumpvalue/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Dumpvalue directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Env/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Env directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/Errno/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Errno
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/ext/Errno&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> Errno_pm.PL Errno.pm
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/ext/Errno&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Exporter/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Exporter directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/ExtUtils-CBuilder/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/ExtUtils-CBuilder directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/ExtUtils-Constant/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/ExtUtils-Constant directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/ExtUtils-Install/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/ExtUtils-Install directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/ExtUtils-MakeMaker/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> ExtUtils::MakeMaker
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/ExtUtils-MakeMaker&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/ExtUtils-MakeMaker&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/ExtUtils-Manifest/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/ExtUtils-Manifest directly
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> ExtUtils::Manifest
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/ExtUtils-Manifest&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/ExtUtils-Manifest&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/ExtUtils-Miniperl/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> ext/ExtUtils-Miniperl directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/ExtUtils-ParseXS/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/ExtUtils-ParseXS directly
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> ExtUtils::ParseXS
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/ExtUtils-ParseXS&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/ExtUtils-ParseXS&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/File-Fetch/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/File-Fetch directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/File-Find/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> ext/File-Find directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/File-Path/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/File-Path directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/File-Temp/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/File-Temp directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/FileCache/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> ext/FileCache directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Filter-Simple/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Filter-Simple directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Getopt-Long/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Getopt-Long directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/HTTP-Tiny/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> HTTP::Tiny
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/HTTP-Tiny&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/HTTP-Tiny&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/I18N-Collate/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/I18N-Collate directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/I18N-LangTags/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/I18N-LangTags directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/lib/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> lib
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/lib&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> lib_pm.PL lib.pm
+Extracting lib.pm <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/lib&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/IO-Socket-IP/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/IO-Socket-IP directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/IO-Zlib/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/IO-Zlib directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/IPC-Cmd/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/IPC-Cmd directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/IPC-Open3/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> ext/IPC-Open3 directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/JSON-PP/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> JSON::PP
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/JSON-PP&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/JSON-PP&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Locale-Codes/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Locale-Codes directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Locale-Maketext/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Locale-Maketext directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Locale-Maketext-Simple/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Locale-Maketext-Simple directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Math-BigInt/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Math-BigInt directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Math-BigRat/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Math-BigRat directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Math-Complex/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Math-Complex directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Memoize/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Memoize directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Module-CoreList/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Module::CoreList
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Module-CoreList&#39;</span>
+cp corelist blib/script/corelist
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Module-CoreList/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::MY -e <span style="color:#e6db74">&#39;MY-&gt;fixin(shift)&#39;</span> -- blib/script/corelist
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Module-CoreList&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Module-Load/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Module-Load directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Module-Load-Conditional/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Module-Load-Conditional directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Module-Loaded/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Module-Loaded directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Module-Metadata/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Module::Metadata
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Module-Metadata&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Module-Metadata&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/NEXT/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/NEXT directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Net-Ping/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Net-Ping directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Params-Check/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Params-Check directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Perl-OSType/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Perl-OSType directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/PerlIO-via-QuotedPrint/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/PerlIO-via-QuotedPrint directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Pod-Checker/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Pod::Checker
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Checker&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> podchecker.PL podchecker
+Extracting podchecker <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+cp podchecker blib/script/podchecker
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Checker/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::MY -e <span style="color:#e6db74">&#39;MY-&gt;fixin(shift)&#39;</span> -- blib/script/podchecker
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Checker&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Pod-Escapes/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Pod-Escapes directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Pod-Simple/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Pod-Simple directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/Pod-Html/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Pod::Html
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/ext/Pod-Html&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/ext/Pod-Html&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Pod-Parser/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Pod::Parser
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Parser&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> podselect.PL podselect
+Extracting podselect <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+cp podselect blib/script/podselect
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Parser/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::MY -e <span style="color:#e6db74">&#39;MY-&gt;fixin(shift)&#39;</span> -- blib/script/podselect
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Parser&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Pod-Perldoc/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Pod::Perldoc
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Perldoc&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Perldoc&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Pod-Usage/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Pod::Usage
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Usage&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> pod2usage.PL pod2usage
+Extracting pod2usage <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+cp pod2usage blib/script/pod2usage
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Usage/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::MY -e <span style="color:#e6db74">&#39;MY-&gt;fixin(shift)&#39;</span> -- blib/script/pod2usage
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Pod-Usage&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Safe/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Safe directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Search-Dict/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Search-Dict directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/SelfLoader/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/SelfLoader directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Term-ANSIColor/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Term-ANSIColor directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Term-Cap/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Term::Cap
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Term-Cap&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Term-Cap&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Term-Complete/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Term-Complete directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Term-ReadLine/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Term-ReadLine directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Test/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Test directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Test-Harness/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Test::Harness
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Test-Harness&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/Test-Harness&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Test-Simple/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Test-Simple directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Text-Abbrev/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Text-Abbrev directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Text-Balanced/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Text-Balanced directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Text-ParseWords/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Text-ParseWords directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Text-Tabs/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Text-Tabs directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Thread-Queue/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Thread-Queue directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Thread-Semaphore/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Thread-Semaphore directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Tie-File/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/Tie-File directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl ext/Tie-Memoize/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> ext/Tie-Memoize directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Tie-RefHash/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Tie-RefHash directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/Time-Local/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/Time-Local directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/XSLoader/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> XSLoader
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/XSLoader&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> XSLoader_pm.PL XSLoader.pm
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/XSLoader&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/autodie/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/autodie directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/autouse/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/autouse directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/base/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> base
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/base&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/base&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/bignum/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/bignum directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/constant/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/constant directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/encoding-warnings/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> dist/encoding-warnings directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/experimental/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/experimental directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/if/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">if</span>
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/if&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/if&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/libnet/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Net
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/libnet&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/libnet&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/parent/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/parent directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/perlfaq/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Running pm_to_blib <span style="color:#66d9ef">for</span> cpan/perlfaq directly
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/podlators/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Pod
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/podlators&#39;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> pod2man.PL pod2man
+Extracting pod2man <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> pod2text.PL pod2text
+Extracting pod2text <span style="color:#f92672">(</span>with variable substitutions<span style="color:#f92672">)</span>
+cp pod2man blib/script/pod2man
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/podlators/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::MY -e <span style="color:#e6db74">&#39;MY-&gt;fixin(shift)&#39;</span> -- blib/script/pod2man
+cp pod2text blib/script/pod2text
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/podlators/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::MY -e <span style="color:#e6db74">&#39;MY-&gt;fixin(shift)&#39;</span> -- blib/script/pod2text
+Manifying <span style="color:#ae81ff">2</span> pod documents
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/cpan/podlators&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl dist/Unicode-Normalize/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+Making header files <span style="color:#66d9ef">for</span> XS...
+Generating a Unix-style Makefile
+Writing Makefile <span style="color:#66d9ef">for</span> Unicode::Normalize
+Writing MYMETA.yml and MYMETA.json
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Unicode-Normalize&#39;</span>
+Running Mkbootstrap <span style="color:#66d9ef">for</span> Normalize <span style="color:#f92672">()</span>
+chmod <span style="color:#ae81ff">644</span> <span style="color:#e6db74">&#34;Normalize.bs&#34;</span>
+<span style="color:#e6db74">&#34;../../../../../../staging_dir/hostpkg/usr/bin/perl&#34;</span> <span style="color:#e6db74">&#34;-I../../lib&#34;</span> <span style="color:#e6db74">&#34;../../lib/ExtUtils/xsubpp&#34;</span>  -typemap <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Unicode-Normalize/../../lib/ExtUtils/typemap&#39;</span>  Normalize.xs &gt; Normalize.xsc
+mv Normalize.xsc Normalize.c
+ccache_cc -c   -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error<span style="color:#f92672">=</span>unused-but-set-variable -Wno-error<span style="color:#f92672">=</span>unused-result -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/include -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include/fortify -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/include -Wall -Werror<span style="color:#f92672">=</span>declaration-after-statement -Werror<span style="color:#f92672">=</span>pointer-arith -Wextra -Wc++-compat -Wwrite-strings -O2   -DVERSION<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>1.26<span style="color:#ae81ff">\&#34;</span> -DXS_VERSION<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>1.26<span style="color:#ae81ff">\&#34;</span> -fPIC <span style="color:#e6db74">&#34;-I../..&#34;</span>   Normalize.c
+/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Unicode-Normalize/../../../../../../staging_dir/hostpkg/usr/bin/perl <span style="color:#e6db74">&#34;-I../../lib&#34;</span> -MExtUtils::Command::MM -e <span style="color:#e6db74">&#39;cp_nonempty&#39;</span> -- Normalize.bs ../../lib/auto/Unicode/Normalize/Normalize.bs <span style="color:#ae81ff">644</span>
+rm -f ../../lib/auto/Unicode/Normalize/Normalize.so
+ccache_cc  -shared -L/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/usr/lib -L/openwrt/staging_dir/toolchain-x86_64_gcc-8.4.0_musl/lib -znow -zrelro  Normalize.o  -o ../../lib/auto/Unicode/Normalize/Normalize.so  <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>      <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  
+chmod <span style="color:#ae81ff">755</span> ../../lib/auto/Unicode/Normalize/Normalize.so
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/dist/Unicode-Normalize&#39;</span>
+LD_LIBRARY_PATH<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1 ./miniperl -Ilib -I. make_ext.pl cpan/version/pm_to_blib  MAKE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;make&#34;</span> LIBPERL_A<span style="color:#f92672">=</span>libperl.so
+/bin/sh: 1: ./miniperl: Text file busy
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:585: cpan/version/pm_to_blib<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1&#39;</span>
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:150: /openwrt/build_dir/target-x86_64_musl/perl/perl-5.28.1/.built<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 6 May 2021
+
+
+<br>
+Published on 6 May 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/" title="package_feeds_packages_perl"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - package_feeds_packages_perl</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/" title="package_feeds_packages_perl-device-usb">Next - package_feeds_packages_perl-device-usb <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/">package_feeds_packages_perl<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/">package_feeds_packages_perl-device-usb<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/">package_feeds_packages_kadnode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_kadnode/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/">package_feeds_packages_libuhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuhttpd/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/">package_feeds_packages_libuwsc<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_libuwsc/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/">package_feeds_packages_rtty<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_rtty/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/">package_feeds_packages_tang<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/">package_feeds_packages_php8<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/compile.8/">compile.8</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.8/">compile.8</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.62/">compile.62</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.7/">compile.7</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qt5/">package_feeds_base_qt5<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qt5/compile.62/">compile.62</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

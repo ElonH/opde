@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_base_rtl8812au-ct on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 May 2021 04:57:26 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 May 2021 05:08:18 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,16 @@
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.62/</guid>
       <description>build number: 62
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8812au-ct/compile -j$(nproc) || make package/feeds/base/rtl8812au-ct/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8812au-ct-2020-01-13-e0d586aa/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.8</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.8/</link>
+      <pubDate>Thu, 06 May 2021 05:08:18 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.8/</guid>
+      <description>build number: 8
 re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8812au-ct/compile -j$(nproc) || make package/feeds/base/rtl8812au-ct/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/rtl8812au-ct-2020-01-13-e0d586aa/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
     </item>
     
