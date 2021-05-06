@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_base_mt76 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 May 2021 14:26:58 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 May 2021 04:57:26 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,16 @@
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.62/</guid>
       <description>build number: 62
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mt76/compile -j$(nproc) || make package/feeds/base/mt76/compile V=s Compile.txt Applying ./patches/001-allow-vht-on-2g.patch using plaintext: patching file mac80211.c make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/mt76-2020-03-10-08054d5a/.configured_90cfbe17226f457e38768d3d3063649a&amp;#39;. Stop. </description>
+    </item>
+    
+    <item>
+      <title>compile.7</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.7/</link>
+      <pubDate>Thu, 06 May 2021 04:57:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.7/</guid>
+      <description>build number: 7
 re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mt76/compile -j$(nproc) || make package/feeds/base/mt76/compile V=s Compile.txt Applying ./patches/001-allow-vht-on-2g.patch using plaintext: patching file mac80211.c make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/mt76-2020-03-10-08054d5a/.configured_90cfbe17226f457e38768d3d3063649a&amp;#39;. Stop. </description>
     </item>
     

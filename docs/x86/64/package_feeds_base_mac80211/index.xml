@@ -6,7 +6,7 @@
     <description>Recent content in package_feeds_base_mac80211 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 May 2021 14:27:08 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 May 2021 04:58:31 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +18,16 @@
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.62/</guid>
       <description>build number: 62
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mac80211/compile -j$(nproc) || make package/feeds/base/mac80211/compile V=s Compile.txt Applying ./patches/build/000-fix_kconfig.patch using plaintext: patching file kconf/Makefile Applying ./patches/build/001-fix_build.patch using plaintext: patching file Makefile patching file Makefile.real Applying ./patches/build/002-change_allconfig.patch using plaintext: patching file kconf/conf.c patching file kconf/confdata.</description>
+    </item>
+    
+    <item>
+      <title>compile.7</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.7/</link>
+      <pubDate>Thu, 06 May 2021 04:58:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.7/</guid>
+      <description>build number: 7
 re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mac80211/compile -j$(nproc) || make package/feeds/base/mac80211/compile V=s Compile.txt Applying ./patches/build/000-fix_kconfig.patch using plaintext: patching file kconf/Makefile Applying ./patches/build/001-fix_build.patch using plaintext: patching file Makefile patching file Makefile.real Applying ./patches/build/002-change_allconfig.patch using plaintext: patching file kconf/conf.c patching file kconf/confdata.</description>
     </item>
     
