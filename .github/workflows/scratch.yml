@@ -55,8 +55,3 @@ jobs:
           workflow: Base
           token: ${{ secrets.PERSONAL_TOKEN }}
           inputs: '{ "subsequent": "1" }'
-      - name: Remove old artifacts
-        uses: c-hive/gha-remove-artifacts@v1
-        with:
-          age: "14 days"
-          skip-tags: false
