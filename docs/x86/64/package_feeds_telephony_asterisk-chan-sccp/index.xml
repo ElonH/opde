@@ -6,58 +6,18 @@
     <description>Recent content in package_feeds_telephony_asterisk-chan-sccp on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 May 2021 04:43:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 May 2021 12:42:57 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.62</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.62/</link>
-      <pubDate>Wed, 05 May 2021 14:26:33 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.62/</guid>
-      <description>build number: 62
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
-    </item>
-    
-    <item>
       <title>compile.10</title>
       <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.10/</link>
-      <pubDate>Fri, 07 May 2021 04:43:48 +0000</pubDate>
+      <pubDate>Fri, 07 May 2021 12:42:57 +0000</pubDate>
       
       <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.10/</guid>
       <description>build number: 10
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
-    </item>
-    
-    <item>
-      <title>compile.9</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.9/</link>
-      <pubDate>Thu, 06 May 2021 11:37:15 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.9/</guid>
-      <description>build number: 9
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
-    </item>
-    
-    <item>
-      <title>compile.8</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.8/</link>
-      <pubDate>Thu, 06 May 2021 05:08:09 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.8/</guid>
-      <description>build number: 8
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
-    </item>
-    
-    <item>
-      <title>compile.7</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.7/</link>
-      <pubDate>Thu, 06 May 2021 04:58:13 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.7/</guid>
-      <description>build number: 7
 re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
     </item>
     

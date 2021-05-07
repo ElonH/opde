@@ -1,6 +1,6 @@
 ---
 title: "compile.10"
-date: 2021-05-07 04:43:48.266764
+date: 2021-05-07 12:44:59.323508
 hidden: false
 draft: false
 weight: -10
@@ -666,7 +666,10 @@ checking for opus_encoder_create in -lopus... yes
 checking opus/opus.h usability... yes
 checking opus/opus.h presence... yes
 checking for opus/opus.h... yes
-checking for op_open_callbacks in -lopusfile... no
+checking for op_open_callbacks in -lopusfile... yes
+checking opus/opusfile.h usability... no
+checking opus/opusfile.h presence... no
+checking for opus/opusfile.h... no
 checking for luaL_newstate in -llua... yes
 checking lua.h usability... yes
 checking lua.h presence... yes
