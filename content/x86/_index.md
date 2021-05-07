@@ -1,6 +1,6 @@
 ---
 title: "x86"
-date: 2021-05-06 11:39:05.466824
+date: 2021-05-07 04:45:39.212631
 hidden: false
 draft: false
 ---
