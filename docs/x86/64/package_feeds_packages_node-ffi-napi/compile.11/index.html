@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.11 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.11/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.11" />
+<meta property="og:description" content="build number: 11
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.11/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-05-07T23:29:37+00:00" />
+<meta property="article:modified_time" content="2021-05-07T23:29:37+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.11"/>
+<meta name="twitter:description" content="build number: 11
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6."/>
+<meta itemprop="name" content="compile.11">
+<meta itemprop="description" content="build number: 11
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6.">
+<meta itemprop="datePublished" content="2021-05-07T23:29:37&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-07T23:29:37&#43;00:00" />
+<meta itemprop="wordCount" content="1174">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.11</h1>
+<p>build number: <code>11</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/packages/node-ffi-napi/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/packages/node-ffi-napi/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/0001-do_not_build_libffi.patch using plaintext: 
+patching file binding.gyp
+
+Applying ./patches/0002-support_mips.patch using plaintext: 
+patching file src/ffi.cc
+npm info it worked <span style="color:#66d9ef">if</span> it ends with ok
+npm info using npm@6.14.12
+npm info using node@v12.22.1
+npm timing stage:loadCurrentTree Completed in 33ms
+npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms
+npm timing stage:loadIdealTree:loadShrinkwrap Completed in 1ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/node-gyp-build 116ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/node-addon-api 120ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ref-struct-di 119ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/get-uv-event-loop-napi-h 126ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/debug 158ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ref-napi 155ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ref-struct-di/-/ref-struct-di-1.1.1.tgz 135ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.1.0.tgz 139ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.2.3.tgz 141ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/get-uv-event-loop-napi-h/-/get-uv-event-loop-napi-h-1.0.6.tgz 129ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/debug/-/debug-4.3.1.tgz 113ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ref-napi/-/ref-napi-3.0.2.tgz 114ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ms 49ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ms/-/ms-2.1.2.tgz 26ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/get-symbol-from-current-process-h 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/get-symbol-from-current-process-h/-/get-symbol-from-current-process-h-1.0.2.tgz 29ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/node-addon-api/-/node-addon-api-2.0.2.tgz 54ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/debug/-/debug-3.2.7.tgz 30ms
+npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 550ms
+npm timing stage:loadIdealTree Completed in 555ms
+npm timing stage:generateActionsToTake Completed in 4ms
+npm timing action:extract Completed in 120ms
+npm timing action:finalize Completed in 12ms
+npm timing action:refresh-package-json Completed in 27ms
+npm info lifecycle get-symbol-from-current-process-h@1.0.2~preinstall: get-symbol-from-current-process-h@1.0.2
+npm info lifecycle ms@2.1.2~preinstall: ms@2.1.2
+npm info lifecycle debug@4.3.1~preinstall: debug@4.3.1
+npm info lifecycle node-gyp-build@4.2.3~preinstall: node-gyp-build@4.2.3
+npm info lifecycle node-addon-api@2.0.2~preinstall: node-addon-api@2.0.2
+npm info lifecycle debug@3.2.7~preinstall: debug@3.2.7
+npm info lifecycle get-uv-event-loop-napi-h@1.0.6~preinstall: get-uv-event-loop-napi-h@1.0.6
+npm info lifecycle node-addon-api@3.1.0~preinstall: node-addon-api@3.1.0
+npm info lifecycle ref-napi@3.0.2~preinstall: ref-napi@3.0.2
+npm info lifecycle ref-struct-di@1.1.1~preinstall: ref-struct-di@1.1.1
+npm info lifecycle ffi-napi@4.0.3~preinstall: ffi-napi@4.0.3
+npm timing action:preinstall Completed in 2ms
+npm info linkStuff get-symbol-from-current-process-h@1.0.2
+npm info linkStuff ms@2.1.2
+npm info linkStuff debug@4.3.1
+npm info linkStuff node-gyp-build@4.2.3
+npm info linkStuff node-addon-api@2.0.2
+npm info linkStuff debug@3.2.7
+npm info linkStuff get-uv-event-loop-napi-h@1.0.6
+npm info linkStuff node-addon-api@3.1.0
+npm info linkStuff ref-napi@3.0.2
+npm info linkStuff ref-struct-di@1.1.1
+npm info linkStuff ffi-napi@4.0.3
+npm timing action:build Completed in 6ms
+npm info lifecycle get-symbol-from-current-process-h@1.0.2~install: get-symbol-from-current-process-h@1.0.2
+npm info lifecycle ms@2.1.2~install: ms@2.1.2
+npm info lifecycle debug@4.3.1~install: debug@4.3.1
+npm info lifecycle node-gyp-build@4.2.3~install: node-gyp-build@4.2.3
+npm info lifecycle node-addon-api@2.0.2~install: node-addon-api@2.0.2
+npm info lifecycle debug@3.2.7~install: debug@3.2.7
+npm info lifecycle get-uv-event-loop-napi-h@1.0.6~install: get-uv-event-loop-napi-h@1.0.6
+npm info lifecycle node-addon-api@3.1.0~install: node-addon-api@3.1.0
+npm info lifecycle ref-napi@3.0.2~install: ref-napi@3.0.2
+
+&gt; ref-napi@3.0.2 install /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi
+&gt; node-gyp-build
+
+gyp info it worked <span style="color:#66d9ef">if</span> it ends with ok
+gyp info using node-gyp@5.1.0
+gyp info using node@12.22.1 | linux | x64
+gyp info find Python using Python version 3.8.5 found at <span style="color:#e6db74">&#34;/openwrt/staging_dir/host/bin/python&#34;</span>
+gyp info spawn /openwrt/staging_dir/host/bin/python
+gyp info spawn args <span style="color:#f92672">[</span>
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;binding.gyp&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-f&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;make&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-I&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi/build/config.gypi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-I&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp/addon.gypi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-I&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/node/common.gypi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dlibrary=shared_library&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dvisibility=default&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_root_dir=/openwrt/staging_dir/target-x86_64_musl/usr/&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_gyp_dir=/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_lib_file=/openwrt/staging_dir/target-x86_64_musl/usr/$(Configuration)/node.lib&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dmodule_root_dir=/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_engine=v8&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;--depth=.&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;--no-parallel&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;--generator-output&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;build&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Goutput_dir=.&#39;</span>
+gyp info spawn args <span style="color:#f92672">]</span>
+gyp info spawn make
+gyp info spawn args <span style="color:#f92672">[</span> <span style="color:#e6db74">&#39;BUILDTYPE=Release&#39;</span>, <span style="color:#e6db74">&#39;-C&#39;</span>, <span style="color:#e6db74">&#39;build&#39;</span> <span style="color:#f92672">]</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi/build&#39;</span>
+  CC<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span> Release/obj.target/nothing/node_modules/node-addon-api/src/nothing.o
+rm -f Release/obj.target/node_modules/node-addon-api/src/nothing.a Release/obj.target/node_modules/node-addon-api/src/nothing.a.ar-file-list; mkdir -p <span style="color:#e6db74">`</span>dirname Release/obj.target/node_modules/node-addon-api/src/nothing.a<span style="color:#e6db74">`</span>
+x86_64-openwrt-linux-musl-gcc-ar crs Release/obj.target/node_modules/node-addon-api/src/nothing.a @Release/obj.target/node_modules/node-addon-api/src/nothing.a.ar-file-list
+  COPY Release/nothing.a
+  CXX<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span> Release/obj.target/binding/src/binding.o
+  SOLINK_MODULE<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span> Release/obj.target/binding.node
+  COPY Release/binding.node
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi/build&#39;</span>
+gyp info ok 
+npm info lifecycle ref-struct-di@1.1.1~install: ref-struct-di@1.1.1
+npm info lifecycle ffi-napi@4.0.3~install: ffi-napi@4.0.3
+
+&gt; ffi-napi@4.0.3 install /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib/node_modules/ffi-napi
+&gt; node-gyp-build
+
+gyp info it worked <span style="color:#66d9ef">if</span> it ends with ok
+gyp info using node-gyp@5.1.0
+gyp info using node@12.22.1 | linux | x64
+gyp info find Python using Python version 3.8.5 found at <span style="color:#e6db74">&#34;/openwrt/staging_dir/host/bin/python&#34;</span>
+gyp info spawn /openwrt/staging_dir/host/bin/python
+gyp info spawn args <span style="color:#f92672">[</span>
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;binding.gyp&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-f&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;make&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-I&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/build/config.gypi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-I&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp/addon.gypi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-I&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/node/common.gypi&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dlibrary=shared_library&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dvisibility=default&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_root_dir=/openwrt/staging_dir/target-x86_64_musl/usr/&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_gyp_dir=/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_lib_file=/openwrt/staging_dir/target-x86_64_musl/usr/$(Configuration)/node.lib&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dmodule_root_dir=/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Dnode_engine=v8&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;--depth=.&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;--no-parallel&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;--generator-output&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;build&#39;</span>,
+gyp info spawn args   <span style="color:#e6db74">&#39;-Goutput_dir=.&#39;</span>
+gyp info spawn args <span style="color:#f92672">]</span>
+gyp info spawn make
+gyp info spawn args <span style="color:#f92672">[</span> <span style="color:#e6db74">&#39;BUILDTYPE=Release&#39;</span>, <span style="color:#e6db74">&#39;-C&#39;</span>, <span style="color:#e6db74">&#39;build&#39;</span> <span style="color:#f92672">]</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/build&#39;</span>
+  CXX<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span> Release/obj.target/ffi_bindings/src/ffi.o
+../src/ffi.cc:4:10: fatal error: fficonfig.h: No such file or directory
+ <span style="color:#75715e">#include &#34;fficonfig.h&#34;</span>
+          ^~~~~~~~~~~~~
+compilation terminated.
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>ffi_bindings.target.mk:117: Release/obj.target/ffi_bindings/src/ffi.o<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/build&#39;</span>
+gyp ERR! build error 
+gyp ERR! stack Error: <span style="color:#e6db74">`</span>make<span style="color:#e6db74">`</span> failed with exit code: <span style="color:#ae81ff">2</span>
+gyp ERR! stack     at ChildProcess.onExit <span style="color:#f92672">(</span>/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:194:23<span style="color:#f92672">)</span>
+gyp ERR! stack     at ChildProcess.emit <span style="color:#f92672">(</span>events.js:314:20<span style="color:#f92672">)</span>
+gyp ERR! stack     at Process.ChildProcess._handle.onexit <span style="color:#f92672">(</span>internal/child_process.js:276:12<span style="color:#f92672">)</span>
+gyp ERR! System Linux 5.4.0-1046-azure
+gyp ERR! command <span style="color:#e6db74">&#34;/openwrt/staging_dir/hostpkg/bin/node&#34;</span> <span style="color:#e6db74">&#34;/openwrt/staging_dir/hostpkg/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js&#34;</span> <span style="color:#e6db74">&#34;rebuild&#34;</span>
+gyp ERR! cwd /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3
+gyp ERR! node -v v12.22.1
+gyp ERR! node-gyp -v v5.1.0
+gyp ERR! not ok 
+npm info lifecycle ffi-napi@4.0.3~install: Failed to exec install script
+npm timing action:install Completed in 2613ms
+npm WARN rollback Rolling back get-symbol-from-current-process-h@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/get-symbol-from-current-process-h is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back ms@2.1.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ms is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back debug@4.3.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/debug is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back node-gyp-build@4.2.3 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/node-gyp-build is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back node-addon-api@2.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi/node_modules/node-addon-api is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back debug@3.2.7 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-struct-di/node_modules/debug is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back get-uv-event-loop-napi-h@1.0.6 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/get-uv-event-loop-napi-h is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back node-addon-api@3.1.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/node-addon-api is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back ref-napi@3.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-napi is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm WARN rollback Rolling back ref-struct-di@1.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/node_modules/ref-struct-di is not a child of /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/ipkg-install/usr/lib
+npm timing stage:rollbackFailedOptional Completed in 3ms
+npm timing stage:runTopLevelLifecycles Completed in 3387ms
+npm ERR! code ELIFECYCLE
+npm ERR! errno <span style="color:#ae81ff">1</span>
+npm ERR! ffi-napi@4.0.3 install: <span style="color:#e6db74">`</span>node-gyp-build<span style="color:#e6db74">`</span>
+npm ERR! Exit status <span style="color:#ae81ff">1</span>
+npm ERR! 
+npm ERR! Failed at the ffi-napi@4.0.3 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+npm timing npm Completed in 3660ms
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /openwrt/tmp/npm-cache-c6rWzVF7hX/_logs/2021-05-07T20_55_39_615Z-debug.log
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:92: /openwrt/build_dir/target-x86_64_musl/node-ffi-napi-4.0.3/.built<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 7 May 2021
+
+
+<br>
+Published on 7 May 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/" title="package_feeds_packages_node-ffi-napi"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - package_feeds_packages_node-ffi-napi</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.10/" title="compile.10">Next - compile.10 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

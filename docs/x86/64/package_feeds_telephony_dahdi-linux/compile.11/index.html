@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.11 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.11/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.11" />
+<meta property="og:description" content="build number: 11
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/dahdi-linux/compile -j$(nproc) || make package/feeds/telephony/dahdi-linux/compile V=s Compile.txt Applying ./patches/003-fix-oslec-build.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/050-re-enable-ztdummy.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/070-no-firmware-blob-download.patch using plaintext: patching file Makefile Applying ./patches/100-add-support-for-hfc-s-pci.patch using plaintext: patching file drivers/dahdi/Kbuild patching file drivers/dahdi/Kconfig patching file drivers/dahdi/hfcs/base." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.11/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-05-07T23:29:37+00:00" />
+<meta property="article:modified_time" content="2021-05-07T23:29:37+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.11"/>
+<meta name="twitter:description" content="build number: 11
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/dahdi-linux/compile -j$(nproc) || make package/feeds/telephony/dahdi-linux/compile V=s Compile.txt Applying ./patches/003-fix-oslec-build.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/050-re-enable-ztdummy.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/070-no-firmware-blob-download.patch using plaintext: patching file Makefile Applying ./patches/100-add-support-for-hfc-s-pci.patch using plaintext: patching file drivers/dahdi/Kbuild patching file drivers/dahdi/Kconfig patching file drivers/dahdi/hfcs/base."/>
+<meta itemprop="name" content="compile.11">
+<meta itemprop="description" content="build number: 11
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/dahdi-linux/compile -j$(nproc) || make package/feeds/telephony/dahdi-linux/compile V=s Compile.txt Applying ./patches/003-fix-oslec-build.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/050-re-enable-ztdummy.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/070-no-firmware-blob-download.patch using plaintext: patching file Makefile Applying ./patches/100-add-support-for-hfc-s-pci.patch using plaintext: patching file drivers/dahdi/Kbuild patching file drivers/dahdi/Kconfig patching file drivers/dahdi/hfcs/base.">
+<meta itemprop="datePublished" content="2021-05-07T23:29:37&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-07T23:29:37&#43;00:00" />
+<meta itemprop="wordCount" content="1107">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.11</h1>
+<p>build number: <code>11</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/telephony/dahdi-linux/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/telephony/dahdi-linux/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/003-fix-oslec-build.patch using plaintext: 
+patching file drivers/dahdi/Kbuild
+
+Applying ./patches/050-re-enable-ztdummy.patch using plaintext: 
+patching file drivers/dahdi/Kbuild
+
+Applying ./patches/070-no-firmware-blob-download.patch using plaintext: 
+patching file Makefile
+
+Applying ./patches/100-add-support-for-hfc-s-pci.patch using plaintext: 
+patching file drivers/dahdi/Kbuild
+patching file drivers/dahdi/Kconfig
+patching file drivers/dahdi/hfcs/base.c
+patching file drivers/dahdi/hfcs/dahdi_hfcs.h
+patching file drivers/dahdi/hfcs/fifo.c
+patching file drivers/dahdi/hfcs/fifo.h
+patching file drivers/dahdi/hfcs/Kbuild
+
+Applying ./patches/110-fix-uaccess_h-include.patch using plaintext: 
+patching file drivers/dahdi/datamods/syncppp.c
+patching file drivers/dahdi/wcb4xxp/base.c
+patching file drivers/dahdi/xpp/mmapdrv.c
+patching file drivers/dahdi/xpp/xpp_usb.c
+
+Applying ./patches/120-pci-header.patch using plaintext: 
+patching file include/dahdi/kernel.h
+
+Applying ./patches/130-DAHLIN-371-pld-linux-math64.patch using plaintext: 
+patching file drivers/dahdi/xpp/xbus-core.c
+patching file drivers/dahdi/xpp/xbus-pcm.c
+patching file drivers/dahdi/xpp/xbus-sysfs.c
+patching file drivers/dahdi/xpp/xframe_queue.c
+patching file drivers/dahdi/xpp/xpp_usb.c
+
+Applying ./patches/140-Use-proc_ops-on-kernels-5.6.patch using plaintext: 
+patching file drivers/dahdi/dahdi-base.c
+patching file drivers/dahdi/dahdi_dynamic_ethmf.c
+patching file drivers/dahdi/xpp/card_bri.c
+patching file drivers/dahdi/xpp/card_fxo.c
+patching file drivers/dahdi/xpp/card_fxs.c
+patching file drivers/dahdi/xpp/xbus-core.c
+patching file drivers/dahdi/xpp/xpp_dahdi.c
+patching file drivers/dahdi/xpp/xpp_usb.c
+patching file include/dahdi/kernel.h
+
+Applying ./patches/141-Remove-support-for-32-bit-userspace-with-64-bit-kern.patch using plaintext: 
+patching file drivers/dahdi/dahdi-base.c
+
+Applying ./patches/142-Remove-checks-for-HAVE_UNLOCKED_IOCTL-for-kernel-5.9.patch using plaintext: 
+patching file drivers/dahdi/dahdi-base.c
+patching file drivers/dahdi/dahdi_transcode.c
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0&#39;</span>
+make -C /openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.115 KBUILD_EXTMOD<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi DAHDI_INCLUDE<span style="color:#f92672">=</span>/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/include DAHDI_MODULES_EXTRA<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span> HOTPLUG_FIRMWARE<span style="color:#f92672">=</span>yes modules DAHDI_BUILD_ALL<span style="color:#f92672">=</span>m
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.115&#39;</span>
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/hfcs/base.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/hfcs/fifo.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/hfcs/dahdi_hfcs.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_adpcm_chan.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_channel.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_chip_open.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_chip_stats.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_conf_bridge.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_debug.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_events.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_interrupts.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_memory.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_miscellaneous.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_mixer.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_phasing_tsst.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_playout_buf.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_remote_debug.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_tlv.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_tone_detection.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_tsi_cnct.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/octdeviceapi/oct6100api/oct6100_api/oct6100_tsst.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/apilib/bt/octapi_bt0.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/apilib/largmath/octapi_largmath.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/apilib/llman/octapi_llman.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/oct612x-user.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/oct612x.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/voicebus.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/GpakCust.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/GpakApi.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/voicebus_net.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/vpmoct.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/dahdi_voicebus.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcb4xxp/base.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcb4xxp/wcb4xxp.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wct4xxp/base.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wct4xxp/vpm450m.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wct4xxp/wct4xxp.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctc4xxp/base.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctc4xxp/wctc4xxp.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.o
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;wctdm_check_battery_lost&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.c:1957:3: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   mod_hooksig<span style="color:#f92672">(</span>wc, mod, DAHDI_RXSIG_ONHOOK<span style="color:#f92672">)</span>;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.c:1958:2: note: here
+  <span style="color:#66d9ef">case</span> BATTERY_PRESENT:
+  ^~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;wctdm_check_battery_present&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.c:2065:3: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   mod_hooksig<span style="color:#f92672">(</span>wc, mod, DAHDI_RXSIG_OFFHOOK<span style="color:#f92672">)</span>;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/base.c:2066:2: note: here
+  <span style="color:#66d9ef">case</span> BATTERY_LOST: /* intentional drop through */
+  ^~~~
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/xhfc.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/wctdm24xxp.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xbus-core.o
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xbus-core.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;xbus_fill_proc_queue&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xbus-core.c:1775:76: warning: format <span style="color:#e6db74">&#39;%ld&#39;</span> expects argument of type <span style="color:#e6db74">&#39;long int&#39;</span>, but argument <span style="color:#ae81ff">10</span> has type <span style="color:#e6db74">&#39;s32&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;int&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wformat<span style="color:#f92672">=]</span>
+   <span style="color:#e6db74">&#34;%-15s: counts %3d, %3d, %3d worst %3d, overflows %3d worst_lag %02lld.%ld ms\n&#34;</span>,
+                                                                          ~~^
+                                                                          %d
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xbus-core.c:1778:3:
+   rem<span style="color:#f92672">)</span>;
+   ~~~                                                                       
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xbus-sysfs.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xbus-pcm.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.o
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;__xframe_dump_queue&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.c:47:58: warning: format <span style="color:#e6db74">&#39;%ld&#39;</span> expects argument of type <span style="color:#e6db74">&#39;long int&#39;</span>, but argument <span style="color:#ae81ff">6</span> has type <span style="color:#e6db74">&#39;s32&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;int&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wformat<span style="color:#f92672">=]</span>
+   snprintf<span style="color:#f92672">(</span>prefix, ARRAY_SIZE<span style="color:#f92672">(</span>prefix<span style="color:#f92672">)</span>, <span style="color:#e6db74">&#34;  %3d&gt; %5lld.%03ld msec&#34;</span>,
+                                                      ~~~~^
+                                                      %03d
+     i++, sec, rem<span style="color:#f92672">)</span>;
+               ~~~                                         
+In file included from ./include/linux/printk.h:7,
+                 from ./include/linux/kernel.h:15,
+                 from ./include/linux/list.h:9,
+                 from /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.h:4,
+                 from /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.c:2:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;__xframe_enqueue&#39;</span>:
+./include/linux/kern_levels.h:5:18: warning: format <span style="color:#e6db74">&#39;%ld&#39;</span> expects argument of type <span style="color:#e6db74">&#39;long int&#39;</span>, but argument <span style="color:#ae81ff">12</span> has type <span style="color:#e6db74">&#39;s32&#39;</span> <span style="color:#f92672">{</span>aka <span style="color:#e6db74">&#39;int&#39;</span><span style="color:#f92672">}</span> <span style="color:#f92672">[</span>-Wformat<span style="color:#f92672">=]</span>
+ <span style="color:#75715e">#define KERN_SOH &#34;\001&#34;  /* ASCII Start Of Header */</span>
+                  ^~~~~~
+./include/linux/kern_levels.h:13:21: note: in expansion of macro <span style="color:#e6db74">&#39;KERN_SOH&#39;</span>
+ <span style="color:#75715e">#define KERN_NOTICE KERN_SOH &#34;5&#34; /* normal but significant condition */</span>
+                     ^~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/dahdi_debug.h:30:9: note: in expansion of macro <span style="color:#e6db74">&#39;KERN_NOTICE&#39;</span>
+  printk<span style="color:#f92672">(</span>KERN_ <span style="color:#75715e">## level &#34;%s%s-%s: &#34; fmt, \</span>
+         ^~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/dahdi_debug.h:57:26: note: in expansion of macro <span style="color:#e6db74">&#39;PRINTK&#39;</span>
+ <span style="color:#75715e">#define NOTICE(fmt, ...) PRINTK(NOTICE, &#34;&#34;, fmt, ## __VA_ARGS__)</span>
+                          ^~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.c:67:4: note: in expansion of macro <span style="color:#e6db74">&#39;NOTICE&#39;</span>
+    NOTICE<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Overflow of %-15s: counts %3d, %3d, %3d worst %3d, overflows %3d worst_lag %02lld.%ld ms\n&#34;</span>,
+    ^~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xframe_queue.c:67:96: note: format string is defined here
+    NOTICE<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Overflow of %-15s: counts %3d, %3d, %3d worst %3d, overflows %3d worst_lag %02lld.%ld ms\n&#34;</span>,
+                                                                                              ~~^
+                                                                                              %d
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp_dahdi.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xproto.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/card_global.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/dahdi_debug.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/card_fxs.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_fxs.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/card_fxo.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_fxo.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/card_pri.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_pri.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/card_bri.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_bri.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/card_echo.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_echo.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp_usb.o
+  VERIFY  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/init_card_1_30
+  VERIFY  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/init_card_2_30
+  VERIFY  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/init_card_3_30
+  VERIFY  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/init_card_4_30
+  HOSTCC  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/print_fxo_modes.o
+  HOSTLD  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/print_fxo_modes
+  GEN     /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/init_fxo_modes
+  CHECK   /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/init_card_2_30
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.o
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;__dahdi_hooksig_pvt&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c:8472:6: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>chan-&gt;txstate !<span style="color:#f92672">=</span> DAHDI_TXSTATE_OFFHOOK<span style="color:#f92672">)</span> break;
+      ^
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c:8488:5: note: here
+     <span style="color:#66d9ef">case</span> DAHDI_SIG_FXSGS:  /* FXS Groundstart */
+     ^~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c:8499:6: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>rxsig <span style="color:#f92672">==</span> DAHDI_RXSIG_START<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      ^
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c:8507:5: note: here
+     <span style="color:#66d9ef">case</span> DAHDI_SIG_FXOLS: /* FXO Loopstart */
+     ^~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;__dahdi_process_getaudio_chunk&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c:7923:4: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+    memset<span style="color:#f92672">(</span>txb + 1, txb<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>, DAHDI_CHUNKSIZE - 1<span style="color:#f92672">)</span>;
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-base.c:7925:3: note: here
+   <span style="color:#66d9ef">case</span> DAHDI_CONF_CONF: /* Normal conference mode */
+   ^~~~
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-sysfs.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-sysfs-chan.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi-version.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dummy.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_loc.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_eth.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_ethmf.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_transcode.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp-base.o
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp-base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;t13x_set_linemode&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp-base.c:1877:9: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   res <span style="color:#f92672">=</span> t13x_software_init<span style="color:#f92672">(</span>wc, J1<span style="color:#f92672">)</span>;
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp-base.c:1878:2: note: here
+  default:
+  ^~~~~~~
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcxb_spi.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcxb.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcxb_flash.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte43x-base.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte43x.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.o
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;wcaxx_check_battery_lost&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.c:1448:3: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   mod_hooksig<span style="color:#f92672">(</span>wc, mod, DAHDI_RXSIG_ONHOOK<span style="color:#f92672">)</span>;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.c:1449:2: note: here
+  <span style="color:#66d9ef">case</span> BATTERY_PRESENT:
+  ^~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.c: In <span style="color:#66d9ef">function</span> <span style="color:#e6db74">&#39;wcaxx_check_battery_present&#39;</span>:
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.c:1556:3: warning: this statement may fall through <span style="color:#f92672">[</span>-Wimplicit-fallthrough<span style="color:#f92672">=]</span>
+   mod_hooksig<span style="color:#f92672">(</span>wc, mod, DAHDI_RXSIG_OFFHOOK<span style="color:#f92672">)</span>;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx-base.c:1557:2: note: here
+  <span style="color:#66d9ef">case</span> BATTERY_LOST: /* intentional drop through */
+  ^~~~
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_jpah.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_sec.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_sec2.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_kb1.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_mg2.o
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_oslec.o
+  Building modules, stage 2.
+  MODPOST <span style="color:#ae81ff">30</span> modules
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dummy.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dummy.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_eth.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_eth.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_ethmf.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_ethmf.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_loc.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_dynamic_loc.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_jpah.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_jpah.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_kb1.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_kb1.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_mg2.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_mg2.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_oslec.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_oslec.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_sec.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_sec.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_sec2.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_echocan_sec2.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_transcode.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/dahdi_transcode.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/hfcs/dahdi_hfcs.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/hfcs/dahdi_hfcs.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/oct612x.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/oct612x/oct612x.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/dahdi_voicebus.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/voicebus/dahdi_voicebus.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcaxx.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcb4xxp/wcb4xxp.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcb4xxp/wcb4xxp.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wct4xxp/wct4xxp.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wct4xxp/wct4xxp.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctc4xxp/wctc4xxp.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctc4xxp/wctc4xxp.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/wctdm24xxp.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wctdm24xxp/wctdm24xxp.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte13xp.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte43x.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/wcte43x.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_bri.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_bri.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_echo.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_echo.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_fxo.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_fxo.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_fxs.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_fxs.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_pri.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpd_pri.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp.ko
+  CC <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp_usb.mod.o
+  LD <span style="color:#f92672">[</span>M<span style="color:#f92672">]</span>  /openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0/drivers/dahdi/xpp/xpp_usb.ko
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.115&#39;</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/dahdi-linux-3.1.0&#39;</span>
+Package kmod-dahdi is missing dependencies <span style="color:#66d9ef">for</span> the following libraries:
+crc-ccitt.ko
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:117: /openwrt/bin/targets/x86/64/packages/kmod-dahdi_5.4.115+3.1.0-5_x86_64.ipk<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 7 May 2021
+
+
+<br>
+Published on 7 May 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/" title="package_feeds_telephony_dahdi-linux"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - package_feeds_telephony_dahdi-linux</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.10/" title="compile.10">Next - compile.10 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
