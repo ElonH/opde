@@ -13,6 +13,6 @@ opde.egg-info/
 *sdk*/
 *.tar.xz
 *.zip
-openwrt/
+openwrt*/
 themes
 db
