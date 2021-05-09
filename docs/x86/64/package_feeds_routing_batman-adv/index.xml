@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_routing_batman-adv on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 May 2021 23:28:54 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 May 2021 11:28:43 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.12</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.12/</link>
+      <pubDate>Sun, 09 May 2021 11:28:43 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.12/</guid>
+      <description>build number: 12
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/routing/batman-adv/compile -j$(nproc) || make package/feeds/routing/batman-adv/compile V=s Compile.txt Applying ./patches/0001-Revert-batman-adv-genetlink-move-to-smaller-ops-wher.patch using plaintext: patching file compat-include/net/genetlink.h patching file net/batman-adv/netlink.c Applying ./patches/0002-Revert-batman-adv-Add-new-include-for-min-max-helper.patch using plaintext: patching file compat-include/linux/minmax.h patching file net/batman-adv/bat_v.c patching file net/batman-adv/bat_v_elp.c patching file net/batman-adv/bat_v_ogm.c patching file net/batman-adv/fragmentation.</description>
+    </item>
     
     <item>
       <title>compile.11</title>
