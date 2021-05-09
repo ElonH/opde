@@ -35,7 +35,7 @@ class Cache:
 class OpdeSetting:
     'Opde Common settings'
 
-    def __init__(self, openwrt_source: str, cahce_enable: bool):
+    def __init__(self, openwrt_source: str, cahce_enable: bool, target: str, subtar: str):
         """
         Args:
             openwrt_source (str): path to OpenWRT source code
@@ -45,7 +45,7 @@ class OpdeSetting:
         # Opde cache directory
         self.cache_dir = self.openwrt_dir.joinpath('.opde')
         # (target, subtarget) same as tree structure of src.configer
-        self.targets = ('x86', '64')
+        self.targets = (target, subtar)
 
         # Opde cache system
         self.cache = Cache(self.cache_dir, cahce_enable)

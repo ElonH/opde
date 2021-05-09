@@ -8,6 +8,8 @@ import click
 from src import OpdeSetting, bash, patcher, parser, configer, dumper, extractor, database, depstree, distributor, worker
 
 _opde_mode = os.environ.get('OPDE_MODE')
+_opde_target = os.environ.get('OPDE_TARGET', 'x64')
+_opde_subtarget = os.environ.get('OPDE_SUBTARGET', '86')
 _allowed_mode = ['BASE', 'SDK']
 
 
@@ -47,14 +49,16 @@ def add_condictional_options(opt_dict: dict):
 @click.option('-c/-C', '--cache/--no-cache', 'cache', is_flag=True, default=True, show_default=True, envvar='OPDE_CACHE', help="Enable opde cache flag system")
 @click.option('-s', '--source', 'source_path', type=click.Path(exists=True, dir_okay=True, file_okay=False, resolve_path=True, writable=True),
               show_default=True, envvar='OPENWRT_SOURCE', default='.',
-              help="Path to openWRT source code" if _opde_mode == 'BASE' else "Path to openWRT SDK")
+              help="Path to openWRT source code" if _opde_mode == 'BASE' else "Path to OpenWRT SDK")
+@click.option('--target', type=str, show_default=True, envvar='TARGET', default=_opde_target, help='OpenWRT Target   ')
+@click.option('--subtarget', type=str, show_default=True, envvar='SUBTARGET', default=_opde_subtarget, help='OpenWRT Subtarget')
 @click.pass_context
-def cli(ctx, dry: bool, cache: bool, source_path) -> None:
+def cli(ctx, dry: bool, cache: bool, source_path, target: str, subtarget: str) -> None:
     '''
     opde entry point
     '''
     ctx.ensure_object(dict)
-    ctx.obj['set'] = OpdeSetting(source_path, cache)
+    ctx.obj['set'] = OpdeSetting(source_path, cache, target, subtarget)
     ctx.obj['dry'] = dry
     # ctx.obj['cache'] = cache
     ctx.obj['mode'] = _opde_mode  # backward compatibility
@@ -138,7 +142,7 @@ def revPatch(ctx):
               default=None, type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.pass_context
 def config(ctx, all_packs: bool, inject: str, ke: bool = None, sdk: bool = None, ib: bool = None):
-    'Configurate openwrt'
+    'Configurate OpenWRT'
     setting: OpdeSetting = ctx.obj['set']
     mode: str = ctx.obj['mode']
     setting.logs_dir.mkdir(parents=True, exist_ok=True)
