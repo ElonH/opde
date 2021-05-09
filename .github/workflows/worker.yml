@@ -190,6 +190,7 @@ jobs:
         run: |-
           docker run -v $PWD:/openwrt elonh/opde:worker sudo transfer ${{github.event.inputs.packages00URL}} -o Packages-00.tar.gz
           sudo chown $(id -u -n):$(id -g -n) Packages-00.tar.gz
+          sha256sum Packages-00.tar.gz
           cd openwrt/bin
           tar -xzf ../../Packages-00.tar.gz
       - name: Import key
@@ -317,6 +318,7 @@ jobs:
           path: Logs.tar.gz
       - name: Upload Logs to web
         run: |
+          sha256sum Logs.tar.gz
           docker run -v $PWD/Logs.tar.gz:/openwrt/Logs.tar.gz elonh/opde:worker sudo chown opde:opde Logs.tar.gz
           docker run -v $PWD/Logs.tar.gz:/openwrt/Logs.tar.gz elonh/opde:worker transfer trs Logs.tar.gz > downloadLink
       - name: Extract link

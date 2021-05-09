@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       dataURL:
-        description: 'the url for build logs archive'
+        description: "the url for build logs archive"
         required: true
 jobs:
   collector:
@@ -15,14 +15,15 @@ jobs:
         with:
           submodules: true
           path: ./db
-          ref: 'gh-pages'
-          fetch-depth: '0'
+          ref: "gh-pages"
+          fetch-depth: "0"
       - name: Pull docker image
         run: docker pull elonh/opde:worker
       - name: Download all logs
         run: |
           docker run -v $PWD:/openwrt elonh/opde:worker sudo transfer ${{github.event.inputs.dataURL}} -o Logs.tar.gz
           sudo chown $(id -u -n):$(id -g -n) Logs.tar.gz
+          sha256sum Logs.tar.gz
           tar -xzf Logs.tar.gz # extract openwrt dir
       - name: update db
         run: |
@@ -44,5 +45,5 @@ jobs:
           message: "Action ${{github.run_number}}"
           push: true
           branch: gh-pages
-          add: '.'
+          add: "."
           cwd: ./db

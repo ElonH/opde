@@ -117,6 +117,7 @@ jobs:
           path: ./openwrt/bin
       - name: Upload Packages-00 to web
         run: |
+          sha256sum Packages-00.tar.gz
           docker run -v $PWD/Packages-00.tar.gz:/openwrt/Packages-00.tar.gz elonh/opde:base sudo chown opde:opde Packages-00.tar.gz
           docker run -v $PWD/Packages-00.tar.gz:/openwrt/Packages-00.tar.gz elonh/opde:base transfer trs Packages-00.tar.gz > downloadLink
       - name: Extract link
