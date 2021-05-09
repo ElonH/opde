@@ -193,6 +193,10 @@ jobs:
           sha256sum Packages-00.tar.gz
           cd openwrt/bin
           tar -xzf ../../Packages-00.tar.gz
+      - name: Count ipk
+        run: |-
+          find openwrt/bin -name "*.ipk" | grep -c ""
+          find openwrt/bin -name "*.ipk"
       - name: Import key
         env:
           BUILD_KEY: ${{secrets.BUILD_KEY_PRIVATE}}
