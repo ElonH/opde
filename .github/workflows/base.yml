@@ -3,6 +3,14 @@ name: Base
 on:
   workflow_dispatch:
     inputs:
+      target:
+        description: "OpenWRT Target System(Value: x86, bcm27xx, ...)"
+        required: false
+        default: "x86"
+      subtarget:
+        description: "OpenWRT Subtarget(Value: 64, bcm2711, ...)"
+        required: false
+        default: "64"
       subsequent:
         description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
@@ -41,7 +49,9 @@ jobs:
           submodules: true
           path: ./db
       - name: pull docker image
-        run: docker pull elonh/opde:base
+        run: |-
+          docker pull elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:base
       - name: Fix premission
         run: |
           touch ./db/logs.db.json # create if not-exist
@@ -149,7 +159,12 @@ jobs:
             SDK_PATH=./${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}
           push: true
           tags: |
-            elonh/opde:sdk
+            elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+      - name: set default docker tag
+        run: docker tag elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:sdk
+      - name: push default docker tag
+        if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
+        run: docker push elonh/opde:sdk
       - name: Prepare assignment
         run: |
           docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt elonh/opde:sdk sudo chown opde:opde -R /openwrt
@@ -169,7 +184,12 @@ jobs:
             WORKER_CONF_DIR=./${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}/.opde/worker
           push: true
           tags: |
-            elonh/opde:worker
+            elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+      - name: set default docker tag
+        run: docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
+      - name: push default docker tag
+        if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
+        run: docker push elonh/opde:worker
       - name: Build and push image builder
         uses: docker/build-push-action@v2
         with:
@@ -180,11 +200,16 @@ jobs:
             IB_PATH=./${{steps.sdk-var2.outputs.IB_NAME_NO_PREFIX}}
           push: true
           tags: |
-            elonh/opde:ib
+            elonh/opde:ib-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+      - name: set default docker tag
+        run: docker tag elonh/opde:ib-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:ib
+      - name: push default docker tag
+        if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
+        run: docker push elonh/opde:ib
       - name: Invoke Worker workflow
         if: ${{ github.event.inputs.subsequent == '1' }}
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: Worker
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}" }'
+          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}", , "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.target }}"}'

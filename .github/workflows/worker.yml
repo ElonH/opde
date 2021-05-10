@@ -6,6 +6,14 @@ on:
       packages00URL:
         description: "the download link for Packages-00.tar.gz"
         required: false
+      target:
+        description: "OpenWRT Target System(Value: x86, bcm27xx, ...)"
+        required: false
+        default: "x86"
+      subtarget:
+        description: "OpenWRT Subtarget(Value: 64, bcm2711, ...)"
+        required: false
+        default: "64"
       subsequent:
         description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
@@ -56,6 +64,8 @@ jobs:
           submodules: true
       - name: pull docker image
         run: docker pull elonh/opde:worker
+          docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
       - name: Copy SDK
         run: |
           docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker sudo chown opde:opde -R /openwrt_bak
@@ -184,7 +194,9 @@ jobs:
           name: Packages-01
           path: openwrt/bin
       - name: Pull docker image
-        run: docker pull elonh/opde:worker
+        run: -|
+          docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
       - name: Download Packages-00
         if: ${{ github.event.inputs.packages00URL }}
         run: |-
@@ -314,7 +326,9 @@ jobs:
       - name: Compress Logs
         run: tar -czvf Logs.tar.gz openwrt
       - name: Pull docker image
-        run: docker pull elonh/opde:worker
+        run: -|
+          docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
       - name: Upload Logs to artifact
         uses: actions/upload-artifact@v2
         with:

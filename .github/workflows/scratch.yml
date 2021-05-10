@@ -7,6 +7,14 @@ on:
         description: "using chinese apt and pip source mirrors(Value: 0, 1)"
         required: false
         default: "0"
+      target:
+        description: "OpenWRT Target System(Value: x86, bcm27xx, ...)"
+        required: false
+        default: "x86"
+      subtarget:
+        description: "OpenWRT Subtarget(Value: 64, bcm2711, ...)"
+        required: false
+        default: "64"
       subsequent:
         description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
@@ -44,14 +52,21 @@ jobs:
           build-args: |
             CHINESE_APT_MIRRORS=${{ github.event.inputs.chinese }}
             CHINESE_PIP_MIRRORS=${{ github.event.inputs.chinese }}
+            TARGET=${{ github.event.inputs.target }}
+            SUBTARGET=${{ github.event.inputs.subtarget }}
           push: true
           tags: |
-            elonh/opde:base
+            elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
           # elonh/opde:base-${{steps.var.outputs.dateDot}}
+      - name: set default docker tag
+        run: docker tag elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:base
+      - name: push default docker tag
+        if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
+        run: docker push elonh/opde:base
       - name: Invoke Base workflow
         if: ${{ github.event.inputs.subsequent == '1' || github.event_name == 'schedule'}}
         uses: benc-uk/workflow-dispatch@master
         with:
           workflow: Base
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1" }'
+          inputs: '{ "subsequent": "1", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.target }}"}'
