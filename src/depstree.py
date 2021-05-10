@@ -174,9 +174,9 @@ class DependsTree():
                         #     to=self.dg.nodes[pack['Package']]['owner'])
         # shrink some cycles to a singular node
         cycles = [
-            ['package/kernel/ath10k-ct/regular',
+            ['package/feeds/base/ath10k-ct/regular',
                 'kmod-ath10k-ct', 'package/kernel/mac80211'],
-            ['package/kernel/mac80211', 'package/kernel/ath10k-ct/smallbuffers',
+            ['package/kernel/mac80211', 'package/feeds/base/ath10k-ct/smallbuffers',
                 'kmod-ath10k-ct-smallbuffers'],
             ['package/feeds/packages/pulseaudio/noavahi',
                 'pulseaudio-tools', 'pulseaudio'],
