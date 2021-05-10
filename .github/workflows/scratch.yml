@@ -72,4 +72,4 @@ jobs:
         with:
           workflow: Base
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.target }}"}'
+          inputs: '{ "subsequent": "1", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}"}'

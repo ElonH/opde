@@ -218,4 +218,4 @@ jobs:
         with:
           workflow: Worker
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}", , "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.target }}"}'
+          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}", , "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}"}'
