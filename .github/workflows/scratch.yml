@@ -59,7 +59,9 @@ jobs:
             elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
           # elonh/opde:base-${{steps.var.outputs.dateDot}}
       - name: set default docker tag
-        run: docker tag elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:base
+        run: |-
+          docker pull elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:base
       - name: push default docker tag
         if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
         run: docker push elonh/opde:base

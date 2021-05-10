@@ -161,7 +161,9 @@ jobs:
           tags: |
             elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
       - name: set default docker tag
-        run: docker tag elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:sdk
+        run: |-
+          docker pull elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:sdk
       - name: push default docker tag
         if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
         run: docker push elonh/opde:sdk
@@ -186,7 +188,9 @@ jobs:
           tags: |
             elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
       - name: set default docker tag
-        run: docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
+        run: |-
+          docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
       - name: push default docker tag
         if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
         run: docker push elonh/opde:worker
@@ -202,7 +206,9 @@ jobs:
           tags: |
             elonh/opde:ib-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
       - name: set default docker tag
-        run: docker tag elonh/opde:ib-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:ib
+        run: |-
+          docker pull elonh/opde:ib-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:ib-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:ib
       - name: push default docker tag
         if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
         run: docker push elonh/opde:ib
