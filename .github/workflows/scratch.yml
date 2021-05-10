@@ -54,6 +54,7 @@ jobs:
             CHINESE_PIP_MIRRORS=${{ github.event.inputs.chinese }}
             TARGET=${{ github.event.inputs.target }}
             SUBTARGET=${{ github.event.inputs.subtarget }}
+          # TODO: verify target and subtarget is aliable
           push: true
           tags: |
             elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
