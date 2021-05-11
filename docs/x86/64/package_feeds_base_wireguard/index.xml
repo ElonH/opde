@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_wireguard on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 May 2021 11:30:58 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 May 2021 22:16:25 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.13</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.13/</link>
+      <pubDate>Tue, 11 May 2021 22:16:25 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.13/</guid>
+      <description>build number: 13
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/wireguard/compile -j$(nproc) || make package/feeds/base/wireguard/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.115&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/wireguard-linux-compat-1.0.20210219/src/main.o In file included from &amp;lt;command-line&amp;gt;: ./../wireguard-linux-compat-1.0.20210219/src/compat/compat.h:1059:22: error: static declaration of &amp;#39;ip_tunnel_parse_protocol&amp;#39; follows non-static declaration static inline __be16 ip_tunnel_parse_protocol(const struct sk_buff *skb) ^~~~~~~~~~~~~~~~~~~~~~~~ In file included from .</description>
+    </item>
     
     <item>
       <title>compile.12</title>

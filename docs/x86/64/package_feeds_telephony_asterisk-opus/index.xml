@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_telephony_asterisk-opus on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 May 2021 11:28:31 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 May 2021 22:14:47 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.13</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.13/</link>
+      <pubDate>Tue, 11 May 2021 22:14:47 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.13/</guid>
+      <description>build number: 13
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-opus/compile -j$(nproc) || make package/feeds/telephony/asterisk-opus/compile V=s Compile.txt Applying ./patches/01-Makefile.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/asterisk-opus-2017-10-09-83e1b458&amp;#39; ccache_cc -o codecs/codec_opus_open_source.so -DAST_MODULE=\&amp;#34;codec_opus_open_source\&amp;#34; -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/asterisk-opus-2017-10-09-83e1b458=asterisk-opus-2017-10-09-83e1b458 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -DAST_MODULE_SELF_SYM=__internal_codec_opus_open_source_self -DPIC -fpic -I/openwrt/staging_dir/toolchain-x86_64_gcc-8.</description>
+    </item>
     
     <item>
       <title>compile.12</title>
