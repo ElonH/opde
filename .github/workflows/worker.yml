@@ -63,7 +63,7 @@ jobs:
         with:
           submodules: true
       - name: pull docker image
-        run: docker pull elonh/opde:worker
+        run: |
           docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
           docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
       - name: Copy SDK
