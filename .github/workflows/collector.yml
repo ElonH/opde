@@ -18,7 +18,9 @@ jobs:
           ref: "gh-pages"
           fetch-depth: "0"
       - name: Pull docker image
-        run: docker pull elonh/opde:worker
+        run: |
+          docker pull elonh/opde:worker
+          docker images
       - name: Download all logs
         run: |
           docker run -v $PWD:/openwrt elonh/opde:worker sudo transfer ${{github.event.inputs.dataURL}} -o Logs.tar.gz

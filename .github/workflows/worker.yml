@@ -66,6 +66,7 @@ jobs:
         run: |
           docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
           docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
+          docker images
       - name: Copy SDK
         run: |
           docker run -v $PWD/openwrt:/openwrt_bak elonh/opde:worker sudo chown opde:opde -R /openwrt_bak
@@ -194,12 +195,13 @@ jobs:
           name: Packages-01
           path: openwrt/bin
       - name: Pull docker image
-        run: -|
+        run: |
           docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
           docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
+          docker images
       - name: Download Packages-00
         if: ${{ github.event.inputs.packages00URL }}
-        run: |-
+        run: |
           docker run -v $PWD:/openwrt elonh/opde:worker sudo transfer ${{github.event.inputs.packages00URL}} -o Packages-00.tar.gz
           sudo chown $(id -u -n):$(id -g -n) Packages-00.tar.gz
           sha256sum Packages-00.tar.gz
@@ -326,9 +328,10 @@ jobs:
       - name: Compress Logs
         run: tar -czvf Logs.tar.gz openwrt
       - name: Pull docker image
-        run: -|
+        run: |
           docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
           docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
+          docker images
       - name: Upload Logs to artifact
         uses: actions/upload-artifact@v2
         with:
