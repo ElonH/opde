@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.14 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.14/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.14" />
+<meta property="og:description" content="build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/node-ejdb2_node/compile -j$(nproc) || make package/feeds/packages/node-ejdb2_node/compile V=s Compile.txt Applying ./patches/999-fix_install_js.patch using plaintext: patching file install.js Applying ./patches/999-fix_strip_issue.patch using plaintext: patching file install.js Applying ./patches/999-mips_support.patch using plaintext: patching file package.json npm info it worked if it ends with ok npm info using npm@6." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.14/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-05-12T23:06:35+00:00" />
+<meta property="article:modified_time" content="2021-05-12T23:06:35+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.14"/>
+<meta name="twitter:description" content="build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/node-ejdb2_node/compile -j$(nproc) || make package/feeds/packages/node-ejdb2_node/compile V=s Compile.txt Applying ./patches/999-fix_install_js.patch using plaintext: patching file install.js Applying ./patches/999-fix_strip_issue.patch using plaintext: patching file install.js Applying ./patches/999-mips_support.patch using plaintext: patching file package.json npm info it worked if it ends with ok npm info using npm@6."/>
+<meta itemprop="name" content="compile.14">
+<meta itemprop="description" content="build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/packages/node-ejdb2_node/compile -j$(nproc) || make package/feeds/packages/node-ejdb2_node/compile V=s Compile.txt Applying ./patches/999-fix_install_js.patch using plaintext: patching file install.js Applying ./patches/999-fix_strip_issue.patch using plaintext: patching file install.js Applying ./patches/999-mips_support.patch using plaintext: patching file package.json npm info it worked if it ends with ok npm info using npm@6.">
+<meta itemprop="datePublished" content="2021-05-12T23:06:35&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-12T23:06:35&#43;00:00" />
+<meta itemprop="wordCount" content="5294">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.14</h1>
+<p>build number: <code>14</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/packages/node-ejdb2_node/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/packages/node-ejdb2_node/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/999-fix_install_js.patch using plaintext: 
+patching file install.js
+
+Applying ./patches/999-fix_strip_issue.patch using plaintext: 
+patching file install.js
+
+Applying ./patches/999-mips_support.patch using plaintext: 
+patching file package.json
+npm info it worked <span style="color:#66d9ef">if</span> it ends with ok
+npm info using npm@6.14.12
+npm info using node@v14.16.1
+npm timing stage:loadCurrentTree Completed in 24ms
+npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms
+npm timing stage:loadIdealTree:loadShrinkwrap Completed in 1ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/extract-zip 154ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/request 154ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/semver 159ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/request-progress 186ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/gauge 189ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/rimraf 190ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/extract-zip/-/extract-zip-1.7.0.tgz 73ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/request/-/request-2.88.2.tgz 68ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/semver/-/semver-6.3.0.tgz 61ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/gauge/-/gauge-2.7.4.tgz 56ms
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz 66ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/request-progress/-/request-progress-3.0.0.tgz 71ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/debug 60ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/concat-stream 62ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/mkdirp 67ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/yauzl 69ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/yauzl/-/yauzl-2.10.0.tgz 31ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz 35ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/concat-stream/-/concat-stream-1.6.2.tgz 55ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 87ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/typedarray 27ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/readable-stream 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/inherits 55ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz 55ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/buffer-from 96ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz 72ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.1.tgz 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/util-deprecate 29ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/process-nextick-args 37ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/string_decoder 58ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/core-util-is 60ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/safe-buffer 61ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz 48ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/isarray 79ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz 47ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz 46ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz 38ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz 168ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ms 52ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 50ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/minimist 37ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz 44ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fd-slicer 26ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/buffer-crc32 51ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fd-slicer/-/fd-slicer-1.1.0.tgz 32ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/buffer-crc32/-/buffer-crc32-0.2.13.tgz 47ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/pend 34ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/pend/-/pend-1.2.0.tgz 51ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/aproba 46ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/signal-exit 53ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/console-control-strings 54ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/has-unicode 57ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/string-width 64ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/object-assign 70ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/wide-align 72ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/aproba/-/aproba-1.2.0.tgz 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/has-unicode/-/has-unicode-2.0.1.tgz 30ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.3.tgz 46ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/wide-align/-/wide-align-1.1.3.tgz 27ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/console-control-strings/-/console-control-strings-1.1.0.tgz 47ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/strip-ansi 112ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz 56ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 59ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/strip-ansi/-/strip-ansi-3.0.1.tgz 33ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/code-point-at 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz 25ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/is-fullwidth-code-point 64ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-1.0.0.tgz 35ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/number-is-nan 58ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz 72ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ansi-regex 57ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.1.1.tgz 31ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/aws4 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/har-validator 43ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/aws-sign2 48ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/extend 50ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/caseless 53ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/combined-stream 62ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/form-data 60ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/forever-agent 66ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/http-signature 66ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/aws4/-/aws4-1.11.0.tgz 38ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/har-validator/-/har-validator-5.1.5.tgz 33ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/is-typedarray 81ms
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz 47ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz 55ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/extend/-/extend-3.0.2.tgz 66ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/isstream 54ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/http-signature/-/http-signature-1.2.0.tgz 61ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/form-data/-/form-data-2.3.3.tgz 70ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz 54ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz 74ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/mime-types 39ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/json-stringify-safe 58ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/oauth-sign 35ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/performance-now 32ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz 29ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/tough-cookie 27ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/qs 44ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/tunnel-agent 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz 34ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/mime-types/-/mime-types-2.1.30.tgz 50ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz 43ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz 47ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/qs/-/qs-6.5.2.tgz 44ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz 50ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.6.0.tgz 35ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/uuid 100ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz 99ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/delayed-stream 75ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz 33ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/asynckit 50ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz 51ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/mime-db 68ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/mime-db/-/mime-db-1.47.0.tgz 42ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/har-schema 42ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ajv 62ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/har-schema/-/har-schema-2.0.0.tgz 57ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz 61ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fast-json-stable-stringify 32ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/uri-js 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fast-deep-equal 38ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/uri-js/-/uri-js-4.4.1.tgz 49ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz 54ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 51ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/json-schema-traverse 90ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz 26ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/punycode 66ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz 43ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/assert-plus 32ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/jsprim 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/sshpk 45ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz 38ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/jsprim/-/jsprim-1.4.1.tgz 35ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/sshpk/-/sshpk-1.16.1.tgz 44ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/extsprintf 42ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/verror 47ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/json-schema 51ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/verror/-/verror-1.10.0.tgz 31ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/json-schema/-/json-schema-0.2.3.tgz 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz 53ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/bcrypt-pbkdf 41ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/safer-buffer 48ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/asn1 51ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/tweetnacl 53ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ecc-jsbn 53ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/dashdash 58ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/getpass 58ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz 29ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/jsbn 77ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/asn1/-/asn1-0.2.4.tgz 52ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz 49ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 56ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz 52ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz 48ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz 63ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/jsbn/-/jsbn-0.1.1.tgz 44ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/psl 43ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/psl/-/psl-1.8.0.tgz 54ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/throttleit 45ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/throttleit/-/throttleit-1.0.0.tgz 29ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/glob 25ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/glob/-/glob-7.1.7.tgz 32ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/inflight 29ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/once 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fs.realpath 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/minimatch 42ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz 49ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/path-is-absolute 80ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz 38ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/once/-/once-1.4.0.tgz 53ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz 40ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/wrappy 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 39ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/brace-expansion 52ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz 37ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/concat-map 36ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/balanced-match 43ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz 28ms
+npm http fetch GET <span style="color:#ae81ff">200</span> https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz 36ms
+npm timing stage:loadIdealTree:loadAllDepsIntoIdealTree Completed in 3740ms
+npm timing stage:loadIdealTree Completed in 3782ms
+npm timing stage:generateActionsToTake Completed in 28ms
+npm timing action:extract Completed in 435ms
+npm timing action:finalize Completed in 70ms
+npm timing action:refresh-package-json Completed in 206ms
+npm info lifecycle ansi-regex@2.1.1~preinstall: ansi-regex@2.1.1
+npm info lifecycle aproba@1.2.0~preinstall: aproba@1.2.0
+npm info lifecycle assert-plus@1.0.0~preinstall: assert-plus@1.0.0
+npm info lifecycle asynckit@0.4.0~preinstall: asynckit@0.4.0
+npm info lifecycle aws-sign2@0.7.0~preinstall: aws-sign2@0.7.0
+npm info lifecycle aws4@1.11.0~preinstall: aws4@1.11.0
+npm info lifecycle balanced-match@1.0.2~preinstall: balanced-match@1.0.2
+npm info lifecycle buffer-crc32@0.2.13~preinstall: buffer-crc32@0.2.13
+npm info lifecycle buffer-from@1.1.1~preinstall: buffer-from@1.1.1
+npm info lifecycle caseless@0.12.0~preinstall: caseless@0.12.0
+npm info lifecycle code-point-at@1.1.0~preinstall: code-point-at@1.1.0
+npm info lifecycle concat-map@0.0.1~preinstall: concat-map@0.0.1
+npm info lifecycle brace-expansion@1.1.11~preinstall: brace-expansion@1.1.11
+npm info lifecycle console-control-strings@1.1.0~preinstall: console-control-strings@1.1.0
+npm info lifecycle core-util-is@1.0.2~preinstall: core-util-is@1.0.2
+npm info lifecycle dashdash@1.14.1~preinstall: dashdash@1.14.1
+npm info lifecycle delayed-stream@1.0.0~preinstall: delayed-stream@1.0.0
+npm info lifecycle combined-stream@1.0.8~preinstall: combined-stream@1.0.8
+npm info lifecycle extend@3.0.2~preinstall: extend@3.0.2
+npm info lifecycle extsprintf@1.3.0~preinstall: extsprintf@1.3.0
+npm info lifecycle fast-deep-equal@3.1.3~preinstall: fast-deep-equal@3.1.3
+npm info lifecycle fast-json-stable-stringify@2.1.0~preinstall: fast-json-stable-stringify@2.1.0
+npm info lifecycle forever-agent@0.6.1~preinstall: forever-agent@0.6.1
+npm info lifecycle fs.realpath@1.0.0~preinstall: fs.realpath@1.0.0
+npm info lifecycle getpass@0.1.7~preinstall: getpass@0.1.7
+npm info lifecycle har-schema@2.0.0~preinstall: har-schema@2.0.0
+npm info lifecycle has-unicode@2.0.1~preinstall: has-unicode@2.0.1
+npm info lifecycle inherits@2.0.4~preinstall: inherits@2.0.4
+npm info lifecycle is-typedarray@1.0.0~preinstall: is-typedarray@1.0.0
+npm info lifecycle isarray@1.0.0~preinstall: isarray@1.0.0
+npm info lifecycle isstream@0.1.2~preinstall: isstream@0.1.2
+npm info lifecycle jsbn@0.1.1~preinstall: jsbn@0.1.1
+npm info lifecycle json-schema@0.2.3~preinstall: json-schema@0.2.3
+npm info lifecycle json-schema-traverse@0.4.1~preinstall: json-schema-traverse@0.4.1
+npm info lifecycle json-stringify-safe@5.0.1~preinstall: json-stringify-safe@5.0.1
+npm info lifecycle mime-db@1.47.0~preinstall: mime-db@1.47.0
+npm info lifecycle mime-types@2.1.30~preinstall: mime-types@2.1.30
+npm info lifecycle form-data@2.3.3~preinstall: form-data@2.3.3
+npm info lifecycle minimatch@3.0.4~preinstall: minimatch@3.0.4
+npm info lifecycle minimist@1.2.5~preinstall: minimist@1.2.5
+npm info lifecycle mkdirp@0.5.5~preinstall: mkdirp@0.5.5
+npm info lifecycle ms@2.0.0~preinstall: ms@2.0.0
+npm info lifecycle debug@2.6.9~preinstall: debug@2.6.9
+npm info lifecycle number-is-nan@1.0.1~preinstall: number-is-nan@1.0.1
+npm info lifecycle is-fullwidth-code-point@1.0.0~preinstall: is-fullwidth-code-point@1.0.0
+npm info lifecycle oauth-sign@0.9.0~preinstall: oauth-sign@0.9.0
+npm info lifecycle object-assign@4.1.1~preinstall: object-assign@4.1.1
+npm info lifecycle path-is-absolute@1.0.1~preinstall: path-is-absolute@1.0.1
+npm info lifecycle pend@1.2.0~preinstall: pend@1.2.0
+npm info lifecycle fd-slicer@1.1.0~preinstall: fd-slicer@1.1.0
+npm info lifecycle ejdb2_node@2.0.603~preinstall: ejdb2_node@2.0.603
+npm info lifecycle semver@6.3.0~preinstall: semver@6.3.0
+npm info lifecycle rimraf@2.7.1~preinstall: rimraf@2.7.1
+npm info lifecycle request-progress@3.0.0~preinstall: request-progress@3.0.0
+npm info lifecycle request@2.88.2~preinstall: request@2.88.2
+npm info lifecycle gauge@2.7.4~preinstall: gauge@2.7.4
+npm info lifecycle extract-zip@1.7.0~preinstall: extract-zip@1.7.0
+npm info lifecycle yauzl@2.10.0~preinstall: yauzl@2.10.0
+npm info lifecycle glob@7.1.7~preinstall: glob@7.1.7
+npm info lifecycle inflight@1.0.6~preinstall: inflight@1.0.6
+npm info lifecycle once@1.4.0~preinstall: once@1.4.0
+npm info lifecycle wrappy@1.0.2~preinstall: wrappy@1.0.2
+npm info lifecycle wide-align@1.1.3~preinstall: wide-align@1.1.3
+npm info lifecycle http-signature@1.2.0~preinstall: http-signature@1.2.0
+npm info lifecycle jsprim@1.4.1~preinstall: jsprim@1.4.1
+npm info lifecycle verror@1.10.0~preinstall: verror@1.10.0
+npm info lifecycle uuid@3.4.0~preinstall: uuid@3.4.0
+npm info lifecycle concat-stream@1.6.2~preinstall: concat-stream@1.6.2
+npm info lifecycle readable-stream@2.3.7~preinstall: readable-stream@2.3.7
+npm info lifecycle util-deprecate@1.0.2~preinstall: util-deprecate@1.0.2
+npm info lifecycle har-validator@5.1.5~preinstall: har-validator@5.1.5
+npm info lifecycle ajv@6.12.6~preinstall: ajv@6.12.6
+npm info lifecycle uri-js@4.4.1~preinstall: uri-js@4.4.1
+npm info lifecycle typedarray@0.0.6~preinstall: typedarray@0.0.6
+npm info lifecycle sshpk@1.16.1~preinstall: sshpk@1.16.1
+npm info lifecycle bcrypt-pbkdf@1.0.2~preinstall: bcrypt-pbkdf@1.0.2
+npm info lifecycle tweetnacl@0.14.5~preinstall: tweetnacl@0.14.5
+npm info lifecycle tunnel-agent@0.6.0~preinstall: tunnel-agent@0.6.0
+npm info lifecycle tough-cookie@2.5.0~preinstall: tough-cookie@2.5.0
+npm info lifecycle throttleit@1.0.0~preinstall: throttleit@1.0.0
+npm info lifecycle string-width@1.0.2~preinstall: string-width@1.0.2
+npm info lifecycle strip-ansi@3.0.1~preinstall: strip-ansi@3.0.1
+npm info lifecycle string_decoder@1.1.1~preinstall: string_decoder@1.1.1
+npm info lifecycle signal-exit@3.0.3~preinstall: signal-exit@3.0.3
+npm info lifecycle ecc-jsbn@0.1.2~preinstall: ecc-jsbn@0.1.2
+npm info lifecycle asn1@0.2.4~preinstall: asn1@0.2.4
+npm info lifecycle safer-buffer@2.1.2~preinstall: safer-buffer@2.1.2
+npm info lifecycle safe-buffer@5.1.2~preinstall: safe-buffer@5.1.2
+npm info lifecycle qs@6.5.2~preinstall: qs@6.5.2
+npm info lifecycle punycode@2.1.1~preinstall: punycode@2.1.1
+npm info lifecycle psl@1.8.0~preinstall: psl@1.8.0
+npm info lifecycle process-nextick-args@2.0.1~preinstall: process-nextick-args@2.0.1
+npm info lifecycle performance-now@2.1.0~preinstall: performance-now@2.1.0
+npm timing action:preinstall Completed in 14ms
+npm info linkStuff ansi-regex@2.1.1
+npm info linkStuff aproba@1.2.0
+npm info linkStuff assert-plus@1.0.0
+npm info linkStuff asynckit@0.4.0
+npm info linkStuff aws-sign2@0.7.0
+npm info linkStuff aws4@1.11.0
+npm info linkStuff balanced-match@1.0.2
+npm info linkStuff buffer-crc32@0.2.13
+npm info linkStuff buffer-from@1.1.1
+npm info linkStuff caseless@0.12.0
+npm info linkStuff code-point-at@1.1.0
+npm info linkStuff concat-map@0.0.1
+npm info linkStuff brace-expansion@1.1.11
+npm info linkStuff console-control-strings@1.1.0
+npm info linkStuff core-util-is@1.0.2
+npm info linkStuff dashdash@1.14.1
+npm info linkStuff delayed-stream@1.0.0
+npm info linkStuff combined-stream@1.0.8
+npm info linkStuff extend@3.0.2
+npm info linkStuff extsprintf@1.3.0
+npm info linkStuff fast-deep-equal@3.1.3
+npm info linkStuff fast-json-stable-stringify@2.1.0
+npm info linkStuff forever-agent@0.6.1
+npm info linkStuff fs.realpath@1.0.0
+npm info linkStuff getpass@0.1.7
+npm info linkStuff har-schema@2.0.0
+npm info linkStuff has-unicode@2.0.1
+npm info linkStuff inherits@2.0.4
+npm info linkStuff is-typedarray@1.0.0
+npm info linkStuff isarray@1.0.0
+npm info linkStuff isstream@0.1.2
+npm info linkStuff jsbn@0.1.1
+npm info linkStuff json-schema@0.2.3
+npm info linkStuff json-schema-traverse@0.4.1
+npm info linkStuff json-stringify-safe@5.0.1
+npm info linkStuff mime-db@1.47.0
+npm info linkStuff mime-types@2.1.30
+npm info linkStuff form-data@2.3.3
+npm info linkStuff minimatch@3.0.4
+npm info linkStuff minimist@1.2.5
+npm info linkStuff mkdirp@0.5.5
+npm info linkStuff ms@2.0.0
+npm info linkStuff debug@2.6.9
+npm info linkStuff number-is-nan@1.0.1
+npm info linkStuff is-fullwidth-code-point@1.0.0
+npm info linkStuff oauth-sign@0.9.0
+npm info linkStuff object-assign@4.1.1
+npm info linkStuff path-is-absolute@1.0.1
+npm info linkStuff pend@1.2.0
+npm info linkStuff fd-slicer@1.1.0
+npm info linkStuff performance-now@2.1.0
+npm info linkStuff process-nextick-args@2.0.1
+npm info linkStuff psl@1.8.0
+npm info linkStuff punycode@2.1.1
+npm info linkStuff qs@6.5.2
+npm info linkStuff safe-buffer@5.1.2
+npm info linkStuff safer-buffer@2.1.2
+npm info linkStuff asn1@0.2.4
+npm info linkStuff ecc-jsbn@0.1.2
+npm info linkStuff signal-exit@3.0.3
+npm info linkStuff string_decoder@1.1.1
+npm info linkStuff strip-ansi@3.0.1
+npm info linkStuff string-width@1.0.2
+npm info linkStuff throttleit@1.0.0
+npm info linkStuff tough-cookie@2.5.0
+npm info linkStuff tunnel-agent@0.6.0
+npm info linkStuff tweetnacl@0.14.5
+npm info linkStuff bcrypt-pbkdf@1.0.2
+npm info linkStuff sshpk@1.16.1
+npm info linkStuff typedarray@0.0.6
+npm info linkStuff uri-js@4.4.1
+npm info linkStuff ajv@6.12.6
+npm info linkStuff har-validator@5.1.5
+npm info linkStuff util-deprecate@1.0.2
+npm info linkStuff readable-stream@2.3.7
+npm info linkStuff concat-stream@1.6.2
+npm info linkStuff uuid@3.4.0
+npm info linkStuff verror@1.10.0
+npm info linkStuff jsprim@1.4.1
+npm info linkStuff http-signature@1.2.0
+npm info linkStuff wide-align@1.1.3
+npm info linkStuff wrappy@1.0.2
+npm info linkStuff once@1.4.0
+npm info linkStuff inflight@1.0.6
+npm info linkStuff glob@7.1.7
+npm info linkStuff yauzl@2.10.0
+npm info linkStuff extract-zip@1.7.0
+npm info linkStuff gauge@2.7.4
+npm info linkStuff request@2.88.2
+npm info linkStuff request-progress@3.0.0
+npm info linkStuff rimraf@2.7.1
+npm info linkStuff semver@6.3.0
+npm info linkStuff ejdb2_node@2.0.603
+npm timing action:build Completed in 38ms
+npm info lifecycle ansi-regex@2.1.1~install: ansi-regex@2.1.1
+npm info lifecycle aproba@1.2.0~install: aproba@1.2.0
+npm info lifecycle assert-plus@1.0.0~install: assert-plus@1.0.0
+npm info lifecycle asynckit@0.4.0~install: asynckit@0.4.0
+npm info lifecycle aws-sign2@0.7.0~install: aws-sign2@0.7.0
+npm info lifecycle aws4@1.11.0~install: aws4@1.11.0
+npm info lifecycle balanced-match@1.0.2~install: balanced-match@1.0.2
+npm info lifecycle buffer-crc32@0.2.13~install: buffer-crc32@0.2.13
+npm info lifecycle buffer-from@1.1.1~install: buffer-from@1.1.1
+npm info lifecycle caseless@0.12.0~install: caseless@0.12.0
+npm info lifecycle code-point-at@1.1.0~install: code-point-at@1.1.0
+npm info lifecycle concat-map@0.0.1~install: concat-map@0.0.1
+npm info lifecycle brace-expansion@1.1.11~install: brace-expansion@1.1.11
+npm info lifecycle console-control-strings@1.1.0~install: console-control-strings@1.1.0
+npm info lifecycle core-util-is@1.0.2~install: core-util-is@1.0.2
+npm info lifecycle dashdash@1.14.1~install: dashdash@1.14.1
+npm info lifecycle delayed-stream@1.0.0~install: delayed-stream@1.0.0
+npm info lifecycle combined-stream@1.0.8~install: combined-stream@1.0.8
+npm info lifecycle extend@3.0.2~install: extend@3.0.2
+npm info lifecycle extsprintf@1.3.0~install: extsprintf@1.3.0
+npm info lifecycle fast-deep-equal@3.1.3~install: fast-deep-equal@3.1.3
+npm info lifecycle fast-json-stable-stringify@2.1.0~install: fast-json-stable-stringify@2.1.0
+npm info lifecycle forever-agent@0.6.1~install: forever-agent@0.6.1
+npm info lifecycle fs.realpath@1.0.0~install: fs.realpath@1.0.0
+npm info lifecycle getpass@0.1.7~install: getpass@0.1.7
+npm info lifecycle har-schema@2.0.0~install: har-schema@2.0.0
+npm info lifecycle has-unicode@2.0.1~install: has-unicode@2.0.1
+npm info lifecycle inherits@2.0.4~install: inherits@2.0.4
+npm info lifecycle is-typedarray@1.0.0~install: is-typedarray@1.0.0
+npm info lifecycle isarray@1.0.0~install: isarray@1.0.0
+npm info lifecycle isstream@0.1.2~install: isstream@0.1.2
+npm info lifecycle jsbn@0.1.1~install: jsbn@0.1.1
+npm info lifecycle json-schema@0.2.3~install: json-schema@0.2.3
+npm info lifecycle json-schema-traverse@0.4.1~install: json-schema-traverse@0.4.1
+npm info lifecycle json-stringify-safe@5.0.1~install: json-stringify-safe@5.0.1
+npm info lifecycle mime-db@1.47.0~install: mime-db@1.47.0
+npm info lifecycle mime-types@2.1.30~install: mime-types@2.1.30
+npm info lifecycle form-data@2.3.3~install: form-data@2.3.3
+npm info lifecycle minimatch@3.0.4~install: minimatch@3.0.4
+npm info lifecycle minimist@1.2.5~install: minimist@1.2.5
+npm info lifecycle mkdirp@0.5.5~install: mkdirp@0.5.5
+npm info lifecycle ms@2.0.0~install: ms@2.0.0
+npm info lifecycle debug@2.6.9~install: debug@2.6.9
+npm info lifecycle number-is-nan@1.0.1~install: number-is-nan@1.0.1
+npm info lifecycle is-fullwidth-code-point@1.0.0~install: is-fullwidth-code-point@1.0.0
+npm info lifecycle oauth-sign@0.9.0~install: oauth-sign@0.9.0
+npm info lifecycle object-assign@4.1.1~install: object-assign@4.1.1
+npm info lifecycle path-is-absolute@1.0.1~install: path-is-absolute@1.0.1
+npm info lifecycle pend@1.2.0~install: pend@1.2.0
+npm info lifecycle fd-slicer@1.1.0~install: fd-slicer@1.1.0
+npm info lifecycle performance-now@2.1.0~install: performance-now@2.1.0
+npm info lifecycle process-nextick-args@2.0.1~install: process-nextick-args@2.0.1
+npm info lifecycle psl@1.8.0~install: psl@1.8.0
+npm info lifecycle punycode@2.1.1~install: punycode@2.1.1
+npm info lifecycle qs@6.5.2~install: qs@6.5.2
+npm info lifecycle safe-buffer@5.1.2~install: safe-buffer@5.1.2
+npm info lifecycle safer-buffer@2.1.2~install: safer-buffer@2.1.2
+npm info lifecycle asn1@0.2.4~install: asn1@0.2.4
+npm info lifecycle ecc-jsbn@0.1.2~install: ecc-jsbn@0.1.2
+npm info lifecycle signal-exit@3.0.3~install: signal-exit@3.0.3
+npm info lifecycle string_decoder@1.1.1~install: string_decoder@1.1.1
+npm info lifecycle strip-ansi@3.0.1~install: strip-ansi@3.0.1
+npm info lifecycle string-width@1.0.2~install: string-width@1.0.2
+npm info lifecycle throttleit@1.0.0~install: throttleit@1.0.0
+npm info lifecycle tough-cookie@2.5.0~install: tough-cookie@2.5.0
+npm info lifecycle tunnel-agent@0.6.0~install: tunnel-agent@0.6.0
+npm info lifecycle tweetnacl@0.14.5~install: tweetnacl@0.14.5
+npm info lifecycle bcrypt-pbkdf@1.0.2~install: bcrypt-pbkdf@1.0.2
+npm info lifecycle sshpk@1.16.1~install: sshpk@1.16.1
+npm info lifecycle typedarray@0.0.6~install: typedarray@0.0.6
+npm info lifecycle uri-js@4.4.1~install: uri-js@4.4.1
+npm info lifecycle ajv@6.12.6~install: ajv@6.12.6
+npm info lifecycle har-validator@5.1.5~install: har-validator@5.1.5
+npm info lifecycle util-deprecate@1.0.2~install: util-deprecate@1.0.2
+npm info lifecycle readable-stream@2.3.7~install: readable-stream@2.3.7
+npm info lifecycle concat-stream@1.6.2~install: concat-stream@1.6.2
+npm info lifecycle uuid@3.4.0~install: uuid@3.4.0
+npm info lifecycle verror@1.10.0~install: verror@1.10.0
+npm info lifecycle jsprim@1.4.1~install: jsprim@1.4.1
+npm info lifecycle http-signature@1.2.0~install: http-signature@1.2.0
+npm info lifecycle wide-align@1.1.3~install: wide-align@1.1.3
+npm info lifecycle wrappy@1.0.2~install: wrappy@1.0.2
+npm info lifecycle once@1.4.0~install: once@1.4.0
+npm info lifecycle inflight@1.0.6~install: inflight@1.0.6
+npm info lifecycle glob@7.1.7~install: glob@7.1.7
+npm info lifecycle yauzl@2.10.0~install: yauzl@2.10.0
+npm info lifecycle extract-zip@1.7.0~install: extract-zip@1.7.0
+npm info lifecycle gauge@2.7.4~install: gauge@2.7.4
+npm info lifecycle request@2.88.2~install: request@2.88.2
+npm info lifecycle request-progress@3.0.0~install: request-progress@3.0.0
+npm info lifecycle rimraf@2.7.1~install: rimraf@2.7.1
+npm info lifecycle semver@6.3.0~install: semver@6.3.0
+npm info lifecycle ejdb2_node@2.0.603~install: ejdb2_node@2.0.603
+
+&gt; ejdb2_node@2.0.603 install /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib/node_modules/ejdb2_node
+&gt; node install.js
+
+Spawn: cmake --version
+cmake version 3.19.1
+
+CMake suite maintained and supported by Kitware <span style="color:#f92672">(</span>kitware.com/cmake<span style="color:#f92672">)</span>.
+
+Spawn: make --version
+GNU Make 4.2.1
+,Built <span style="color:#66d9ef">for</span> x86_64-pc-linux-gnu
+,Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> 1988-2016 Free Software Foundation, Inc.
+,License GPLv3+: GNU GPL version <span style="color:#ae81ff">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;
+,This is free software: you are free to change and redistribute it.
+,There is NO WARRANTY, to the extent permitted by law.
+
+Building EJDB2 native binding...
+Git revision: be72ee7
+Build temp dir: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc
+Spawn: cmake ..,-DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>RelWithDebInfo,-DBUILD_NODEJS_BINDING<span style="color:#f92672">=</span>ON,-DNODE_BIN_ROOT<span style="color:#f92672">=</span>/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603
+-- Using project changelog file: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/Changelog
+-- The C compiler identification is GNU 8.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - <span style="color:#66d9ef">done</span>
+-- Check <span style="color:#66d9ef">for</span> working C compiler: /openwrt/staging_dir/host/bin/ccache_cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - <span style="color:#66d9ef">done</span>
+-- Resolving GIT Version
+-- Found Git: /openwrt/staging_dir/host/bin/git <span style="color:#f92672">(</span>found version <span style="color:#e6db74">&#34;2.25.1&#34;</span><span style="color:#f92672">)</span> 
+-- GIT hash: 
+IOWOW_URL: https://github.com/Softmotions/iowow/archive/master.zip
+IOWOW CMAKE_ARGS: -DOWNER_PROJECT_NAME<span style="color:#f92672">=</span>ejdb2;-DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>RelWithDebInfo;-DCMAKE_INSTALL_PREFIX<span style="color:#f92672">=</span>/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build;-DASAN<span style="color:#f92672">=</span>OFF;-DBUILD_SHARED_LIBS<span style="color:#f92672">=</span>OFF;-DBUILD_EXAMPLES<span style="color:#f92672">=</span>OFF;-DCMAKE_C_COMPILER<span style="color:#f92672">=</span>/openwrt/staging_dir/host/bin/ccache_cc
+FACIL_URL: https://github.com/Softmotions/facil.io/archive/master.zip
+FACIL CMAKE_ARGS: -DCMAKE_BUILD_TYPE<span style="color:#f92672">=</span>RelWithDebInfo;-DCMAKE_C_FLAGS<span style="color:#f92672">=</span>-fPIC;-DCMAKE_C_COMPILER<span style="color:#f92672">=</span>/openwrt/staging_dir/host/bin/ccache_cc
+-- Check <span style="color:#66d9ef">if</span> the system is big endian
+-- Searching <span style="color:#ae81ff">16</span> bit integer
+-- Looking <span style="color:#66d9ef">for</span> sys/types.h
+-- Looking <span style="color:#66d9ef">for</span> sys/types.h - found
+-- Looking <span style="color:#66d9ef">for</span> stdint.h
+-- Looking <span style="color:#66d9ef">for</span> stdint.h - found
+-- Looking <span style="color:#66d9ef">for</span> stddef.h
+-- Looking <span style="color:#66d9ef">for</span> stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - <span style="color:#66d9ef">done</span>
+-- Searching <span style="color:#ae81ff">16</span> bit integer - Using unsigned short
+-- Check <span style="color:#66d9ef">if</span> the system is big endian - little endian
+-- Looking <span style="color:#66d9ef">for</span> pthread.h
+-- Looking <span style="color:#66d9ef">for</span> pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Looking <span style="color:#66d9ef">for</span> stdlib.h
+-- Looking <span style="color:#66d9ef">for</span> stdlib.h - found
+-- Looking <span style="color:#66d9ef">for</span> stddef.h
+-- Looking <span style="color:#66d9ef">for</span> stddef.h - found
+-- Looking <span style="color:#66d9ef">for</span> stdint.h
+-- Looking <span style="color:#66d9ef">for</span> stdint.h - found
+-- Looking <span style="color:#66d9ef">for</span> stdbool.h
+-- Looking <span style="color:#66d9ef">for</span> stdbool.h - found
+
+CMAKE_GENERATOR: Unix Makefiles
+ejdb2 LINK LIBS: iowow_s;m;facil_s
+ejdb2 ASAN: OFF
+
+ejdb2 INCLUDE DIRS: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/generated;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/include;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/extern_facil/lib/facil;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/extern_facil/lib/facil/fiobj;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/extern_facil/lib/facil/http;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/extern_facil/lib/facil/cli;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/extern_facil/lib/facil/tls;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/util;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbl;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jql;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbr
+
+ejdb2 SOURCES: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/ejdb2.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/util/lwre.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/util/utf8proc.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbl/binn.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbl/jbl.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbl/jbl_json.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jql/jql.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jql/jqp.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_consumer.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_dup_scanner.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_full_scanner.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_pk_scanner.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_selection.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_sorter_consumer.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_uniq_scanner.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbi/jbi_util.c;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbr/jbr.c
+
+ejdb2 PUB_HDRS: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/ejdb2.h;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbl/jbl.h;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jbr/jbr.h;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/jql/jql.h;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/src/util/lwre.h
+
+ejdb2 CMAKE_BUILD_TYPE: RelWithDebInfo
+ejdb2 ANDROID_ABIS: x86;x86_64;arm64-v8a;armeabi-v7a
+ejdb2 ENABLE_HTTP: ON
+ejdb2 BUILD_SHARED_LIBS: ON
+ejdb2 BUILD_TESTS: OFF
+ejdb2 BUILD_EXAMPLES: ON
+ejdb2 BUILD_BENCHMARKS: OFF
+ejdb2 BUILD_DART_BINDING: OFF
+ejdb2 BUILD_ANDROID_LIBS: OFF
+ejdb2 BUILD_JNI_BINDING: OFF
+ejdb2 BUILD_NODEJS_BINDING: ON
+ejdb2 BUILD_REACT_NATIVE_BINDING: OFF
+ejdb2 BUILD_FLUTTER_BINDING: OFF
+ejdb2 BUILD_SWIFT_BINDING: OFF
+ejdb2 GIT_REVISION: 
+ejdb2 CMAKE_INSTALL_PREFIX: /usr/local
+ejdb2 CPACK_GENERATORS: TGZ;ZIP
+ejdb2 CMAKE_GENERATOR: Unix Makefiles
+ejdb2 CMAKE_SYSTEM_NAME: Linux
+ejdb2 CPU: x86_64
+ejdb2 SIZEOF *VOID: <span style="color:#ae81ff">8</span>
+ejdb2 PROJECT: ejdb2 <span style="color:#f92672">(</span>2.0.60<span style="color:#f92672">)</span> UNRELEASED; urgency<span style="color:#f92672">=</span>medium
+ejdb2 CHANGELOG_MESSAGE:
+  * Added typescript generic to JBDOC in node binding <span style="color:#f92672">(</span><span style="color:#75715e">#311)</span> 
+  * Removed -fvisibility<span style="color:#f92672">=</span>hidden compiler flag from facil.io lib
+-- Configuring <span style="color:#66d9ef">done</span>
+-- Generating <span style="color:#66d9ef">done</span>
+-- Build files have been written to: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build
+Spawn: make ejdb2_node
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>7<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+Scanning dependencies of target extern_iowow
+make<span style="color:#f92672">[</span>7<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>7<span style="color:#f92672">]</span>: Entering directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+<span style="color:#f92672">[</span>  2%<span style="color:#f92672">]</span> Creating directories <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;extern_iowow&#39;</span>
+<span style="color:#f92672">[</span>  5%<span style="color:#f92672">]</span> Performing download step <span style="color:#f92672">(</span>download, verify and extract<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;extern_iowow&#39;</span>
+-- Downloading...
+   dst<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build/src/iowow.zip&#39;</span>
+   timeout<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;360 seconds&#39;</span>
+   inactivity timeout<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>
+-- Using src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span>
+-- Retrying...
+-- Using src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span>
+-- Retry after <span style="color:#ae81ff">5</span> seconds <span style="color:#f92672">(</span>attempt <span style="color:#75715e">#2) ...</span>
+-- Using src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span>
+-- Retry after <span style="color:#ae81ff">5</span> seconds <span style="color:#f92672">(</span>attempt <span style="color:#75715e">#3) ...</span>
+-- Using src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span>
+-- Retry after <span style="color:#ae81ff">15</span> seconds <span style="color:#f92672">(</span>attempt <span style="color:#75715e">#4) ...</span>
+-- Using src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span>
+-- Retry after <span style="color:#ae81ff">60</span> seconds <span style="color:#f92672">(</span>attempt <span style="color:#75715e">#5) ...</span>
+-- Using src<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span>
+CMake Error at extern_iowow-stamp/download-extern_iowow.cmake:170 <span style="color:#f92672">(</span>message<span style="color:#f92672">)</span>:
+  Each download failed!
+
+    error: downloading <span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span> failed
+          status_code: <span style="color:#ae81ff">6</span>
+          status_string: <span style="color:#e6db74">&#34;Couldn&#39;t resolve host name&#34;</span>
+          log:
+          --- LOG BEGIN ---
+          getaddrinfo<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span> failed <span style="color:#66d9ef">for</span> github.com:443
+
+  Couldn<span style="color:#e6db74">&#39;t resolve host &#39;</span>github.com<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Closing connection 0
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">          --- LOG END ---
+</span><span style="color:#e6db74">          error: downloading &#39;</span>https://github.com/Softmotions/iowow/archive/master.zip<span style="color:#e6db74">&#39; failed
+</span><span style="color:#e6db74">          status_code: 6
+</span><span style="color:#e6db74">          status_string: &#34;Couldn&#39;</span>t resolve host name<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">          log:
+</span><span style="color:#e6db74">          --- LOG BEGIN ---
+</span><span style="color:#e6db74">          getaddrinfo(3) failed for github.com:443
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Couldn&#39;t resolve host &#39;github.com&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Closing connection 0
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">          --- LOG END ---
+</span><span style="color:#e6db74">          error: downloading &#39;https://github.com/Softmotions/iowow/archive/master.zip&#39; failed
+</span><span style="color:#e6db74">          status_code: 6
+</span><span style="color:#e6db74">          status_string: &#34;</span>Couldn<span style="color:#e6db74">&#39;t resolve host name&#34;
+</span><span style="color:#e6db74">          log:
+</span><span style="color:#e6db74">          --- LOG BEGIN ---
+</span><span style="color:#e6db74">          getaddrinfo(3) failed for github.com:443
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Couldn&#39;</span>t resolve host <span style="color:#e6db74">&#39;github.com&#39;</span>
+
+  Closing connection <span style="color:#ae81ff">0</span>
+
+  
+
+          --- LOG END ---
+          error: downloading <span style="color:#e6db74">&#39;https://github.com/Softmotions/iowow/archive/master.zip&#39;</span> failed
+          status_code: <span style="color:#ae81ff">6</span>
+          status_string: <span style="color:#e6db74">&#34;Couldn&#39;t resolve host name&#34;</span>
+          log:
+          --- LOG BEGIN ---
+          getaddrinfo<span style="color:#f92672">(</span>3<span style="color:#f92672">)</span> failed <span style="color:#66d9ef">for</span> github.com:443
+
+  Couldn<span style="color:#e6db74">&#39;t resolve host &#39;</span>github.com<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Closing connection 0
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">          --- LOG END ---
+</span><span style="color:#e6db74">          error: downloading &#39;</span>https://github.com/Softmotions/iowow/archive/master.zip<span style="color:#e6db74">&#39; failed
+</span><span style="color:#e6db74">          status_code: 6
+</span><span style="color:#e6db74">          status_string: &#34;Couldn&#39;</span>t resolve host name<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">          log:
+</span><span style="color:#e6db74">          --- LOG BEGIN ---
+</span><span style="color:#e6db74">          getaddrinfo(3) failed for github.com:443
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Couldn&#39;t resolve host &#39;github.com&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Closing connection 0
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">          --- LOG END ---
+</span><span style="color:#e6db74">          error: downloading &#39;https://github.com/Softmotions/iowow/archive/master.zip&#39; failed
+</span><span style="color:#e6db74">          status_code: 6
+</span><span style="color:#e6db74">          status_string: &#34;</span>Couldn<span style="color:#e6db74">&#39;t resolve host name&#34;
+</span><span style="color:#e6db74">          log:
+</span><span style="color:#e6db74">          --- LOG BEGIN ---
+</span><span style="color:#e6db74">          getaddrinfo(3) failed for github.com:443
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Couldn&#39;</span>t resolve host <span style="color:#e6db74">&#39;github.com&#39;</span>
+
+  Closing connection <span style="color:#ae81ff">0</span>
+
+  
+
+          --- LOG END ---
+          
+    
+
+
+make<span style="color:#f92672">[</span>7<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>src/CMakeFiles/extern_iowow.dir/build.make:109: src/extern_iowow-stamp/extern_iowow-download<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+make<span style="color:#f92672">[</span>7<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>CMakeFiles/Makefile2:326: src/CMakeFiles/extern_iowow.dir/all<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>6<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>CMakeFiles/Makefile2:447: src/bindings/ejdb2_node/CMakeFiles/ejdb2_node.dir/rule<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>5<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:250: ejdb2_node<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+make<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>: Leaving directory <span style="color:#e6db74">&#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ejdb2-nodeJENnNc/ejdb-be72ee75b27e4cf59a775680f26a1bc994443ae0/build&#39;</span>
+Error: Exit with error code: <span style="color:#ae81ff">2</span>
+    at ChildProcess.&lt;anonymous&gt; <span style="color:#f92672">(</span>/openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/utils.js:77:16<span style="color:#f92672">)</span>
+    at Object.onceWrapper <span style="color:#f92672">(</span>events.js:422:26<span style="color:#f92672">)</span>
+    at ChildProcess.emit <span style="color:#f92672">(</span>events.js:315:20<span style="color:#f92672">)</span>
+    at Process.ChildProcess._handle.onexit <span style="color:#f92672">(</span>internal/child_process.js:277:12<span style="color:#f92672">)</span>
+npm info lifecycle ejdb2_node@2.0.603~install: Failed to exec install script
+npm timing action:install Completed in 88403ms
+npm WARN rollback Rolling back ansi-regex@2.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/ansi-regex is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back aproba@1.2.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/aproba is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back assert-plus@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/assert-plus is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back asynckit@0.4.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/asynckit is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back aws-sign2@0.7.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/aws-sign2 is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back aws4@1.11.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/aws4 is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back balanced-match@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/balanced-match is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back buffer-crc32@0.2.13 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/buffer-crc32 is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back buffer-from@1.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/buffer-from is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back caseless@0.12.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/caseless is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back code-point-at@1.1.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/code-point-at is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back concat-map@0.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/concat-map is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back brace-expansion@1.1.11 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/brace-expansion is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back console-control-strings@1.1.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/console-control-strings is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back core-util-is@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/core-util-is is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back dashdash@1.14.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/dashdash is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back delayed-stream@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/delayed-stream is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back combined-stream@1.0.8 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/combined-stream is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back extend@3.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/extend is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back extsprintf@1.3.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/extsprintf is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back fast-deep-equal@3.1.3 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/fast-deep-equal is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back fast-json-stable-stringify@2.1.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/fast-json-stable-stringify is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back forever-agent@0.6.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/forever-agent is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back fs.realpath@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/fs.realpath is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back getpass@0.1.7 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/getpass is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back har-schema@2.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/har-schema is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back has-unicode@2.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/has-unicode is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back inherits@2.0.4 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/inherits is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back is-typedarray@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/is-typedarray is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back isarray@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/isarray is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back isstream@0.1.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/isstream is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back jsbn@0.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/jsbn is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back json-schema@0.2.3 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/json-schema is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back json-schema-traverse@0.4.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/json-schema-traverse is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back json-stringify-safe@5.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/json-stringify-safe is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back mime-db@1.47.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/mime-db is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back mime-types@2.1.30 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/mime-types is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back form-data@2.3.3 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/form-data is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back minimatch@3.0.4 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/minimatch is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back minimist@1.2.5 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/minimist is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back mkdirp@0.5.5 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/mkdirp is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back ms@2.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/ms is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back debug@2.6.9 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/debug is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back number-is-nan@1.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/number-is-nan is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back is-fullwidth-code-point@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/is-fullwidth-code-point is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back oauth-sign@0.9.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/oauth-sign is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back object-assign@4.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/object-assign is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back path-is-absolute@1.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/path-is-absolute is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back pend@1.2.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/pend is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back fd-slicer@1.1.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/fd-slicer is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back performance-now@2.1.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/performance-now is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back process-nextick-args@2.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/process-nextick-args is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back psl@1.8.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/psl is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back punycode@2.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/punycode is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back qs@6.5.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/qs is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back safe-buffer@5.1.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/safe-buffer is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back safer-buffer@2.1.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/safer-buffer is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back asn1@0.2.4 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/asn1 is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back ecc-jsbn@0.1.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/ecc-jsbn is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back signal-exit@3.0.3 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/signal-exit is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back string_decoder@1.1.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/string_decoder is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back strip-ansi@3.0.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/strip-ansi is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back string-width@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/string-width is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back throttleit@1.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/throttleit is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back tough-cookie@2.5.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/tough-cookie is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back tunnel-agent@0.6.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/tunnel-agent is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back tweetnacl@0.14.5 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/tweetnacl is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back bcrypt-pbkdf@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/bcrypt-pbkdf is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back sshpk@1.16.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/sshpk is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back typedarray@0.0.6 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/typedarray is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back uri-js@4.4.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/uri-js is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back ajv@6.12.6 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/ajv is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back har-validator@5.1.5 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/har-validator is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back util-deprecate@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/util-deprecate is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back readable-stream@2.3.7 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/readable-stream is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back concat-stream@1.6.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/concat-stream is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back uuid@3.4.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/uuid is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back verror@1.10.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/verror is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back jsprim@1.4.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/jsprim is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back http-signature@1.2.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/http-signature is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back wide-align@1.1.3 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/wide-align is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back wrappy@1.0.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/wrappy is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back once@1.4.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/once is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back inflight@1.0.6 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/inflight is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back glob@7.1.7 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/glob is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back yauzl@2.10.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/yauzl is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back extract-zip@1.7.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/extract-zip is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back gauge@2.7.4 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/gauge is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back request@2.88.2 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/request is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back request-progress@3.0.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/request-progress is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back rimraf@2.7.1 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/rimraf is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm WARN rollback Rolling back semver@6.3.0 failed <span style="color:#f92672">(</span>this is probably harmless<span style="color:#f92672">)</span>: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/node_modules/semver is not a child of /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/ipkg-install/usr/lib
+npm timing stage:rollbackFailedOptional Completed in 25ms
+npm timing stage:runTopLevelLifecycles Completed in 93061ms
+npm ERR! code ELIFECYCLE
+npm ERR! errno <span style="color:#ae81ff">1</span>
+npm ERR! ejdb2_node@2.0.603 install: <span style="color:#e6db74">`</span>node install.js<span style="color:#e6db74">`</span>
+npm ERR! Exit status <span style="color:#ae81ff">1</span>
+npm ERR! 
+npm ERR! Failed at the ejdb2_node@2.0.603 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+npm timing npm Completed in 93332ms
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /openwrt/tmp/npm-cache-RnITxNlt5b/_logs/2021-05-12T12_38_18_911Z-debug.log
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:97: /openwrt/build_dir/target-aarch64_cortex-a72_musl/node-ejdb2_node-2.0.603/.built<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 12 May 2021
+
+
+<br>
+Published on 12 May 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/" title="package_feeds_packages_node-ejdb2_node"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - package_feeds_packages_node-ejdb2_node</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/" title="package_feeds_routing_batman-adv">Next - package_feeds_routing_batman-adv <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/">bcm27xx<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/">bcm2711<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/">package_feeds_base_uhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_tang/">package_feeds_packages_tang<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_tang/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/">package_feeds_packages_adguardhome<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/">package_feeds_packages_filebrowser<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-alexa-app/">package_feeds_packages_node-alexa-app<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-alexa-app/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ask-sdk/">package_feeds_packages_node-ask-sdk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ask-sdk/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-aws-iot-device-sdk/">package_feeds_packages_node-aws-iot-device-sdk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-aws-iot-device-sdk/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-epoll/">package_feeds_packages_node-epoll<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-epoll/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-leveldown/">package_feeds_packages_node-leveldown<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-leveldown/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/">package_feeds_packages_node-openzwave-shared<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/">package_feeds_packages_pianod<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/">package_feeds_packages_tang<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/">package_feeds_packages_keepalived<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

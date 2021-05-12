@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_base_rtl8189es on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/</link>
+    <description>Recent content in package_feeds_base_rtl8189es on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 May 2021 23:08:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.14</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.14/</link>
+      <pubDate>Wed, 12 May 2021 23:08:24 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.14/</guid>
+      <description>build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8189es/compile -j$(nproc) || make package/feeds/base/rtl8189es/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.h) patching file include/rtl_autoconf.h (renamed from include/autoconf.h) make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-aarch64_cortex-a72_musl/usr/include/mac80211-backport/backport/autoconf.</description>
+    </item>
+    
+  </channel>
+</rss>

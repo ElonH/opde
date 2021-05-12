@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_adguardhome on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/</link>
+    <description>Recent content in package_feeds_packages_adguardhome on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 May 2021 23:05:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.14</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/compile.14/</link>
+      <pubDate>Wed, 12 May 2021 23:05:59 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/compile.14/</guid>
+      <description>build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/adguardhome/compile -j$(nproc) || make package/feeds/packages/adguardhome/compile V=s Compile.txt Copying files from /openwrt/build_dir/target-aarch64_cortex-a72_musl/adguardhome-0.106.1 into /openwrt/build_dir/target-aarch64_cortex-a72_musl/adguardhome-0.106.1/.go_work/build/src/github.com/AdguardTeam/AdGuardHome go.mod go.sum internal/agherr/agherr.go internal/agherr/agherr_test.go internal/aghio/limitedreadcloser.go internal/aghio/limitedreadcloser_test.go internal/aghnet/addr.go internal/aghnet/addr_test.go internal/aghnet/etchostscontainer.go internal/aghnet/etshostscontainer_test.go internal/aghnet/net.go internal/aghnet/net_darwin.go internal/aghnet/net_linux.go internal/aghnet/net_linux_test.go internal/aghnet/net_others.go internal/aghnet/net_test.go internal/aghnet/subnetdetector.go internal/aghnet/subnetdetector_test.go internal/aghnet/systemresolvers.go internal/aghnet/systemresolvers_others.go internal/aghnet/systemresolvers_others_test.</description>
+    </item>
+    
+  </channel>
+</rss>

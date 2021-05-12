@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_node-openzwave-shared on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/</link>
+    <description>Recent content in package_feeds_packages_node-openzwave-shared on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 May 2021 23:05:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.14</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/compile.14/</link>
+      <pubDate>Wed, 12 May 2021 23:05:59 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/compile.14/</guid>
+      <description>build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-openzwave-shared/compile -j$(nproc) || make package/feeds/packages/node-openzwave-shared/compile V=s Compile.txt Applying ./patches/999-node_v16_support.patch using plaintext: patching file binding.gyp npm info it worked if it ends with ok npm info using npm@6.14.12 npm info using node@v14.16.1 npm timing stage:loadCurrentTree Completed in 16ms npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms npm timing stage:loadIdealTree:loadShrinkwrap Completed in 1ms npm timing stage:rollbackFailedOptional Completed in 1ms npm timing stage:runTopLevelLifecycles Completed in 190811ms npm ERR!</description>
+    </item>
+    
+  </channel>
+</rss>

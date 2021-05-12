@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_filebrowser on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/</link>
+    <description>Recent content in package_feeds_packages_filebrowser on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 May 2021 23:05:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.14</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/compile.14/</link>
+      <pubDate>Wed, 12 May 2021 23:05:59 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/compile.14/</guid>
+      <description>build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/filebrowser/compile -j$(nproc) || make package/feeds/packages/filebrowser/compile V=s Compile.txt Copying files from /openwrt/build_dir/target-aarch64_cortex-a72_musl/filebrowser-2.13.0 into /openwrt/build_dir/target-aarch64_cortex-a72_musl/filebrowser-2.13.0/.go_work/build/src/github.com/filebrowser/filebrowser auth/auth.go auth/json.go auth/none.go auth/proxy.go auth/storage.go cmd/cmd.go cmd/cmds.go cmd/cmds_add.go cmd/cmds_ls.go cmd/cmds_rm.go cmd/config.go cmd/config_cat.go cmd/config_export.go cmd/config_import.go cmd/config_init.go cmd/config_set.go cmd/docs.go cmd/hash.go cmd/root.go cmd/rule_rm.go cmd/rules.</description>
+    </item>
+    
+  </channel>
+</rss>
