@@ -91,12 +91,12 @@ jobs:
           rm openwrt -rf
       - uses: actions/upload-artifact@v2
         with:
-          name: Packages-${{matrix.worker}}
-          path: /tmp/opdebin
-      - uses: actions/upload-artifact@v2
-        with:
           name: Log-${{matrix.worker}}
           path: /tmp/opdelogs
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Packages-${{matrix.worker}}
+          path: /tmp/opdebin
       # -
       # name: debug # docker run -it -v $PWD:/openwrt elonh/opde:base bash
       # uses: mxschmitt/action-tmate@v2
