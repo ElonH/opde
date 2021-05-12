@@ -150,6 +150,8 @@ jobs:
           tar -xf ${{steps.sdk-var2.outputs.SDK_NAME}}
           tar -xf ${{steps.sdk-var2.outputs.IB_NAME}}
           ls -l -h
+      - name: hack docker file
+        run: sed -i 's,FROM elonh/opde:base,FROM elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }},' Dockerfile.sdk
       - name: Build and push sdk
         uses: docker/build-push-action@v2
         with:
@@ -178,6 +180,8 @@ jobs:
       - name: Opde Assign in SDK container
         run: |
           docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde assign /db
+      - name: hack docker file
+        run: sed -i 's,FROM elonh/opde:sdk,FROM elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }},' Dockerfile.worker
       - name: Build and push worker
         uses: docker/build-push-action@v2
         with:
@@ -197,6 +201,8 @@ jobs:
       - name: push default docker tag
         if: ${{ github.event.inputs.target == 'x86' || github.event.inputs.subtarget == '64'}}
         run: docker push elonh/opde:worker
+      - name: hack docker file
+        run: sed -i 's,FROM elonh/opde:base,FROM elonh/opde:base-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }},' Dockerfile.ib
       - name: Build and push image builder
         uses: docker/build-push-action@v2
         with:
