@@ -354,4 +354,4 @@ jobs:
         with:
           workflow: Collector
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "dataURL": "${{steps.logs-web.outputs.LINK}}"}'
+          inputs: '{ "dataURL": "${{steps.logs-web.outputs.LINK}}", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}"}'

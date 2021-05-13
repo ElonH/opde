@@ -3,6 +3,14 @@ name: Collector
 on:
   workflow_dispatch:
     inputs:
+      target:
+        description: "OpenWRT Target System(Value: x86, bcm27xx, ...)"
+        required: false
+        default: "x86"
+      subtarget:
+        description: "OpenWRT Subtarget(Value: 64, bcm2711, ...)"
+        required: false
+        default: "64"
       dataURL:
         description: "the url for build logs archive"
         required: true
