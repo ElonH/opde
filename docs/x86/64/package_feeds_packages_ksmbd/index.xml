@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_ksmbd on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:29:47 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 May 2021 06:19:18 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.15</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.15/</link>
+      <pubDate>Thu, 13 May 2021 06:19:18 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.15/</guid>
+      <description>build number: 15
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ksmbd/compile -j$(nproc) || make package/feeds/packages/ksmbd/compile V=s Compile.txt Applying ./patches/01-keep_kmod_metadata.patch using plaintext: patching file glob.h make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/linux-5.4.117&amp;#39; CC [M] /openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/ksmbd-3.3.9/unicode.o CC [M] /openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/ksmbd-3.3.9/auth.o CC [M] /openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/ksmbd-3.3.9/vfs.o CC [M] /openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/ksmbd-3.3.9/vfs_cache.o CC [M] /openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/ksmbd-3.3.9/connection.o CC [M] /openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/ksmbd-3.</description>
+    </item>
     
     <item>
       <title>compile.14</title>

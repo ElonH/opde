@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_node-ffi-napi on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:27:03 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 May 2021 06:20:15 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.15</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.15/</link>
+      <pubDate>Thu, 13 May 2021 06:20:15 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.15/</guid>
+      <description>build number: 15
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6.</description>
+    </item>
     
     <item>
       <title>compile.14</title>
