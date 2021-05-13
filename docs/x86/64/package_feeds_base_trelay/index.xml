@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_trelay on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 06:20:40 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 May 2021 20:43:35 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.16</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.16/</link>
+      <pubDate>Thu, 13 May 2021 20:43:35 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.16/</guid>
+      <description>build number: 16
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/trelay/compile -j$(nproc) || make package/feeds/base/trelay/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/linux-bcm27xx_bcm2711/linux-5.4.117&amp;#39; HOSTCC scripts/basic/fixdep HOSTCC scripts/dtc/dtc.o HOSTCC scripts/dtc/flattree.o HOSTCC scripts/dtc/fstree.o HOSTCC scripts/dtc/data.o HOSTCC scripts/dtc/livetree.o HOSTCC scripts/dtc/treesource.o HOSTCC scripts/dtc/srcpos.o HOSTCC scripts/dtc/checks.o HOSTCC scripts/dtc/util.o HOSTCC scripts/dtc/dtc-lexer.lex.o HOSTCC scripts/dtc/dtc-parser.</description>
+    </item>
     
     <item>
       <title>compile.15</title>
