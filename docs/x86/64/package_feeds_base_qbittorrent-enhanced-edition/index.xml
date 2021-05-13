@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_qBittorrent-Enhanced-Edition on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 May 2021 22:14:30 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 May 2021 00:30:06 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.14</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.14/</link>
+      <pubDate>Thu, 13 May 2021 00:30:06 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.14/</guid>
+      <description>build number: 14
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/qBittorrent-Enhanced-Edition/compile -j$(nproc) || make package/feeds/base/qBittorrent-Enhanced-Edition/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/x86_64 checking for x86_64-openwrt-linux-gcc... ccache_cc checking whether the C compiler works... yes checking for C compiler default output file name.</description>
+    </item>
     
     <item>
       <title>compile.13</title>
