@@ -1,6 +1,6 @@
 ---
 title: "bcm2711"
-date: 2021-05-14 00:42:37.037535
+date: 2021-05-14 07:48:58.749930
 hidden: false
 draft: false
 ---
