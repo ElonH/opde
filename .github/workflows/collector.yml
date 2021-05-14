@@ -25,9 +25,10 @@ jobs:
           path: ./db
           ref: "gh-pages"
           fetch-depth: "0"
-      - name: Pull docker image
+      - name: pull docker image
         run: |
-          docker pull elonh/opde:worker
+          docker pull elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }}
+          docker tag elonh/opde:worker-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }} elonh/opde:worker
           docker images
       - name: Download all logs
         run: |
