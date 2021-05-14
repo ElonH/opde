@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_rtl88x2bu on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 May 2021 23:08:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 May 2021 00:37:24 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.17</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.17/</link>
+      <pubDate>Fri, 14 May 2021 00:37:24 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.17/</guid>
+      <description>build number: 17
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl88x2bu/compile -j$(nproc) || make package/feeds/base/rtl88x2bu/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.h) patching file include/rtl_autoconf.h (renamed from include/autoconf.h) make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-aarch64_cortex-a72_musl/usr/include/mac80211-backport/backport/autoconf.</description>
+    </item>
     
     <item>
       <title>compile.14</title>
