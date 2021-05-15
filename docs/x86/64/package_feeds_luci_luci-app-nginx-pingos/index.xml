@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_luci_luci-app-nginx-pingos on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 20:40:48 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 May 2021 01:42:08 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.19</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.19/</link>
+      <pubDate>Sat, 15 May 2021 01:42:08 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.19/</guid>
+      <description>build number: 19
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/luci/luci-app-nginx-pingos/compile -j$(nproc) || make package/feeds/luci/luci-app-nginx-pingos/compile V=s Compile.txt nginx-1.19.6/ nginx-1.19.6/auto/ nginx-1.19.6/conf/ nginx-1.19.6/contrib/ nginx-1.19.6/src/ nginx-1.19.6/configure nginx-1.19.6/LICENSE nginx-1.19.6/README nginx-1.19.6/html/ nginx-1.19.6/man/ nginx-1.19.6/CHANGES.ru nginx-1.19.6/CHANGES nginx-1.19.6/man/nginx.8 nginx-1.19.6/html/50x.html nginx-1.19.6/html/index.html nginx-1.19.6/src/core/ nginx-1.19.6/src/event/ nginx-1.19.6/src/http/ nginx-1.19.6/src/mail/ nginx-1.19.6/src/misc/ nginx-1.19.6/src/os/ nginx-1.19.6/src/stream/ nginx-1.19.6/src/stream/ngx_stream.c nginx-1.19.6/src/stream/ngx_stream.h nginx-1.19.6/src/stream/ngx_stream_access_module.c nginx-1.19.6/src/stream/ngx_stream_core_module.c nginx-1.</description>
+    </item>
     
     <item>
       <title>compile.16</title>

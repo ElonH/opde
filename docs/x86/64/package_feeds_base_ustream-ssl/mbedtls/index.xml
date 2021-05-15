@@ -6,39 +6,19 @@
     <description>Recent content in mbedtls on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 May 2021 05:08:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 May 2021 01:43:57 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>compile.62</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.62/</link>
-      <pubDate>Wed, 05 May 2021 14:26:33 +0000</pubDate>
+      <title>compile.19</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.19/</link>
+      <pubDate>Sat, 15 May 2021 01:43:57 +0000</pubDate>
       
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.62/</guid>
-      <description>build number: 62
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ustream-ssl/compile -j$(nproc) || make package/feeds/base/ustream-ssl/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
-    </item>
-    
-    <item>
-      <title>compile.8</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.8/</link>
-      <pubDate>Thu, 06 May 2021 05:08:41 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.8/</guid>
-      <description>build number: 8
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ustream-ssl/compile -j$(nproc) || make package/feeds/base/ustream-ssl/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
-    </item>
-    
-    <item>
-      <title>compile.7</title>
-      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.7/</link>
-      <pubDate>Thu, 06 May 2021 04:58:13 +0000</pubDate>
-      
-      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.7/</guid>
-      <description>build number: 7
-re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ustream-ssl/compile -j$(nproc) || make package/feeds/base/ustream-ssl/compile V=s Compile.txt CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required): Compatibility with CMake &amp;lt; 2.8.12 will be removed from a future version of CMake. Update the VERSION argument &amp;lt;min&amp;gt; value or use a .</description>
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.19/</guid>
+      <description>build number: 19
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ustream-ssl/compile -j$(nproc) || make package/feeds/base/ustream-ssl/compile V=s Compile.txt + curl -f --connect-timeout 20 --retry 5 --location --insecure https://mirror01.download.immortalwrt.eu.org/master/ustream-ssl-2020-12-10-68d09243.tar.xz % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- 0:00:01 --:--:-- 0 100 12704 100 12704 0 0 7694 0 0:00:01 0:00:01 --:--:-- 37922 CMake Deprecation Warning at CMakeLists.</description>
     </item>
     
   </channel>
