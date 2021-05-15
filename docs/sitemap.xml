@@ -3,6 +3,236 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/compile.20/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fullconenat/compile.20/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/compile.20/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/compile.20/</loc>
+    <lastmod>2021-05-15T12:14:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.20/</loc>
+    <lastmod>2021-05-15T12:13:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/compile.20/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/compile.20/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/compile.20/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/compile.20/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/compile.20/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/compile.20/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/compile.20/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/compile.20/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/compile.20/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/compile.20/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/compile.20/</loc>
+    <lastmod>2021-05-15T12:11:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_elektra/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/compile.20/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.20/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_qbittorrent-enhanced-edition/compile.20/</loc>
+    <lastmod>2021-05-15T12:07:22+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.19/</loc>
     <lastmod>2021-05-15T01:45:33+00:00</lastmod>
   </url>
@@ -2718,6 +2948,271 @@
   </url>
   
   <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fullconenat/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/</loc>
+    <lastmod>2021-05-15T12:14:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/</loc>
+    <lastmod>2021-05-15T12:14:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/</loc>
+    <lastmod>2021-05-15T12:13:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/</loc>
+    <lastmod>2021-05-15T12:13:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/</loc>
+    <lastmod>2021-05-15T12:12:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/</loc>
+    <lastmod>2021-05-15T12:11:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/</loc>
+    <lastmod>2021-05-15T12:10:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/</loc>
+    <lastmod>2021-05-15T12:10:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_elektra/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/</loc>
+    <lastmod>2021-05-15T12:10:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/</loc>
+    <lastmod>2021-05-15T12:08:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/</loc>
+    <lastmod>2021-05-15T12:08:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_qbittorrent-enhanced-edition/</loc>
+    <lastmod>2021-05-15T12:07:22+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elonh.github.io/opde/x86/64/</loc>
     <lastmod>2021-05-15T01:45:33+00:00</lastmod>
   </url>
@@ -3023,127 +3518,12 @@
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/</loc>
     <lastmod>2021-05-14T07:48:58+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/</loc>
-    <lastmod>2021-05-14T07:48:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/</loc>
-    <lastmod>2021-05-14T07:48:29+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/</loc>
-    <lastmod>2021-05-14T07:47:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/</loc>
-    <lastmod>2021-05-14T07:47:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/</loc>
-    <lastmod>2021-05-14T07:47:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/</loc>
-    <lastmod>2021-05-14T07:46:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/</loc>
-    <lastmod>2021-05-14T07:46:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/</loc>
-    <lastmod>2021-05-14T07:46:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/</loc>
-    <lastmod>2021-05-14T07:46:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/</loc>
-    <lastmod>2021-05-14T07:46:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/</loc>
-    <lastmod>2021-05-14T07:46:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/</loc>
-    <lastmod>2021-05-14T07:46:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/</loc>
-    <lastmod>2021-05-14T07:45:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/</loc>
-    <lastmod>2021-05-14T07:45:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_px5g-mbedtls/mbedtls/</loc>
-    <lastmod>2021-05-14T07:45:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/</loc>
     <lastmod>2021-05-14T07:45:34+00:00</lastmod>
   </url>
   
@@ -3153,138 +3533,8 @@
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/</loc>
-    <lastmod>2021-05-14T07:45:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/</loc>
-    <lastmod>2021-05-14T07:45:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/</loc>
-    <lastmod>2021-05-14T07:44:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/</loc>
-    <lastmod>2021-05-14T07:44:49+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/</loc>
     <lastmod>2021-05-14T07:44:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/</loc>
-    <lastmod>2021-05-14T07:44:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/</loc>
-    <lastmod>2021-05-14T07:43:37+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/</loc>
-    <lastmod>2021-05-14T07:43:37+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/</loc>
-    <lastmod>2021-05-14T07:42:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/</loc>
-    <lastmod>2021-05-14T07:42:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/</loc>
-    <lastmod>2021-05-14T07:42:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/</loc>
-    <lastmod>2021-05-14T07:42:14+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_elektra/</loc>
-    <lastmod>2021-05-14T07:41:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/</loc>
-    <lastmod>2021-05-14T00:39:27+00:00</lastmod>
   </url>
   
   <url>
@@ -3320,16 +3570,6 @@
   <url>
     <loc>https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/</loc>
     <lastmod>2021-05-13T00:25:29+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/</loc>
-    <lastmod>2021-05-12T23:09:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/</loc>
-    <lastmod>2021-05-12T23:09:05+00:00</lastmod>
   </url>
   
   <url>
