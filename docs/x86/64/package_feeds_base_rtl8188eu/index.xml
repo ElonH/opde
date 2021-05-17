@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_rtl8188eu on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 May 2021 01:44:27 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 May 2021 21:35:41 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.21</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.21/</link>
+      <pubDate>Mon, 17 May 2021 21:35:41 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.21/</guid>
+      <description>build number: 21
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8188eu/compile -j$(nproc) || make package/feeds/base/rtl8188eu/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-disable-default-build-x86.patch using plaintext: patching file Makefile Applying ./patches/020-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.</description>
+    </item>
     
     <item>
       <title>compile.19</title>

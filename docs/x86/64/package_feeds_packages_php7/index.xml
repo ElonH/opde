@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_php7 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 20:40:35 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 May 2021 21:36:07 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.21</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.21/</link>
+      <pubDate>Mon, 17 May 2021 21:36:07 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.21/</guid>
+      <description>build number: 21
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/php7/compile -j$(nproc) || make package/feeds/packages/php7/compile V=s Compile.txt Applying ./patches/0013-Add-support-for-use-of-the-system-timezone-database.patch using plaintext: patching file ext/date/config0.m4 patching file ext/date/lib/parse_tz.c Applying ./patches/0032-Use-system-timezone.patch using plaintext: patching file ext/date/php_date.c Applying ./patches/0041-Add-patch-to-remove-build-timestamps-from-generated-.patch using plaintext: patching file ext/standard/info.c patching file sapi/apache2handler/config.</description>
+    </item>
     
     <item>
       <title>compile.16</title>
