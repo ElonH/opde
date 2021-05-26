@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_pcap-dnsproxy on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 May 2021 21:35:41 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 May 2021 12:47:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.22</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.22/</link>
+      <pubDate>Wed, 26 May 2021 12:47:00 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.22/</guid>
+      <description>build number: 22
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/pcap-dnsproxy/compile -j$(nproc) || make package/feeds/packages/pcap-dnsproxy/compile V=s Compile.txt Applying ./patches/002-cmake-dependency-scanner-workaround.patch using plaintext: patching file Source/Pcap_DNSProxy/Platform.h Hunk #1 succeeded at 380 with fuzz 1 (offset 1 line). Hunk #2 succeeded at 394 (offset 1 line). Hunk #3 succeeded at 572 (offset -3 lines).</description>
+    </item>
     
     <item>
       <title>compile.21</title>

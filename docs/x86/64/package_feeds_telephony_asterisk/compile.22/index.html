@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>compile.22 - Opde Issues Tracker</title>
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://elonh.github.io/opde/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.22/">
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://elonh.github.io/opde/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://elonh.github.io/opde/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="compile.22" />
+<meta property="og:description" content="build number: 22
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: patching file res/ael/ael.flex patching file res/ael/ael_lex.c Applying ./patches/053-musl-mutex-init.patch using plaintext: patching file include/asterisk/lock.h Applying ./patches/100-build-reproducibly.patch using plaintext: patching file build_tools/make_build_h patching file Makefile Applying ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.22/" />
+<meta property="og:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+<meta property="article:published_time" content="2021-05-26T12:45:38+00:00" />
+<meta property="article:modified_time" content="2021-05-26T12:45:38+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+<meta name="twitter:title" content="compile.22"/>
+<meta name="twitter:description" content="build number: 22
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: patching file res/ael/ael.flex patching file res/ael/ael_lex.c Applying ./patches/053-musl-mutex-init.patch using plaintext: patching file include/asterisk/lock.h Applying ./patches/100-build-reproducibly.patch using plaintext: patching file build_tools/make_build_h patching file Makefile Applying ."/>
+<meta itemprop="name" content="compile.22">
+<meta itemprop="description" content="build number: 22
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;&amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: patching file res/ael/ael.flex patching file res/ael/ael_lex.c Applying ./patches/053-musl-mutex-init.patch using plaintext: patching file include/asterisk/lock.h Applying ./patches/100-build-reproducibly.patch using plaintext: patching file build_tools/make_build_h patching file Makefile Applying .">
+<meta itemprop="datePublished" content="2021-05-26T12:45:38&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-26T12:45:38&#43;00:00" />
+<meta itemprop="wordCount" content="3783">
+<meta itemprop="image" content="https://elonh.github.io/opde/images/og-image.png"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>Opde Issues Tracker</h1><a href="https://github.com/elonh/opde" class="github"><i class="fab fa-github"></i></a>
+</header>
+
+<div class="content-container">
+<main><h1>compile.22</h1>
+<p>build number: <code>22</code></p>
+<h4 id="re-implement-command">re-implement command</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull elonh/opde:sdk
+docker run -it --rm elonh/opde:sdk zsh <span style="color:#75715e"># or bash</span>
+export http_proxy<span style="color:#f92672">=</span> <span style="color:#75715e"># [your proxy], do not use localhost or 127.0.0.1</span>
+export https_proxy<span style="color:#f92672">=</span>$http_proxy
+opde feeds <span style="color:#f92672">&amp;&amp;</span> opde config -a
+make package/feeds/telephony/asterisk/compile -j<span style="color:#66d9ef">$(</span>nproc<span style="color:#66d9ef">)</span> <span style="color:#f92672">||</span> make package/feeds/telephony/asterisk/compile V<span style="color:#f92672">=</span>s
+</code></pre></div><h4 id="compiletxt">Compile.txt</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: 
+patching file res/ael/ael.flex
+patching file res/ael/ael_lex.c
+
+Applying ./patches/053-musl-mutex-init.patch using plaintext: 
+patching file include/asterisk/lock.h
+
+Applying ./patches/100-build-reproducibly.patch using plaintext: 
+patching file build_tools/make_build_h
+patching file Makefile
+
+Applying ./patches/110-fix-astmm.patch using plaintext: 
+patching file include/asterisk/compat.h
+
+Applying ./patches/130-eventfd.patch using plaintext: 
+patching file configure.ac
+
+Applying ./patches/140-use-default-lua.patch using plaintext: 
+patching file configure.ac
+
+Applying ./patches/150-musl-12x.patch using plaintext: 
+patching file include/asterisk/compat.h
+patching file utils/db1-ast/include/db.h
+Generating the configure script <span style="color:#66d9ef">for</span> Asterisk ...
+Generating the configure script <span style="color:#66d9ef">for</span> menuselect ...
+configure: WARNING: unrecognized options: --disable-nls
+configure: loading site script /openwrt/include/site/x86_64
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-openwrt-linux-gnu
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-gcc... ccache_cc
+checking whether the C compiler works... yes
+checking <span style="color:#66d9ef">for</span> C compiler default output file name... a.out
+checking <span style="color:#66d9ef">for</span> suffix of executables... 
+checking whether we are cross compiling... yes
+checking <span style="color:#66d9ef">for</span> suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether ccache_cc accepts -g... yes
+checking <span style="color:#66d9ef">for</span> ccache_cc option to accept ISO C89... none needed
+checking how to run the C preprocessor... ccache_cc -E
+checking <span style="color:#66d9ef">for</span> grep that handles long lines and -e... /openwrt/staging_dir/host/bin/grep
+checking <span style="color:#66d9ef">for</span> egrep... /openwrt/staging_dir/host/bin/grep -E
+checking <span style="color:#66d9ef">for</span> ANSI C header files... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... yes
+checking <span style="color:#66d9ef">for</span> sys/stat.h... yes
+checking <span style="color:#66d9ef">for</span> stdlib.h... yes
+checking <span style="color:#66d9ef">for</span> string.h... yes
+checking <span style="color:#66d9ef">for</span> memory.h... yes
+checking <span style="color:#66d9ef">for</span> strings.h... yes
+checking <span style="color:#66d9ef">for</span> inttypes.h... yes
+checking <span style="color:#66d9ef">for</span> stdint.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking <span style="color:#66d9ef">for</span> minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether char is unsigned... no
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-uname... no
+checking <span style="color:#66d9ef">for</span> uname... /usr/bin/uname
+configure: WARNING: using cross tools not prefixed with host triplet
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-gcc... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> ccache_cc
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-g++... ccache_cxx
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ld... x86_64-openwrt-linux-musl-ld
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ranlib... x86_64-openwrt-linux-musl-gcc-ranlib
+checking whether we are using the GNU C++ compiler... yes
+checking whether ccache_cxx accepts -g... yes
+checking how to run the C preprocessor... ccache_cc -E
+checking how to run the C++ preprocessor... ccache_cxx -E
+checking <span style="color:#66d9ef">for</span> a sed that does not truncate output... /openwrt/staging_dir/host/bin/sed
+checking <span style="color:#66d9ef">for</span> egrep... grep -E
+checking <span style="color:#66d9ef">for</span> ld used by ccache_cc... x86_64-openwrt-linux-musl-ld
+checking <span style="color:#66d9ef">if</span> the linker <span style="color:#f92672">(</span>x86_64-openwrt-linux-musl-ld<span style="color:#f92672">)</span> is GNU ld... yes
+checking <span style="color:#66d9ef">for</span> gawk... gawk
+checking <span style="color:#66d9ef">for</span> a BSD-compatible install... /openwrt/staging_dir/host/bin/install -c
+checking whether ln -s works... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ranlib... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> x86_64-openwrt-linux-musl-gcc-ranlib
+checking <span style="color:#66d9ef">for</span> GNU make... make
+checking <span style="color:#66d9ef">for</span> egrep... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/grep -E
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-strip... x86_64-openwrt-linux-musl-strip
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-ar... x86_64-openwrt-linux-musl-gcc-ar
+checking <span style="color:#66d9ef">for</span> bison... /openwrt/staging_dir/host/bin/bison
+checking <span style="color:#66d9ef">for</span> cmp... /usr/bin/cmp
+checking <span style="color:#66d9ef">for</span> cat... /usr/bin/cat
+checking <span style="color:#66d9ef">for</span> cut... /usr/bin/cut
+checking <span style="color:#66d9ef">for</span> flex... /openwrt/staging_dir/host/bin/flex
+checking <span style="color:#66d9ef">for</span> grep... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/grep
+checking <span style="color:#66d9ef">for</span> python2.7... /usr/bin/python2.7
+checking <span style="color:#66d9ef">for</span> find... /openwrt/staging_dir/host/bin/find
+checking <span style="color:#66d9ef">for</span> basename... /usr/bin/basename
+checking <span style="color:#66d9ef">for</span> dirname... /usr/bin/dirname
+checking <span style="color:#66d9ef">for</span> sh... /bin/bash
+checking <span style="color:#66d9ef">for</span> ln... /usr/bin/ln
+checking <span style="color:#66d9ef">for</span> doxygen... :
+checking <span style="color:#66d9ef">for</span> dot... :
+checking <span style="color:#66d9ef">for</span> wget... /openwrt/staging_dir/host/bin/wget
+checking <span style="color:#66d9ef">for</span> curl... /usr/bin/curl
+checking <span style="color:#66d9ef">for</span> xmllint... /openwrt/staging_dir/hostpkg/bin/xmllint
+checking <span style="color:#66d9ef">for</span> xmlstarlet... no
+checking <span style="color:#66d9ef">for</span> xml... no
+checking <span style="color:#66d9ef">for</span> bash... /bin/bash
+checking <span style="color:#66d9ef">for</span> git... /openwrt/staging_dir/host/bin/git
+checking <span style="color:#66d9ef">for</span> alembic... :
+checking <span style="color:#66d9ef">for</span> bzip2... /openwrt/staging_dir/hostpkg/bin/bzip2
+checking <span style="color:#66d9ef">for</span> tar... /openwrt/staging_dir/host/bin/tar
+checking <span style="color:#66d9ef">for</span> patch... /openwrt/staging_dir/host/bin/patch
+checking <span style="color:#66d9ef">for</span> sed... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/sed
+checking <span style="color:#66d9ef">for</span> nm... /usr/bin/nm
+checking <span style="color:#66d9ef">for</span> ldconfig... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking <span style="color:#66d9ef">for</span> sha1sum... /usr/bin/sha1sum
+checking <span style="color:#66d9ef">for</span> openssl... /openwrt/staging_dir/host/bin/openssl
+checking <span style="color:#66d9ef">for</span> bison that supports parse-param... /openwrt/staging_dir/host/bin/bison
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-soxmix... no
+checking <span style="color:#66d9ef">for</span> soxmix... no
+checking <span style="color:#66d9ef">for</span> md5... no
+checking <span style="color:#66d9ef">for</span> md5sum... md5sum
+checking <span style="color:#66d9ef">for</span> a sed that does not truncate output... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/host/bin/sed
+checking whether ccache_cc is Clang... no
+checking whether pthreads work with -pthread... yes
+checking <span style="color:#66d9ef">for</span> joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required <span style="color:#66d9ef">for</span> pthreads... no
+checking <span style="color:#66d9ef">for</span> PTHREAD_PRIO_INHERIT... yes
+checking <span style="color:#66d9ef">for</span> RAII support... checking <span style="color:#66d9ef">for</span> gcc -fnested-functions... no
+checking <span style="color:#66d9ef">for</span> clang strsep/strcmp optimization... no
+checking <span style="color:#66d9ef">for</span> gawk... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> gawk
+checking <span style="color:#66d9ef">for</span> curl-config... /openwrt/staging_dir/target-x86_64_musl/usr/bin/curl-config
+checking <span style="color:#66d9ef">for</span> the version of libcurl... 7.76.0
+checking <span style="color:#66d9ef">for</span> libcurl &gt;<span style="color:#f92672">=</span> version 7.10.1... yes
+checking whether libcurl is usable... yes
+checking <span style="color:#66d9ef">for</span> curl_free... yes
+checking <span style="color:#66d9ef">for</span> size_t... yes
+checking <span style="color:#66d9ef">for</span> working alloca.h... yes
+checking <span style="color:#66d9ef">for</span> alloca... yes
+checking <span style="color:#66d9ef">for</span> dirent.h that defines DIR... yes
+checking <span style="color:#66d9ef">for</span> library containing opendir... none required
+checking <span style="color:#66d9ef">for</span> sys/wait.h that is POSIX.1 compatible... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> netinet/in.h... yes
+checking <span style="color:#66d9ef">for</span> arpa/nameser.h... yes
+checking <span style="color:#66d9ef">for</span> netdb.h... yes
+checking <span style="color:#66d9ef">for</span> resolv.h... yes
+checking <span style="color:#66d9ef">for</span> arpa/nameser.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking <span style="color:#66d9ef">for</span> assert.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking <span style="color:#66d9ef">for</span> ctype.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking <span style="color:#66d9ef">for</span> dlfcn.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking <span style="color:#66d9ef">for</span> errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking <span style="color:#66d9ef">for</span> fcntl.h... yes
+checking float.h usability... yes
+checking float.h presence... yes
+checking <span style="color:#66d9ef">for</span> float.h... yes
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking <span style="color:#66d9ef">for</span> grp.h... yes
+checking <span style="color:#66d9ef">for</span> inttypes.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking <span style="color:#66d9ef">for</span> limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking <span style="color:#66d9ef">for</span> locale.h... yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking <span style="color:#66d9ef">for</span> math.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking <span style="color:#66d9ef">for</span> pwd.h... yes
+checking <span style="color:#66d9ef">for</span> netinet/in.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking regex.h usability... yes
+checking regex.h presence... yes
+checking <span style="color:#66d9ef">for</span> regex.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking <span style="color:#66d9ef">for</span> sched.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking <span style="color:#66d9ef">for</span> stdarg.h... yes
+checking <span style="color:#66d9ef">for</span> stdint.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking <span style="color:#66d9ef">for</span> stdio.h... yes
+checking <span style="color:#66d9ef">for</span> stdlib.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> string.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking <span style="color:#66d9ef">for</span> syslog.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/file.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/ioctl.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/param.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/resource.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/socket.h... yes
+checking <span style="color:#66d9ef">for</span> sys/stat.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/time.h... yes
+checking <span style="color:#66d9ef">for</span> sys/types.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/un.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking <span style="color:#66d9ef">for</span> termios.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking <span style="color:#66d9ef">for</span> time.h... yes
+checking <span style="color:#66d9ef">for</span> unistd.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking <span style="color:#66d9ef">for</span> arpa/inet.h... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking <span style="color:#66d9ef">for</span> libintl.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking <span style="color:#66d9ef">for</span> malloc.h... yes
+checking <span style="color:#66d9ef">for</span> netdb.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking <span style="color:#66d9ef">for</span> stddef.h... yes
+checking <span style="color:#66d9ef">for</span> strings.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking sys/event.h usability... no
+checking sys/event.h presence... no
+checking <span style="color:#66d9ef">for</span> sys/event.h... no
+checking utime.h usability... yes
+checking utime.h presence... yes
+checking <span style="color:#66d9ef">for</span> utime.h... yes
+checking pkg-config is at least version 0.9.0... yes
+checking <span style="color:#66d9ef">for</span> LIBEDIT... yes
+checking <span style="color:#66d9ef">for</span> Testing <span style="color:#66d9ef">for</span> libedit unicode support... yes
+checking <span style="color:#66d9ef">for</span> uuid_generate_random in -luuid... yes
+checking uuid/uuid.h usability... yes
+checking uuid/uuid.h presence... yes
+checking <span style="color:#66d9ef">for</span> uuid/uuid.h... yes
+checking <span style="color:#66d9ef">for</span> JANSSON... yes
+checking <span style="color:#66d9ef">for</span> clock_gettime in -lrt... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-xml2-config... /openwrt/staging_dir/target-x86_64_musl/host/bin/x86_64-openwrt-linux-xml2-config
+checking xlocale.h usability... no
+checking xlocale.h presence... no
+checking <span style="color:#66d9ef">for</span> xlocale.h... no
+checking winsock.h usability... no
+checking winsock.h presence... no
+checking <span style="color:#66d9ef">for</span> winsock.h... no
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking <span style="color:#66d9ef">for</span> winsock2.h... no
+checking sys/poll.h usability... yes
+checking sys/poll.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/poll.h... yes
+checking <span style="color:#66d9ef">for</span> special C compiler options needed <span style="color:#66d9ef">for</span> large files... no
+checking <span style="color:#66d9ef">for</span> _FILE_OFFSET_BITS value needed <span style="color:#66d9ef">for</span> large files... no
+checking <span style="color:#66d9ef">for</span> stdbool.h that conforms to C99... yes
+checking <span style="color:#66d9ef">for</span> _Bool... yes
+checking <span style="color:#66d9ef">for</span> an ANSI C-conforming const... yes
+checking <span style="color:#66d9ef">for</span> uid_t in sys/types.h... yes
+checking <span style="color:#66d9ef">for</span> inline... inline
+checking <span style="color:#66d9ef">for</span> long double with more range or precision than double... yes
+checking <span style="color:#66d9ef">for</span> mode_t... yes
+checking <span style="color:#66d9ef">for</span> off_t... yes
+checking <span style="color:#66d9ef">for</span> pid_t... yes
+checking <span style="color:#66d9ef">for</span> size_t... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> struct stat.st_blksize... yes
+checking <span style="color:#66d9ef">for</span> struct ucred.uid... yes
+checking <span style="color:#66d9ef">for</span> struct ucred.cr_uid... no
+checking <span style="color:#66d9ef">for</span> struct sockpeercred.uid... no
+checking <span style="color:#66d9ef">for</span> struct ifreq.ifr_ifru.ifru_hwaddr... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking <span style="color:#66d9ef">for</span> working volatile... yes
+checking <span style="color:#66d9ef">for</span> ptrdiff_t... yes
+checking <span style="color:#66d9ef">for</span> struct stat.st_mtim... yes
+checking <span style="color:#66d9ef">for</span> struct stat.st_mtimensec... no
+checking <span style="color:#66d9ef">for</span> struct stat.st_mtimespec... no
+checking <span style="color:#66d9ef">for</span> unistd.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> working chown... no
+checking whether closedir returns void... yes
+checking <span style="color:#66d9ef">for</span> error_at_line... no
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking <span style="color:#66d9ef">for</span> vfork.h... no
+checking <span style="color:#66d9ef">for</span> fork... yes
+checking <span style="color:#66d9ef">for</span> vfork... yes
+checking <span style="color:#66d9ef">for</span> working fork... cross
+configure: WARNING: result yes guessed because of cross compilation
+checking <span style="color:#66d9ef">for</span> working vfork... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> _LARGEFILE_SOURCE value needed <span style="color:#66d9ef">for</span> large files... no
+checking whether ccache_cc needs -traditional... no
+checking <span style="color:#66d9ef">for</span> working memcmp... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> stdlib.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> unistd.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> sys/param.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> utime.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> getpagesize... yes
+checking <span style="color:#66d9ef">for</span> working mmap... no
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/select.h... yes
+checking <span style="color:#66d9ef">for</span> sys/socket.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking types of arguments <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">select</span>... int,fd_set *,struct timeval *
+checking whether lstat correctly handles trailing slash... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking whether stat accepts an empty string... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking <span style="color:#66d9ef">for</span> working strcoll... no
+checking <span style="color:#66d9ef">for</span> strftime... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> working strnlen... yes
+checking <span style="color:#66d9ef">for</span> working strtod... no
+checking <span style="color:#66d9ef">for</span> pow... yes
+checking whether utime accepts a null argument... guessing yes
+checking <span style="color:#66d9ef">for</span> vprintf... yes
+checking <span style="color:#66d9ef">for</span> _doprnt... no
+checking <span style="color:#66d9ef">for</span> asprintf... yes
+checking <span style="color:#66d9ef">for</span> atexit... yes
+checking <span style="color:#66d9ef">for</span> closefrom... no
+checking <span style="color:#66d9ef">for</span> dup2... yes
+checking <span style="color:#66d9ef">for</span> eaccess... yes
+checking <span style="color:#66d9ef">for</span> endpwent... yes
+checking <span style="color:#66d9ef">for</span> euidaccess... yes
+checking <span style="color:#66d9ef">for</span> ffsll... yes
+checking <span style="color:#66d9ef">for</span> ftruncate... yes
+checking <span style="color:#66d9ef">for</span> getcwd... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> gethostbyname... yes
+checking <span style="color:#66d9ef">for</span> gethostname... yes
+checking <span style="color:#66d9ef">for</span> getloadavg... yes
+checking <span style="color:#66d9ef">for</span> gettimeofday... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> glob... yes
+checking <span style="color:#66d9ef">for</span> ioperm... yes
+checking <span style="color:#66d9ef">for</span> inet_ntoa... yes
+checking <span style="color:#66d9ef">for</span> isascii... yes
+checking <span style="color:#66d9ef">for</span> memchr... yes
+checking <span style="color:#66d9ef">for</span> memmove... yes
+checking <span style="color:#66d9ef">for</span> memset... yes
+checking <span style="color:#66d9ef">for</span> mkdir... yes
+checking <span style="color:#66d9ef">for</span> mkdtemp... yes
+checking <span style="color:#66d9ef">for</span> munmap... yes
+checking <span style="color:#66d9ef">for</span> newlocale... yes
+checking <span style="color:#66d9ef">for</span> pipe2... yes
+checking <span style="color:#66d9ef">for</span> ppoll... yes
+checking <span style="color:#66d9ef">for</span> putenv... yes
+checking <span style="color:#66d9ef">for</span> re_comp... no
+checking <span style="color:#66d9ef">for</span> regcomp... yes
+checking <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">select</span>... yes
+checking <span style="color:#66d9ef">for</span> setenv... yes
+checking <span style="color:#66d9ef">for</span> socket... yes
+checking <span style="color:#66d9ef">for</span> strcasecmp... yes
+checking <span style="color:#66d9ef">for</span> strcasestr... yes
+checking <span style="color:#66d9ef">for</span> strchr... yes
+checking <span style="color:#66d9ef">for</span> strcspn... yes
+checking <span style="color:#66d9ef">for</span> strdup... yes
+checking <span style="color:#66d9ef">for</span> strerror... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> strlcat... yes
+checking <span style="color:#66d9ef">for</span> strlcpy... yes
+checking <span style="color:#66d9ef">for</span> strncasecmp... yes
+checking <span style="color:#66d9ef">for</span> strndup... yes
+checking <span style="color:#66d9ef">for</span> strnlen... yes
+checking <span style="color:#66d9ef">for</span> strrchr... yes
+checking <span style="color:#66d9ef">for</span> strsep... yes
+checking <span style="color:#66d9ef">for</span> strspn... yes
+checking <span style="color:#66d9ef">for</span> strstr... yes
+checking <span style="color:#66d9ef">for</span> strtod... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking <span style="color:#66d9ef">for</span> strtol... yes
+checking <span style="color:#66d9ef">for</span> strtold... yes
+checking <span style="color:#66d9ef">for</span> strtoq... no
+checking <span style="color:#66d9ef">for</span> unsetenv... yes
+checking <span style="color:#66d9ef">for</span> uselocale... yes
+checking <span style="color:#66d9ef">for</span> utime... yes
+checking <span style="color:#66d9ef">for</span> vasprintf... yes
+checking <span style="color:#66d9ef">for</span> getpeereid... no
+checking <span style="color:#66d9ef">for</span> sysctl... no
+checking <span style="color:#66d9ef">for</span> swapctl... no
+checking <span style="color:#66d9ef">for</span> malloc_trim... no
+checking <span style="color:#66d9ef">for</span> htonll... no
+checking <span style="color:#66d9ef">for</span> ntohll... no
+checking <span style="color:#66d9ef">for</span> sqrt in -lm... yes
+checking <span style="color:#66d9ef">for</span> exp2... yes
+checking <span style="color:#66d9ef">for</span> log2... yes
+checking <span style="color:#66d9ef">for</span> exp10... yes
+checking <span style="color:#66d9ef">for</span> log10... yes
+checking <span style="color:#66d9ef">for</span> sin... yes
+checking <span style="color:#66d9ef">for</span> cos... yes
+checking <span style="color:#66d9ef">for</span> tan... yes
+checking <span style="color:#66d9ef">for</span> asin... yes
+checking <span style="color:#66d9ef">for</span> acos... yes
+checking <span style="color:#66d9ef">for</span> atan... yes
+checking <span style="color:#66d9ef">for</span> atan2... yes
+checking <span style="color:#66d9ef">for</span> pow... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> rint... yes
+checking <span style="color:#66d9ef">for</span> exp... yes
+checking <span style="color:#66d9ef">for</span> log... yes
+checking <span style="color:#66d9ef">for</span> remainder... yes
+checking <span style="color:#66d9ef">for</span> fmod... yes
+checking <span style="color:#66d9ef">for</span> round... yes
+checking <span style="color:#66d9ef">for</span> roundf... yes
+checking <span style="color:#66d9ef">for</span> trunc... yes
+checking <span style="color:#66d9ef">for</span> floor... yes
+checking <span style="color:#66d9ef">for</span> ceil... yes
+checking <span style="color:#66d9ef">for</span> exp2l... yes
+checking <span style="color:#66d9ef">for</span> log2l... yes
+checking <span style="color:#66d9ef">for</span> exp10l... yes
+checking <span style="color:#66d9ef">for</span> log10l... yes
+checking <span style="color:#66d9ef">for</span> sinl... yes
+checking <span style="color:#66d9ef">for</span> cosl... yes
+checking <span style="color:#66d9ef">for</span> tanl... yes
+checking <span style="color:#66d9ef">for</span> asinl... yes
+checking <span style="color:#66d9ef">for</span> acosl... yes
+checking <span style="color:#66d9ef">for</span> atanl... yes
+checking <span style="color:#66d9ef">for</span> atan2l... yes
+checking <span style="color:#66d9ef">for</span> powl... yes
+checking <span style="color:#66d9ef">for</span> sqrtl... yes
+checking <span style="color:#66d9ef">for</span> rintl... yes
+checking <span style="color:#66d9ef">for</span> expl... yes
+checking <span style="color:#66d9ef">for</span> logl... yes
+checking <span style="color:#66d9ef">for</span> remainderl... yes
+checking <span style="color:#66d9ef">for</span> fmodl... yes
+checking <span style="color:#66d9ef">for</span> roundl... yes
+checking <span style="color:#66d9ef">for</span> truncl... yes
+checking <span style="color:#66d9ef">for</span> floorl... yes
+checking <span style="color:#66d9ef">for</span> ceill... yes
+checking <span style="color:#66d9ef">for</span> LLONG_MAX in limits.h... yes
+checking <span style="color:#66d9ef">for</span> timersub in time.h... yes
+checking <span style="color:#66d9ef">for</span> a version of GNU ld that supports the --dynamic-list flag... yes
+checking <span style="color:#66d9ef">for</span> sys/poll.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> inet_aton... yes
+checking <span style="color:#66d9ef">for</span> IP_PKTINFO... yes
+checking <span style="color:#66d9ef">for</span> library containing gethostbyname_r... none required
+checking <span style="color:#66d9ef">for</span> gethostbyname_r with <span style="color:#ae81ff">6</span> arguments... yes
+checking <span style="color:#66d9ef">for</span> gethostbyname_r with <span style="color:#ae81ff">5</span> arguments... no
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking <span style="color:#66d9ef">for</span> byteswap.h... yes
+checking <span style="color:#66d9ef">for</span> __swap16 variant of &lt;sys/endian.h&gt; byteswapping macros... no
+checking <span style="color:#66d9ef">for</span> bswap16 variant of &lt;sys/endian.h&gt; byteswapping macros... no
+checking <span style="color:#66d9ef">for</span> locale_t in locale.h... yes
+checking <span style="color:#66d9ef">for</span> O_EVTONLY in fcntl.h... no
+checking <span style="color:#66d9ef">for</span> O_SYMLINK in fcntl.h... no
+checking <span style="color:#66d9ef">for</span> PTHREAD_RWLOCK_INITIALIZER in pthread.h... yes
+checking <span style="color:#66d9ef">for</span> PTHREAD_RWLOCK_PREFER_WRITER_NP in pthread.h... no
+checking <span style="color:#66d9ef">for</span> PTHREAD_MUTEX_RECURSIVE_NP in pthread.h... no
+checking <span style="color:#66d9ef">for</span> PTHREAD_MUTEX_ADAPTIVE_NP in pthread.h... no
+checking <span style="color:#66d9ef">for</span> pthread_spinlock_t in pthread.h... yes
+checking <span style="color:#66d9ef">for</span> pthread_rwlock_timedwrlock<span style="color:#f92672">()</span> in pthread.h... yes
+checking <span style="color:#66d9ef">for</span> working unnamed semaphores... cross-compile
+configure: WARNING: result yes guessed because of cross compilation
+checking <span style="color:#66d9ef">if</span> PTHREAD_ONCE_INIT needs braces... no
+checking <span style="color:#66d9ef">for</span> PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP in pthread.h... no
+checking whether we can compare a mutex to its initial value... no
+checking sys/thr.h usability... no
+checking sys/thr.h presence... no
+checking <span style="color:#66d9ef">for</span> sys/thr.h... no
+checking <span style="color:#66d9ef">for</span> compiler sync operations... yes
+checking <span style="color:#66d9ef">for</span> compiler atomic operations... yes
+checking <span style="color:#66d9ef">if</span> your system printf is NULL-safe.... unknown
+checking <span style="color:#66d9ef">if</span> socket<span style="color:#f92672">()</span> accepts SOCK_NONBLOCK... cross-compile
+checking <span style="color:#66d9ef">if</span> we can increase the maximum <span style="color:#66d9ef">select</span>-able file descriptor... cross-compile
+checking <span style="color:#66d9ef">if</span> we have usable eventfd support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute pure&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute malloc&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute const&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute unused&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute always_inline&#39;</span> support... no
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute deprecated&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute sentinel&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute warn_unused_result&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute may_alias&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute constructor&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute destructor&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> compiler <span style="color:#e6db74">&#39;attribute noreturn&#39;</span> support... yes
+checking <span style="color:#66d9ef">for</span> -fsanitize<span style="color:#f92672">=</span>address support... yes
+checking <span style="color:#66d9ef">for</span> -fsanitize<span style="color:#f92672">=</span>thread support... yes
+checking <span style="color:#66d9ef">for</span> -fsanitize<span style="color:#f92672">=</span>leak support... yes
+checking <span style="color:#66d9ef">for</span> -fsanitize<span style="color:#f92672">=</span>undefined support... yes
+checking <span style="color:#66d9ef">for</span> -Wdeclaration-after-statement support... yes
+checking <span style="color:#66d9ef">for</span> -Wtrampolines support... yes
+checking <span style="color:#66d9ef">for</span> _FORTIFY_SOURCE support... yes
+checking <span style="color:#66d9ef">for</span> -fno-strict-overflow... yes
+checking <span style="color:#66d9ef">for</span> -Wno-format-truncation... yes
+checking <span style="color:#66d9ef">for</span> -Wno-stringop-truncation... yes
+checking <span style="color:#66d9ef">for</span> -Wshadow... yes
+checking <span style="color:#66d9ef">for</span> -march<span style="color:#f92672">=</span>native support... yes
+checking whether to use rpath... not needed
+checking <span style="color:#66d9ef">for</span> sysinfo... yes
+checking <span style="color:#66d9ef">for</span> library containing res_9_ninit... no
+checking <span style="color:#66d9ef">for</span> res_ninit... no
+checking <span style="color:#66d9ef">for</span> BIND_8_COMPAT required... no
+checking <span style="color:#66d9ef">for</span> GLOB_NOMAGIC in glob.h... no
+checking <span style="color:#66d9ef">for</span> GLOB_BRACE in glob.h... no
+checking <span style="color:#66d9ef">for</span> RTLD_NOLOAD in dlfcn.h... yes
+checking <span style="color:#66d9ef">for</span> IP_MTU_DISCOVER in netinet/in.h... yes
+checking size of int... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">4</span>
+checking size of long... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span>
+checking size of long long... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span>
+checking size of char *... <span style="color:#ae81ff">8</span>
+checking size of long... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span>
+checking size of long long... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span>
+checking size of fd_set.fds_bits... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> <span style="color:#ae81ff">8</span>
+checking <span style="color:#66d9ef">for</span> dladdr in dlfcn.h... yes
+checking <span style="color:#66d9ef">for</span> snd_pcm_open in -lasound... yes
+checking alsa/asoundlib.h usability... yes
+checking alsa/asoundlib.h presence... yes
+checking <span style="color:#66d9ef">for</span> alsa/asoundlib.h... yes
+checking <span style="color:#66d9ef">for</span> bfd_openr in -lbfd... no
+checking <span style="color:#66d9ef">for</span> bfd_openr in -lbfd... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking <span style="color:#66d9ef">for</span> bfd_openr in -lbfd... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking <span style="color:#66d9ef">for</span> cap_from_text in -lcap... yes
+checking sys/capability.h usability... yes
+checking sys/capability.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/capability.h... yes
+checking <span style="color:#66d9ef">for</span> DAHDI_RESET_COUNTERS in dahdi/user.h... no
+checking <span style="color:#66d9ef">for</span> DAHDI_DEFAULT_MTU_MRU in dahdi/user.h... no
+checking <span style="color:#66d9ef">for</span> DAHDI_CODE in dahdi/user.h... no
+checking <span style="color:#66d9ef">for</span> DAHDI_POLICY_HALF_FULL in dahdi/user.h... no
+checking <span style="color:#66d9ef">for</span> enhanced dahdi vmwi support... no
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;int foo = DAHDI_ECHOCANCEL_FAX_MODE&#34;</span> compiles using dahdi/user.h... no
+checking <span style="color:#66d9ef">for</span> getifaddrs<span style="color:#f92672">()</span> support... yes
+checking <span style="color:#66d9ef">for</span> timerfd support... yes
+checking <span style="color:#66d9ef">for</span> iconv_open in -liconv... yes
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking <span style="color:#66d9ef">for</span> iconv.h... yes
+checking <span style="color:#66d9ef">for</span> icaltimezone_get_utc_timezone in -lical... yes
+checking libical/ical.h usability... yes
+checking libical/ical.h presence... yes
+checking <span style="color:#66d9ef">for</span> libical/ical.h... yes
+checking <span style="color:#66d9ef">for</span> iks_start_sasl in -liksemel... yes
+checking iksemel.h usability... yes
+checking iksemel.h presence... yes
+checking <span style="color:#66d9ef">for</span> iksemel.h... yes
+checking <span style="color:#66d9ef">for</span> system c-client library...... yes
+checking <span style="color:#66d9ef">for</span> SQLConnect in -liodbc... no
+checking <span style="color:#66d9ef">for</span> inotify_init in -lc... yes
+checking sys/inotify.h usability... yes
+checking sys/inotify.h presence... yes
+checking <span style="color:#66d9ef">for</span> sys/inotify.h... yes
+checking <span style="color:#66d9ef">for</span> jack_activate in -ljack... no
+checking <span style="color:#66d9ef">for</span> kqueue in -lc... no
+checking <span style="color:#66d9ef">for</span> kevent64... no
+checking <span style="color:#66d9ef">for</span> ldap_initialize in -lldap... yes
+checking ldap.h usability... yes
+checking ldap.h presence... yes
+checking <span style="color:#66d9ef">for</span> ldap.h... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-mysql_config... no
+checking <span style="color:#66d9ef">for</span> mysql_config... /openwrt/staging_dir/target-x86_64_musl/host/bin/mysql_config
+checking <span style="color:#66d9ef">for</span> MySQL client bool support... no
+checking <span style="color:#66d9ef">for</span> MySQL client my_bool support... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-neon-config... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/target-x86_64_musl/usr/bin/neon-config
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-neon-config... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> /openwrt/staging_dir/target-x86_64_musl/usr/bin/neon-config
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-net-snmp-config... no
+checking <span style="color:#66d9ef">for</span> net-snmp-config... /openwrt/staging_dir/target-x86_64_musl/usr/bin/net-snmp-config
+checking <span style="color:#66d9ef">for</span> ub_ctx_delete in -lunbound... yes
+checking unbound.h usability... yes
+checking unbound.h presence... yes
+checking <span style="color:#66d9ef">for</span> unbound.h... yes
+checking <span style="color:#66d9ef">for</span> unbound version &gt;<span style="color:#f92672">=</span> 1.5... yes <span style="color:#f92672">(</span>guessed <span style="color:#66d9ef">for</span> cross-compile<span style="color:#f92672">)</span>
+checking <span style="color:#66d9ef">for</span> SQLConnect in -lodbc... yes
+checking sql.h usability... yes
+checking sql.h presence... yes
+checking <span style="color:#66d9ef">for</span> sql.h... yes
+checking <span style="color:#66d9ef">for</span> ogg_stream_init in -logg... yes
+checking ogg/ogg.h usability... yes
+checking ogg/ogg.h presence... yes
+checking <span style="color:#66d9ef">for</span> ogg/ogg.h... yes
+checking <span style="color:#66d9ef">for</span> ba2str in -lbluetooth... yes
+checking bluetooth/bluetooth.h usability... yes
+checking bluetooth/bluetooth.h presence... yes
+checking <span style="color:#66d9ef">for</span> bluetooth/bluetooth.h... yes
+checking <span style="color:#66d9ef">for</span> bs_version in -lbeanstalk... no
+checking linux/soundcard.h usability... yes
+checking linux/soundcard.h presence... yes
+checking <span style="color:#66d9ef">for</span> linux/soundcard.h... yes
+checking <span style="color:#66d9ef">for</span> x86_64-openwrt-linux-pg_config... no
+checking <span style="color:#66d9ef">for</span> pg_config... /openwrt/staging_dir/target-x86_64_musl/usr/bin/pg_config
+checking <span style="color:#66d9ef">for</span> PQescapeStringConn in -lpq... yes
+checking <span style="color:#66d9ef">for</span> pg_encoding_to_char within Postgres headers... yes
+checking <span style="color:#66d9ef">for</span> PJPROJECT... yes
+checking <span style="color:#66d9ef">for</span> pjsip_dlg_create_uas_and_inc_lock in -lpjsip... yes
+checking pjsip.h usability... yes
+checking pjsip.h presence... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... yes
+checking <span style="color:#66d9ef">for</span> pjsip_tsx_create_uac2 in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;pjmedia_mod_offer_flag flag = PJMEDIA_SDP_NEG_ALLOW_MEDIA_CHANGE&#34;</span> compiles using pjmedia.h... yes
+checking <span style="color:#66d9ef">for</span> pjsip_get_dest_info in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> pj_ssl_cert_load_from_files2 in -lpj... yes
+checking pjlib.h usability... yes
+checking pjlib.h presence... yes
+checking <span style="color:#66d9ef">for</span> pjlib.h... yes
+checking <span style="color:#66d9ef">for</span> pjsip_endpt_set_ext_resolver in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;struct pjsip_tls_setting setting; int proto; proto = setting.proto;&#34;</span> compiles using pjsip.h... yes
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;pjsip_cfg()-&gt;endpt.accept_multiple_sdp_answers = 0;&#34;</span> compiles using pjsip.h... yes
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;pjsip_cfg()-&gt;endpt.use_compact_form = PJ_TRUE;&#34;</span> compiles using pjsip.h... yes
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;struct pjsip_tpselector sel; sel.disable_connection_reuse = PJ_TRUE;&#34;</span> compiles using pjsip.h... yes
+checking <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;struct pjsip_oauth_credential credential;&#34;</span> compiles using pjsip.h... yes
+checking <span style="color:#66d9ef">for</span> pjproject on_valid_pair callback... yes
+checking <span style="color:#66d9ef">for</span> pjsip_evsub_add_ref in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> pjsip_inv_add_ref in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> pjsip_auth_clt_deinit in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> pjsip_tsx_layer_find_tsx2 in -lpjsip... yes
+checking <span style="color:#66d9ef">for</span> pjsip.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> poptStrerror in -lpopt... yes
+checking popt.h usability... yes
+checking popt.h presence... yes
+checking <span style="color:#66d9ef">for</span> popt.h... yes
+checking <span style="color:#66d9ef">for</span> PORTAUDIO... yes
+checking <span style="color:#66d9ef">for</span> pri_connected_line_update in -lpri... no
+checking <span style="color:#66d9ef">for</span> resample_open in -lresample... no
+checking <span style="color:#66d9ef">for</span> fftw_malloc in -lfftw3... no
+checking <span style="color:#66d9ef">for</span> sf_open in -lsndfile... no
+checking <span style="color:#66d9ef">for</span> minimum version of SpanDSP... yes
+checking <span style="color:#66d9ef">for</span> span_set_message_handler in -lspandsp... yes
+checking spandsp.h usability... yes
+checking spandsp.h presence... yes
+checking <span style="color:#66d9ef">for</span> spandsp.h... yes
+checking <span style="color:#66d9ef">for</span> t38_terminal_init in -lspandsp... yes
+checking <span style="color:#66d9ef">for</span> spandsp.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> ss7_set_isup_timer in -lss7... no
+checking <span style="color:#66d9ef">for</span> openr2_chan_new in -lopenr2... no
+checking <span style="color:#66d9ef">for</span> opus_encoder_create in -lopus... yes
+checking opus/opus.h usability... yes
+checking opus/opus.h presence... yes
+checking <span style="color:#66d9ef">for</span> opus/opus.h... yes
+checking <span style="color:#66d9ef">for</span> op_open_callbacks in -lopusfile... no
+checking <span style="color:#66d9ef">for</span> luaL_newstate in -llua... yes
+checking lua.h usability... yes
+checking lua.h presence... yes
+checking <span style="color:#66d9ef">for</span> lua.h... yes
+checking <span style="color:#66d9ef">for</span> codec2_create in -lcodec2... no
+checking <span style="color:#66d9ef">for</span> cpg_join in -lcpg... no
+checking <span style="color:#66d9ef">for</span> corosync_cfg_state_track in -lcfg... no
+checking <span style="color:#66d9ef">for</span> speex_encode in -lspeex... yes
+checking speex/speex.h usability... yes
+checking speex/speex.h presence... yes
+checking <span style="color:#66d9ef">for</span> speex/speex.h... yes
+checking <span style="color:#66d9ef">for</span> speex_preprocess_ctl in -lspeex... no
+checking <span style="color:#66d9ef">for</span> speex_preprocess_ctl in -lspeexdsp... yes
+checking <span style="color:#66d9ef">for</span> speex/speex.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> sqlite3_open in -lsqlite3... yes
+checking sqlite3.h usability... yes
+checking sqlite3.h presence... yes
+checking <span style="color:#66d9ef">for</span> sqlite3.h... yes
+checking <span style="color:#66d9ef">for</span> crypt in -lcrypt... yes
+checking crypt.h usability... yes
+checking crypt.h presence... yes
+checking <span style="color:#66d9ef">for</span> crypt.h... yes
+checking <span style="color:#66d9ef">for</span> crypt... yes
+checking <span style="color:#66d9ef">for</span> crypt_r in -lcrypt... yes
+checking <span style="color:#66d9ef">for</span> AES_encrypt in -lcrypto... yes
+checking openssl/aes.h usability... yes
+checking openssl/aes.h presence... yes
+checking <span style="color:#66d9ef">for</span> openssl/aes.h... yes
+checking <span style="color:#66d9ef">for</span> SSL_connect in -lssl... yes
+checking openssl/ssl.h usability... yes
+checking openssl/ssl.h presence... yes
+checking <span style="color:#66d9ef">for</span> openssl/ssl.h... yes
+checking <span style="color:#66d9ef">for</span> BIO_meth_new in -lssl... yes
+checking <span style="color:#66d9ef">for</span> openssl/ssl.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> srtp_init in -lsrtp2... yes
+checking srtp2/srtp.h usability... yes
+checking srtp2/srtp.h presence... yes
+checking <span style="color:#66d9ef">for</span> srtp2/srtp.h... yes
+checking <span style="color:#66d9ef">for</span> the ability of -lsrtp2 to be linked in a shared object... yes
+checking <span style="color:#66d9ef">for</span> srtp_crypto_policy_set_aes_cm_256_hmac_sha1_80 in -lsrtp2... yes
+checking <span style="color:#66d9ef">for</span> srtp_crypto_policy_set_aes_cm_192_hmac_sha1_80 in -lsrtp2... yes
+checking <span style="color:#66d9ef">for</span> srtp_crypto_policy_set_aes_gcm_128_8_auth in -lsrtp2... yes
+checking <span style="color:#66d9ef">for</span> srtp_shutdown in -lsrtp2... yes
+checking <span style="color:#66d9ef">for</span> srtp2/srtp.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> srtp_get_version_string in -lsrtp2... yes
+checking <span style="color:#66d9ef">for</span> srtp2/srtp.h... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> yes
+checking <span style="color:#66d9ef">for</span> GMIME... no
+checking <span style="color:#66d9ef">for</span> GMIME... no
+checking <span style="color:#66d9ef">for</span> GMIME... no
+checking <span style="color:#66d9ef">for</span> GMIME... no
+checking <span style="color:#66d9ef">for</span> GMIME... no
+checking <span style="color:#66d9ef">for</span> malloc in -lhoard... no
+checking <span style="color:#66d9ef">for</span> tone_zone_find_by_num in -ltonezone... no
+checking <span style="color:#66d9ef">for</span> tone_zone_find in -ltonezone... no
+checking <span style="color:#66d9ef">for</span> vorbis_info_init in -lvorbis... yes
+checking vorbis/codec.h usability... yes
+checking vorbis/codec.h presence... yes
+checking <span style="color:#66d9ef">for</span> vorbis/codec.h... yes
+checking <span style="color:#66d9ef">for</span> OV_CALLBACKS_NOCLOSE declared in vorbis/vorbisfile.h... yes
+checking <span style="color:#66d9ef">for</span> compress in -lz... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking <span style="color:#66d9ef">for</span> zlib.h... yes
+checking whether ODBC has support <span style="color:#66d9ef">for</span> Unicode types... yes
+checking linux/compiler.h usability... no
+checking linux/compiler.h presence... no
+checking <span style="color:#66d9ef">for</span> linux/compiler.h... no
+checking <span style="color:#66d9ef">for</span> linux/ixjuser.h... no
+checking <span style="color:#66d9ef">for</span> MSG_NOSIGNAL in sys/socket.h... yes
+checking <span style="color:#66d9ef">for</span> SO_NOSIGPIPE in sys/socket.h... no
+checking <span style="color:#66d9ef">for</span> IMG_Load in -lSDL_image... no
+checking <span style="color:#66d9ef">for</span> sws_getContext in -lavcodec... no
+checking linux/videodev.h usability... no
+checking linux/videodev.h presence... no
+checking <span style="color:#66d9ef">for</span> linux/videodev.h... no
+checking <span style="color:#66d9ef">for</span> XOpenDisplay in -lX11... no
+checking <span style="color:#66d9ef">for</span> XOpenDisplay in -lX11... <span style="color:#f92672">(</span>cached<span style="color:#f92672">)</span> no
+checking <span style="color:#66d9ef">for</span> SYSTEMD... no
+checking <span style="color:#66d9ef">for</span> LOG_AUTH in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_AUTHPRIV in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_CRON in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_DAEMON in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_FTP in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_KERN in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_LPR in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_MAIL in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_NEWS in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_SYSLOG in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> LOG_UUCP in syslog.h... yes
+checking <span style="color:#66d9ef">for</span> mandatory modules:  ALSA BLUETOOTH CAP DAHDI GSM ILBC ICAL IKSEMEL IMAP_TK LIBEDIT LIBXML2 LUA NETSNMP OGG PGSQL PJPROJECT POPT PORTAUDIO PRI SPANDSP SPEEX SPEEX_PREPROCESS SPEEXDSP SQLITE3 SRTP TONEZONE UNBOUND VORBIS ZLIB... fail
+
+configure: ***
+configure: *** The DAHDI installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-dahdi.
+
+configure: ***
+configure: *** The PRI installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-pri.
+
+configure: ***
+configure: *** The TONEZONE installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-tonezone.
+make<span style="color:#f92672">[</span>3<span style="color:#f92672">]</span>: *** <span style="color:#f92672">[</span>Makefile:749: /openwrt/build_dir/target-x86_64_musl/asterisk-18.4.0/.configured_91d67d9c4b0bbd9e75147cae155a012c<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 26 May 2021
+
+
+<br>
+Published on 26 May 2021
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/" title="package_feeds_telephony_asterisk"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - package_feeds_telephony_asterisk</a>
+<a class="nav nav-next" href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.21/" title="compile.21">Next - compile.21 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://elonh.github.io/opde">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/">x86<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/">64<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/regular/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ath10k-ct/smallbuffers/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/">package_feeds_base_fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/compile.19/">compile.19</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_gsmlib/">package_feeds_telephony_gsmlib<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_gsmlib/compile.22/">compile.22</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/default/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_procd/selinux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_qbittorrent-enhanced-edition/">package_feeds_packages_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_qbittorrent-enhanced-edition/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_qbittorrent-enhanced-edition/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_qbittorrent-enhanced-edition/compile.19/">compile.19</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-linux/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_dahdi-tools/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/">package_feeds_telephony_freeswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/">package_feeds_telephony_freeswitch-mod-bcg729<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_freeswitch-mod-bcg729/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/">package_feeds_base_gpio-nct5104d<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_gpio-nct5104d/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ffi-napi/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/">package_feeds_telephony_yate<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_elektra/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8188eu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8189es/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8192du/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ac/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8812au-ct/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl8821cu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_rtl88x2bu/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_trelay/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_autossh/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pcap-dnsproxy/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_button-hotplug/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_i2c-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_spi-gpio-custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_luci_luci-app-nginx-pingos/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_coova-chilli/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_shortcut-fe/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_jool/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php7/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/">package_feeds_packages_php8<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_php8/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_routing_batman-adv/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_wireguard/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ffmpeg/custom/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_node-ejdb2_node/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/">package_feeds_telephony_asterisk<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/">package_feeds_telephony_asterisk-chan-dongle<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-dongle/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/">package_feeds_telephony_asterisk-chan-sccp<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-chan-sccp/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/">package_feeds_telephony_asterisk-g72x<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-g72x/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/">package_feeds_telephony_asterisk-opus<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_asterisk-opus/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/no-transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.22/">compile.22</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.21/">compile.21</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.19/">compile.19</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_rtpengine/transcode/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uclient/compile.19/">compile.19</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uhttpd/">package_feeds_base_uhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_uhttpd/compile.19/">compile.19</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.19/">compile.19</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_openwrt-fullconenat/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.16/">compile.16</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.15/">compile.15</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.13/">compile.13</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.12/">compile.12</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.11/">compile.11</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_qbittorrent-enhanced-edition/compile.10/">compile.10</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/">package_feeds_packages_perl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/">package_feeds_packages_perl-device-usb<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-device-usb/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/">package_feeds_packages_tang<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.14/">compile.14</a></li>
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_tang/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_base_px5g-mbedtls/mbedtls/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/">package_feeds_packages_openvpn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openvpn/mbedtls/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/">package_feeds_packages_pianod<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_pianod/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/">package_feeds_packages_shairport-sync<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mbedtls/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/">mini<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_shairport-sync/mini/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/">package_feeds_packages_keepalived<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/x86/64/package_feeds_packages_keepalived/compile.12/">compile.12</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/">bcm27xx<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/">bcm2711<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/">package_feeds_base_ath10k-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/">regular<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/regular/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/">smallbuffers<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ath10k-ct/smallbuffers/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fullconenat/">package_feeds_base_fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fullconenat/compile.20/">compile.20</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/">package_feeds_base_mac80211<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mac80211/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/">package_feeds_packages_node-ffi-napi<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ffi-napi/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/">package_feeds_packages_node-ejdb2_node<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-ejdb2_node/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/">package_feeds_base_procd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/">default<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/default/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/">selinux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_procd/selinux/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/">package_feeds_base_wireguard<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_wireguard/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/">package_feeds_packages_openvswitch<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_openvswitch/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/">package_feeds_packages_ovn<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ovn/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/">package_feeds_base_gpio-button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_gpio-button-hotplug/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/">package_feeds_base_trelay<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_trelay/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/">package_feeds_packages_autossh<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_autossh/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/">package_feeds_packages_ffmpeg<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/">custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ffmpeg/custom/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/">package_feeds_packages_pcap-dnsproxy<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_pcap-dnsproxy/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/">package_feeds_packages_ksmbd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_ksmbd/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/">package_feeds_base_button-hotplug<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_button-hotplug/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/">package_feeds_base_i2c-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_i2c-gpio-custom/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/">package_feeds_base_spi-gpio-custom<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_spi-gpio-custom/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/">package_feeds_base_uclient<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uclient/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/">package_feeds_base_uhttpd<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_uhttpd/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/">package_feeds_base_ustream-ssl<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_ustream-ssl/mbedtls/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/">package_feeds_luci_luci-app-nginx-pingos<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_luci_luci-app-nginx-pingos/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/">package_feeds_packages_coova-chilli<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_coova-chilli/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/">package_feeds_packages_xtables-addons<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_xtables-addons/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/">package_feeds_telephony_dahdi-linux<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-linux/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/">package_feeds_telephony_dahdi-tools<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_dahdi-tools/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/">package_feeds_telephony_libpri<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_libpri/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_elektra/">package_feeds_packages_elektra<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_elektra/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_elektra/compile.18/">compile.18</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/">package_feeds_telephony_rtpengine<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/">no-transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/no-transcode/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/">transcode<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_telephony_rtpengine/transcode/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/">package_feeds_base_fast-classifier<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_fast-classifier/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/">package_feeds_base_shortcut-fe<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_shortcut-fe/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/">package_feeds_packages_jool<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_jool/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/">package_feeds_packages_php7<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_php7/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/">package_feeds_routing_batman-adv<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_routing_batman-adv/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/">package_feeds_base_mt76<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_mt76/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/">package_feeds_base_rtl8188eu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8188eu/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/">package_feeds_base_rtl8189es<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8189es/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/">package_feeds_base_rtl8192du<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8192du/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/">package_feeds_base_rtl8812au-ac<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ac/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/">package_feeds_base_rtl8812au-ct<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8812au-ct/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/">package_feeds_base_rtl8821cu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl8821cu/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/">package_feeds_base_rtl88x2bu<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.20/">compile.20</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_rtl88x2bu/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_qbittorrent-enhanced-edition/">package_feeds_packages_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_qbittorrent-enhanced-edition/compile.20/">compile.20</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/">package_feeds_base_openwrt-fullconenat<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_openwrt-fullconenat/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_px5g-mbedtls/">package_feeds_base_px5g-mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_px5g-mbedtls/mbedtls/">mbedtls<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_px5g-mbedtls/mbedtls/compile.18/">compile.18</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/">package_feeds_base_qBittorrent-Enhanced-Edition<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/compile.18/">compile.18</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/compile.17/">compile.17</a></li>
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_base_qbittorrent-enhanced-edition/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_tang/">package_feeds_packages_tang<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_tang/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/">package_feeds_packages_adguardhome<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_adguardhome/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/">package_feeds_packages_filebrowser<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_filebrowser/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-alexa-app/">package_feeds_packages_node-alexa-app<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-alexa-app/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-epoll/">package_feeds_packages_node-epoll<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-epoll/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-leveldown/">package_feeds_packages_node-leveldown<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-leveldown/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/">package_feeds_packages_node-openzwave-shared<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_node-openzwave-shared/compile.14/">compile.14</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
