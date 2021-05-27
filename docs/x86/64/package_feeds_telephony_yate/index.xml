@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_telephony_yate on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 May 2021 12:49:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 May 2021 00:00:43 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.23</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.23/</link>
+      <pubDate>Thu, 27 May 2021 00:00:43 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.23/</guid>
+      <description>build number: 23
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/yate/compile -j$(nproc) || make package/feeds/telephony/yate/compile V=s Compile.txt Makefile:207: WARNING: skipping yate-collection-basic -- package has no install section Applying ./patches/100-non-gnu-mutex-type.patch using plaintext: patching file engine/Mutex.cpp patching file configure.ac Applying ./patches/110-no-libnsl.patch using plaintext: patching file configure.</description>
+    </item>
     
     <item>
       <title>compile.22</title>
