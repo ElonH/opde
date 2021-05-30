@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_mt76 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 May 2021 23:59:14 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 May 2021 21:32:33 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.25</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.25/</link>
+      <pubDate>Sun, 30 May 2021 21:32:33 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.25/</guid>
+      <description>build number: 25
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mt76/compile -j$(nproc) || make package/feeds/base/mt76/compile V=s Compile.txt Applying ./patches/0001-mt76-allow-VHT-rate-on-2.4GHz.patch using plaintext: patching file mac80211.c Hunk #4 succeeded at 457 (offset 3 lines). make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-x86_64_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/mt76-2021-05-15-9d736545/.configured_98efdcd916b181aef82ec860dfcf9dd8&amp;#39;. Stop.</description>
+    </item>
     
     <item>
       <title>compile.23</title>

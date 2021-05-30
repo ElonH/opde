@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_ovn on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 May 2021 00:02:52 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 May 2021 21:36:36 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.25</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.25/</link>
+      <pubDate>Sun, 30 May 2021 21:36:36 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ovn/compile.25/</guid>
+      <description>build number: 25
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ovn/compile -j$(nproc) || make package/feeds/packages/ovn/compile V=s Compile.txt Applying ./patches/0001-build-skip-check-and-use-of-libunbound.patch using plaintext: patching file configure.ac Applying ./patches/0002-build-skip-tests-and-docs.patch using plaintext: patching file Makefile.am Hunk #1 succeeded at 479 (offset -4 lines). Applying ./patches/0003-ovn-lib-fix-install_dir.patch using plaintext: patching file utilities/ovn-lib.</description>
+    </item>
     
     <item>
       <title>compile.23</title>
