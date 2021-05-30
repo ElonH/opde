@@ -51,9 +51,13 @@ COPY ./requirements.txt /requirements.txt
 RUN sudo -E -H pip3 install --no-cache-dir -r /requirements.txt \
 	&& sudo -E rm -rf /root/.cache/* /requirements.txt
 
-# install upload/download tool: transfer https://github.com/Mikubill/transfer
+# install upload/download tool:
+#   transfer https://github.com/Mikubill/transfer
+#   OneList https://github.com/MoeClub/OneList
 RUN curl -sL https://git.io/file-transfer | sh && \
-	sudo mv ./transfer /usr/bin
+	sudo mv ./transfer /usr/bin && \
+	curl -sL https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -o OneDriveUploader && \
+	sudo mv ./OneDriveUploader /usr/bin
 
 # install dev tools
 RUN sudo -E apt-get update -y &&\

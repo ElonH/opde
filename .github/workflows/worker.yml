@@ -14,6 +14,10 @@ on:
         description: "OpenWRT Subtarget(Value: 64, bcm2711, ...)"
         required: false
         default: "64"
+      onedrive:
+        description: "upload to onedrive(Value: 0, 1)"
+        required: false
+        default: "0"
       subsequent:
         description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
@@ -236,6 +240,14 @@ jobs:
         with:
           name: Packages
           path: openwrt/bin
+      - name: Upload to OneDrive for ImmortalWRT
+        if: ${{ github.event.inputs.onedrive == '1' }}
+        env:
+          OD_UPLOADER_CONF: "${{ secrets.ONEDRIVEUPLOADER_CONF }}"
+        run: |
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown $(id -u -n):$(id -g -n) -R bin
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker echo -e "${OD_UPLOADER_CONF}" > auth.json
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -r opde/master -s bin/packages bin/targets
 
   bundle_logs:
     needs:

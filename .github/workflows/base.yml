@@ -11,6 +11,10 @@ on:
         description: "OpenWRT Subtarget(Value: 64, bcm2711, ...)"
         required: false
         default: "64"
+      onedrive:
+        description: "upload to onedrive(Value: 0, 1)"
+        required: false
+        default: "0"
       subsequent:
         description: "trigger subsequent workflow after build success(Value: 0, 1)"
         required: false
@@ -71,7 +75,9 @@ jobs:
       - name: Opde build
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base opde build
       - name: Bundle Artifacts
-        run: docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs .opde
+        run: |
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf opde.tar.gz logs .opde
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -czvf bin.tar.gz bin
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R opde.tar.gz logs bin .opde
         working-directory: openwrt
@@ -228,4 +234,12 @@ jobs:
         with:
           workflow: Worker
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}"}'
+          inputs: '{ "subsequent": "1", "packages00URL": "${{steps.Packages-00-web.outputs.LINK}}", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}", "onedrive": "${{ github.event.inputs.onedrive }}"}'
+      - name: Upload to OneDrive for ImmortalWRT
+        if: ${{ github.event.inputs.onedrive == '1' }}
+        env:
+          OD_UPLOADER_CONF: "${{ secrets.ONEDRIVEUPLOADER_CONF }}"
+        run: |
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -xzvf bin.tar.gz
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base echo -e "${OD_UPLOADER_CONF}" > auth.json
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base OneDriveUploader -r opde/master -s bin/packages bin/targets
