@@ -57,6 +57,7 @@ RUN sudo -E -H pip3 install --no-cache-dir -r /requirements.txt \
 RUN curl -sL https://git.io/file-transfer | sh && \
 	sudo mv ./transfer /usr/bin && \
 	curl -sL https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -o OneDriveUploader && \
+	sudo chmod +x ./OneDriveUploader
 	sudo mv ./OneDriveUploader /usr/bin
 
 # install dev tools
