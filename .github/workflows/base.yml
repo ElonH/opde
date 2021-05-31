@@ -240,6 +240,7 @@ jobs:
         env:
           OD_UPLOADER_CONF: "${{ secrets.ONEDRIVEUPLOADER_CONF }}"
         run: |
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -xzvf bin.tar.gz
+          sudo rm openwrt/bin -rf
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -xzf bin.tar.gz
           docker run -v $PWD/openwrt:/openwrt elonh/opde:base echo -e "${OD_UPLOADER_CONF}" > auth.json
           docker run -v $PWD/openwrt:/openwrt elonh/opde:base OneDriveUploader -r opde/master -s bin/packages bin/targets
