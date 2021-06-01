@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_fast-classifier on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 May 2021 21:29:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jun 2021 17:35:32 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.26</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.26/</link>
+      <pubDate>Tue, 01 Jun 2021 17:35:32 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fast-classifier/compile.26/</guid>
+      <description>build number: 26
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fast-classifier/compile -j$(nproc) || make package/feeds/base/fast-classifier/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.123&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.o /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c: In function &amp;#39;fast_classifier_init&amp;#39;: /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.c:1888:1: warning: label &amp;#39;exit4&amp;#39; defined but not used [-Wunused-label] exit4: ^~~~~ Building modules, stage 2. MODPOST 1 modules ERROR: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-x86_64_musl/linux-x86_64/fast-classifier/fast-classifier.</description>
+    </item>
     
     <item>
       <title>compile.25</title>
