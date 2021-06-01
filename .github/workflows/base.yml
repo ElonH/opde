@@ -242,6 +242,6 @@ jobs:
         run: |
           sudo rm openwrt/bin -rf
           docker run -v $PWD/openwrt:/openwrt elonh/opde:base tar -xzf bin.tar.gz
-          echo -e "${OD_UPLOADER_CONF}" > $PWD/openwrt/auth.json
+          echo -e "${OD_UPLOADER_CONF}" | sudo tee $PWD/openwrt/auth.json > /dev/null
           docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown -R opde:opde /openwrt/auth.json
           docker run -v $PWD/openwrt:/openwrt elonh/opde:base OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages bin/targets
