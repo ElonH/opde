@@ -247,8 +247,9 @@ jobs:
         run: |
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R bin
           echo -e "${OD_UPLOADER_CONF}" | sudo tee $PWD/openwrt/auth.json > /dev/null
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base sudo chown -R opde:opde /openwrt/auth.json
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:base OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages bin/targets
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown -R opde:opde /openwrt/auth.json
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/targets
 
   bundle_logs:
     needs:
