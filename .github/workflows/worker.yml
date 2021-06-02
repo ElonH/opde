@@ -234,23 +234,24 @@ jobs:
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde download
       - name: Opde build
         run: docker run -v $PWD/openwrt:/openwrt elonh/opde:worker opde reindex
+      - name: Upload to OneDrive for ImmortalWRT
+        if: ${{ github.event.inputs.onedrive == '1' }}
+        env:
+          OD_UPLOADER_CONF: "${{ secrets.ONEDRIVEUPLOADER_CONF }}"
+        run: |
+          # docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R bin
+          # docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde .
+          echo -e "${OD_UPLOADER_CONF}" | sudo tee $PWD/openwrt/auth.json > /dev/null
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown -R opde:opde /openwrt/auth.json
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo ls -l /openwrt
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/targets
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
       - uses: actions/upload-artifact@v2
         with:
           name: Packages
           path: openwrt/bin
-      - name: Upload to OneDrive for ImmortalWRT
-        if: ${{ github.event.inputs.onedrive == '1' }}
-        env:
-          OD_UPLOADER_CONF: "${{ secrets.ONEDRIVEUPLOADER_CONF }}"
-        run: |
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown opde:opde -R bin
-          echo -e "${OD_UPLOADER_CONF}" | sudo tee $PWD/openwrt/auth.json > /dev/null
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown -R opde:opde /openwrt/auth.json
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo ls -l
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/targets
 
   bundle_logs:
     needs:
