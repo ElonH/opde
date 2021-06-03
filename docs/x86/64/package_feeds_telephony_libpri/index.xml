@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_telephony_libpri on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Jun 2021 17:36:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jun 2021 14:30:33 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.28</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.28/</link>
+      <pubDate>Thu, 03 Jun 2021 14:30:33 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_libpri/compile.28/</guid>
+      <description>build number: 28
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/libpri/compile -j$(nproc) || make package/feeds/telephony/libpri/compile V=s Compile.txt Applying ./patches/001-fix-include-signal-h-warning.patch using plaintext: patching file pritest.c patching file testprilib.c Applying ./patches/010-no-werror.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/libpri-1.6.0&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -fmacro-prefix-map=/openwrt/build_dir/target-x86_64_musl/libpri-1.</description>
+    </item>
     
     <item>
       <title>compile.26</title>
