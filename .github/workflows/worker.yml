@@ -244,8 +244,8 @@ jobs:
           echo -e "${OD_UPLOADER_CONF}" | sudo tee $PWD/openwrt/auth.json > /dev/null
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown -R opde:opde /openwrt/auth.json
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo ls -l /openwrt
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/targets
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages
       - name: Fix premission
         run: sudo chown $(id -u -n):$(id -g -n) -R openwrt
       - uses: actions/upload-artifact@v2
