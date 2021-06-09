@@ -207,16 +207,22 @@ class DependsTree():
             print('Ring detect! This is not DAG!!', file=sys.stderr)
             print(nx.find_cycle(self.dg))
 
-    def inject_costs(self, database: LogsDb, arch, board=None):
+    def inject_costs(self, database: LogsDb, arch=None, board=None):
         '''
         inject cost from database
         '''
         item = tinydb.Query()
-        logs = database.search(
-            (item['arch'] == arch) &
-            (item['board'] == board) &
-            (item['build-variant'] == 'compile') &
-            (item['exit-code'] == 0))
+        logs = []
+        if arch is None:
+            logs = database.search(
+                (item['build-variant'] == 'compile') &
+                (item['exit-code'] == 0))
+        else:
+            logs = database.search(
+                (item['arch'] == arch) &
+                (item['board'] == board) &
+                (item['build-variant'] == 'compile') &
+                (item['exit-code'] == 0))
         groups = {}
         for log in logs:
             pkg_name = log['subdir']

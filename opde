@@ -248,14 +248,19 @@ def check(ctx, db_dir: str, run_number):
 @click.argument('number', type=click.INT, default=20)
 @click.option('-ke', '--linux-embedded-modules', 'ke',
               is_flag=True, default=False, help='Include kernel modules removed in SDK')
+@click.option('-init', '--first-run-this-target', 'init',
+              is_flag=True, default=False, help='using all other targets score to generate boostrap assignments')
 @click.pass_context
-def assign(ctx, number: int, ke: bool, db_dir: str):
+def assign(ctx, number: int, ke: bool, db_dir: str, init: bool):
     'Assignments all packages to serval(default:20) workers'
     setting: OpdeSetting = ctx.obj['set']
     deps_tree = depstree.DependsTree()
     deps_tree.inject_package_info(setting.packageinfo_ast)
     db = database.LogsDb(Path(db_dir))
-    deps_tree.inject_costs(db, *setting.targets)
+    if init:
+        deps_tree.inject_costs(db, None, None)
+    else:
+        deps_tree.inject_costs(db, *setting.targets)
     db.transform_and_exit()
     setting.StoreDepsDAG(deps_tree.to_json())
     assigner = distributor.WorksDistributor()

@@ -3,6 +3,10 @@ name: Base
 on:
   workflow_dispatch:
     inputs:
+      boostrap:
+        description: "Generate boostrap assignment(Value: 0, 1)"
+        required: false
+        default: "0"
       target:
         description: "OpenWRT Target System(Value: x86, bcm27xx, ...)"
         required: false
@@ -185,7 +189,9 @@ jobs:
           docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt elonh/opde:sdk opde config -a
       - name: Opde Assign in SDK container
         run: |
-          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde assign /db
+          is_init=""
+          [ "${{ github.event.inputs.boostrap }}" -eq "0" ] && is_init="-init" || true
+          docker run -v $PWD/${{steps.sdk-var2.outputs.SDK_NAME_NO_PREFIX}}:/openwrt -v $PWD/db:/db elonh/opde:sdk opde assign $is_init /db
       - name: hack docker file
         run: sed -i 's,FROM elonh/opde:sdk,FROM elonh/opde:sdk-${{ github.event.inputs.target }}_${{ github.event.inputs.subtarget }},' Dockerfile.worker
       - name: Build and push worker
