@@ -7,6 +7,10 @@ on:
         description: "using chinese apt and pip source mirrors(Value: 0, 1)"
         required: false
         default: "0"
+      boostrap:
+        description: "Generate boostrap assignment(Value: 0, 1)"
+        required: false
+        default: "0"
       target:
         description: "OpenWRT Target System(Value: x86, bcm27xx, ...)"
         required: false
@@ -77,4 +81,4 @@ jobs:
         with:
           workflow: Base
           token: ${{ secrets.PERSONAL_TOKEN }}
-          inputs: '{ "subsequent": "1", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}", "onedrive": "${{ github.event.inputs.onedrive }}"}'
+          inputs: '{ "subsequent": "1", "target": "${{ github.event.inputs.target }}", "subtarget": "${{ github.event.inputs.subtarget }}", "onedrive": "${{ github.event.inputs.onedrive }}", "boostrap": "${{ github.event.inputs.boostrap }}"}'
