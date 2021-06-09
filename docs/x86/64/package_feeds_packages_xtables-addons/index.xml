@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_xtables-addons on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Jun 2021 14:25:19 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jun 2021 21:51:43 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.30</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.30/</link>
+      <pubDate>Wed, 09 Jun 2021 21:51:43 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_xtables-addons/compile.30/</guid>
+      <description>build number: 30
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/xtables-addons/compile -j$(nproc) || make package/feeds/packages/xtables-addons/compile V=s Compile.txt Applying ./patches/001-fix-kernel-version-detection.patch using plaintext: patching file configure.ac Applying ./patches/100-add-rtsp-conntrack.patch using plaintext: patching file extensions/rtsp/Kbuild patching file extensions/rtsp/netfilter_helpers.h patching file extensions/rtsp/netfilter_mime.h patching file extensions/rtsp/nf_conntrack_rtsp.c patching file extensions/rtsp/nf_conntrack_rtsp.h patching file extensions/rtsp/nf_nat_rtsp.</description>
+    </item>
     
     <item>
       <title>compile.28</title>
