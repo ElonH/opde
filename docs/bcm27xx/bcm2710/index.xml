@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bcm2710 on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2710/</link>
+    <description>Recent content in bcm2710 on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Jun 2021 17:16:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2710/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
