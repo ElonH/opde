@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_mac80211 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Jun 2021 21:55:34 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jun 2021 17:58:35 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.32</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.32/</link>
+      <pubDate>Fri, 11 Jun 2021 17:58:35 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mac80211/compile.32/</guid>
+      <description>build number: 32
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mac80211/compile -j$(nproc) || make package/feeds/base/mac80211/compile V=s Compile.txt broadcom.mk:398: warning: overriding recipe for target &amp;#39;/openwrt/dl/broadcom-wl-5.100.138.tar.bz2&amp;#39; broadcom.mk:98: warning: ignoring old recipe for target &amp;#39;/openwrt/dl/broadcom-wl-5.100.138.tar.bz2&amp;#39; Applying ./patches/build/000-fix_kconfig.patch using plaintext: patching file kconf/Makefile Applying ./patches/build/001-fix_build.patch using plaintext: patching file Makefile patching file Makefile.</description>
+    </item>
     
     <item>
       <title>compile.30</title>
