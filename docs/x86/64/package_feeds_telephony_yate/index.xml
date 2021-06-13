@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_telephony_yate on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Jun 2021 17:53:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jun 2021 11:13:15 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.33</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.33/</link>
+      <pubDate>Sun, 13 Jun 2021 11:13:15 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_telephony_yate/compile.33/</guid>
+      <description>build number: 33
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/yate/compile -j$(nproc) || make package/feeds/telephony/yate/compile V=s Compile.txt Applying ./patches/100-non-gnu-mutex-type.patch using plaintext: patching file engine/Mutex.cpp patching file configure.ac Applying ./patches/110-upstream-crash-fix-r6470.patch using plaintext: patching file modules/ysipchan.cpp Applying ./patches/120-increase-sip-message-size.patch using plaintext: patching file conf.d/ysipchan.conf.sample Applying ./patches/130-fix-ilbc-flags.patch using plaintext: patching file libs/ilbc/Makefile.</description>
+    </item>
     
     <item>
       <title>compile.32</title>
