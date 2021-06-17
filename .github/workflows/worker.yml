@@ -249,7 +249,7 @@ jobs:
           echo -e "${OD_UPLOADER_CONF}" | sudo tee $PWD/openwrt/auth.json > /dev/null
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo chown -R opde:opde /openwrt/auth.json
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker sudo ls -l /openwrt
-          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker rm $(find bin | grep 'vti*.ipk') # remove vti package, waiting fix(https://github.com/MoeClub/OneList/issues/66)
+          docker run -v $PWD/openwrt:/openwrt elonh/opde:worker bash -c 'rm $(find bin | grep "vti*.ipk")' # remove vti package, waiting fix(https://github.com/MoeClub/OneList/issues/66)
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/targets
           docker run -v $PWD/openwrt:/openwrt elonh/opde:worker OneDriveUploader -c /openwrt/auth.json -r opde/master -s bin/packages
 
