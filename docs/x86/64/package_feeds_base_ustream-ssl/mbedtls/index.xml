@@ -6,10 +6,20 @@
     <description>Recent content in mbedtls on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 May 2021 01:43:57 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jun 2021 08:24:48 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.34</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.34/</link>
+      <pubDate>Thu, 17 Jun 2021 08:24:48 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_ustream-ssl/mbedtls/compile.34/</guid>
+      <description>build number: 34
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/ustream-ssl/compile -j$(nproc) || make package/feeds/base/ustream-ssl/compile V=s Compile.txt + curl -f --connect-timeout 20 --retry 5 --location --insecure https://mirror01.download.immortalwrt.eu.org/ustream-ssl-2020-12-10-68d09243.tar.xz % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 curl: (22) The requested URL returned error: 403 Download failed.</description>
+    </item>
     
     <item>
       <title>compile.19</title>
