@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_base_fullconenat on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_fullconenat/</link>
+    <description>Recent content in package_feeds_base_fullconenat on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 00:43:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_fullconenat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.35</title>
+      <link>https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_fullconenat/compile.35/</link>
+      <pubDate>Sun, 20 Jun 2021 00:43:59 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_fullconenat/compile.35/</guid>
+      <description>build number: 35
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fullconenat/compile -j$(nproc) || make package/feeds/base/fullconenat/compile V=s Compile.txt Applying ./patches/000-printk.patch using plaintext: patching file xt_FULLCONENAT.c Hunk #1 succeeded at 702 (offset 5 lines). make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-ipq40xx_generic/linux-5.4.124&amp;#39; CC [M] /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-ipq40xx_generic/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.o Building modules, stage 2. MODPOST 1 modules CC [M] /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-ipq40xx_generic/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.</description>
+    </item>
+    
+  </channel>
+</rss>

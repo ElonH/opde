@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_base_rtl88x2bu on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_rtl88x2bu/</link>
+    <description>Recent content in package_feeds_base_rtl88x2bu on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 00:42:43 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_rtl88x2bu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.35</title>
+      <link>https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_rtl88x2bu/compile.35/</link>
+      <pubDate>Sun, 20 Jun 2021 00:42:43 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ipq40xx/generic/package_feeds_base_rtl88x2bu/compile.35/</guid>
+      <description>build number: 35
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl88x2bu/compile -j$(nproc) || make package/feeds/base/rtl88x2bu/compile V=s Compile.txt Applying ./patches/001-use-kernel-byteorder.patch using plaintext: patching file include/drv_types.h Applying ./patches/010-remove-repeat-flies.patch using plaintext: patching file include/drv_conf.h patching file include/linux/old_unused_rtl_wireless.h (renamed from include/linux/wireless.h) patching file include/rtl_autoconf.h (renamed from include/autoconf.h) Applying .</description>
+    </item>
+    
+  </channel>
+</rss>
