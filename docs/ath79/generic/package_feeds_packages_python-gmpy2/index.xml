@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_python-gmpy2 on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/</link>
+    <description>Recent content in package_feeds_packages_python-gmpy2 on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 22:23:25 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.37</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/compile.37/</link>
+      <pubDate>Sun, 20 Jun 2021 22:23:25 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/compile.37/</guid>
+      <description>build number: 37
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/python-gmpy2/compile -j$(nproc) || make package/feeds/packages/python-gmpy2/compile V=s Compile.txt running install running build running build_ext building &amp;#39;gmpy2&amp;#39; extension creating build creating build/temp.-3.9 creating build/temp.-3.9/src ccache_cc -Wno-unused-result -Wsign-compare -DNDEBUG -g -O3 -Wall -O2 -I/openwrt/staging_dir/host/include -I/openwrt/staging_dir/hostpkg/include -I/openwrt/staging_dir/target-mips_24kc_musl/host/include -O2 -I/openwrt/staging_dir/host/include -I/openwrt/staging_dir/hostpkg/include -I/openwrt/staging_dir/target-mips_24kc_musl/host/include -Os -pipe -mno-branch-likely -mips32r2 -mtune=24kc -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -msoft-float -mips16 -minterlink-mips16 -fmacro-prefix-map=/openwrt/build_dir/target-mips_24kc_musl/pypi/gmpy2-2.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_python-ciso8601 on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/</link>
+    <description>Recent content in package_feeds_packages_python-ciso8601 on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 22:36:26 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.37</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/compile.37/</link>
+      <pubDate>Sun, 20 Jun 2021 22:36:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/compile.37/</guid>
+      <description>build number: 37
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/python-ciso8601/compile -j$(nproc) || make package/feeds/packages/python-ciso8601/compile V=s Compile.txt running install running build running build_py package init file &amp;#39;ciso8601/__init__.py&amp;#39; not found (or not a regular file) creating build creating build/lib.-3.9 creating build/lib.-3.9/ciso8601 copying ciso8601/__init__.pyi -&amp;gt; build/lib.</description>
+    </item>
+    
+  </channel>
+</rss>

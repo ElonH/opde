@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_uw-imap on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/</link>
+    <description>Recent content in package_feeds_packages_uw-imap on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 22:36:26 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.37</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/compile.37/</link>
+      <pubDate>Sun, 20 Jun 2021 22:36:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/compile.37/</guid>
+      <description>build number: 37
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/uw-imap/compile -j$(nproc) || make package/feeds/packages/uw-imap/compile V=s Compile.txt Applying ./patches/001-fix_Makefiles_and_shlib.patch using plaintext: patching file Makefile patching file src/osdep/unix/Makefile Applying ./patches/002-imap-2004a-doc.patch using plaintext: patching file src/imapd/imapd.8 patching file src/ipopd/ipopd.8 Applying ./patches/003-imap-2007e-overflow.patch using plaintext: patching file src/c-client/rfc822.</description>
+    </item>
+    
+  </channel>
+</rss>

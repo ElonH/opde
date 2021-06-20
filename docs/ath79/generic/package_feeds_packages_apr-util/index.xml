@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_apr-util on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/</link>
+    <description>Recent content in package_feeds_packages_apr-util on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 22:33:34 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.37</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/compile.37/</link>
+      <pubDate>Sun, 20 Jun 2021 22:33:34 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/compile.37/</guid>
+      <description>build number: 37
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/apr-util/compile -j$(nproc) || make package/feeds/packages/apr-util/compile V=s Compile.txt Applying ./patches/002-fix-gdbm-error-handling.patch using plaintext: patching file dbm/apr_dbm_gdbm.c Applying ./patches/003-support_mariadb.patch using plaintext: patching file build/dbd.m4 patching file dbd/apr_dbd_mysql.c Applying ./patches/004-avoid_ldap_by_defaut.patch using plaintext: patching file apu-config.in Applying ./patches/005-apu_config_dont_list_indep_libs.patch using plaintext: patching file apr-util.</description>
+    </item>
+    
+  </channel>
+</rss>

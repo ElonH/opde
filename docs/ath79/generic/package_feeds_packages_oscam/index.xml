@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_oscam on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/</link>
+    <description>Recent content in package_feeds_packages_oscam on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 22:26:36 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.37</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/compile.37/</link>
+      <pubDate>Sun, 20 Jun 2021 22:26:36 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/compile.37/</guid>
+      <description>build number: 37
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/oscam/compile -j$(nproc) || make package/feeds/packages/oscam/compile V=s Compile.txt [WARN] Unknown parameter: --target=mips-openwrt-linux [WARN] Unknown parameter: --host=mips-openwrt-linux [WARN] Unknown parameter: --build=x86_64-pc-linux-gnu [WARN] Unknown parameter: --program-prefix= [WARN] Unknown parameter: --program-suffix= [WARN] Unknown parameter: --prefix=/usr [WARN] Unknown parameter: --exec-prefix=/usr [WARN] Unknown parameter: --bindir=/usr/bin [WARN] Unknown parameter: --sbindir=/usr/sbin [WARN] Unknown parameter: --libexecdir=/usr/lib [WARN] Unknown parameter: --sysconfdir=/etc [WARN] Unknown parameter: --datadir=/usr/share [WARN] Unknown parameter: --localstatedir=/var [WARN] Unknown parameter: --mandir=/usr/man [WARN] Unknown parameter: --infodir=/usr/info [WARN] Unknown parameter: --disable-nls Disable WITH_SSL Disable CARDREADER_SC8IN1 Disable CARDREADER_SMARGO Enable TOUCH Enable CS_ANTICASC Enable CW_CYCLE_CHECK Enable CLOCKFIX Enable MODULE_CAMD33 Enable MODULE_RADEGAST Enable MODULE_SERIAL Enable MODULE_CONSTCW Enable MODULE_PANDORA Enable MODULE_GHTTP Enable CARDREADER_SC8IN1 Enable CARDREADER_MP35 Enable CARDREADER_SMARGO Enable CARDREADER_DRECAS make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-mips_24kc_musl/oscam-2020-12-12-aafda4bc&amp;#39; fatal: not a git repository (or any parent up to mount point /) Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).</description>
+    </item>
+    
+  </channel>
+</rss>

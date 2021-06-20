@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>full on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/</link>
+    <description>Recent content in full on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jun 2021 22:36:26 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.37</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/compile.37/</link>
+      <pubDate>Sun, 20 Jun 2021 22:36:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/compile.37/</guid>
+      <description>build number: 37
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ffmpeg/compile -j$(nproc) || make package/feeds/packages/ffmpeg/compile V=s Compile.txt Applying ./patches/010-pkgconfig.patch using plaintext: patching file ffbuild/pkgconfig_generate.sh Applying ./patches/030-h264-mips.patch using plaintext: patching file libavcodec/mips/cabac.h Applying ./patches/050-glibc.patch using plaintext: patching file libavcodec/wmv2dsp.c ERROR: openssl not found If you think configure made a mistake, make sure you are using the latest version from Git.</description>
+    </item>
+    
+  </channel>
+</rss>
