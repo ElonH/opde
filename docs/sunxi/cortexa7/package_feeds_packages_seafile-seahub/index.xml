@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_seafile-seahub on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_seafile-seahub/</link>
+    <description>Recent content in package_feeds_packages_seafile-seahub on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Jun 2021 06:05:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_seafile-seahub/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_seafile-seahub/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:05:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_seafile-seahub/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/seafile-seahub/compile -j$(nproc) || make package/feeds/packages/seafile-seahub/compile V=s Compile.txt Applying ./patches/020-Makefile-fixes.patch using plaintext: patching file Makefile Applying ./patches/030-uci-conf.patch using plaintext: patching file seahub/settings.py Applying ./patches/040-manage-shebang.patch using plaintext: patching file manage.py Collecting Django==2.2.24 Downloading Django-2.2.24.tar.gz (9.2 MB) Collecting pytz==2021.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -12,6 +12,376 @@
     
     
     <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_fullconenat/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:15:36 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_fullconenat/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fullconenat/compile -j$(nproc) || make package/feeds/base/fullconenat/compile V=s Compile.txt Applying ./patches/000-printk.patch using plaintext: patching file xt_FULLCONENAT.c Hunk #1 succeeded at 702 (offset 5 lines). make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.4.124&amp;#39; CC [M] /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.o Building modules, stage 2. MODPOST 1 modules CC [M] /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_mosdns/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:13:39 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_mosdns/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/mosdns/compile -j$(nproc) || make package/feeds/packages/mosdns/compile V=s Compile.txt Copying files from /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/mosdns-1.8.6 into /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/mosdns-1.8.6/.go_work/build/src/github.com/IrineSistiana/mosdns dispatcher/coremain/config.go dispatcher/coremain/run.go dispatcher/handler/config.go dispatcher/handler/config_test.go dispatcher/handler/context.go dispatcher/handler/context_test.go dispatcher/handler/error.go dispatcher/handler/interface.go dispatcher/handler/plugin_wrapper.go dispatcher/handler/register.go dispatcher/handler/register_test.go dispatcher/handler/test_utils.go dispatcher/mlog/logger.go dispatcher/pkg/arbitrary/arbitrary.go dispatcher/pkg/arbitrary/arbitrary_test.go dispatcher/pkg/cache/cache.go dispatcher/pkg/cache/mem_cache/mem_cache.go dispatcher/pkg/cache/mem_cache/mem_cache_test.go dispatcher/pkg/cache/redis_cache/redis_cache.go dispatcher/pkg/cache/redis_cache/redis_cache_test.go dispatcher/pkg/concurrent_limiter/client_limiter.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_pcap-dnsproxy/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:13:39 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_pcap-dnsproxy/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/pcap-dnsproxy/compile -j$(nproc) || make package/feeds/packages/pcap-dnsproxy/compile V=s Compile.txt Applying ./patches/002-cmake-dependency-scanner-workaround.patch using plaintext: patching file Source/Pcap_DNSProxy/Platform.h Hunk #1 succeeded at 380 with fuzz 1 (offset 1 line). Hunk #2 succeeded at 394 (offset 1 line). Hunk #3 succeeded at 572 (offset -3 lines).</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_dahdi-linux/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:13:39 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_dahdi-linux/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/dahdi-linux/compile -j$(nproc) || make package/feeds/telephony/dahdi-linux/compile V=s Compile.txt Applying ./patches/003-fix-oslec-build.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/050-re-enable-ztdummy.patch using plaintext: patching file drivers/dahdi/Kbuild Applying ./patches/070-no-firmware-blob-download.patch using plaintext: patching file Makefile Applying ./patches/100-add-support-for-hfc-s-pci.patch using plaintext: patching file drivers/dahdi/Kbuild patching file drivers/dahdi/Kconfig patching file drivers/dahdi/hfcs/base.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_yate/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:13:39 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_yate/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/yate/compile -j$(nproc) || make package/feeds/telephony/yate/compile V=s Compile.txt Applying ./patches/100-non-gnu-mutex-type.patch using plaintext: patching file engine/Mutex.cpp patching file configure.ac Applying ./patches/110-upstream-crash-fix-r6470.patch using plaintext: patching file modules/ysipchan.cpp Applying ./patches/120-increase-sip-message-size.patch using plaintext: patching file conf.d/ysipchan.conf.sample Applying ./patches/130-fix-ilbc-flags.patch using plaintext: patching file libs/ilbc/Makefile.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8125/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8125/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/r8125/compile -j$(nproc) || make package/feeds/base/r8125/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/r8125-9.005.06&amp;#39; /openwrt/staging_dir/host/bin/find: &amp;#39;/lib/modules/5.8.0-1033-azure/kernel/drivers/net/ethernet&amp;#39;: No such file or directory /openwrt/staging_dir/host/bin/find: &amp;#39;/lib/modules/5.8.0-1033-azure/kernel/drivers/net&amp;#39;: No such file or directory make -C /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.4.124 M=/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/r8125-9.005.06 modules make[5]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8168/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8168/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/r8168/compile -j$(nproc) || make package/feeds/base/r8168/compile V=s Compile.txt Applying ./patches/001-r8168-add-LED-configuration-from-OF.patch using plaintext: patching file src/r8168_n.c make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/r8168-8.048.03/src&amp;#39; /openwrt/staging_dir/host/bin/find: &amp;#39;/lib/modules/5.8.0-1033-azure/kernel/drivers/net/ethernet&amp;#39;: No such file or directory /openwrt/staging_dir/host/bin/find: &amp;#39;/lib/modules/5.8.0-1033-azure/kernel/drivers/net&amp;#39;: No such file or directory make -C /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_openvswitch/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_openvswitch/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/openvswitch/compile -j$(nproc) || make package/feeds/packages/openvswitch/compile V=s Compile.txt WARNING: kmod-openvswitch is not available in the kernel config - generating empty package Applying ./patches/0001-netdev-linux-Let-interface-flag-survive-internal-por.patch using plaintext: patching file lib/netdev-linux.c Applying ./patches/0002-python-separate-host-target-python-for-cross-compile.patch using plaintext: patching file Makefile.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_ovn/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_ovn/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ovn/compile -j$(nproc) || make package/feeds/packages/ovn/compile V=s Compile.txt Applying ./patches/0001-build-skip-check-and-use-of-libunbound.patch using plaintext: patching file configure.ac Applying ./patches/0002-build-skip-tests-and-docs.patch using plaintext: patching file Makefile.am Hunk #1 succeeded at 479 (offset -4 lines). Applying ./patches/0003-ovn-lib-fix-install_dir.patch using plaintext: patching file utilities/ovn-lib.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_shairport-sync/mbedtls/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_shairport-sync/mbedtls/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/shairport-sync/compile -j$(nproc) || make package/feeds/packages/shairport-sync/compile V=s Compile.txt Applying ./patches/010-no-cxx.patch using plaintext: patching file Makefile.am patching file configure.ac autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_shairport-sync/mini/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_shairport-sync/mini/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/shairport-sync/compile -j$(nproc) || make package/feeds/packages/shairport-sync/compile V=s Compile.txt Applying ./patches/010-no-cxx.patch using plaintext: patching file Makefile.am patching file configure.ac autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_shairport-sync/openssl/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_shairport-sync/openssl/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/shairport-sync/compile -j$(nproc) || make package/feeds/packages/shairport-sync/compile V=s Compile.txt Applying ./patches/010-no-cxx.patch using plaintext: patching file Makefile.am patching file configure.ac autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_rtpengine/no-transcode/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_rtpengine/no-transcode/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/rtpengine/compile -j$(nproc) || make package/feeds/telephony/rtpengine/compile V=s Compile.txt Applying ./patches/01-cflags.patch using plaintext: patching file lib/lib.Makefile patching file daemon/Makefile patching file recording-daemon/Makefile patching file iptables-extension/Makefile Applying ./patches/04-prevent-systemd-detection.patch using plaintext: patching file lib/lib.Makefile Applying ./patches/200-openssl-deprecated.patch using plaintext: patching file daemon/dtls.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_rtpengine/transcode/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_rtpengine/transcode/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/rtpengine/compile -j$(nproc) || make package/feeds/telephony/rtpengine/compile V=s Compile.txt Applying ./patches/01-cflags.patch using plaintext: patching file lib/lib.Makefile patching file daemon/Makefile patching file recording-daemon/Makefile patching file iptables-extension/Makefile Applying ./patches/04-prevent-systemd-detection.patch using plaintext: patching file lib/lib.Makefile Applying ./patches/200-openssl-deprecated.patch using plaintext: patching file daemon/dtls.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_fast-classifier/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:09:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_fast-classifier/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fast-classifier/compile -j$(nproc) || make package/feeds/base/fast-classifier/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.4.124&amp;#39; CC [M] /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/fast-classifier/fast-classifier.o /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/fast-classifier/fast-classifier.c: In function &amp;#39;fast_classifier_init&amp;#39;: /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/fast-classifier/fast-classifier.c:1888:1: warning: label &amp;#39;exit4&amp;#39; defined but not used [-Wunused-label] exit4: ^~~~~ Building modules, stage 2. MODPOST 1 modules ERROR: &amp;#34;sfe_ipv6_register_sync_rule_callback&amp;#34; [/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/fast-classifier/fast-classifier.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_shortcut-fe/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:09:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_shortcut-fe/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/shortcut-fe/compile -j$(nproc) || make package/feeds/base/shortcut-fe/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.4.124&amp;#39; CC [M] /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/shortcut-fe/sfe_ipv4.o /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_udp&amp;#39;: /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/shortcut-fe/sfe_ipv4.c:1478:5: error: &amp;#39;struct sk_buff&amp;#39; has no member named &amp;#39;fast_forwarded&amp;#39; skb-&amp;gt;fast_forwarded = 1; ^~ /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/shortcut-fe/sfe_ipv4.c: In function &amp;#39;sfe_ipv4_recv_tcp&amp;#39;: /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/shortcut-fe/sfe_ipv4.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_jool/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:09:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_jool/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/jool/compile -j$(nproc) || make package/feeds/packages/jool/compile V=s Compile.txt configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/arm checking for a BSD-compatible install... /openwrt/staging_dir/host/bin/install -c checking whether build environment is sane... yes checking for arm-openwrt-linux-strip.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_mac80211/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:07:20 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_mac80211/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mac80211/compile -j$(nproc) || make package/feeds/base/mac80211/compile V=s Compile.txt Applying ./patches/build/000-fix_kconfig.patch using plaintext: patching file kconf/Makefile Applying ./patches/build/001-fix_build.patch using plaintext: patching file Makefile patching file Makefile.real Applying ./patches/build/002-change_allconfig.patch using plaintext: patching file kconf/conf.c patching file kconf/confdata.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_elektra/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:07:20 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_elektra/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/elektra/compile -j$(nproc) || make package/feeds/packages/elektra/compile V=s Compile.txt -- The C compiler identification is GNU 8.4.0 -- The CXX compiler identification is GNU 8.4.0 -- Detecting C compiler ABI info -- Detecting C compiler ABI info - done -- Check for working C compiler: /openwrt/staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_ffmpeg/custom/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:07:20 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_ffmpeg/custom/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ffmpeg/compile -j$(nproc) || make package/feeds/packages/ffmpeg/compile V=s Compile.txt cp: cannot stat &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/ffmpeg-custom/ffmpeg-4.3.2/ipkg-install/usr/bin/ffmpeg&amp;#39;: No such file or directory make[3]: *** [Makefile:755: /openwrt/bin/packages/arm_cortex-a7_neon-vfpv4/packages/ffmpeg-custom_4.3.2-1_arm_cortex-a7_neon-vfpv4.ipk] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_seafile-seahub/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:05:53 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_seafile-seahub/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/seafile-seahub/compile -j$(nproc) || make package/feeds/packages/seafile-seahub/compile V=s Compile.txt Applying ./patches/020-Makefile-fixes.patch using plaintext: patching file Makefile Applying ./patches/030-uci-conf.patch using plaintext: patching file seahub/settings.py Applying ./patches/040-manage-shebang.patch using plaintext: patching file manage.py Collecting Django==2.2.24 Downloading Django-2.2.24.tar.gz (9.2 MB) Collecting pytz==2021.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_coova-chilli/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:04:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_coova-chilli/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/coova-chilli/compile -j$(nproc) || make package/feeds/packages/coova-chilli/compile V=s Compile.txt Applying ./patches/010-kernel510.patch using plaintext: patching file src/linux/xt_coova.c Applying ./patches/100-fix_compile_kmod.patch using plaintext: patching file src/linux/Makefile OpenWrt-libtoolize: putting auxiliary files in `.&amp;#39;. OpenWrt-libtoolize: copying file `./ltmain.sh&amp;#39; OpenWrt-libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `m4&amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_xtables-addons/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:04:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_xtables-addons/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/xtables-addons/compile -j$(nproc) || make package/feeds/packages/xtables-addons/compile V=s Compile.txt Applying ./patches/001-fix-kernel-version-detection.patch using plaintext: patching file configure.ac Applying ./patches/100-add-rtsp-conntrack.patch using plaintext: patching file extensions/rtsp/Kbuild patching file extensions/rtsp/netfilter_helpers.h patching file extensions/rtsp/netfilter_mime.h patching file extensions/rtsp/nf_conntrack_rtsp.c patching file extensions/rtsp/nf_conntrack_rtsp.h patching file extensions/rtsp/nf_nat_rtsp.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_dahdi-tools/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:04:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_dahdi-tools/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/dahdi-tools/compile -j$(nproc) || make package/feeds/telephony/dahdi-tools/compile V=s Compile.txt Applying ./patches/020-fix-undefined-reference-to-get_ver.patch using plaintext: patching file xpp/echo_loader.c autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_libpri/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:04:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_libpri/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/libpri/compile -j$(nproc) || make package/feeds/telephony/libpri/compile V=s Compile.txt Applying ./patches/001-fix-include-signal-h-warning.patch using plaintext: patching file pritest.c patching file testprilib.c Applying ./patches/010-no-werror.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/libpri-1.6.0&amp;#39; ccache_cc -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -mfloat-abi=hard -fmacro-prefix-map=/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/libpri-1.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_hostapd/wpad-full-internal/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:02:01 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_hostapd/wpad-full-internal/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/hostapd/compile -j$(nproc) || make package/feeds/base/hostapd/compile V=s Compile.txt Applying ./patches/001-wolfssl-init-RNG-with-ECC-key.patch using plaintext: patching file src/crypto/crypto_wolfssl.c Applying ./patches/010-mesh-Allow-DFS-channels-to-be-selected-if-dfs-is-ena.patch using plaintext: patching file wpa_supplicant/wpa_supplicant.c Applying ./patches/011-mesh-use-deterministic-channel-on-channel-switch.patch using plaintext: patching file src/ap/dfs.c patching file src/drivers/driver_nl80211.c Applying ./patches/020-mesh-make-forwarding-configurable.patch using plaintext: patching file src/ap/ap_config.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_gsmlib/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:02:01 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_gsmlib/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/gsmlib/compile -j$(nproc) || make package/feeds/telephony/gsmlib/compile V=s Compile.txt Applying ./patches/01-update-autotools.patch using plaintext: patching file configure.in patching file po/Makevars patching file Makefile.am Applying ./patches/02-fix-cross-compile.patch using plaintext: patching file configure.in Applying ./patches/03-disable-Siemens-specific-code.patch using plaintext: patching file Makefile.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_freeswitch-mod-bcg729/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:00:44 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_freeswitch-mod-bcg729/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/freeswitch-mod-bcg729/compile -j$(nproc) || make package/feeds/telephony/freeswitch-mod-bcg729/compile V=s Compile.txt mod_bcg729.c:30:10: fatal error: switch.h: No such file or directory #include &amp;#34;switch.h&amp;#34; ^~~~~~~~~~ compilation terminated. make[3]: *** [Makefile:82: /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/freeswitch-mod-bcg729-2017-06-29-686eb06d/.built] Error 1 </description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_freeswitch/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:00:44 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_freeswitch/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/freeswitch/compile -j$(nproc) || make package/feeds/telephony/freeswitch/compile V=s Compile.txt Applying ./patches/003-modmake-fix.patch using plaintext: patching file build/modmake.rulesam Applying ./patches/010-fix-zrtp-cflags.patch using plaintext: patching file libs/libzrtp/configure.ac Applying ./patches/030-fix-configure-ac.patch using plaintext: patching file configure.ac Applying ./patches/110-apr-add-cache-for-strerror_r.patch using plaintext: patching file libs/apr-util/build/apr_common.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-chan-dongle/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:59:56 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-chan-dongle/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-dongle/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-dongle/compile V=s Compile.txt Applying ./patches/200-fix-iconv-detection.patch using plaintext: patching file configure.ac Applying ./patches/300-use-openwrt-flags.patch using plaintext: patching file configure.ac autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-chan-sccp/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:59:56 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-chan-sccp/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-chan-sccp/compile -j$(nproc) || make package/feeds/telephony/asterisk-chan-sccp/compile V=s Compile.txt Applying ./patches/01-prevent-extra-optimization.patch using plaintext: patching file autoconf/extra.m4 Hunk #1 succeeded at 516 with fuzz 2 (offset 25 lines). Applying ./patches/100-reproducible-builds.patch using plaintext: patching file src/chan_sccp.c Hunk #1 succeeded at 198 (offset 12 lines).</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-g72x/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:59:56 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-g72x/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-g72x/compile -j$(nproc) || make package/feeds/telephony/asterisk-g72x/compile V=s Compile.txt autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/usr/share/aclocal -I m4 -I . --force -I m4 autoreconf: configure.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-opus/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:59:56 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk-opus/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk-opus/compile -j$(nproc) || make package/feeds/telephony/asterisk-opus/compile V=s Compile.txt Applying ./patches/01-Makefile.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/asterisk-opus-2017-10-09-83e1b458&amp;#39; ccache_cc -o codecs/codec_opus_open_source.so -DAST_MODULE=\&amp;#34;codec_opus_open_source\&amp;#34; -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -Wno-error=unused-but-set-variable -Wno-error=unused-result -mfloat-abi=hard -fmacro-prefix-map=/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/asterisk-opus-2017-10-09-83e1b458=asterisk-opus-2017-10-09-83e1b458 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro -DAST_MODULE_SELF_SYM=__internal_codec_opus_open_source_self -DPIC -fpic -I/openwrt/staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:59:56 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_telephony_asterisk/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/asterisk/compile -j$(nproc) || make package/feeds/telephony/asterisk/compile V=s Compile.txt Applying ./patches/030-GNU-GLOB-exts-only-on-glibc.patch using plaintext: patching file res/ael/ael.flex patching file res/ael/ael_lex.c Applying ./patches/053-musl-mutex-init.patch using plaintext: patching file include/asterisk/lock.h Applying ./patches/100-build-reproducibly.patch using plaintext: patching file build_tools/make_build_h patching file Makefile Applying .</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_routing_batman-adv/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:59:12 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_routing_batman-adv/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/routing/batman-adv/compile -j$(nproc) || make package/feeds/routing/batman-adv/compile V=s Compile.txt Applying ./patches/0001-Revert-batman-adv-genetlink-move-to-smaller-ops-wher.patch using plaintext: patching file compat-include/net/genetlink.h patching file net/batman-adv/netlink.c Applying ./patches/0002-Revert-batman-adv-Add-new-include-for-min-max-helper.patch using plaintext: patching file compat-include/linux/minmax.h patching file net/batman-adv/bat_v.c patching file net/batman-adv/bat_v_elp.c patching file net/batman-adv/bat_v_ogm.c patching file net/batman-adv/fragmentation.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_node-ejdb2_node/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:58:33 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_node-ejdb2_node/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-ejdb2_node/compile -j$(nproc) || make package/feeds/packages/node-ejdb2_node/compile V=s Compile.txt Applying ./patches/999-fix_install_js.patch using plaintext: patching file install.js Applying ./patches/999-fix_strip_issue.patch using plaintext: patching file install.js Applying ./patches/999-mips_support.patch using plaintext: patching file package.json npm info it worked if it ends with ok npm info using npm@6.</description>
+    </item>
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_node-ffi-napi/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 05:58:33 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_packages_node-ffi-napi/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/node-ffi-napi/compile -j$(nproc) || make package/feeds/packages/node-ffi-napi/compile V=s Compile.txt Applying ./patches/0001-do_not_build_libffi.patch using plaintext: patching file binding.gyp Applying ./patches/0002-support_mips.patch using plaintext: patching file src/ffi.cc npm info it worked if it ends with ok npm info using npm@6.</description>
+    </item>
+    
+    <item>
       <title>compile.37</title>
       <link>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/regular/compile.37/</link>
       <pubDate>Sun, 20 Jun 2021 22:39:07 +0000</pubDate>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_base_r8168 on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8168/</link>
+    <description>Recent content in package_feeds_base_r8168 on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Jun 2021 06:12:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8168/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.38</title>
+      <link>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8168/compile.38/</link>
+      <pubDate>Mon, 21 Jun 2021 06:12:30 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_r8168/compile.38/</guid>
+      <description>build number: 38
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/r8168/compile -j$(nproc) || make package/feeds/base/r8168/compile V=s Compile.txt Applying ./patches/001-r8168-add-LED-configuration-from-OF.patch using plaintext: patching file src/r8168_n.c make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/r8168-8.048.03/src&amp;#39; /openwrt/staging_dir/host/bin/find: &amp;#39;/lib/modules/5.8.0-1033-azure/kernel/drivers/net/ethernet&amp;#39;: No such file or directory /openwrt/staging_dir/host/bin/find: &amp;#39;/lib/modules/5.8.0-1033-azure/kernel/drivers/net&amp;#39;: No such file or directory make -C /openwrt/build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-sunxi_cortexa7/linux-5.</description>
+    </item>
+    
+  </channel>
+</rss>
