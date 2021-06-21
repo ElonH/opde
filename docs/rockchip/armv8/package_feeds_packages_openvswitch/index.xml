@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_openvswitch on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 17:00:31 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jun 2021 19:30:51 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_openvswitch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.39</title>
+      <link>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_openvswitch/compile.39/</link>
+      <pubDate>Mon, 21 Jun 2021 19:30:51 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_openvswitch/compile.39/</guid>
+      <description>build number: 39
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/openvswitch/compile -j$(nproc) || make package/feeds/packages/openvswitch/compile V=s Compile.txt WARNING: kmod-openvswitch is not available in the kernel config - generating empty package Applying ./patches/0001-netdev-linux-Let-interface-flag-survive-internal-por.patch using plaintext: patching file lib/netdev-linux.c Applying ./patches/0002-python-separate-host-target-python-for-cross-compile.patch using plaintext: patching file Makefile.</description>
+    </item>
     
     <item>
       <title>compile.36</title>

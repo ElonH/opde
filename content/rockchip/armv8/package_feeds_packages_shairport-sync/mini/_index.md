@@ -1,6 +1,6 @@
 ---
 title: "mini"
-date: 2021-06-20 17:00:31.577223
+date: 2021-06-21 19:30:51.683645
 hidden: false
 draft: false
 ---

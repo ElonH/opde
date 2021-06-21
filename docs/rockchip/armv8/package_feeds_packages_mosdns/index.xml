@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_mosdns on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 17:01:47 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jun 2021 19:31:57 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_mosdns/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.39</title>
+      <link>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_mosdns/compile.39/</link>
+      <pubDate>Mon, 21 Jun 2021 19:31:57 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_mosdns/compile.39/</guid>
+      <description>build number: 39
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/mosdns/compile -j$(nproc) || make package/feeds/packages/mosdns/compile V=s Compile.txt Copying files from /openwrt/build_dir/target-aarch64_generic_musl/mosdns-1.8.6 into /openwrt/build_dir/target-aarch64_generic_musl/mosdns-1.8.6/.go_work/build/src/github.com/IrineSistiana/mosdns dispatcher/coremain/config.go dispatcher/coremain/run.go dispatcher/handler/config.go dispatcher/handler/config_test.go dispatcher/handler/context.go dispatcher/handler/context_test.go dispatcher/handler/error.go dispatcher/handler/interface.go dispatcher/handler/plugin_wrapper.go dispatcher/handler/register.go dispatcher/handler/register_test.go dispatcher/handler/test_utils.go dispatcher/mlog/logger.go dispatcher/pkg/arbitrary/arbitrary.go dispatcher/pkg/arbitrary/arbitrary_test.go dispatcher/pkg/cache/cache.go dispatcher/pkg/cache/mem_cache/mem_cache.go dispatcher/pkg/cache/mem_cache/mem_cache_test.go dispatcher/pkg/cache/redis_cache/redis_cache.go dispatcher/pkg/cache/redis_cache/redis_cache_test.go dispatcher/pkg/concurrent_limiter/client_limiter.</description>
+    </item>
     
     <item>
       <title>compile.36</title>

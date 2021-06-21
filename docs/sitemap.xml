@@ -3,6 +3,186 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fullconenat/compile.39/</loc>
+    <lastmod>2021-06-21T19:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ksmbd/compile.39/</loc>
+    <lastmod>2021-06-21T19:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_mosdns/compile.39/</loc>
+    <lastmod>2021-06-21T19:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_pcap-dnsproxy/compile.39/</loc>
+    <lastmod>2021-06-21T19:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_openvswitch/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ovn/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/mbedtls/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/mini/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/openssl/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/no-transcode/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/transcode/compile.39/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fast-classifier/compile.39/</loc>
+    <lastmod>2021-06-21T19:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_shortcut-fe/compile.39/</loc>
+    <lastmod>2021-06-21T19:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_jool/compile.39/</loc>
+    <lastmod>2021-06-21T19:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/regular/compile.39/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_mac80211/compile.39/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_elektra/compile.39/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ffmpeg/custom/compile.39/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_seafile-seahub/compile.39/</loc>
+    <lastmod>2021-06-21T19:24:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_coova-chilli/compile.39/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_xtables-addons/compile.39/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_dahdi-linux/compile.39/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_dahdi-tools/compile.39/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_libpri/compile.39/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_gsmlib/compile.39/</loc>
+    <lastmod>2021-06-21T19:20:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/smallbuffers/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_mt76/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8188eu/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8192du/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8812au-ac/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8812au-ct/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8821cu/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl88x2bu/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_routing_batman-adv/compile.39/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_node-ejdb2_node/compile.39/</loc>
+    <lastmod>2021-06-21T19:17:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_node-ffi-napi/compile.39/</loc>
+    <lastmod>2021-06-21T19:17:20+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elonh.github.io/opde/sunxi/cortexa7/package_feeds_base_fullconenat/compile.38/</loc>
     <lastmod>2021-06-21T06:15:36+00:00</lastmod>
   </url>
@@ -7803,6 +7983,216 @@
   </url>
   
   <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/</loc>
+    <lastmod>2021-06-21T19:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fullconenat/</loc>
+    <lastmod>2021-06-21T19:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ksmbd/</loc>
+    <lastmod>2021-06-21T19:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/</loc>
+    <lastmod>2021-06-21T19:33:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_mosdns/</loc>
+    <lastmod>2021-06-21T19:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_pcap-dnsproxy/</loc>
+    <lastmod>2021-06-21T19:31:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/mbedtls/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/mini/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/no-transcode/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/openssl/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_openvswitch/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ovn/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/transcode/</loc>
+    <lastmod>2021-06-21T19:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fast-classifier/</loc>
+    <lastmod>2021-06-21T19:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_shortcut-fe/</loc>
+    <lastmod>2021-06-21T19:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_jool/</loc>
+    <lastmod>2021-06-21T19:28:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ffmpeg/custom/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_mac80211/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_elektra/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ffmpeg/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/regular/</loc>
+    <lastmod>2021-06-21T19:25:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_seafile-seahub/</loc>
+    <lastmod>2021-06-21T19:24:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_coova-chilli/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_xtables-addons/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_dahdi-linux/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_dahdi-tools/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_libpri/</loc>
+    <lastmod>2021-06-21T19:23:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_gsmlib/</loc>
+    <lastmod>2021-06-21T19:20:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_mt76/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8188eu/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8192du/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8812au-ac/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8812au-ct/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8821cu/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl88x2bu/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_routing_batman-adv/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/smallbuffers/</loc>
+    <lastmod>2021-06-21T19:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_node-ejdb2_node/</loc>
+    <lastmod>2021-06-21T19:17:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_node-ffi-napi/</loc>
+    <lastmod>2021-06-21T19:17:20+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elonh.github.io/opde/sunxi/cortexa7/</loc>
     <lastmod>2021-06-21T06:15:36+00:00</lastmod>
   </url>
@@ -9795,216 +10185,6 @@
   <url>
     <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/</loc>
     <lastmod>2021-06-20T22:22:44+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/</loc>
-    <lastmod>2021-06-20T17:03:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fullconenat/</loc>
-    <lastmod>2021-06-20T17:03:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ksmbd/</loc>
-    <lastmod>2021-06-20T17:03:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/</loc>
-    <lastmod>2021-06-20T17:03:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_mosdns/</loc>
-    <lastmod>2021-06-20T17:01:47+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_pcap-dnsproxy/</loc>
-    <lastmod>2021-06-20T17:01:47+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/mbedtls/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/mini/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/no-transcode/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/openssl/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_openvswitch/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ovn/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_shairport-sync/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_rtpengine/transcode/</loc>
-    <lastmod>2021-06-20T17:00:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fast-classifier/</loc>
-    <lastmod>2021-06-20T16:57:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_shortcut-fe/</loc>
-    <lastmod>2021-06-20T16:57:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_jool/</loc>
-    <lastmod>2021-06-20T16:57:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ffmpeg/custom/</loc>
-    <lastmod>2021-06-20T16:55:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/</loc>
-    <lastmod>2021-06-20T16:55:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_mac80211/</loc>
-    <lastmod>2021-06-20T16:55:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_elektra/</loc>
-    <lastmod>2021-06-20T16:55:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_ffmpeg/</loc>
-    <lastmod>2021-06-20T16:55:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/regular/</loc>
-    <lastmod>2021-06-20T16:55:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_seafile-seahub/</loc>
-    <lastmod>2021-06-20T16:53:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_coova-chilli/</loc>
-    <lastmod>2021-06-20T16:51:55+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_xtables-addons/</loc>
-    <lastmod>2021-06-20T16:51:55+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_dahdi-linux/</loc>
-    <lastmod>2021-06-20T16:51:55+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_dahdi-tools/</loc>
-    <lastmod>2021-06-20T16:51:55+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_libpri/</loc>
-    <lastmod>2021-06-20T16:51:55+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_telephony_gsmlib/</loc>
-    <lastmod>2021-06-20T16:49:09+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_mt76/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8188eu/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8192du/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8812au-ac/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8812au-ct/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8821cu/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl88x2bu/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_routing_batman-adv/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_ath10k-ct/smallbuffers/</loc>
-    <lastmod>2021-06-20T16:46:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_node-ejdb2_node/</loc>
-    <lastmod>2021-06-20T16:45:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_packages_node-ffi-napi/</loc>
-    <lastmod>2021-06-20T16:45:23+00:00</lastmod>
   </url>
   
   <url>

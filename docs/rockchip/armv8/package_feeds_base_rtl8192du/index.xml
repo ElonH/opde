@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_rtl8192du on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 16:46:07 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jun 2021 19:18:00 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8192du/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.39</title>
+      <link>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8192du/compile.39/</link>
+      <pubDate>Mon, 21 Jun 2021 19:18:00 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_rtl8192du/compile.39/</guid>
+      <description>build number: 39
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/rtl8192du/compile -j$(nproc) || make package/feeds/base/rtl8192du/compile V=s Compile.txt Applying ./patches/010-missing-header-in-ipv6.patch using plaintext: patching file core/rtw_br_ext.c Applying ./patches/020-wireless-5.8.patch using plaintext: patching file os_dep/ioctl_cfg80211.c make[3]: *** No rule to make target &amp;#39;/openwrt/staging_dir/target-aarch64_generic_musl/usr/include/mac80211-backport/backport/autoconf.h&amp;#39;, needed by &amp;#39;/openwrt/build_dir/target-aarch64_generic_musl/linux-rockchip_armv8/rtl8192du-2020-12-12-331ec03d/.configured_68b329da9893e34099c7d8ad5cb9c940&amp;#39;. Stop. </description>
+    </item>
     
     <item>
       <title>compile.36</title>
