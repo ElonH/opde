@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_qt5 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:30:11 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:37:31 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qt5/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qt5/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:37:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qt5/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/qt5/compile -j$(nproc) || make package/feeds/packages/qt5/compile V=s Compile.txt + cd qtbase + /openwrt/build_dir/target-mips_24kc_musl/qt-everywhere-src-5.15.2/qtbase/configure -top-level -prefix /usr -extprefix /openwrt/staging_dir/toolchain-mips_24kc_gcc-8.4.0_musl -sysroot /openwrt/staging_dir/target-mips_24kc_musl -plugindir /usr/lib/Qt/plugins -R /usr/lib -I /openwrt/staging_dir/target-mips_24kc_musl/usr/include -L /openwrt/staging_dir/target-mips_24kc_musl/usr/lib -xplatform linux-openwrt-g++ -opensource -confirm-license -system-doubleconversion -system-pcre -system-zlib -openssl-runtime -sql-sqlite -sqlite -no-cups -no-freetype -no-harfbuzz -no-gtk -no-opengl -no-opengles3 -no-angle -no-openvg -no-dbus -no-directfb -no-eglfs -no-feature-getentropy -no-iconv -no-kms -no-pch -no-libudev -no-mtdev -no-tslib -no-libpng -no-libjpeg -no-sql-db2 -no-sql-ibase -no-sql-mysql -no-sql-oci -no-sql-odbc -no-sql-psql -no-sql-sqlite2 -no-sql-tds -no-strip -no-xcb -no-gui -no-widgets -no-glib -make libs -nomake examples -nomake tests -nomake tools -skip 3d -skip activeqt -skip charts -skip connectivity -skip datavis3d -skip declarative -skip doc -skip gamepad -skip imageformats -skip location -skip networkauth -skip multimedia -skip purchasing -skip remoteobjects -skip script -skip sensors -skip serialbus -skip serialport -skip speech -skip svg -skip wayland -skip webengine -skip websockets -skip webchannel -skip xmlpatterns -v Creating qmake.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

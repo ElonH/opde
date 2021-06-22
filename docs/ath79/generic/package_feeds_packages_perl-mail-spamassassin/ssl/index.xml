@@ -6,10 +6,20 @@
     <description>Recent content in ssl on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:27:32 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:45:15 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/ssl/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/ssl/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:45:15 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/ssl/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/perl-mail-spamassassin/compile -j$(nproc) || make package/feeds/packages/perl-mail-spamassassin/compile V=s Compile.txt not installing man pages in man1; no man1 dir found at - line 275. What email address or URL should be used in the suspected-spam report text for users who want more information on your filter installation?</description>
+    </item>
     
     <item>
       <title>compile.37</title>

@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_tang on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:26:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:50:06 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tang/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:50:06 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tang/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/tang/compile -j$(nproc) || make package/feeds/packages/tang/compile V=s Compile.txt Applying ./patches/010-http.patch using plaintext: patching file meson.build The Meson build system Version: 0.57.2 Source dir: /openwrt/build_dir/target-mips_24kc_musl/tang-10 Build dir: /openwrt/build_dir/target-mips_24kc_musl/tang-10/openwrt-build Build type: cross build WARNING: Unknown options: &amp;#34;build.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

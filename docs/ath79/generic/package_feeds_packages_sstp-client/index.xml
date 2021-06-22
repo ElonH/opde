@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_sstp-client on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:36:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:41:19 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sstp-client/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sstp-client/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:41:19 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sstp-client/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/sstp-client/compile -j$(nproc) || make package/feeds/packages/sstp-client/compile V=s Compile.txt Applying ./patches/100-musl-compat.patch using plaintext: patching file include/net/ppp_defs.h patching file src/libsstp-log/sstp-log-syslog.c patching file src/libsstp-log/sstp-log-std.c Applying ./patches/200-openssl-deprecated.patch using plaintext: patching file src/sstp-client.c configure: WARNING: unrecognized options: --disable-nls configure: loading site script /openwrt/include/site/mips checking whether make supports nested variables.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

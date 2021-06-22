@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_opendkim on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:26:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:43:26 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opendkim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opendkim/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:43:26 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opendkim/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/opendkim/compile -j$(nproc) || make package/feeds/packages/opendkim/compile V=s Compile.txt Applying ./patches/010-openssl_1.1_compat.patch using plaintext: patching file configure.ac patching file opendkim/opendkim-crypto.c patching file libopendkim/dkim.c patching file opendkim/opendkim-testkey.c patching file opendkim/opendkim.c Applying ./patches/020-uclibc.patch using plaintext: patching file libopendkim/dkim-dns.c autoreconf: Entering directory `.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

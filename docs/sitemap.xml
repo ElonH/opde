@@ -3,6 +3,1601 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/regular/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_cryptodev-linux/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_fullconenat/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mac80211/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_boost/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_curl/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_elektra/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnutls/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_i2pd/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libfido2/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmicrohttpd/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_lua-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/without-pam/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvpn/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-imagick/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_poco/all/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_samba4/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_schroot/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_trojan-plus/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_unbound/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_wget/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xtables-addons/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xupnpd/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ipfs-http-client/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmariadb/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_radsecproxy/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_stunnel/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_taskwarrior/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tvheadend/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uacme/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_znc/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_dahdi-linux/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_yate/compile.40/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apk/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bcrypt/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_boinc/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_emailrelay/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_esniper/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gost_engine/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hcxdumptool/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hcxtools/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hfsprogs/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_i2c-tools/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnopoll/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libp11/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libstrophe/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mutt/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_njitclient/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_postfix/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-augeas/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cffi/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptodome/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptodomex/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptography/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-curl/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-dateutil/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-evdev/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-uci/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-yaml/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-netifaces/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_quickjspp/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ratched/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rpi.gpio/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_libks/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_signalwire-client-c/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_libevent2/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_uclient/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_uhttpd/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ustream-ssl/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bind/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_https-dns-proxy/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_jose/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libgpiod/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libssh2/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasec/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/full/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openocd/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_prosody/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-rcssmin/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rng-tools/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_softethervpn5/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_squid/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tang/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/full/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ykclient/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_yubico-pam/compile.40/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apfree-wifidog/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_aria2/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_keepalived/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_neon/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nfs-kernel-server/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx-util/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/all-module/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/with-pam/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/mbedtls/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/mini/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spice/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_subconverter/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/sslcrypt/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uwsgi/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-g72x/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_dahdi-tools/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_libpri/compile.40/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_exfat/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_aircrack-ng/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_atlas-probe/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hs20/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_knot-resolver/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_knot/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasql/mysql/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ocserv/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pdns-recursor/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-greenlet/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-psutil/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-libselinux/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-libsemanage/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_selinux-python/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_setools/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_umurmur/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt7601u-ap/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apache/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_clamav/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_collectd/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_fdm/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_haproxy/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_icecast/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_idevicerestore/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libesmtp/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libimobiledevice/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libssh/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/full/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_monit/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosquitto/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ootoc/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_open-iscsi/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opus-tools/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opusfile/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sendmail/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shadowsocksr-libev/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_snort/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_softethervpn/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spdlog/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_strongswan/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_subversion/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmate-ssh-server/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmate/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_transmission/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ulogd/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_usbmuxd/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vpnc/compile.40/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/basic-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/full-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/supplicant-full-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/supplicant-mesh-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-basic-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-full-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-mesh-openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_chaosvpn/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/custom/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_getdns/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_jool/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnetconf2/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_loudmouth/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/full/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/mini/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netopeer2/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/noavahi/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pyodbc/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-pynacl/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_stubby/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sysrepo/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tinc/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ttyd/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_batman-adv/compile.40/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_fast-classifier/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_shortcut-fe/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_luci_luci-app-nginx-pingos/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_alpine/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apparmor/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bitlbee/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_coova-chilli/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_dnsdist/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/gnutls/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/ldap/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/nossl/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gerbera/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_git/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_h2o/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ksmbd/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ldns/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libdbi-drivers/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmraa/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnpupnp/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libreswan/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libupm/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libupnpp/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_lighttpd/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_minidlna/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosh/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netwhere/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-dio/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-krb5/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-redis/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php8/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spoofer/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_syslog-ng/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_trojan/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_upmpdcli/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xmlrpc-c/internal/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/no-transcode/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/transcode/compile.40/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/smallbuffers/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_lldpd/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt76/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8188eu/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8192du/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8812au-ac/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8812au-ct/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8821cu/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl88x2bu/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_forked-daapd/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_freeradius3/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosdns/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-psycopg2/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ubus/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_sngrep/compile.40/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opendkim/compile.40/</loc>
+    <lastmod>2021-06-22T10:43:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-www-curl/compile.40/</loc>
+    <lastmod>2021-06-22T10:43:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_addrwatch/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/gnutls/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/nossl/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mariadb/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netifyd/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvswitch/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-libevent/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-mcrypt/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/avahi/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-yarl/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ruamel-yaml/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_snort3/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/basic/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_zabbix/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-chan-dongle/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-chan-sccp/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-opus/compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mariadb/host-compile.40/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_adb/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_iperf3/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_irssi/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libuhttpd/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mailsend/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mwol/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netstinky/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngircd/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngrokc/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nsd/ssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openconnect/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openfortivpn/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_quassel-irssi/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtty/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_smartdns/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sstp-client/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vsftpd/tls/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_baresip/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_restund/compile.40/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libtorrent/compile.40/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/norpc/compile.40/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/rpc/compile.40/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ovn/compile.40/</loc>
+    <lastmod>2021-06-22T10:38:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_hnetd/openssl/compile.40/</loc>
+    <lastmod>2021-06-22T10:38:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_kea/compile.40/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_freeswitch-mod-bcg729/compile.40/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_freeswitch/compile.40/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_sofia-sip/compile.40/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_button-hotplug/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_r8152/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bfdd/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_davfs2/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnunet/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-libav/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_inadyn/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libevhtp/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libtorrent-rasterbar/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_memcached/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opensc/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pcap-dnsproxy/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pdns/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-http/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-propro/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-raphf/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pillow/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-lxml/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qbittorrent-enhanced-edition/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qt5/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ratechecker/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks2/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-ccnet/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-seahub/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-server/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmux/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_kamailio/compile.40/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elonh.github.io/opde/rockchip/armv8/package_feeds_base_fullconenat/compile.39/</loc>
     <lastmod>2021-06-21T19:33:48+00:00</lastmod>
   </url>
@@ -7983,6 +9578,1791 @@
   </url>
   
   <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_poco/all/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvpn/openssl/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_cryptodev-linux/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_fullconenat/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mac80211/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_openssl/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_boost/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_curl/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_elektra/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnutls/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_i2pd/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libfido2/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmicrohttpd/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_lua-openssl/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvpn/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-imagick/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_poco/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_samba4/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_schroot/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_trojan-plus/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_unbound/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_wget/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xtables-addons/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xupnpd/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/regular/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmicrohttpd/ssl/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_wget/ssl/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/without-pam/</loc>
+    <lastmod>2021-06-22T10:51:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ipfs-http-client/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmariadb/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_radsecproxy/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_stunnel/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_taskwarrior/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tvheadend/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uacme/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_znc/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_dahdi-linux/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_yate/</loc>
+    <lastmod>2021-06-22T10:51:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apk/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bcrypt/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_boinc/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_emailrelay/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_esniper/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gost_engine/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hcxdumptool/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hcxtools/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hfsprogs/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_i2c-tools/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnopoll/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libp11/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libstrophe/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mutt/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_njitclient/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_postfix/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-augeas/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cffi/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptodome/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptodomex/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptography/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-curl/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-dateutil/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-evdev/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-uci/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-yaml/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-netifaces/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_quickjspp/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ratched/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rpi.gpio/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_libks/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_signalwire-client-c/</loc>
+    <lastmod>2021-06-22T10:50:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/full/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/full/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ustream-ssl/openssl/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_libevent2/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_uclient/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_uhttpd/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ustream-ssl/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bind/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_https-dns-proxy/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_jose/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libgpiod/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libssh2/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasec/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openocd/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_prosody/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-rcssmin/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rng-tools/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_softethervpn5/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_squid/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tang/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ykclient/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_yubico-pam/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/ssl/</loc>
+    <lastmod>2021-06-22T10:50:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/all-module/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/mbedtls/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/mini/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/openssl/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apfree-wifidog/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_aria2/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_keepalived/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_neon/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nfs-kernel-server/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx-util/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spice/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_subconverter/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uwsgi/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-g72x/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_dahdi-tools/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_libpri/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/ssl/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/sslcrypt/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/with-pam/</loc>
+    <lastmod>2021-06-22T10:49:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasql/mysql/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_umurmur/openssl/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_exfat/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_aircrack-ng/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_atlas-probe/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hs20/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_knot/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_knot-resolver/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasql/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ocserv/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pdns-recursor/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-greenlet/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-psutil/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-libselinux/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-libsemanage/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_selinux-python/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_setools/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_umurmur/</loc>
+    <lastmod>2021-06-22T10:48:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/full/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/openssl/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt7601u-ap/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apache/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_clamav/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_collectd/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_fdm/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_haproxy/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_icecast/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_idevicerestore/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libesmtp/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libimobiledevice/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libssh/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_monit/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosquitto/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ootoc/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_open-iscsi/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opus-tools/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opusfile/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sendmail/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shadowsocksr-libev/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_snort/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_softethervpn/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spdlog/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_strongswan/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_subversion/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmate/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmate-ssh-server/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_transmission/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ulogd/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_usbmuxd/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vpnc/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_haproxy/ssl/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_monit/ssl/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosquitto/ssl/</loc>
+    <lastmod>2021-06-22T10:47:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/basic-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/custom/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/full/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/full-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/mini/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/noavahi/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_chaosvpn/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_getdns/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_jool/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnetconf2/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_loudmouth/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netopeer2/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pyodbc/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-pynacl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_stubby/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sysrepo/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tinc/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ttyd/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_batman-adv/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/supplicant-full-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/supplicant-mesh-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-basic-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-full-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-mesh-openssl/</loc>
+    <lastmod>2021-06-22T10:46:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/gnutls/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xmlrpc-c/internal/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/ldap/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/no-transcode/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/nossl/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/openssl/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_fast-classifier/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_shortcut-fe/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_luci_luci-app-nginx-pingos/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_alpine/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apparmor/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bitlbee/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_coova-chilli/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_dnsdist/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gerbera/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_git/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_h2o/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ksmbd/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ldns/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libdbi-drivers/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmraa/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnpupnp/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libreswan/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libupm/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libupnpp/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_lighttpd/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_minidlna/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosh/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netwhere/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-dio/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-krb5/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-redis/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php8/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spoofer/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_syslog-ng/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_trojan/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_upmpdcli/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xmlrpc-c/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_alpine/ssl/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/ssl/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/transcode/</loc>
+    <lastmod>2021-06-22T10:45:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_lldpd/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt76/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8188eu/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8192du/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8812au-ac/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8812au-ct/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8821cu/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl88x2bu/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_forked-daapd/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_freeradius3/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosdns/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-psycopg2/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ubus/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_sngrep/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/smallbuffers/</loc>
+    <lastmod>2021-06-22T10:44:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opendkim/</loc>
+    <lastmod>2021-06-22T10:43:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-www-curl/</loc>
+    <lastmod>2021-06-22T10:43:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/avahi/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/basic/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/gnutls/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/nossl/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_addrwatch/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mariadb/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netifyd/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvswitch/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-libevent/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-mcrypt/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-yarl/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ruamel-yaml/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_snort3/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_zabbix/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-chan-dongle/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-chan-sccp/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-opus/</loc>
+    <lastmod>2021-06-22T10:42:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libuhttpd/openssl/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtty/openssl/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_adb/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_iperf3/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_irssi/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libuhttpd/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mailsend/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mwol/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netstinky/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngircd/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngrokc/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nsd/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openconnect/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openfortivpn/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_quassel-irssi/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtty/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_smartdns/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sstp-client/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vsftpd/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_baresip/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_restund/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_iperf3/ssl/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mailsend/ssl/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngircd/ssl/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nsd/ssl/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vsftpd/tls/</loc>
+    <lastmod>2021-06-22T10:41:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/norpc/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libtorrent/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/rpc/</loc>
+    <lastmod>2021-06-22T10:39:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_hnetd/openssl/</loc>
+    <lastmod>2021-06-22T10:38:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ovn/</loc>
+    <lastmod>2021-06-22T10:38:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_hnetd/</loc>
+    <lastmod>2021-06-22T10:38:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_kea/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_freeswitch/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_freeswitch-mod-bcg729/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_sofia-sip/</loc>
+    <lastmod>2021-06-22T10:38:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_button-hotplug/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_r8152/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bfdd/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_davfs2/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnunet/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-libav/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_inadyn/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libevhtp/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libtorrent-rasterbar/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_memcached/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opensc/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pcap-dnsproxy/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pdns/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-http/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-propro/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-raphf/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pillow/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-lxml/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qbittorrent-enhanced-edition/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qt5/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ratechecker/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks2/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-ccnet/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-seahub/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-server/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmux/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_kamailio/</loc>
+    <lastmod>2021-06-22T10:37:31+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://elonh.github.io/opde/rockchip/armv8/</loc>
     <lastmod>2021-06-21T19:33:48+00:00</lastmod>
   </url>
@@ -8408,1783 +11788,13 @@
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/all-module/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/full/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasql/mysql/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvpn/openssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_umurmur/openssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_hnetd/openssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_cryptodev-linux/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_fullconenat/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_libevent2/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mac80211/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_openssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bcrypt/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bind/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_boinc/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_boost/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_clamav/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_curl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_emailrelay/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_fdm/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnutls/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ksmbd/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libfido2/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmariadb/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmicrohttpd/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libssh2/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasql/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_monit/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx-util/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ootoc/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opensc/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvpn/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cffi/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptography/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-yaml/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-yarl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ruamel-yaml/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sendmail/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_softethervpn5/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_transmission/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_trojan/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_umurmur/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_unbound/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uwsgi/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_wget/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_znc/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_hnetd/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/regular/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmicrohttpd/ssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_monit/ssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nginx/ssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_wget/ssl/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/with-pam/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openssh/without-pam/</loc>
-    <lastmod>2021-06-20T22:39:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/gnutls/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/nossl/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/openssl/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnpupnp/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libulfius/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libupnpp/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosquitto/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shadowsocksr-libev/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_taskwarrior/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_trojan-plus/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_upmpdcli/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosquitto/ssl/</loc>
-    <lastmod>2021-06-20T22:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/full/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_lldpd/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_i2c-tools/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_icecast/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosdns/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pcap-dnsproxy/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-augeas/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-curl/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-rcssmin/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-uci/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-netifaces/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ulogd/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_dahdi-linux/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_yate/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nmap/ssl/</loc>
-    <lastmod>2021-06-20T22:37:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/full/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libwebsockets/full/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xmlrpc-c/internal/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/mbedtls/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/mini/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/no-transcode/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ustream-ssl/openssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libuhttpd/openssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtty/openssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/openssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_adb/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_button-hotplug/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_exfat/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_r8152/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ustream-ssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_addrwatch/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apfree-wifidog/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apk/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bfdd/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_bitlbee/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_esniper/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_getdns/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gost_engine/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_haproxy/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hcxdumptool/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hcxtools/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hfsprogs/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_https-dns-proxy/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_inadyn/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_iperf3/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ipfs-http-client/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnopoll/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libp11/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libssh/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libstrophe/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libuhttpd/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_lua-openssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_luasec/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mailsend/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_memcached/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mutt/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mwol/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netstinky/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngircd/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngrokc/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_njitclient/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openconnect/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openfortivpn/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openvswitch/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ovn/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_prosody/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ciso8601/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-evdev/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_radsecproxy/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ratched/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ratechecker/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks2/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rng-tools/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rpi.gpio/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtty/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_shairport-sync/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_smartdns/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sstp-client/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_stubby/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_stunnel/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmate/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmux/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ttyd/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uacme/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uw-imap/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vpnc/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vsftpd/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xmlrpc-c/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xupnpd/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ykclient/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_yubico-pam/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_libks/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_restund/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_signalwire-client-c/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_sngrep/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_haproxy/ssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_iperf3/ssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mailsend/ssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ngircd/ssl/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/sslcrypt/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_vsftpd/tls/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_rtpengine/transcode/</loc>
-    <lastmod>2021-06-20T22:36:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/norpc/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_fast-classifier/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_shortcut-fe/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apr-util/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_atlas-probe/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gerbera/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_h2o/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_jool/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ldns/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libdbi-drivers/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libreswan/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libtorrent/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mosh/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netwhere/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-libevent/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-redis/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php8/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pyodbc/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptodome/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-greenlet/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-psutil/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-pynacl/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-libselinux/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python3-libsemanage/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_schroot/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_selinux-python/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_setools/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_strongswan/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_subversion/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_rtorrent/rpc/</loc>
-    <lastmod>2021-06-20T22:33:34+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/avahi/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/gnutls/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/ldap/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/noavahi/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/nossl/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/openssl/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apache/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apparmor/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_collectd/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_exim/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_idevicerestore/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_knot/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_knot-resolver/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libimobiledevice/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libnetconf2/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netifyd/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_netopeer2/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-dio/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pulseaudio/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_quickjspp/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_snort/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spoofer/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_subconverter/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_syslog-ng/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_sysrepo/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_usbmuxd/</loc>
-    <lastmod>2021-06-20T22:32:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tor/basic/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/basic-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ffmpeg/custom/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/full/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/full-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/mini/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_elektra/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mariadb/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_mpd/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/supplicant-full-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/supplicant-mesh-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-basic-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-full-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_hostapd/wpad-mesh-openssl/</loc>
-    <lastmod>2021-06-20T22:31:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_kea/</loc>
-    <lastmod>2021-06-20T22:30:46+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pdns/</loc>
-    <lastmod>2021-06-20T22:30:46+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libevhtp/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libtorrent-rasterbar/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pillow/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-dateutil/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-lxml/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qbittorrent-enhanced-edition/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_qt5/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-ccnet/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-seahub/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_seafile-server/</loc>
-    <lastmod>2021-06-20T22:30:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnunet/</loc>
-    <lastmod>2021-06-20T22:29:33+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gnunet-fuse/</loc>
     <lastmod>2021-06-20T22:29:33+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_samba4/</loc>
-    <lastmod>2021-06-20T22:29:33+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_coova-chilli/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_git/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_minidlna/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-www-curl/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_xtables-addons/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_dahdi-tools/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_libpri/</loc>
-    <lastmod>2021-06-20T22:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_poco/all/</loc>
-    <lastmod>2021-06-20T22:28:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_i2pd/</loc>
-    <lastmod>2021-06-20T22:28:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_poco/</loc>
-    <lastmod>2021-06-20T22:28:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_loudmouth/</loc>
-    <lastmod>2021-06-20T22:27:56+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_aircrack-ng/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_aria2/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_dnsdist/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_forked-daapd/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_freeradius3/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-libav/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_hs20/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nfs-kernel-server/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_pdns-recursor/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_squid/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_zabbix/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_perl-mail-spamassassin/ssl/</loc>
-    <lastmod>2021-06-20T22:27:32+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt7601u-ap/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_luci_luci-app-nginx-pingos/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_alpine/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_chaosvpn/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_davfs2/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_irssi/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_jose/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_keepalived/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libesmtp/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_lighttpd/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_neon/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nsd/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_ocserv/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_open-iscsi/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opendkim/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opus-tools/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_opusfile/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_oscam/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_postfix/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-psycopg2/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_quassel-irssi/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_softethervpn/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_spice/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tang/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tinc/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tmate-ssh-server/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_tvheadend/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_baresip/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_gsmlib/</loc>
     <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_alpine/ssl/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_nsd/ssl/</loc>
-    <lastmod>2021-06-20T22:26:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libmraa/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libupm/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-http/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-propro/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-raphf/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_freeswitch/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_freeswitch-mod-bcg729/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_sofia-sip/</loc>
-    <lastmod>2021-06-20T22:25:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-imagick/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-krb5/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-mcrypt/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-chan-dongle/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-chan-sccp/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-g72x/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_asterisk-opus/</loc>
-    <lastmod>2021-06-20T22:24:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt76/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8188eu/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8192du/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8812au-ac/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8812au-ct/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl8821cu/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_rtl88x2bu/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_snort3/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_routing_batman-adv/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_base_ath10k-ct/smallbuffers/</loc>
-    <lastmod>2021-06-20T22:23:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libgpiod/</loc>
-    <lastmod>2021-06-20T22:23:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_openocd/</loc>
-    <lastmod>2021-06-20T22:23:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-cryptodomex/</loc>
-    <lastmod>2021-06-20T22:23:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-gmpy2/</loc>
-    <lastmod>2021-06-20T22:23:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_python-ubus/</loc>
-    <lastmod>2021-06-20T22:23:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_kamailio/</loc>
-    <lastmod>2021-06-20T22:23:25+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/</loc>
-    <lastmod>2021-06-20T22:22:44+00:00</lastmod>
   </url>
   
   <url>

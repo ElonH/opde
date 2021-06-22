@@ -1,6 +1,6 @@
 ---
 title: "wpad-basic-openssl"
-date: 2021-06-20 22:31:33.711202
+date: 2021-06-22 10:46:12.806089
 hidden: false
 draft: false
 ---

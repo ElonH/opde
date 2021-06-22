@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_open-iscsi on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:26:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:47:21 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_open-iscsi/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_open-iscsi/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:47:21 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_open-iscsi/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/open-iscsi/compile -j$(nproc) || make package/feeds/packages/open-iscsi/compile V=s Compile.txt Applying ./patches/0002-idmb_rec_write-check-for-tpgt-first.patch using plaintext: patching file usr/idbm.c Applying ./patches/0003-idbm_rec_write-seperate-old-and-new-style-writes.patch using plaintext: patching file usr/idbm.c Applying ./patches/0004-idbw_rec_write-pick-tpgt-from-existing-record.patch using plaintext: patching file usr/idbm.c Applying ./patches/0015-remove-the-offload-boot-supported-ifdef.patch using plaintext: patching file usr/iface.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

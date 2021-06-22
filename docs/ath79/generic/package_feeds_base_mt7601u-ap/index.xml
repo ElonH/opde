@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_mt7601u-ap on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:26:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:47:21 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt7601u-ap/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt7601u-ap/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:47:21 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_base_mt7601u-ap/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mt7601u-ap/compile -j$(nproc) || make package/feeds/base/mt7601u-ap/compile V=s Compile.txt Applying ./patches/010-fix-control-reaches-end-of-non-void.patch using plaintext: patching file mcu/rtmp_mcu.c make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/linux-5.4.124&amp;#39; CC [M] /openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/mt7601u-ap-2020-05-01-62430742/os/linux/../../os/linux/rt_profile.o CC [M] /openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/mt7601u-ap-2020-05-01-62430742/os/linux/../../ap/ap_mbss.o CC [M] /openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/mt7601u-ap-2020-05-01-62430742/os/linux/../../ap/ap.o /openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/mt7601u-ap-2020-05-01-62430742/os/linux/../../ap/ap.c: In function &amp;#39;DOT1X_InternalCmdAction&amp;#39;: /openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/mt7601u-ap-2020-05-01-62430742/os/linux/../../ap/ap.c:2217:2: warning: ISO C90 forbids variable length array &amp;#39;FrameBuf&amp;#39; [-Wvla] UCHAR FrameBuf[frame_len]; ^~~~~ /openwrt/build_dir/target-mips_24kc_musl/linux-ath79_generic/mt7601u-ap-2020-05-01-62430742/os/linux/.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

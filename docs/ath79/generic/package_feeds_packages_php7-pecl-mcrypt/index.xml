@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_php7-pecl-mcrypt on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:24:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:42:16 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-mcrypt/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-mcrypt/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:42:16 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_php7-pecl-mcrypt/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/php7-pecl-mcrypt/compile -j$(nproc) || make package/feeds/packages/php7-pecl-mcrypt/compile V=s Compile.txt bash: /openwrt/staging_dir/target-mips_24kc_musl/usr/bin/phpize7: No such file or directory make[3]: *** [Makefile:44: /openwrt/build_dir/target-mips_24kc_musl/pecl-php7/mcrypt-1.0.4/.prepared_07099dbe649ab0612710f0a30488fcd7_18f1e190c5d53547fed41a3eaa76e9e9] Error 127 </description>
+    </item>
     
     <item>
       <title>compile.37</title>

@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_schroot on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:33:34 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:51:50 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_schroot/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_schroot/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:51:50 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_schroot/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/schroot/compile -j$(nproc) || make package/feeds/packages/schroot/compile V=s Compile.txt Applying ./patches/01-openwrt.patch using plaintext: patching file configure.ac patching file bin/schroot-base/schroot-base-run.h patching file sbuild/sbuild-feature.h patching file etc/setup.d/20copyfiles patching file etc/setup.d/20nssdatabases patching file etc/profile-templates/all/all/nssdatabases patching file etc/profile-templates/buildd/all/nssdatabases patching file etc/profile-templates/default/all/nssdatabases patching file etc/profile-templates/desktop/all/nssdatabases patching file etc/profile-templates/default/linux/fstab patching file etc/profile-templates/desktop/linux/fstab autoreconf: Entering directory `.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

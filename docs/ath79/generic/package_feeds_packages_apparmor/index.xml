@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_apparmor on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:32:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:45:15 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apparmor/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apparmor/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:45:15 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_apparmor/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/apparmor/compile -j$(nproc) || make package/feeds/packages/apparmor/compile V=s Compile.txt Applying ./patches/010-autoconf-libapparmor.patch using plaintext: patching file libraries/libapparmor/Makefile Applying ./patches/020-fix-ss-path.patch using plaintext: patching file utils/aa-unconfined Applying ./patches/030-remove-pynotify2-dep.patch using plaintext: patching file utils/aa-notify Applying ./patches/040-remove-bash-dep.patch using plaintext: patching file utils/aa-decode Applying .</description>
+    </item>
     
     <item>
       <title>compile.37</title>

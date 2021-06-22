@@ -6,10 +6,20 @@
     <description>Recent content in sslcrypt on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:36:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:49:10 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/sslcrypt/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/sslcrypt/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:49:10 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_uanytun/sslcrypt/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/uanytun/compile -j$(nproc) || make package/feeds/packages/uanytun/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-mips_24kc_musl/uanytun-sslcrypt/uanytun-0.3.7/src&amp;#39; (re)building auth_algo.d (re)building key_derivation.d (re)building uanytun.d (re)building cipher.d (re)building seq_window.d (re)building encrypted_packet.d (re)building plain_packet.d (re)building udp.d (re)building tun.d (re)building options.d (re)building sysexec.d (re)building sig_handler.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

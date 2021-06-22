@@ -1,6 +1,6 @@
 ---
 title: "ldap"
-date: 2021-06-20 22:32:33.812236
+date: 2021-06-22 10:45:15.517359
 hidden: false
 draft: false
 ---

@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_gst1-plugins-bad on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:22:44 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:37:31 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:37:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_gst1-plugins-bad/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/gst1-plugins-bad/compile -j$(nproc) || make package/feeds/packages/gst1-plugins-bad/compile V=s Compile.txt Makefile:425: WARNING: skipping gstreamer1-plugins-bad -- package has no install section Applying ./patches/010-distutils.patch using plaintext: patching file meson.build The Meson build system Version: 0.57.2 Source dir: /openwrt/build_dir/target-mips_24kc_musl/gst-plugins-bad-1.18.4 Build dir: /openwrt/build_dir/target-mips_24kc_musl/gst-plugins-bad-1.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

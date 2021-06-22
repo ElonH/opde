@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_setools on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:33:34 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:48:13 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_setools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_setools/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:48:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_setools/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/setools/compile -j$(nproc) || make package/feeds/packages/setools/compile V=s Compile.txt Applying ./patches/030-remove-host-paths.patch using plaintext: patching file setup.py Collecting Cython==0.29.21 Downloading Cython-0.29.21.tar.gz (2.1 MB) Skipping wheel build for Cython, due to binaries being disabled for it. Installing collected packages: Cython Running setup.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

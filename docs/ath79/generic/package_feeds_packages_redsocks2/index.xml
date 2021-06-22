@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_redsocks2 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:36:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:37:31 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks2/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:37:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_redsocks2/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/redsocks2/compile -j$(nproc) || make package/feeds/packages/redsocks2/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-mips_24kc_musl/redsocks2-0.67&amp;#39; Compile with OpenSSL by default. To compile with PolarSSL, run &amp;#39;make USE_CRYPTO_POLARSSL=true&amp;#39; instead. mkdir -p gen touch gen/.build rm -f -f gen/version.c.tmp echo &amp;#39;/* this file is auto-generated during build */&amp;#39; &amp;gt; gen/version.</description>
+    </item>
     
     <item>
       <title>compile.37</title>

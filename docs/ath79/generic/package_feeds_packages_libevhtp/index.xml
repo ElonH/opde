@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_libevhtp on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:30:11 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:37:31 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libevhtp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libevhtp/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:37:31 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_packages_libevhtp/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/libevhtp/compile -j$(nproc) || make package/feeds/packages/libevhtp/compile V=s Compile.txt + curl -f --connect-timeout 20 --retry 5 --location --insecure https://codeload.github.com/criticalstack/libevhtp/tar.gz/1.2.18?/libevhtp-1.2.18.tar.gz % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 100 86068 0 86068 0 0 306k 0 --:--:-- --:--:-- --:--:-- 305k 100 203k 0 203k 0 0 585k 0 --:--:-- --:--:-- --:--:-- 584k Applying .</description>
+    </item>
     
     <item>
       <title>compile.37</title>

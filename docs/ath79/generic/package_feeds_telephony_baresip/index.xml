@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_telephony_baresip on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:26:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jun 2021 10:41:19 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_baresip/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.40</title>
+      <link>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_baresip/compile.40/</link>
+      <pubDate>Tue, 22 Jun 2021 10:41:19 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/ath79/generic/package_feeds_telephony_baresip/compile.40/</guid>
+      <description>build number: 40
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/telephony/baresip/compile -j$(nproc) || make package/feeds/telephony/baresip/compile V=s Compile.txt Applying ./patches/002-fix-rem-include.patch using plaintext: patching file Makefile make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-mips_24kc_musl/baresip-1.0.0&amp;#39; CC [M] build-mips/modules/account/account.o CC [M] build-mips/modules/auloop/auloop.o CC [M] build-mips/modules/b2bua/b2bua.o CC [M] build-mips/modules/contact/contact.o CC [M] build-mips/modules/ctrl_tcp/ctrl_tcp.o CC [M] build-mips/modules/ctrl_tcp/tcp_netstring.</description>
+    </item>
     
     <item>
       <title>compile.37</title>
