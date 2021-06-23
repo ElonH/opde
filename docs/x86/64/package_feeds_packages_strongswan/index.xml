@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_strongswan on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Mar 2021 13:46:57 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jun 2021 23:20:13 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.41</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.41/</link>
+      <pubDate>Wed, 23 Jun 2021 23:20:13 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_strongswan/compile.41/</guid>
+      <description>build number: 41
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/strongswan/compile -j$(nproc) || make package/feeds/packages/strongswan/compile V=s Compile.txt Applying ./patches/101-musl-fixes.patch using plaintext: patching file src/libstrongswan/library.h patching file src/libstrongswan/musl.h patching file src/libcharon/plugins/kernel_netlink/kernel_netlink_ipsec.c patching file src/libcharon/plugins/kernel_netlink/kernel_netlink_net.c patching file src/libcharon/plugins/kernel_netlink/kernel_netlink_shared.c patching file src/libstrongswan/plugins/bliss/bliss_huffman.c Applying ./patches/203-uci.patch using plaintext: patching file src/libcharon/plugins/uci/uci_parser.</description>
+    </item>
     
   </channel>
 </rss>

@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_gnunet on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 14:20:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jun 2021 23:22:46 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.41</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.41/</link>
+      <pubDate>Wed, 23 Jun 2021 23:22:46 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_gnunet/compile.41/</guid>
+      <description>build number: 41
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/gnunet/compile -j$(nproc) || make package/feeds/packages/gnunet/compile V=s Compile.txt Applying ./patches/100-fix-opus-and-pulse-library-detection.patch using plaintext: patching file configure.ac Hunk #1 succeeded at 837 (offset 24 lines). Hunk #2 succeeded at 882 (offset 24 lines). Copying file ABOUT-NLS Copying file build-aux/config.</description>
+    </item>
     
   </channel>
 </rss>

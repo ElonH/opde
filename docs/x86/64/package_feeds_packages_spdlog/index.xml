@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_spdlog on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_spdlog/</link>
+    <description>Recent content in package_feeds_packages_spdlog on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Jun 2021 23:25:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_spdlog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.41</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_spdlog/compile.41/</link>
+      <pubDate>Wed, 23 Jun 2021 23:25:01 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_spdlog/compile.41/</guid>
+      <description>build number: 41
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/spdlog/compile -j$(nproc) || make package/feeds/packages/spdlog/compile V=s Compile.txt + curl -f --connect-timeout 20 --retry 5 --location --insecure https://codeload.github.com/gabime/spdlog/tar.gz/v1.8.5?/spdlog-1.8.5.tar.gz % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 0 0 0 0 0 0 0 0 --:--:-- --:--:-- --:--:-- 0 100 313k 0 313k 0 0 2323k 0 --:--:-- --:--:-- --:--:-- 2323k -- The CXX compiler identification is GNU 8.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_fullconenat on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Jun 2021 08:32:47 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jun 2021 23:25:01 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.41</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/compile.41/</link>
+      <pubDate>Wed, 23 Jun 2021 23:25:01 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_fullconenat/compile.41/</guid>
+      <description>build number: 41
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/fullconenat/compile -j$(nproc) || make package/feeds/base/fullconenat/compile V=s Compile.txt Applying ./patches/000-printk.patch using plaintext: patching file xt_FULLCONENAT.c Hunk #1 succeeded at 702 (offset 5 lines). make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.4.124&amp;#39; CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.o Building modules, stage 2. MODPOST 1 modules CC [M] /openwrt/build_dir/target-x86_64_musl/linux-x86_64/fullconenat-2019-10-21-0cf3b48f/xt_FULLCONENAT.</description>
+    </item>
     
     <item>
       <title>compile.34</title>

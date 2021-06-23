@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_perl on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Jun 2021 21:56:39 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Jun 2021 23:11:37 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.41</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.41/</link>
+      <pubDate>Wed, 23 Jun 2021 23:11:37 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_perl/compile.41/</guid>
+      <description>build number: 41
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/perl/compile -j$(nproc) || make package/feeds/packages/perl/compile V=s Compile.txt Applying ./patches/001-macos_11_support.patch using plaintext: File hints/darwin.sh is read-only; trying to patch anyway patching file hints/darwin.sh Applying ./patches/002-add-Internals-getcwd.patch using plaintext: File MANIFEST is read-only; trying to patch anyway patching file MANIFEST patching file t/io/getcwd.</description>
+    </item>
     
     <item>
       <title>compile.30</title>
