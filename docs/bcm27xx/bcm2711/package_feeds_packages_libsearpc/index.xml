@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_libsearpc on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_libsearpc/</link>
+    <description>Recent content in package_feeds_packages_libsearpc on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Jun 2021 09:27:20 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_libsearpc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.42</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_libsearpc/compile.42/</link>
+      <pubDate>Tue, 29 Jun 2021 09:27:20 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_libsearpc/compile.42/</guid>
+      <description>build number: 42
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/libsearpc/compile -j$(nproc) || make package/feeds/packages/libsearpc/compile V=s Compile.txt Applying ./patches/001-no-python-compile.patch using plaintext: patching file pysearpc/Makefile.am Applying ./patches/002-no-future-import.patch using plaintext: patching file pysearpc/named_pipe.py autoreconf: Entering directory `.&amp;#39; autoreconf: configure.ac: not using Gettext autoreconf: running: /openwrt/staging_dir/host/bin/aclocal -I /openwrt/staging_dir/target-aarch64_cortex-a72_musl/host/share/aclocal -I /openwrt/staging_dir/hostpkg/share/aclocal -I /openwrt/staging_dir/target-aarch64_cortex-a72_musl/usr/share/aclocal -I m4 -I .</description>
+    </item>
+    
+  </channel>
+</rss>

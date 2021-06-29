@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spi on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_flashrom/spi/</link>
+    <description>Recent content in spi on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Jun 2021 09:38:24 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_flashrom/spi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.42</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_flashrom/spi/compile.42/</link>
+      <pubDate>Tue, 29 Jun 2021 09:38:24 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_flashrom/spi/compile.42/</guid>
+      <description>build number: 42
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/flashrom/compile -j$(nproc) || make package/feeds/packages/flashrom/compile V=s Compile.txt Applying ./patches/010-bitbang.patch using plaintext: patching file meson.build patching file meson_options.txt Applying ./patches/020-raw-access.patch using plaintext: patching file meson.build Applying ./patches/030-ppc.patch using plaintext: patching file hwaccess.c Applying ./patches/040-uclibc.patch using plaintext: patching file meson.</description>
+    </item>
+    
+  </channel>
+</rss>

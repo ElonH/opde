@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_naiveproxy on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_naiveproxy/</link>
+    <description>Recent content in package_feeds_packages_naiveproxy on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Jun 2021 09:38:57 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_naiveproxy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.42</title>
+      <link>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_naiveproxy/compile.42/</link>
+      <pubDate>Tue, 29 Jun 2021 09:38:57 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/bcm27xx/bcm2711/package_feeds_packages_naiveproxy/compile.42/</guid>
+      <description>build number: 42
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/naiveproxy/compile -j$(nproc) || make package/feeds/packages/naiveproxy/compile V=s Compile.txt Applying ./patches/001-Remove-concurrency-limit.patch using plaintext: patching file src/net/tools/naive/naive_proxy.cc patching file src/net/tools/naive/naive_proxy_bin.cc Hunk #1 succeeded at 296 (offset -3 lines). Archive: /openwrt/dl/gn-git_revision-dba01723a441c358d843a575cb7720d54ddcdf92.zip inflating: gn/out/gn inflating: gn/out/.cipdpkg/manifest.json Done. Made 366 targets from 133 files in 548ms bash: C: command not found install: cannot stat &amp;#39;/openwrt/build_dir/target-aarch64_cortex-a72_musl/naiveproxy-91.</description>
+    </item>
+    
+  </channel>
+</rss>
