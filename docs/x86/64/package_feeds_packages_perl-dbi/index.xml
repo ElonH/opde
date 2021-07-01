@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_perl-dbi on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-dbi/</link>
+    <description>Recent content in package_feeds_packages_perl-dbi on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Jul 2021 09:14:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-dbi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.43</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-dbi/compile.43/</link>
+      <pubDate>Thu, 01 Jul 2021 09:14:00 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_perl-dbi/compile.43/</guid>
+      <description>build number: 43
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/perl-dbi/compile -j$(nproc) || make package/feeds/packages/perl-dbi/compile V=s Compile.txt Your perl was compiled with gcc (version 9.3.0), okay. Creating test wrappers for DBD::Gofer: t/zvg_01basics.t t/zvg_02dbidrv.t t/zvg_03handle.t t/zvg_04mods.t t/zvg_05concathash.t t/zvg_06attrs.t t/zvg_07kids.t t/zvg_08keeperr.t t/zvg_09trace.t t/zvg_10examp.t t/zvg_11fetch.t t/zvg_12quote.t t/zvg_13taint.</description>
+    </item>
+    
+  </channel>
+</rss>
