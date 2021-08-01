@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>package_feeds_packages_openblas on Opde Issues Tracker</title>
+    <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_openblas/</link>
+    <description>Recent content in package_feeds_packages_openblas on Opde Issues Tracker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Aug 2021 09:47:06 +0000</lastBuildDate>
+    
+	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_openblas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>compile.44</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_openblas/compile.44/</link>
+      <pubDate>Sun, 01 Aug 2021 09:47:06 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_openblas/compile.44/</guid>
+      <description>build number: 44
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/openblas/compile -j$(nproc) || make package/feeds/packages/openblas/compile V=s Compile.txt make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/OpenBLAS-0.3.15&amp;#39; /openwrt/staging_dir/host/bin/ccache: invalid option -- &amp;#39;D&amp;#39; Usage: ccache [options] ccache compiler [compiler options] compiler [compiler options] (via symbolic link) Common options: -c, --cleanup delete old files and recalculate size counters (normally not needed as this is done automatically) -C, --clear clear the cache completely (except configuration) --config-path PATH operate on configuration file PATH instead of the default -d, --directory PATH operate on cache directory PATH instead of the default --evict-older-than AGE remove files older than AGE (unsigned integer with a d (days) or s (seconds) suffix) -F, --max-files NUM set maximum number of files in cache to NUM (use 0 for no limit) -M, --max-size SIZE set maximum size of cache to SIZE (use 0 for no limit); available suffixes: k, M, G, T (decimal) and Ki, Mi, Gi, Ti (binary); default suffix: G -X, --recompress LEVEL recompress the cache to level LEVEL (integer or &amp;#34;uncompressed&amp;#34;) using the Zstandard algorithm; see &amp;#34;Cache compression&amp;#34; in the manual for details -o, --set-config KEY=VAL set configuration item KEY to value VAL -x, --show-compression show compression statistics -p, --show-config show current configuration options in human-readable format -s, --show-stats show summary of configuration and statistics counters in human-readable format -z, --zero-stats zero statistics counters -h, --help print this help text -V, --version print version and copyright information Options for scripting or debugging: --checksum-file PATH print the checksum (64 bit XXH3) of the file at PATH --dump-manifest PATH dump manifest file at PATH in text format --dump-result PATH dump result file at PATH in text format --extract-result PATH extract data stored in result file at PATH to the current working directory -k, --get-config KEY print the value of configuration key KEY --hash-file PATH print the hash (160 bit BLAKE3) of the file at PATH --print-stats print statistics counter IDs and corresponding values in machine-parsable format See also the manual on &amp;lt;https://ccache.</description>
+    </item>
+    
+  </channel>
+</rss>
