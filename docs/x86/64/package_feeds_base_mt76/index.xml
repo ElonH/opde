@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_base_mt76 on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Aug 2021 09:45:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Sep 2021 09:23:40 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.45</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.45/</link>
+      <pubDate>Wed, 01 Sep 2021 09:23:40 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_base_mt76/compile.45/</guid>
+      <description>build number: 45
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/base/mt76/compile -j$(nproc) || make package/feeds/base/mt76/compile V=s Compile.txt Applying ./patches/0001-mt76-allow-VHT-rate-on-2.4GHz.patch using plaintext: patching file mac80211.c Hunk #1 succeeded at 191 (offset 31 lines). Hunk #2 succeeded at 254 (offset 31 lines). Hunk #3 succeeded at 389 (offset 31 lines).</description>
+    </item>
     
     <item>
       <title>compile.44</title>

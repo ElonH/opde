@@ -6,10 +6,20 @@
     <description>Recent content in package_feeds_packages_ksmbd on Opde Issues Tracker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Aug 2021 09:38:52 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Sep 2021 09:22:40 +0000</lastBuildDate>
     
 	<atom:link href="https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>compile.45</title>
+      <link>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.45/</link>
+      <pubDate>Wed, 01 Sep 2021 09:22:40 +0000</pubDate>
+      
+      <guid>https://elonh.github.io/opde/x86/64/package_feeds_packages_ksmbd/compile.45/</guid>
+      <description>build number: 45
+re-implement command docker pull elonh/opde:sdk docker run -it --rm elonh/opde:sdk zsh # or bash export http_proxy= # [your proxy], do not use localhost or 127.0.0.1 export https_proxy=$http_proxy opde feeds &amp;amp;&amp;amp; opde config -a make package/feeds/packages/ksmbd/compile -j$(nproc) || make package/feeds/packages/ksmbd/compile V=s Compile.txt Applying ./patches/01-keep_kmod_metadata.patch using plaintext: patching file glob.h Applying ./patches/010-no-acl.patch using plaintext: patching file Kconfig patching file smb2pdu.c patching file smbacl.c patching file vfs.c make[4]: Entering directory &amp;#39;/openwrt/build_dir/target-x86_64_musl/linux-x86_64/linux-5.</description>
+    </item>
     
     <item>
       <title>compile.44</title>
