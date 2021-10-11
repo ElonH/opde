@@ -1,3 +1,5 @@
+moved to https://github.com/immortalwrt/opde
+
 # OPDE
 OpenWRT Development Environment
 
